@@ -1,8 +1,9 @@
 ---
-created: 2023-06-03 20:12
+dateCreated: 2023-06-03 20:12
 noteType: #permanent
 tags: #dnd #dm
 ---
+
 _Topics:_ [[dnd]]
 
 # DM Toolbox
@@ -13,13 +14,6 @@ _Topics:_ [[dnd]]
 - prepping a session
 - prepping an encounter
 
-
-
-
-
-
-
-
-
 ---
+
 # References
