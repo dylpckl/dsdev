@@ -3,30 +3,20 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main className="flex h-screen flex-col px-48 py-10">
-      {/* Header */}
-      <div className="w-full font-mono mb-6 flex flex-col">
-        <div className="flex">
-          <span>dylansmith</span>
-          <span className="text-gray-400">.dev</span>
-        </div>
 
-        <span className=" text-sm font-mono">
-          building stuff for the web since 2002
-        </span>
-      </div>
 
       {/* Body */}
       <div className="flex h-full gap-8">
         {/* Nav */}
         <div className="flex flex-col h-full w-96 justify-between">
           <div className="bg-gray-300">nav</div>
-          <div className="bg-gray-300 text-black">Designed in Figma and written in VS Code. Built with Next.js and styled with TailwindCSS, and deployed to Vercel.</div>
+          
         </div>
 
         {/* Content */}
         <div className="bg-yellow-300 text-black w-full">
           <div className="">content header</div>
-          <div className="h-full overflow-y-auto">
+          <div className="h-[80vh] overflow-y-auto">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Nisl vel
             pretium lectus quam id leo. Id nibh tortor id aliquet lectus proin
