@@ -1,4 +1,5 @@
 import fs from "fs";
+import Markdown from "markdown-to-jsx";
 
 const getPostContent = (slug: string) => {
   const folder = "posts/";
@@ -11,10 +12,10 @@ const PostPage = (props: any) => {
   const slug = props.params.slug;
   const content = getPostContent(decodeURI(slug)); // decodeURI handles spaces and other problematic characters
   return (
-    <>
+    <div>
       <h1>this is a post: {slug}</h1>
-      <p>{content}</p>
-    </>
+      <Markdown>{content}</Markdown>
+    </div>
   );
 };
 

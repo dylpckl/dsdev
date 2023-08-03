@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,19 +16,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const header = (
-
-      <header>
-        <div className="w-full font-mono mb-6 flex flex-col">
+    <header>
+      <div className="w-full font-mono mb-6 flex flex-col">
+        <Link href="/">
           <div className="flex">
             <span>dylansmith</span>
             <span className="text-gray-400">.dev</span>
           </div>
+        </Link>
 
-          <span className=" text-sm font-mono">
-            building stuff for the web since 2002
-          </span>
-        </div>
-      </header>
+        <span className=" text-sm font-mono">
+          building stuff for the web since 2002
+        </span>
+      </div>
+    </header>
   );
 
   const footer = (
@@ -37,9 +39,7 @@ export default function RootLayout({
     </div>
   );
 
-const nav = (
-<nav className="bg-yellow-300 text black">nav</nav>
-)
+  const nav = <nav className="bg-yellow-300 text black">nav</nav>;
 
   return (
     <html lang="en">
