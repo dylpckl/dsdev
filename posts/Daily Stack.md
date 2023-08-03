@@ -1,5 +1,5 @@
 ---
-dateCreated:
+dateCreated: 2023-06-03 20:12
 subtitle: my daily stack
 ---
 
@@ -111,7 +111,6 @@ subtitle: my daily stack
 - 22:30 Wind Down Routine
   - Hot shower
   - shave
-  - masturbate
 - cool, dark room [^1]
 - Asleep by 23:30
 
@@ -129,9 +128,7 @@ subtitle: my daily stack
 
 # Wind Down Routine
 
--
-
----
+- ***
 
 # References
 

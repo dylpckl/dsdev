@@ -18,7 +18,7 @@ export default function Home() {
   //   </div>
   // ));
   return (
-    <main className="flex flex-col px-48 py-10">
+    <main className="w-full">
       {/* Body */}
       <div className="flex gap-8">
         {/* Content */}
