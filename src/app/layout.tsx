@@ -8,6 +8,7 @@ import PostPreview from "../../components/PostPreview";
 import dribbbleIcon from "../../public/icons8-dribbble.svg";
 import githubIcon from "../../public/icons8-github.svg";
 import linkedInIcon from "../../public/icons8-linkedin.svg";
+import ScrollToTop from "../../components/ScrollToTop";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,140 +31,111 @@ export default function RootLayout({
   ));
 
   const header = (
-    <header className="w-full col-span-3 row-span-1 font-mono mb-6 flex flex-col">
+    <header className="col-span-3 font-mono mb-6 flex flex-col h-fit">
       <Link href="/">
-        <div className="flex">
+        <div className="flex text-lg">
           <span>dylansmith</span>
           <span className="text-gray-400">.dev</span>
         </div>
       </Link>
 
-      <span className=" text-sm font-mono">
+      <span className="text-sm text-zinc-500 font-mono">
         building stuff for the web since 2002
       </span>
     </header>
   );
 
   const footer = (
-    <footer className="bg-gray-300 text-black col-span-3 row-start-3 mt-4">
+    <footer className="bg-gray-300 text-black col-span-1 h-fit self-end">
       Designed in Figma and written in VS Code. Built with Next.js and styled
-      with TailwindCSS, and deployed to Vercel.
+      with TailwindCSS, and deployed to Vercel. Icons from{" "}
+      <a
+        target="_blank"
+        href="https://icons8.com"
+      >
+        Icons8
+      </a>{" "}
+      <a
+        target="_blank"
+        href="https://icons8.com/icon/16154/dribbble"
+      >
+        1
+      </a>{" "}
+      <a
+        target="_blank"
+        href="https://icons8.com/icon/16318/github"
+      >
+        2
+      </a>{" "}
+      <a
+        target="_blank"
+        href="https://icons8.com/icon/16166/linkedin"
+      >
+        3
+      </a>{" "}
     </footer>
   );
 
   const nav = (
-    <nav className=" col-span-1 row-start-2 flex flex-col gap-4 min-w-[25%] text-black">
-      <ul></ul>
-      {/* {postPreviews} */}
+    <nav className="col-span-1 flex flex-col gap-2 min-w-[25%] text-black">
+      {postPreviews}
     </nav>
   );
 
-  const connect = (
-    <div className="bg-teal-300 flex text-black flex-col h-fit">
-      <span>👀</span>
-      <a href="https://dribbble.com/dylpckl">dribbble</a>
-      <a href="https://github.com/dylpckl">github</a>
-      <a href="https://www.linkedin.com/in/dylanjbsmith/">linkedin</a>
+  const social = (
+    <div className="flex flex-col justify-between">
+      {/* Social */}
+      <div className="ml-4 bg-zinc-300 rounded-md flex text-black flex-col gap-2 p-2 items-center">
+        <span>👀</span>
+        <a
+          href="https://dribbble.com/dylpckl"
+          target="_blank"
+        >
+          <Image
+            src={dribbbleIcon}
+            alt="Dribbble Icon"
+          />
+        </a>
+        <a
+          href="https://github.com/dylpckl"
+          target="_blank"
+        >
+          {" "}
+          <Image
+            src={githubIcon}
+            alt="GitHub Icon"
+          />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/dylanjbsmith/"
+          target="_blank"
+        >
+          {" "}
+          <Image
+            src={linkedInIcon}
+            alt="LinkedIn Icon"
+          />
+        </a>
+      </div>
+
+      {/* Jump to top */}
+      {/* <div className=" self-end">
+        <ScrollToTop />
+      </div> */}
     </div>
   );
 
   return (
     <html
       lang="en"
-      className={`${inter.className} mx-48 py-12 overflow-hidden`}
+      className={`${inter.className} h-screen sm:mx-8 mx-16 xl:mx-48 py-6 overflow-hidden`}
     >
-      {/* <body className="flex flex-col justify-between">
+      <body className="grid grid-cols-[1fr,4fr] auto-rows-min auto-cols-max h-full">
         {header}
-        <div className="flex flex-col ">
-          <div className="flex h-[80vh] ">
-            {nav}
-            {children}
-            {connect}
-          </div>
-        </div>
-        {footer}
-      </body> */}
-      <body className="grid grid-cols-[1fr,4fr,1fr] auto-rows-min h-screen">
-        <header className="col-span-3 font-mono mb-6 flex flex-col h-fit">
-          <Link href="/">
-            <div className="flex">
-              <span>dylansmith</span>
-              <span className="text-gray-400">.dev</span>
-            </div>
-          </Link>
-
-          <span className=" text-sm font-mono">
-            building stuff for the web since 2002
-          </span>
-        </header>
-
-        <nav className="col-span-1 row-start-2 flex flex-col gap-2 min-w-[25%] text-black">
-          {postPreviews}
-        </nav>
-
+        {nav}
         {children}
-
-        <div className="ml-4 bg-zinc-300 rounded-md flex text-black flex-col gap-2 p-2 w-fit h-fit items-center">
-          <span>👀</span>
-          <a
-            href="https://dribbble.com/dylpckl"
-            target="_blank"
-          >
-            <Image
-              src={dribbbleIcon}
-              alt="Dribbble Icon"
-            />
-          </a>
-          <a
-            href="https://github.com/dylpckl"
-            target="_blank"
-          >
-            {" "}
-            <Image
-              src={githubIcon}
-              alt="GitHub Icon"
-            />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/dylanjbsmith/"
-            target="_blank"
-          >
-            {" "}
-            <Image
-              src={linkedInIcon}
-              alt="LinkedIn Icon"
-            />
-          </a>
-        </div>
-
-        <footer className="bg-gray-300 text-black col-span-3 h-fit self-end mt-4">
-          Designed in Figma and written in VS Code. Built with Next.js and
-          styled with TailwindCSS, and deployed to Vercel. Icons from{" "}
-          <a
-            target="_blank"
-            href="https://icons8.com"
-          >
-            Icons8
-          </a>{" "}
-          <a
-            target="_blank"
-            href="https://icons8.com/icon/16154/dribbble"
-          >
-            1
-          </a>{" "}
-          <a
-            target="_blank"
-            href="https://icons8.com/icon/16318/github"
-          >
-            2
-          </a>{" "}
-          <a
-            target="_blank"
-            href="https://icons8.com/icon/16166/linkedin"
-          >
-            3
-          </a>{" "}
-        </footer>
+        {social}
+        {footer}
       </body>
     </html>
   );

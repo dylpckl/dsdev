@@ -1,3 +1,6 @@
+// 'use client'
+// import {useRef}
+
 import fs from "fs";
 import Markdown from "markdown-to-jsx";
 import matter from "gray-matter";
@@ -37,20 +40,26 @@ const PostPage = (props: any) => {
   const tags = post.data.tags;
   console.log(tags);
   return (
-    <div className="h-[80vh] overflow-y-auto p-2">
-      <h1 className="text-lg">{decodeURI(slug)}</h1>
-      <p>{post.data.dateCreated}</p>
+    <div className="h-[80vh] overflow-y-auto px-2 flex flex-col min-w-full">
+      <div
+        className="sticky top-0 bg-zinc-200 rounded-md text-slate-800"
+        // ref={topRef}
+      >
+        <h1 className="text-lg">{decodeURI(slug)}</h1>
+        <p>{post.data.dateCreated}</p>
 
-      <div className="flex gap-2">
-        {tags.split(" ").map((tag: string) => (
-          <div
-            key={tag}
-            className="text-sm font-mono bg-zinc-300 rounded-md py-1 px-2"
-          >
-            {tag}
-          </div>
-        ))}
+        <div className="flex gap-2">
+          {tags.split(" ").map((tag: string) => (
+            <div
+              key={tag}
+              className="text-sm font-mono bg-zinc-300 rounded-md py-1 px-2"
+            >
+              {tag}
+            </div>
+          ))}
+        </div>
       </div>
+
       <article className="prose prose-slate">
         <Markdown>{post.content}</Markdown>
       </article>
