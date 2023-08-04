@@ -48,8 +48,11 @@ export default function RootLayout({
   );
 
   const nav = (
-    <nav className="bg-yellow-300 col-span-1 row-start-2 flex flex-col gap-4 min-w-[25%] text-black">
-      {postPreviews}
+    <nav className=" col-span-1 row-start-2 flex flex-col gap-4 min-w-[25%] text-black">
+      <ul>
+
+      </ul>
+      {/* {postPreviews} */}
     </nav>
   );
 
@@ -92,7 +95,7 @@ export default function RootLayout({
           </span>
         </header>
 
-        <nav className="bg-yellow-300 col-span-1 row-start-2 flex flex-col gap-4 min-w-[25%] text-black">
+        <nav className="col-span-1 row-start-2 flex flex-col gap-2 min-w-[25%] text-black">
           {postPreviews}
         </nav>
 

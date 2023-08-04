@@ -2,7 +2,7 @@
 dateCreated: 2023-06-03 20:12
 status: #idea
 topics: [[Productivity]]
-tags: #habit #productivity #tenet
+tags: habit productivity tenet
 ---
 
 # Design your environment

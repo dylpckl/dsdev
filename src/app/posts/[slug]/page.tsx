@@ -8,7 +8,7 @@ const getPostContent = (slug: string) => {
   const file = `${folder}${slug}.md`;
   const content = fs.readFileSync(file, "utf-8");
   const matterResult = matter(content);
-  console.log(matterResult);
+  console.log(matterResult.content);
   return matterResult;
 };
 
@@ -19,13 +19,38 @@ export const generateStaticParams = async () => {
   }));
 };
 
+const tag = (tag: string) => {
+  return (
+    <div
+      key={tag}
+      className="bg-zinc-300 rounded-sm p-2"
+    >
+      {tag}
+    </div>
+  );
+};
+
 const PostPage = (props: any) => {
   const slug = props.params.slug;
   const post = getPostContent(decodeURI(slug)); // decodeURI handles spaces and other problematic characters
+  console.log(post);
+  const tags = post.data.tags;
+  console.log(tags);
   return (
     <div className="h-[80vh] overflow-y-auto p-2">
-      <h1>this is a post: {slug}</h1>
+      <h1 className="text-lg">{decodeURI(slug)}</h1>
       <p>{post.data.dateCreated}</p>
+
+      <div className="flex gap-2">
+        {tags.split(" ").map((tag: string) => (
+          <div
+            key={tag}
+            className="text-sm font-mono bg-zinc-300 rounded-md py-1 px-2"
+          >
+            {tag}
+          </div>
+        ))}
+      </div>
       <article className="prose prose-slate">
         <Markdown>{post.content}</Markdown>
       </article>

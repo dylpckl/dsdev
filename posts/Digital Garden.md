@@ -1,7 +1,7 @@
 ---
 dateCreated: 2023-03-27 13:46
 status: #idea
-tags: #productivity
+tags: productivity
 ---
 
 _Topics:_ [[Productivity]], [[Zettelkasten]]
