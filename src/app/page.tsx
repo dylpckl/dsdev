@@ -22,7 +22,7 @@ export default function Home() {
       {/* Body */}
       <div className="flex gap-8">
         {/* Content */}
-        <div className="bg-yellow-300 text-black w-full h-fit">
+        <div className="bg-yellow-300 text-black w-full h-fit row-span-full">
           <div className="">content header</div>
         </div>
       </div>

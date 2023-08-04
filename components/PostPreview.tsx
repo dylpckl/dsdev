@@ -5,7 +5,7 @@ const PostPreview = (props: PostMetadata) => {
   return (
     <div>
       <Link
-        className="flex justify-between"
+        className="w-full flex justify-between"
         href={`/posts/${props.slug}`}
       >
         <h2>{props.slug}</h2>

@@ -26,7 +26,7 @@ export default function RootLayout({
   ));
 
   const header = (
-    <header className="w-full font-mono mb-6 flex flex-col">
+    <header className="w-full col-span-3 row-span-1 font-mono mb-6 flex flex-col">
       <Link href="/">
         <div className="flex">
           <span>dylansmith</span>
@@ -41,14 +41,16 @@ export default function RootLayout({
   );
 
   const footer = (
-    <footer className="bg-gray-300 text-black">
+    <footer className="bg-gray-300 text-black col-span-3 row-start-3">
       Designed in Figma and written in VS Code. Built with Next.js and styled
       with TailwindCSS, and deployed to Vercel.
     </footer>
   );
 
   const nav = (
-    <nav className="bg-yellow-300 w-fit text-black">{postPreviews}</nav>
+    <nav className="bg-yellow-300 col-span-1 row-start-2 flex flex-col gap-4 min-w-[25%] text-black">
+      {postPreviews}
+    </nav>
   );
 
   const connect = (
@@ -63,18 +65,50 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.className} flex flex-col mx-48 h-screen overflow-hidden`}
+      className={`${inter.className} mx-48 py-12 overflow-hidden`}
     >
-      <body className="flex flex-col justify-between">
+      {/* <body className="flex flex-col justify-between">
         {header}
-        <div className="flex flex-col">
-          <div className="flex">
+        <div className="flex flex-col ">
+          <div className="flex h-[80vh] ">
             {nav}
             {children}
             {connect}
           </div>
         </div>
         {footer}
+      </body> */}
+      <body className="grid grid-cols-[1fr,4fr,1fr] auto-rows-min h-screen">
+        <header className="col-span-3 font-mono mb-6 flex flex-col h-fit">
+          <Link href="/">
+            <div className="flex">
+              <span>dylansmith</span>
+              <span className="text-gray-400">.dev</span>
+            </div>
+          </Link>
+
+          <span className=" text-sm font-mono">
+            building stuff for the web since 2002
+          </span>
+        </header>
+
+        <nav className="bg-yellow-300 col-span-1 row-start-2 flex flex-col gap-4 min-w-[25%] text-black">
+          {postPreviews}
+        </nav>
+
+        {children}
+
+        <div className="bg-teal-300 flex text-black flex-col w-fit h-fit">
+          <span>👀</span>
+          <a href="https://dribbble.com/dylpckl">dribbble</a>
+          <a href="https://github.com/dylpckl">github</a>
+          <a href="https://www.linkedin.com/in/dylanjbsmith/">linkedin</a>
+        </div>
+
+        <footer className="bg-gray-300 text-black col-span-3 h-fit self-end">
+          Designed in Figma and written in VS Code. Built with Next.js and
+          styled with TailwindCSS, and deployed to Vercel.
+        </footer>
       </body>
     </html>
   );
