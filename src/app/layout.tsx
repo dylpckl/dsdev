@@ -2,8 +2,12 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
+import Image from "next/image";
 import getPostMetadata from "../../components/getPostMetadata";
 import PostPreview from "../../components/PostPreview";
+import dribbbleIcon from "../../public/icons8-dribbble.svg";
+import githubIcon from "../../public/icons8-github.svg";
+import linkedInIcon from "../../public/icons8-linkedin.svg";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -49,9 +53,7 @@ export default function RootLayout({
 
   const nav = (
     <nav className=" col-span-1 row-start-2 flex flex-col gap-4 min-w-[25%] text-black">
-      <ul>
-
-      </ul>
+      <ul></ul>
       {/* {postPreviews} */}
     </nav>
   );
@@ -101,16 +103,66 @@ export default function RootLayout({
 
         {children}
 
-        <div className="bg-teal-300 flex text-black flex-col w-fit h-fit">
+        <div className="ml-4 bg-zinc-300 rounded-md flex text-black flex-col gap-2 p-2 w-fit h-fit items-center">
           <span>👀</span>
-          <a href="https://dribbble.com/dylpckl">dribbble</a>
-          <a href="https://github.com/dylpckl">github</a>
-          <a href="https://www.linkedin.com/in/dylanjbsmith/">linkedin</a>
+          <a
+            href="https://dribbble.com/dylpckl"
+            target="_blank"
+          >
+            <Image
+              src={dribbbleIcon}
+              alt="Dribbble Icon"
+            />
+          </a>
+          <a
+            href="https://github.com/dylpckl"
+            target="_blank"
+          >
+            {" "}
+            <Image
+              src={githubIcon}
+              alt="GitHub Icon"
+            />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/dylanjbsmith/"
+            target="_blank"
+          >
+            {" "}
+            <Image
+              src={linkedInIcon}
+              alt="LinkedIn Icon"
+            />
+          </a>
         </div>
 
         <footer className="bg-gray-300 text-black col-span-3 h-fit self-end mt-4">
           Designed in Figma and written in VS Code. Built with Next.js and
-          styled with TailwindCSS, and deployed to Vercel.
+          styled with TailwindCSS, and deployed to Vercel. Icons from{" "}
+          <a
+            target="_blank"
+            href="https://icons8.com"
+          >
+            Icons8
+          </a>{" "}
+          <a
+            target="_blank"
+            href="https://icons8.com/icon/16154/dribbble"
+          >
+            1
+          </a>{" "}
+          <a
+            target="_blank"
+            href="https://icons8.com/icon/16318/github"
+          >
+            2
+          </a>{" "}
+          <a
+            target="_blank"
+            href="https://icons8.com/icon/16166/linkedin"
+          >
+            3
+          </a>{" "}
         </footer>
       </body>
     </html>
