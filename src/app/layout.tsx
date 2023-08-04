@@ -41,7 +41,7 @@ export default function RootLayout({
   );
 
   const footer = (
-    <footer className="bg-gray-300 text-black col-span-3 row-start-3">
+    <footer className="bg-gray-300 text-black col-span-3 row-start-3 mt-4">
       Designed in Figma and written in VS Code. Built with Next.js and styled
       with TailwindCSS, and deployed to Vercel.
     </footer>
@@ -105,7 +105,7 @@ export default function RootLayout({
           <a href="https://www.linkedin.com/in/dylanjbsmith/">linkedin</a>
         </div>
 
-        <footer className="bg-gray-300 text-black col-span-3 h-fit self-end">
+        <footer className="bg-gray-300 text-black col-span-3 h-fit self-end mt-4">
           Designed in Figma and written in VS Code. Built with Next.js and
           styled with TailwindCSS, and deployed to Vercel.
         </footer>

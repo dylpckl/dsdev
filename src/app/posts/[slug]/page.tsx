@@ -23,10 +23,12 @@ const PostPage = (props: any) => {
   const slug = props.params.slug;
   const post = getPostContent(decodeURI(slug)); // decodeURI handles spaces and other problematic characters
   return (
-    <div className="h-[80vh] overflow-y-auto">
+    <div className="h-[80vh] overflow-y-auto p-2">
       <h1>this is a post: {slug}</h1>
       <p>{post.data.dateCreated}</p>
-      <Markdown>{post.content}</Markdown>
+      <article className="prose prose-slate">
+        <Markdown>{post.content}</Markdown>
+      </article>
     </div>
   );
 };
