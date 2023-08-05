@@ -45,10 +45,46 @@ export default function RootLayout({
     </header>
   );
 
+  const ExternalLink = ({ href, text }: { href: string; text: string }) => {
+    return (
+      <a
+        className="hover:text-sky-600 font-bold"
+        href={href}
+        target="_blank"
+      >
+        {text}
+      </a>
+    );
+  };
+
   const footer = (
-    <footer className="bg-gray-300 text-black col-span-1 h-fit self-end">
-      Designed in Figma and written in VS Code. Built with Next.js and styled
-      with TailwindCSS, and deployed to Vercel. Icons from{" "}
+    <footer className="bg-gray-300 text-black text-xs font-mono col-span-1 h-fit self-end">
+      Designed in{" "}
+      <ExternalLink
+        href="https://www.figma.com/"
+        text="Figma"
+      />
+      {" "}and written in{" "}
+      <ExternalLink
+        href="https://code.visualstudio.com/"
+        text="VS Code"
+      />
+      . Built with{" "}
+      <ExternalLink
+        href="https://nextjs.org/"
+        text="Next.js"
+      />
+      {" "}and styled with{" "}
+      <ExternalLink
+        href="https://tailwindcss.com/"
+        text="Tailwind CSS"
+      />
+      . Deployed to{" "}
+      <ExternalLink
+        href="https://vercel.com/"
+        text="Vercel"
+      />
+      . Icons from{" "}
       <a
         target="_blank"
         href="https://icons8.com"
@@ -59,19 +95,19 @@ export default function RootLayout({
         target="_blank"
         href="https://icons8.com/icon/16154/dribbble"
       >
-        1
+        {"["}1,
       </a>{" "}
       <a
         target="_blank"
         href="https://icons8.com/icon/16318/github"
       >
-        2
+        {" "}2,
       </a>{" "}
       <a
         target="_blank"
         href="https://icons8.com/icon/16166/linkedin"
       >
-        3
+        {" "}3{"]"}
       </a>{" "}
     </footer>
   );
