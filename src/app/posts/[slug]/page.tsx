@@ -42,7 +42,7 @@ const PostPage = (props: any) => {
   return (
     <div className="h-[80vh] overflow-y-auto px-2 flex flex-col min-w-full">
       <div
-        className="sticky top-0 bg-zinc-200 rounded-md text-slate-800"
+        className="bg-zinc-200 rounded-md text-slate-800"
         // ref={topRef}
       >
         <h1 className="text-lg">{decodeURI(slug)}</h1>

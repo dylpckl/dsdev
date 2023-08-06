@@ -42,7 +42,7 @@ export default function RootLayout({
 
   const nav = (
     <div className="flex flex-col font-mono">
-      <span className="">Posts</span>
+      <span className="">Index</span>
       <nav className="col-span-1 flex flex-col gap-1 min-w-[25%] ">
         {postPreviews}
       </nav>
