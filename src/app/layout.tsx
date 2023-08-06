@@ -11,7 +11,8 @@ import linkedInIcon from "../../public/icons8-linkedin.svg";
 import ScrollToTop from "../components/ScrollToTop";
 import DSLogo from "../../public/Logo Icon.png";
 import Nav from "../components/NavItem";
-import NavItem from "../components/NavItem";
+import NavItem from "@/components/NavItem";
+import ExternalLink from "@/components/ExternalLink";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -40,46 +41,15 @@ export default function RootLayout({
   ));
 
   const nav = (
-    <nav className="col-span-1 flex flex-col gap-2 min-w-[25%] ">
-      {postPreviews}
-    </nav>
+    <div className="flex flex-col font-mono">
+      <span className="">Posts</span>
+      <nav className="col-span-1 flex flex-col gap-1 min-w-[25%] ">
+        {postPreviews}
+      </nav>
+    </div>
   );
 
-  const header = (
-    <header className="col-span-3 font-mono mb-6 flex flex-col h-fit">
-      <Link
-        className="flex"
-        href="/"
-      >
-        {/* <Image
-          src={DSLogo}
-          alt="Dylan Smith Logo"
-        /> */}
-        <div className="flex text-lg">
-          <span>dylansmith</span>
-          <span className="text-gray-400">.dev</span>
-        </div>
-      </Link>
-
-      <span className="text-sm text-zinc-500 font-mono">
-        building stuff for the web since 2002
-      </span>
-    </header>
-  );
-
-  const ExternalLink = ({ href, text }: { href: string; text: string }) => {
-    return (
-      <a
-        className="hover:text-sky-600 font-bold"
-        href={href}
-        target="_blank"
-      >
-        {text}
-      </a>
-    );
-  };
-
-  const footer = (
+  const credits = (
     <div className="text-black text-xs font-mono col-span-1 h-fit ">
       Designed in{" "}
       <ExternalLink
@@ -107,33 +77,55 @@ export default function RootLayout({
         text="Vercel"
       />
       . Icons from{" "}
-      <a
-        target="_blank"
+      <ExternalLink
         href="https://icons8.com"
-      >
-        Icons8
-      </a>{" "}
-      <a
-        target="_blank"
+        text="Icons8"
+      />
+      {" ["}
+      <ExternalLink
         href="https://icons8.com/icon/16154/dribbble"
-      >
-        {"["}1,
-      </a>{" "}
-      <a
-        target="_blank"
+        text="1"
+      />
+      {", "}
+      <ExternalLink
         href="https://icons8.com/icon/16318/github"
-      >
-        {" "}
-        2,
-      </a>{" "}
-      <a
-        target="_blank"
+        text="2"
+      />
+      {", "}
+      <ExternalLink
         href="https://icons8.com/icon/16166/linkedin"
-      >
-        {" "}
-        3{"]"}
-      </a>{" "}
+        text="3"
+      />
+      {"]"}
     </div>
+  );
+
+  const sideBar = (
+    <div className="flex flex-col justify-between">
+      <div className="flex flex-col font-mono">
+        <span className="">Posts</span>
+        <nav className="col-span-1 flex flex-col gap-1 min-w-[25%] ">
+          {postPreviews}
+        </nav>
+      </div>
+      {credits}
+    </div>
+  );
+
+  const header = (
+    <header className="col-span-3 font-mono mb-6 flex flex-col h-fit">
+      <Link
+        className="flex text-lg w-fit"
+        href="/"
+      >
+        <span>dylansmith</span>
+        <span className="text-gray-400">.dev</span>
+      </Link>
+
+      <span className="text-sm text-zinc-500 font-mono">
+        building stuff for the web since 2002
+      </span>
+    </header>
   );
 
   const social = (
@@ -184,12 +176,13 @@ export default function RootLayout({
       lang="en"
       className={`${inter.className} h-screen sm:mx-8 mx-16 xl:mx-48 py-6 overflow-hidden`}
     >
-      <body className="grid grid-cols-[1fr,4fr] auto-rows-min auto-cols-max h-full">
+      <body className="grid grid-cols-[1fr,4fr] auto-rows-max auto-cols-max h-full">
         {header}
-        {nav}
+        {sideBar}
+        {/* {nav} */}
         {children}
         {social}
-        {footer}
+        {/* {footer} */}
       </body>
     </html>
   );
