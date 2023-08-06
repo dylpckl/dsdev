@@ -3,8 +3,8 @@ import fs, { readFile, readFileSync } from "fs";
 import path from "path";
 import Link from "next/link";
 import matter from "gray-matter";
-import { PostMetadata } from "../../components/PostMetadata";
-import getPostMetadata from "../../components/getPostMetadata";
+import { PostMetadata } from "../components/PostMetadata";
+import getPostMetadata from "../components/getPostMetadata";
 
 export default function Home() {
   const postMetadata = getPostMetadata();

@@ -4,14 +4,14 @@
 import fs from "fs";
 import Markdown from "markdown-to-jsx";
 import matter from "gray-matter";
-import getPostMetadata from "../../../../components/getPostMetadata";
+import getPostMetadata from "../../../components/getPostMetadata";
 
 const getPostContent = (slug: string) => {
   const folder = "posts/";
   const file = `${folder}${slug}.md`;
   const content = fs.readFileSync(file, "utf-8");
   const matterResult = matter(content);
-  console.log(matterResult.content);
+  // console.log(matterResult.content);
   return matterResult;
 };
 
@@ -36,9 +36,9 @@ const tag = (tag: string) => {
 const PostPage = (props: any) => {
   const slug = props.params.slug;
   const post = getPostContent(decodeURI(slug)); // decodeURI handles spaces and other problematic characters
-  console.log(post);
+  // console.log(post);
   const tags = post.data.tags;
-  console.log(tags);
+  // console.log(tags);
   return (
     <div className="h-[80vh] overflow-y-auto px-2 flex flex-col min-w-full">
       <div

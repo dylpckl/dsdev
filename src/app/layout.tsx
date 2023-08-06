@@ -3,12 +3,15 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
 import Image from "next/image";
-import getPostMetadata from "../../components/getPostMetadata";
-import PostPreview from "../../components/PostPreview";
+import getPostMetadata from "../components/getPostMetadata";
+import PostPreview from "../components/PostPreview";
 import dribbbleIcon from "../../public/icons8-dribbble.svg";
 import githubIcon from "../../public/icons8-github.svg";
 import linkedInIcon from "../../public/icons8-linkedin.svg";
-import ScrollToTop from "../../components/ScrollToTop";
+import ScrollToTop from "../components/ScrollToTop";
+import DSLogo from "../../public/Logo Icon.png";
+import Nav from "../components/NavItem";
+import NavItem from "../components/NavItem";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,16 +26,35 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const postMetadata = getPostMetadata();
+
   const postPreviews = postMetadata.map((post) => (
-    <PostPreview
+    // <PostPreview
+    //   key={post.slug}
+    //   {...post}
+    // />
+
+    <NavItem
       key={post.slug}
       {...post}
     />
   ));
 
+  const nav = (
+    <nav className="col-span-1 flex flex-col gap-2 min-w-[25%] ">
+      {postPreviews}
+    </nav>
+  );
+
   const header = (
     <header className="col-span-3 font-mono mb-6 flex flex-col h-fit">
-      <Link href="/">
+      <Link
+        className="flex"
+        href="/"
+      >
+        {/* <Image
+          src={DSLogo}
+          alt="Dylan Smith Logo"
+        /> */}
         <div className="flex text-lg">
           <span>dylansmith</span>
           <span className="text-gray-400">.dev</span>
@@ -58,13 +80,13 @@ export default function RootLayout({
   };
 
   const footer = (
-    <footer className="bg-gray-300 text-black text-xs font-mono col-span-1 h-fit self-end">
+    <div className="text-black text-xs font-mono col-span-1 h-fit ">
       Designed in{" "}
       <ExternalLink
         href="https://www.figma.com/"
         text="Figma"
-      />
-      {" "}and written in{" "}
+      />{" "}
+      and written in{" "}
       <ExternalLink
         href="https://code.visualstudio.com/"
         text="VS Code"
@@ -73,8 +95,8 @@ export default function RootLayout({
       <ExternalLink
         href="https://nextjs.org/"
         text="Next.js"
-      />
-      {" "}and styled with{" "}
+      />{" "}
+      and styled with{" "}
       <ExternalLink
         href="https://tailwindcss.com/"
         text="Tailwind CSS"
@@ -101,21 +123,17 @@ export default function RootLayout({
         target="_blank"
         href="https://icons8.com/icon/16318/github"
       >
-        {" "}2,
+        {" "}
+        2,
       </a>{" "}
       <a
         target="_blank"
         href="https://icons8.com/icon/16166/linkedin"
       >
-        {" "}3{"]"}
+        {" "}
+        3{"]"}
       </a>{" "}
-    </footer>
-  );
-
-  const nav = (
-    <nav className="col-span-1 flex flex-col gap-2 min-w-[25%] text-black">
-      {postPreviews}
-    </nav>
+    </div>
   );
 
   const social = (
