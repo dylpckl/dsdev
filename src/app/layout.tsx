@@ -49,71 +49,71 @@ export default function RootLayout({
     </div>
   );
 
-  const credits = (
-    <div className="text-black text-xs font-mono col-span-1 h-fit ">
-      Designed in{" "}
-      <ExternalLink
-        href="https://www.figma.com/"
-        text="Figma"
-      />{" "}
-      and written in{" "}
-      <ExternalLink
-        href="https://code.visualstudio.com/"
-        text="VS Code"
-      />
-      . Built with{" "}
-      <ExternalLink
-        href="https://nextjs.org/"
-        text="Next.js"
-      />{" "}
-      and styled with{" "}
-      <ExternalLink
-        href="https://tailwindcss.com/"
-        text="Tailwind CSS"
-      />
-      . Deployed to{" "}
-      <ExternalLink
-        href="https://vercel.com/"
-        text="Vercel"
-      />
-      . Icons from{" "}
-      <ExternalLink
-        href="https://icons8.com"
-        text="Icons8"
-      />
-      {" ["}
-      <ExternalLink
-        href="https://icons8.com/icon/16154/dribbble"
-        text="1"
-      />
-      {", "}
-      <ExternalLink
-        href="https://icons8.com/icon/16318/github"
-        text="2"
-      />
-      {", "}
-      <ExternalLink
-        href="https://icons8.com/icon/16166/linkedin"
-        text="3"
-      />
-      {"]"}
+  const footer = (
+    <div className="text-black text-xs font-mono col-span-3 h-fit mt-8 py-12  border-t p-4 flex justify-center">
+      <div>
+        Designed in{" "}
+        <ExternalLink
+          href="https://www.figma.com/"
+          text="Figma"
+        />{" "}
+        and written in{" "}
+        <ExternalLink
+          href="https://code.visualstudio.com/"
+          text="VS Code"
+        />
+        . Built with{" "}
+        <ExternalLink
+          href="https://nextjs.org/"
+          text="Next.js"
+        />{" "}
+        and styled with{" "}
+        <ExternalLink
+          href="https://tailwindcss.com/"
+          text="Tailwind CSS"
+        />
+        . Deployed to{" "}
+        <ExternalLink
+          href="https://vercel.com/"
+          text="Vercel"
+        />
+        . Icons from{" "}
+        <ExternalLink
+          href="https://icons8.com"
+          text="Icons8"
+        />
+        {" ["}
+        <ExternalLink
+          href="https://icons8.com/icon/16154/dribbble"
+          text="1"
+        />
+        {", "}
+        <ExternalLink
+          href="https://icons8.com/icon/16318/github"
+          text="2"
+        />
+        {", "}
+        <ExternalLink
+          href="https://icons8.com/icon/16166/linkedin"
+          text="3"
+        />
+        {"]"}
+      </div>
     </div>
   );
 
   const sideBar = (
-    <div className="flex flex-col justify-between">
-      <div className="flex flex-col font-mono">
-        <span className="">Posts</span>
-        <nav className="col-span-1 flex flex-col gap-1 min-w-[25%] ">
-          {postPreviews}
-        </nav>
-      </div>
-      {credits}
+    <div className="flex flex-col font-mono sticky top-[72px] h-screen">
+      <span className="">Posts</span>
+      <nav className="col-span-1 flex flex-col gap-1 min-w-[25%] ">
+        {postPreviews}
+      </nav>
+      {/* {credits} */}
     </div>
   );
 
   const header = (
-    <header className="col-span-3 font-mono mb-6 flex flex-col h-fit">
+    <header className=" bg-white col-span-3 font-mono mb-6 flex flex-col h-fit sticky top-0">
       <Link
         className="flex text-lg w-fit"
         href="/"
@@ -129,7 +129,7 @@ export default function RootLayout({
   );
 
   const social = (
-    <div className="flex flex-col justify-between">
+    <div className="flex flex-col justify-between sticky top-[72px] h-screen">
       {/* Social */}
       <div className="ml-4 bg-zinc-300 rounded-md flex text-black flex-col gap-2 p-2 items-center">
         <span>👀</span>
@@ -174,15 +174,15 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.className} h-screen sm:mx-8 mx-16 xl:mx-48 py-6 overflow-hidden`}
+      className={`${inter.className} sm:mx-8 mx-16 xl:mx-48`}
     >
-      <body className="grid grid-cols-[1fr,4fr] auto-rows-max auto-cols-max h-full">
+      <body className="grid grid-cols-[auto,1fr] grid-rows-[auto,1fr,auto] min-h-screen auto-rows-min auto-cols-max h-full">
         {header}
         {sideBar}
         {/* {nav} */}
         {children}
         {social}
-        {/* {footer} */}
+        {footer}
       </body>
     </html>
   );

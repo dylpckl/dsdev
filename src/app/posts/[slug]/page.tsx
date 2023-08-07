@@ -40,7 +40,7 @@ const PostPage = (props: any) => {
   const tags = post.data.tags;
   // console.log(tags);
   return (
-    <div className="h-[80vh] overflow-y-auto px-2 flex flex-col min-w-full">
+    <div className="px-2 flex flex-col">
       <div
         className="bg-zinc-200 rounded-md text-slate-800"
         // ref={topRef}
