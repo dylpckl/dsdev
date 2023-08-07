@@ -14,6 +14,9 @@ import Nav from "../components/NavItem";
 import NavItem from "@/components/NavItem";
 import ExternalLink from "@/components/ExternalLink";
 
+import { Layout } from "@/components/Layout";
+import { Header } from "@/components/Header";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -168,15 +171,25 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.className} sm:mx-8 mx-16 xl:mx-72`}
+      className="h-full"
     >
-      <body className="grid grid-cols-[auto,1fr] grid-rows-[auto,1fr,auto] min-h-screen auto-rows-min auto-cols-max h-full">
-        {header}
+      <body className="flex h-full bg-zinc-50">
+        {/* {header}
         {sideBar}
-        {/* {nav} */}
+        {nav}
         {children}
         {social}
-        {footer}
+        {footer} */}
+        {/* <div>
+          <Layout>{children}</Layout>
+        </div> */}
+        <div className="flex flex-col w-full">
+          <Header />
+
+          <main className="flex-auto">{children}</main>
+
+          <footer>footer</footer>
+        </div>
       </body>
     </html>
   );
