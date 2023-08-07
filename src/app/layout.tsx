@@ -50,7 +50,7 @@ export default function RootLayout({
   );
 
   const footer = (
-    <div className="text-black text-xs font-mono col-span-3 h-fit mt-8 py-12  border-t p-4 flex justify-center">
+    <div className="text-black text-xs font-mono col-span-3 h-fit mt-8 py-8  border-t p-4 flex justify-center">
       <div>
         Designed in{" "}
         <ExternalLink
@@ -61,8 +61,8 @@ export default function RootLayout({
         <ExternalLink
           href="https://code.visualstudio.com/"
           text="VS Code"
-        />
-        . Built with{" "}
+        />{" "}
+        // Built with{" "}
         <ExternalLink
           href="https://nextjs.org/"
           text="Next.js"
@@ -71,13 +71,13 @@ export default function RootLayout({
         <ExternalLink
           href="https://tailwindcss.com/"
           text="Tailwind CSS"
-        />
-        . Deployed to{" "}
+        />{" "}
+        // Deployed to{" "}
         <ExternalLink
           href="https://vercel.com/"
           text="Vercel"
-        />
-        . Icons from{" "}
+        />{" "}
+        // Icons from{" "}
         <ExternalLink
           href="https://icons8.com"
           text="Icons8"
@@ -129,9 +129,8 @@ export default function RootLayout({
   );
 
   const social = (
-    <div className="flex flex-col justify-between sticky top-[72px] h-screen">
-      {/* Social */}
-      <div className="ml-4 bg-zinc-300 rounded-md flex text-black flex-col gap-2 p-2 items-center">
+    <div className="sticky top-[72px] h-screen ml-4">
+      <div className="flex flex-col bg-zinc-300 rounded-md text-black gap-2 p-2 items-center">
         <span>👀</span>
         <a
           href="https://dribbble.com/dylpckl"
@@ -163,18 +162,13 @@ export default function RootLayout({
           />
         </a>
       </div>
-
-      {/* Jump to top */}
-      {/* <div className=" self-end">
-        <ScrollToTop />
-      </div> */}
     </div>
   );
 
   return (
     <html
       lang="en"
-      className={`${inter.className} sm:mx-8 mx-16 xl:mx-48`}
+      className={`${inter.className} sm:mx-8 mx-16 xl:mx-72`}
     >
       <body className="grid grid-cols-[auto,1fr] grid-rows-[auto,1fr,auto] min-h-screen auto-rows-min auto-cols-max h-full">
         {header}

@@ -40,7 +40,7 @@ const PostPage = (props: any) => {
   const tags = post.data.tags;
   // console.log(tags);
   return (
-    <div className="px-2 flex flex-col">
+    <div className="pl-16 flex flex-col">
       <div
         className="bg-zinc-200 rounded-md text-slate-800"
         // ref={topRef}
@@ -60,7 +60,7 @@ const PostPage = (props: any) => {
         </div>
       </div>
 
-      <article className="prose prose-slate">
+      <article className="prose prose-slate max-w-none">
         <Markdown>{post.content}</Markdown>
       </article>
     </div>
