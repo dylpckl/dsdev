@@ -4,13 +4,11 @@ import path from "path";
 import Link from "next/link";
 import matter from "gray-matter";
 import { PostMetadata } from "../components/PostMetadata";
-import getPostMetadata from "../components/getPostMetadata";
+import getPostMetadata from "../lib/getPostMetadata";
 
 import dribbbleIcon from "../../public/icons8-dribbble.svg";
 import githubIcon from "../../public/icons8-github.svg";
 import linkedInIcon from "../../public/icons8-linkedin.svg";
-
-
 
 export default function Home() {
   const postMetadata = getPostMetadata();

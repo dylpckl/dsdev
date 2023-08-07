@@ -4,7 +4,7 @@
 import fs from "fs";
 import Markdown from "markdown-to-jsx";
 import matter from "gray-matter";
-import getPostMetadata from "../../../components/getPostMetadata";
+import getPostMetadata from "../../../lib/getPostMetadata";
 
 const getPostContent = (slug: string) => {
   const folder = "posts/";
@@ -40,7 +40,7 @@ const PostPage = (props: any) => {
   const tags = post.data.tags;
   // console.log(tags);
   return (
-    <div className="pl-16 flex flex-col">
+    <div className="flex flex-col">
       <div
         className="bg-zinc-200 rounded-md text-slate-800"
         // ref={topRef}

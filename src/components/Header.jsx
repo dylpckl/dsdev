@@ -39,8 +39,8 @@ const Avatar = () => {
       <Image
         src={avatarImage}
         alt=""
-        height={64}
-        width={64}
+        height={36}
+        width={36}
         className="rounded-full"
       />
     </Link>
@@ -50,9 +50,10 @@ const Avatar = () => {
 const Navigation = (props) => {
   return (
     <nav {...props}>
-      <ul>
+      <ul className="flex">
         <NavItem href="/about">about</NavItem>
         <NavItem href="/posts">posts</NavItem>
+        <NavItem href="/projects">projects</NavItem>
       </ul>
     </nav>
   );
@@ -60,36 +61,49 @@ const Navigation = (props) => {
 
 const SocialLink = ({ icon: Icon, ...props }) => {
   return (
-    <Link
+    <a
       className="group -m-1 p-1"
+      target="_blank"
       {...props}
     >
-      <Icon className="h-6 w-6 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300" />
-    </Link>
+      <Icon className=" h-8 w-8 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300" />
+    </a>
   );
 };
 
 export function Header() {
   return (
     <>
-      <header className="">
-        <Avatar />
-        <Navigation />
-        <SocialLink
-          href="https://dribbble.com/dylpckl"
-          aria-label="Follow on Dribbble"
-          icon={DribbbleIcon}
-        />
-        <SocialLink
-          href="https://www.linkedin.com/in/dylanjbsmith/"
-          aria-label="Follow on LinkedIn"
-          icon={LinkedInIcon}
-        />
-        <SocialLink
-          href="https://github.com/dylpckl"
-          aria-label="Follow on GitHub"
-          icon={GitHubIcon}
-        />
+      <header className="sm:px-8 mx-auto w-full max-w-7xl lg:max-w-5xl lg:px-8 pt-6 flex justify-between font-mono">
+        <div className="flex items-center">
+          <Avatar />
+          <div className="pl-6">
+            <span className="text-zinc-700">dylansmith</span>
+            <span className="text-zinc-500">.dev</span>
+          </div>
+        </div>
+
+        <div>
+          <Navigation />
+        </div>
+
+        <div className="flex items-center gap-4">
+          <SocialLink
+            href="https://dribbble.com/dylpckl"
+            aria-label="Follow on Dribbble"
+            icon={DribbbleIcon}
+          />
+          <SocialLink
+            href="https://www.linkedin.com/in/dylanjbsmith/"
+            aria-label="Follow on LinkedIn"
+            icon={LinkedInIcon}
+          />
+          <SocialLink
+            href="https://github.com/dylpckl"
+            aria-label="Follow on GitHub"
+            icon={GitHubIcon}
+          />
+        </div>
       </header>
     </>
   );
