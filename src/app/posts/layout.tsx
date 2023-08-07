@@ -34,8 +34,8 @@ export default function PostLayout({
   const isPostIndex = pathname === "/posts";
   console.log(pathname);
   return (
-    <div className="p-8 mx-auto flex flex-col">
-      {!isPostIndex && (
+    <>
+      {/* {!isPostIndex && (
         <button
           type="button"
           onClick={() => router.back()}
@@ -44,8 +44,8 @@ export default function PostLayout({
         >
           <ArrowLeftIcon className="h-4 w-4 stroke-zinc-500 transition group-hover:stroke-zinc-700 dark:stroke-zinc-500 dark:group-hover:stroke-zinc-400" />
         </button>
-      )}
+      )} */}
       <main>{children}</main>
-    </div>
+    </>
   );
 }

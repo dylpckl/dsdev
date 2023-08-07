@@ -5,6 +5,7 @@ import fs from "fs";
 import Markdown from "markdown-to-jsx";
 import matter from "gray-matter";
 import getPostMetadata from "../../../lib/getPostMetadata";
+import BackButton from "@/components/BackButton";
 
 const getPostContent = (slug: string) => {
   const folder = "posts/";
@@ -41,26 +42,29 @@ const PostPage = (props: any) => {
   // console.log(tags);
   return (
     <div className="flex flex-col">
-      <div
-        className="bg-zinc-200 rounded-md text-slate-800"
-        // ref={topRef}
-      >
-        <h1 className="text-lg">{decodeURI(slug)}</h1>
-        <p>{post.data.dateCreated}</p>
+      <div className="flex flex-col md:flex-row md:gap-6">
+        <BackButton />
 
-        <div className="flex gap-2">
-          {tags.split(" ").map((tag: string) => (
-            <div
-              key={tag}
-              className="text-sm font-mono bg-zinc-300 rounded-md py-1 px-2"
-            >
-              {tag}
-            </div>
-          ))}
+        <div className="w-full text-slate-800">
+          <h1 className="text-4xl font-bold tracking-tight">
+            {decodeURI(slug)}
+          </h1>
+          <p>{post.data.dateCreated}</p>
+
+          <div className="flex gap-2">
+            {tags.split(" ").map((tag: string) => (
+              <div
+                key={tag}
+                className="text-xs font-mono bg-zinc-300 rounded-md py-1 px-2"
+              >
+                {tag}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
-      <article className="prose prose-slate max-w-none">
+      <article className="prose prose-slate prose-sm max-w-none">
         <Markdown>{post.content}</Markdown>
       </article>
     </div>

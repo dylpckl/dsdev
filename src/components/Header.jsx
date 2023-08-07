@@ -11,7 +11,7 @@ import {
 } from "@/components/SocialIcons";
 
 const NavItem = ({ href, children }) => {
-  let isActive = usePathname() === href;
+  let isActive = usePathname().includes(href);
 
   return (
     <li>
@@ -74,7 +74,7 @@ const SocialLink = ({ icon: Icon, ...props }) => {
 export function Header() {
   return (
     <>
-      <header className="mx-auto w-full max-w-7xl lg:max-w-5xl mb-6 flex justify-between font-mono">
+      <header className="mx-auto w-full max-w-7xl lg:max-w-5xl my-6 flex justify-between font-mono">
         <div className="flex items-center">
           <Avatar />
           <div className="pl-6">

@@ -2,8 +2,8 @@ import ExternalLink from "./ExternalLink";
 
 export default function Footer() {
   return (
-    <div className="text-black text-xs font-mono col-span-3 h-fit mt-8 py-8  border-t p-4 flex justify-center">
-      <div>
+    <div className="sm:px-8 text-zinc-200 text-xs font-mono col-span-3 h-fit mt-8 py-4 border-t border-zinc-600/50 pb-8 pt-10 flex justify-center">
+      <div className="mx-auto">
         Designed in{" "}
         <ExternalLink
           href="https://www.figma.com/"

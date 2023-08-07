@@ -14,11 +14,12 @@ import Nav from "../components/NavItem";
 import NavItem from "@/components/NavItem";
 import ExternalLink from "@/components/ExternalLink";
 
-import { Layout } from "@/components/Layout";
 import { Header } from "@/components/Header";
 import Footer from "@/components/Footer";
 
 import mountainImage from "@/images/mountain.jpg";
+
+import { Providers } from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -175,29 +176,22 @@ export default function RootLayout({
     <html
       lang="en"
       className="h-full w-full"
+      suppressHydrationWarning
     >
-      <body className="mx-auto h-screen w-full md:max-w-7xl lg:max-w-5xl lg:px-8 pt-6 flex">
+      <body className="flex w-full min-h-screen h-screen">
         <Image
           src={mountainImage}
           alt="mountain"
           fill={true}
           className="fixed -z-10"
         />
-        {/* {header}
-        {sideBar}
-        {nav}
-        {children}
-        {social}
-        {footer} */}
-        {/* <div>
-          <Layout>{children}</Layout>
-        </div> */}
-        <div className="sm:px-8 flex flex-col w-full">
+
+        <div className="flex flex-col w-full h-screen">
           <Header />
 
-          <div className="overflow-hidden rounded-lg h-full">
-            <main className="h-full bg-[#6c6573] text-[#031739] opacity-70 p-4 flex-auto overflow-y-auto">
-              {children}
+          <div className="mx-auto w-full overflow-hidden rounded-lg h-full max-w-2xl lg:max-w-5xl">
+            <main className="h-full bg-[#6c6573] text-[#031739] opacity-70 p-8 flex-auto overflow-y-auto w-full rounded-lg">
+              <Providers>{children}</Providers>
             </main>
           </div>
           <Footer />
