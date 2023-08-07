@@ -74,12 +74,12 @@ const SocialLink = ({ icon: Icon, ...props }) => {
 export function Header() {
   return (
     <>
-      <header className="sm:px-8 mx-auto w-full max-w-7xl lg:max-w-5xl lg:px-8 pt-6 flex justify-between font-mono">
+      <header className="mx-auto w-full max-w-7xl lg:max-w-5xl mb-6 flex justify-between font-mono">
         <div className="flex items-center">
           <Avatar />
           <div className="pl-6">
             <span className="text-zinc-700">dylansmith</span>
-            <span className="text-zinc-500">.dev</span>
+            <span className="text-zinc-700">.dev</span>
           </div>
         </div>
 

@@ -34,7 +34,7 @@ export default function PostLayout({
   const isPostIndex = pathname === "/posts";
   console.log(pathname);
   return (
-    <div className=" px-20 mt-16 lg:mt-32 mx-auto flex flex-col">
+    <div className="p-8 mx-auto flex flex-col">
       {!isPostIndex && (
         <button
           type="button"

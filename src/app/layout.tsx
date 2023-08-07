@@ -18,6 +18,8 @@ import { Layout } from "@/components/Layout";
 import { Header } from "@/components/Header";
 import Footer from "@/components/Footer";
 
+import mountainImage from "@/images/mountain.jpg";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -172,9 +174,15 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="h-full"
+      className="h-full w-full"
     >
-      <body className="flex h-full bg-zinc-50 dark:bg-zinc-300">
+      <body className="mx-auto h-screen w-full md:max-w-7xl lg:max-w-5xl lg:px-8 pt-6 flex">
+        <Image
+          src={mountainImage}
+          alt="mountain"
+          fill={true}
+          className="fixed -z-10"
+        />
         {/* {header}
         {sideBar}
         {nav}
@@ -184,11 +192,14 @@ export default function RootLayout({
         {/* <div>
           <Layout>{children}</Layout>
         </div> */}
-        <div className="flex flex-col w-full">
+        <div className="sm:px-8 flex flex-col w-full">
           <Header />
 
-          <main className="flex-auto">{children}</main>
-
+          <div className="overflow-hidden rounded-lg h-full">
+            <main className="h-full bg-[#6c6573] text-[#031739] opacity-70 p-4 flex-auto overflow-y-auto">
+              {children}
+            </main>
+          </div>
           <Footer />
         </div>
       </body>
