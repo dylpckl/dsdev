@@ -18,7 +18,7 @@ export default function Home() {
   //   </div>
   // ));
   return (
-    <main className="w-full">
+    <main className="h-[80vh] w-full">
       {/* Body */}
       <div className="flex gap-8">
         {/* Content */}
