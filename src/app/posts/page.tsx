@@ -4,8 +4,8 @@ import Link from "next/link";
 
 const PostCard = ({ post }: { post: PostMetadata }) => {
   return (
-    <article className="flex">
-      <p className="w-1/5">{post.dateCreated}</p>
+    <article className="flex text-zinc-100">
+      <p className="w-1/5">{post.dateCreated.toLocaleDateString()}</p>
 
       <div className="w-4/5 group relative flex flex-col ">
         <Link
@@ -41,8 +41,32 @@ const PostCard = ({ post }: { post: PostMetadata }) => {
   );
 };
 
+const LatestPost = ({ post }: { post: PostMetadata }) => {
+  return (
+    <article>
+      <h2>{post.slug}</h2>
+      <p>{post.dateCreated.toLocaleDateString()}</p>
+      <p>post preview here</p>
+    </article>
+  );
+};
+
 export default function PostIndex() {
   const postMetadata = getPostMetadata();
+
+  function convertStringToDate(arr: PostMetadata[], property: string) {
+    const newArr = arr.map((item) => {
+      const newItem = { ...item };
+      if (item[property] && typeof item[property] === "string") {
+        item[property] = new Date(item[property]);
+      }
+      return newItem;
+    });
+    return newArr;
+  }
+  convertStringToDate(postMetadata, "dateCreated");
+  console.log("sorted posts: ", postMetadata);
+
   return (
     <>
       <h1 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-3xl">
@@ -53,13 +77,31 @@ export default function PostIndex() {
         All of my long-form thoughts on programming, leadership, product design,
         and more, collected in chronological order.
       </p>
+
+      <p>Latest</p>
+
+      <LatestPost post={postMetadata[0]} />
+
+      {/* List */}
       <div className="border-l pl-4 flex max-w-3xl flex-col space-y-10 mt-8">
-        {postMetadata.map((post) => (
-          <PostCard
-            key={post.slug}
-            post={post}
-          />
-        ))}
+        {postMetadata
+          .slice(1)
+          .sort((a, b) => b.dateCreated - a.dateCreated)
+          .map((post) => (
+            <PostCard
+              key={post.slug}
+              post={post}
+            />
+          ))}
+        {/* {postMetadata
+          .slice(1)
+          .sort((a, b) => b.dateCreated - a.dateCreated)
+          .map((post) => (
+            <>
+              <p>{post.slug}</p>
+              <p>{post.dateCreated.toLocaleDateString()}</p>
+            </>
+          ))} */}
       </div>
     </>
   );
