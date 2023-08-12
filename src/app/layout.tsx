@@ -65,7 +65,7 @@ export default function RootLayout({
             <Header />
 
             <div className="mx-auto w-full overflow-hidden rounded-lg h-full">
-              <main className="h-full bg-[#6c6573]/80 text-[#031739] p-8 flex-auto overflow-y-auto w-full rounded-lg">
+              <main className="h-full bg-[#6c6573]/80 text-[#031739] p-4 flex-auto overflow-y-auto w-full rounded-lg">
                 <Providers>{children}</Providers>
               </main>
             </div>

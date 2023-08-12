@@ -1,7 +1,7 @@
-// "use client";
+"use client";
 import Link from "next/link";
 // import { useRouter } from "next/navigation";
-// import { usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import path from "path";
 import { JSX, SVGProps } from "react";
 
@@ -31,8 +31,8 @@ export default function PostLayout({
   children: React.ReactNode;
 }) {
   // const router = useRouter();
-  // const pathname = decodeURI(usePathname());
-  // const isPostIndex = pathname === "/posts";
+  const pathname = decodeURI(usePathname());
+  const isPostIndex = pathname === "/posts";
   // console.log(pathname);
   return (
     <>
@@ -47,9 +47,7 @@ export default function PostLayout({
         </button>
       )} */}
       <main>{children}</main>
-      <div>
-        <Link href="/">back to posts</Link>
-      </div>
+      <div>{!isPostIndex && <Link href="/">back to posts</Link>}</div>
     </>
   );
 }

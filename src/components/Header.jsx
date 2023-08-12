@@ -12,7 +12,7 @@ const NavItem = ({ href, children }) => {
   let isActive = usePathname().includes(href);
 
   return (
-    <li>
+    <li className="font-mono text-sm">
       <Link
         href={href}
         className={clsx(
@@ -46,7 +46,7 @@ const Avatar = () => {
 const Navigation = (props) => {
   return (
     <nav {...props}>
-      <ul className="flex gap-4">
+      <ul className="flex gap-3">
         <NavItem href="/posts">posts</NavItem>
         <NavItem href="/projects">projects</NavItem>
         <NavItem href="/resume">resume</NavItem>
@@ -116,14 +116,14 @@ function ThemeToggle() {
 export function Header() {
   return (
     <>
-      <header className="mx-auto w-full max-w-7xl lg:max-w-5xl my-6 flex justify-between">
+      <header className="mx-auto w-full max-w-7xl lg:max-w-5xl my-4 flex justify-between">
         <Link
           href="/"
           className="flex items-center"
         >
           {/* <Avatar /> */}
           <div className="">
-            <span className="text-slate-200 text-4xl tracking-tight font-bold sm:text-5xl">
+            <span className="text-slate-200 text-2xl font-bold">
               DylanSmith
             </span>
             <span className="text-zinc-400 text-2xl font-mono">.dev</span>
@@ -133,25 +133,6 @@ export function Header() {
         <div className="flex items-end">
           <Navigation />
         </div>
-        {/* 
-        <div className="flex items-end gap-4">
-          <SocialLink
-            href="https://dribbble.com/dylpckl"
-            aria-label="Follow on Dribbble"
-            icon={DribbbleIcon}
-          />
-          <SocialLink
-            href="https://www.linkedin.com/in/dylanjbsmith/"
-            aria-label="Follow on LinkedIn"
-            icon={LinkedInIcon}
-          />
-          <SocialLink
-            href="https://github.com/dylpckl"
-            aria-label="Follow on GitHub"
-            icon={GitHubIcon}
-          />
-          
-        </div> */}
       </header>
     </>
   );

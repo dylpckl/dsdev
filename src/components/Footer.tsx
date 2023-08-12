@@ -60,6 +60,11 @@ export default function Footer() {
 
       <div className="flex items-end gap-4">
         <SocialLink
+          href="https://github.com/dylpckl"
+          aria-label="Follow on GitHub"
+          icon={GitHubIcon}
+        />
+        <SocialLink
           href="https://dribbble.com/dylpckl"
           aria-label="Follow on Dribbble"
           icon={DribbbleIcon}
@@ -68,11 +73,6 @@ export default function Footer() {
           href="https://www.linkedin.com/in/dylanjbsmith/"
           aria-label="Follow on LinkedIn"
           icon={LinkedInIcon}
-        />
-        <SocialLink
-          href="https://github.com/dylpckl"
-          aria-label="Follow on GitHub"
-          icon={GitHubIcon}
         />
       </div>
     </div>

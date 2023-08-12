@@ -20,8 +20,7 @@ module.exports = {
       sans: [
         "Inter var, sans-serif",
         {
-          fontFeatureSettings: '"cv11", "ss01, "ss03"',
-          fontVariationSettings: '"opsz" 32"'
+          fontFeatureSettings: '"cv11", "ss01, "ss03", "cv05"'
         },
       ],
       mono: ['JetBrains Mono']
