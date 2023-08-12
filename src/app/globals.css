@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: JetBrains;
+  font-family: JetBrains Mono;
   src: url("fonts/JetBrainsMono-Regular.woff2") format("woff2");
 }
 

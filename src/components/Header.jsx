@@ -7,11 +7,6 @@ import clsx from "clsx";
 import Link from "next/link";
 import Image from "next/image";
 import avatarImage from "@/images/avatar.jpg";
-import {
-  GitHubIcon,
-  LinkedInIcon,
-  DribbbleIcon,
-} from "@/components/SocialIcons";
 
 const NavItem = ({ href, children }) => {
   let isActive = usePathname().includes(href);
@@ -51,24 +46,12 @@ const Avatar = () => {
 const Navigation = (props) => {
   return (
     <nav {...props}>
-      <ul className="flex">
+      <ul className="flex gap-4">
         <NavItem href="/posts">posts</NavItem>
         <NavItem href="/projects">projects</NavItem>
         <NavItem href="/resume">resume</NavItem>
       </ul>
     </nav>
-  );
-};
-
-const SocialLink = ({ icon: Icon, ...props }) => {
-  return (
-    <a
-      className="group -m-1 p-1"
-      target="_blank"
-      {...props}
-    >
-      <Icon className=" h-8 w-8 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300" />
-    </a>
   );
 };
 
@@ -141,7 +124,7 @@ export function Header() {
           {/* <Avatar /> */}
           <div className="">
             <span className="text-slate-200 text-4xl tracking-tight font-bold sm:text-5xl">
-              Dylan Smith
+              DylanSmith
             </span>
             <span className="text-zinc-400 text-2xl font-mono">.dev</span>
           </div>
@@ -150,7 +133,7 @@ export function Header() {
         <div className="flex items-end">
           <Navigation />
         </div>
-
+        {/* 
         <div className="flex items-end gap-4">
           <SocialLink
             href="https://dribbble.com/dylpckl"
@@ -167,8 +150,8 @@ export function Header() {
             aria-label="Follow on GitHub"
             icon={GitHubIcon}
           />
-          {/* <ThemeToggle /> */}
-        </div>
+          
+        </div> */}
       </header>
     </>
   );

@@ -1,8 +1,14 @@
 import ExternalLink from "./ExternalLink";
+import SocialLink from "@/components/SocialLink";
+import {
+  GitHubIcon,
+  LinkedInIcon,
+  DribbbleIcon,
+} from "@/components/SocialIcons";
 
 export default function Footer() {
   return (
-    <div className="text-zinc-200 text-xs font-mono h-fit py-4 pb-8 flex">
+    <div className="flex justify-between items-center text-zinc-200 text-xs font-mono h-fit py-4">
       <div className="">
         {"STACK // "}
         <ExternalLink
@@ -29,7 +35,7 @@ export default function Footer() {
           href="https://vercel.com/"
           text="Vercel"
         />{" "}
-        {" + "}Icons from{" "}
+        {" + "}
         <ExternalLink
           href="https://icons8.com"
           text="Icons8"
@@ -51,7 +57,28 @@ export default function Footer() {
         />
         {"]"}
       </div>
+
+      <div className="flex items-end gap-4">
+        <SocialLink
+          href="https://dribbble.com/dylpckl"
+          aria-label="Follow on Dribbble"
+          icon={DribbbleIcon}
+        />
+        <SocialLink
+          href="https://www.linkedin.com/in/dylanjbsmith/"
+          aria-label="Follow on LinkedIn"
+          icon={LinkedInIcon}
+        />
+        <SocialLink
+          href="https://github.com/dylpckl"
+          aria-label="Follow on GitHub"
+          icon={GitHubIcon}
+        />
+      </div>
     </div>
+
+    // https://www.jetbrains.com/lp/mono/
+
     // <div className="text-zinc-200 text-xs font-mono h-fit py-4 pb-8 flex justify-center">
     //   <div className="mx-auto">
     //     Designed in{" "}

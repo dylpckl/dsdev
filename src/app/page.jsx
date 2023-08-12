@@ -28,28 +28,35 @@ export default function Home() {
   return (
     <main className="">
       <div className="max-w-2xl">
-        <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-          UI designer, storyteller, dad, dungeon master.
+        <h1 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
+          ui designer // storyteller // dad // dungeon master
         </h1>
 
         <div>
-          <p className="flex flex-col mt-6 text-base text-zinc-200 dark:text-white">
+          <p>
             I’m Dylan, a ui designer based in Long Island, NY. I do x because y.
-            {"\n"}
-            my main focus is{"\n"}
-            other stuff im interested in includes
+          </p>
+          <p>
+            My focus is designing stuff that's are easy to use, nice to look at,
+            and get's out of the user's way.
+          </p>
+          <p>
+            When I'm not at my computer, I can be found hanging out with my wife
+            & daughter, or telling stories around a table with friends.
           </p>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-5 space-y-3 md:space-x-3 md:space-y-0">
+      <div className="flex flex-col space-y-3">
         <div className="bg-pink-300 col-span-1 md:col-span-2 rounded-lg p-4">
-          check out my posts
+          <Link href="/posts">check out my posts</Link>
         </div>
         <div className="bg-pink-300 col-span-1 md:col-span-2 rounded-lg p-4">
-          projects
+          <Link href="/projects">projects</Link>
         </div>
-        <div className="bg-pink-300 col-span-1 rounded-lg p-4">resume</div>
+        <div className="bg-pink-300 col-span-1 rounded-lg p-4">
+          <Link href="/resume">resume</Link>
+        </div>
       </div>
     </main>
   );
