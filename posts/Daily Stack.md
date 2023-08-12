@@ -1,7 +1,7 @@
 ---
 dateCreated: 2023-06-03 20:12
-subtitle: my daily stack
 tags: productivity
+subtitle: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 ---
 
 > [!todo] The Goal

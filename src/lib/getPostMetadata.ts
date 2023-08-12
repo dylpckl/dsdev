@@ -1,6 +1,6 @@
 import fs from "fs";
 import matter from "gray-matter";
-import { PostMetadata } from "./PostMetadata";
+import { PostMetadata } from "../components/PostMetadata";
 
 const getPostMetadata = (): PostMetadata[] => {
   const folder = "posts/";
@@ -22,4 +22,4 @@ const getPostMetadata = (): PostMetadata[] => {
   // return slugs;
 };
 
-export default getPostMetadata
+export default getPostMetadata;
