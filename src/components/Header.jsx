@@ -38,15 +38,13 @@ const NavItem = ({ href, children }) => {
 
 const Avatar = () => {
   return (
-    <Link href="/">
-      <Image
-        src={avatarImage}
-        alt=""
-        height={36}
-        width={36}
-        className="rounded-full"
-      />
-    </Link>
+    <Image
+      src={avatarImage}
+      alt=""
+      height={36}
+      width={36}
+      className="rounded-full"
+    />
   );
 };
 
@@ -135,22 +133,25 @@ function ThemeToggle() {
 export function Header() {
   return (
     <>
-      <header className="mx-auto w-full max-w-7xl lg:max-w-5xl my-6 flex justify-between font-mono">
-        <Link href="/">
-          <div className="flex items-center">
-            <Avatar />
-            <div className="pl-6">
-              <span className="text-zinc-100">dylansmith</span>
-              <span className="text-zinc-400">.dev</span>
-            </div>
+      <header className="mx-auto w-full max-w-7xl lg:max-w-5xl my-6 flex justify-between">
+        <Link
+          href="/"
+          className="flex items-center"
+        >
+          {/* <Avatar /> */}
+          <div className="">
+            <span className="text-slate-200 text-4xl tracking-tight font-bold sm:text-5xl">
+              Dylan Smith
+            </span>
+            <span className="text-zinc-400 text-2xl font-mono">.dev</span>
           </div>
         </Link>
 
-        <div>
+        <div className="flex items-end">
           <Navigation />
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-end gap-4">
           <SocialLink
             href="https://dribbble.com/dylpckl"
             aria-label="Follow on Dribbble"

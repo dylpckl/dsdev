@@ -18,6 +18,7 @@ module.exports = {
     },
     fontFamily: {
       sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+      mono: ['JetBrains Mono']
     }
   },
   plugins: [

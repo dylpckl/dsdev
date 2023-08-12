@@ -17,9 +17,7 @@ import Head from "next/head";
 
 import { Header } from "@/components/Header";
 import Footer from "@/components/Footer";
-
-import mountainImage from "@/images/mountain.jpg";
-
+import mountains from "@/images/mountain.jpg";
 import { Providers } from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -41,7 +39,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="h-full w-full"
+      className=" scroll-smooth"
       suppressHydrationWarning
     >
       {/* <Head>
@@ -50,23 +48,29 @@ export default function RootLayout({
           href="https://rsms.me/inter/inter.css"
         />
       </Head> */}
-      <body className="flex w-full min-h-screen h-screen font-sans">
-        <Image
-          src={mountainImage}
-          alt="mountain"
-          fill={true}
-          className="fixed -z-10"
-        />
+      <body className="bg-slate-900 font-sans selection:bg-teal-300 selection:text-teal-900">
+        <div className="mx-auto min-h-screen px-6 md:px-12 lg:px-24">
+          <Image
+            src={mountains}
+            alt="mountains"
+            placeholder="blur"
+            quality={100}
+            sizes="100vw"
+            style={{ objectFit: "cover" }}
+            fill
+            className="-z-10"
+          />
 
-        <div className="flex flex-col w-full h-screen">
-          <Header />
+          <div className="flex flex-col w-full h-screen">
+            <Header />
 
-          <div className="mx-auto w-full overflow-hidden rounded-lg h-full max-w-2xl lg:max-w-5xl">
-            <main className="h-full bg-[#6c6573] text-[#031739] opacity-70 p-8 flex-auto overflow-y-auto w-full rounded-lg">
-              <Providers>{children}</Providers>
-            </main>
+            <div className="mx-auto w-full overflow-hidden rounded-lg h-full max-w-2xl lg:max-w-5xl">
+              <main className="h-full bg-[#6c6573] text-[#031739] opacity-70 p-8 flex-auto overflow-y-auto w-full rounded-lg">
+                <Providers>{children}</Providers>
+              </main>
+            </div>
+            <Footer />
           </div>
-          <Footer />
         </div>
       </body>
     </html>
