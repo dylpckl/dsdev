@@ -13,6 +13,7 @@ import DSLogo from "../../public/Logo Icon.png";
 import Nav from "../components/NavItem";
 import NavItem from "@/components/NavItem";
 import ExternalLink from "@/components/ExternalLink";
+import Head from "next/head";
 
 import { Header } from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -178,7 +179,14 @@ export default function RootLayout({
       className="h-full w-full"
       suppressHydrationWarning
     >
-      <body className="flex w-full min-h-screen h-screen">
+      <Head>
+        <link
+          rel="stylesheet"
+          href="https://rsms.me/inter/inter.css"
+        />
+      </Head>
+      <body className="flex w-full min-h-screen h-screen font-sans">
+        {/* Photo by Joyston Judah: https://www.pexels.com/photo/white-and-black-mountain-wallpaper-933054/ */}
         <Image
           src={mountainImage}
           alt="mountain"

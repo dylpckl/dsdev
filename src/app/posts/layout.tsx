@@ -1,38 +1,39 @@
-"use client";
-import { useRouter } from "next/navigation";
-import { usePathname } from "next/navigation";
+// "use client";
+import Link from "next/link";
+// import { useRouter } from "next/navigation";
+// import { usePathname } from "next/navigation";
 import path from "path";
 import { JSX, SVGProps } from "react";
 
-function ArrowLeftIcon(
-  props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>
-) {
-  return (
-    <svg
-      viewBox="0 0 16 16"
-      fill="none"
-      aria-hidden="true"
-      {...props}
-    >
-      <path
-        d="M7.25 11.25 3.75 8m0 0 3.5-3.25M3.75 8h8.5"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
+// function ArrowLeftIcon(
+//   props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>
+// ) {
+//   return (
+//     <svg
+//       viewBox="0 0 16 16"
+//       fill="none"
+//       aria-hidden="true"
+//       {...props}
+//     >
+//       <path
+//         d="M7.25 11.25 3.75 8m0 0 3.5-3.25M3.75 8h8.5"
+//         strokeWidth="1.5"
+//         strokeLinecap="round"
+//         strokeLinejoin="round"
+//       />
+//     </svg>
+//   );
+// }
 
 export default function PostLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const router = useRouter();
-  const pathname = decodeURI(usePathname());
-  const isPostIndex = pathname === "/posts";
-  console.log(pathname);
+  // const router = useRouter();
+  // const pathname = decodeURI(usePathname());
+  // const isPostIndex = pathname === "/posts";
+  // console.log(pathname);
   return (
     <>
       {/* {!isPostIndex && (
@@ -46,6 +47,9 @@ export default function PostLayout({
         </button>
       )} */}
       <main>{children}</main>
+      <div>
+        <Link href="/">back to posts</Link>
+      </div>
     </>
   );
 }

@@ -44,9 +44,35 @@ const PostCard = ({ post }: { post: PostMetadata }) => {
 const LatestPost = ({ post }: { post: PostMetadata }) => {
   return (
     <article>
-      <h2>{post.slug}</h2>
-      <p>{post.dateCreated.toLocaleDateString()}</p>
-      <p>post preview here</p>
+      <h2 className="font-semibold text-2xl tracking-tight text-zinc-200">
+        {post.slug}
+      </h2>
+      <p>
+        {post.dateCreated.toLocaleDateString("en-us", {
+          weekday: "short",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        })}
+      </p>
+      <p className="truncate">{post.subtitle}</p>
+      <div className="flex items-center text-sm font-medium mt-4">
+        Read Post
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 16 16"
+          stroke-width="1.5"
+          stroke="currentColor"
+          className="w-4 h-4"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6.75 5.75 9.25 8l-2.5 2.25"
+          />
+        </svg>
+      </div>
     </article>
   );
 };
@@ -69,14 +95,14 @@ export default function PostIndex() {
 
   return (
     <>
-      <h1 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-3xl">
+      {/* <h1 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-3xl">
         Writing on software design, company building, and the aerospace
         industry.
       </h1>
       <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
         All of my long-form thoughts on programming, leadership, product design,
         and more, collected in chronological order.
-      </p>
+      </p> */}
 
       <p>Latest</p>
 
