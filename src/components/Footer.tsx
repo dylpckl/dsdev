@@ -14,7 +14,7 @@ export default function Footer() {
           href="https://code.visualstudio.com/"
           text="VS Code"
         />{" "}
-        // Built with{" "}
+        {"//"} Built with{" "}
         <ExternalLink
           href="https://nextjs.org/"
           text="Next.js"
@@ -24,12 +24,12 @@ export default function Footer() {
           href="https://tailwindcss.com/"
           text="Tailwind CSS"
         />{" "}
-        // Deployed to{" "}
+        {"//"} Deployed to{" "}
         <ExternalLink
           href="https://vercel.com/"
           text="Vercel"
         />{" "}
-        // Icons from{" "}
+        {"//"} Icons from{" "}
         <ExternalLink
           href="https://icons8.com"
           text="Icons8"

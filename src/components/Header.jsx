@@ -54,9 +54,9 @@ const Navigation = (props) => {
   return (
     <nav {...props}>
       <ul className="flex">
-        <NavItem href="/about">about</NavItem>
         <NavItem href="/posts">posts</NavItem>
         <NavItem href="/projects">projects</NavItem>
+        <NavItem href="/resume">resume</NavItem>
       </ul>
     </nav>
   );

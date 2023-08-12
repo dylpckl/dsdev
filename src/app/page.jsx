@@ -10,6 +10,10 @@ import dribbbleIcon from "../../public/icons8-dribbble.svg";
 import githubIcon from "../../public/icons8-github.svg";
 import linkedInIcon from "../../public/icons8-linkedin.svg";
 
+const Card = () => {
+  return <div className="bg-pink-300 col-span-1">post </div>;
+};
+
 export default function Home() {
   const postMetadata = getPostMetadata();
   // const postPreviews = postMetadata.map((post) => (
@@ -23,35 +27,29 @@ export default function Home() {
   // ));
   return (
     <main className="">
-      <div className="">
-        <div className="max-w-2xl">
-          <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-            Software designer, founder, and amateur astronaut.
-          </h1>
-          <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I’m Spencer, a software designer and entrepreneur based in New York
-            City. I’m the founder and CEO of Planetaria, where we develop
-            technologies that empower regular people to explore space on their
-            own terms.
+      <div className="max-w-2xl">
+        <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+          UI designer, storyteller, dad, dungeon master.
+        </h1>
+
+        <div>
+          <p className="flex flex-col mt-6 text-base text-zinc-200 dark:text-white">
+            I’m Dylan, a ui designer based in Long Island, NY. I do x because y.
+            {"\n"}
+            my main focus is{"\n"}
+            other stuff im interested in includes
           </p>
-          <div className="mt-6 flex gap-6">
-            {/* <SocialLink
-              href="https://twitter.com"
-              aria-label="Follow on Dribbble"
-              icon={dribbbleIcon}
-            />
-            <SocialLink
-              href="https://github.com"
-              aria-label="Follow on GitHub"
-              icon={githubIcon}
-            />
-            <SocialLink
-              href="https://linkedin.com"
-              aria-label="Follow on LinkedIn"
-              icon={linkedInIcon}
-            /> */}
-          </div>
         </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-5 space-y-3 md:space-x-3 md:space-y-0">
+        <div className="bg-pink-300 col-span-1 md:col-span-2 rounded-lg p-4">
+          check out my posts
+        </div>
+        <div className="bg-pink-300 col-span-1 md:col-span-2 rounded-lg p-4">
+          projects
+        </div>
+        <div className="bg-pink-300 col-span-1 rounded-lg p-4">resume</div>
       </div>
     </main>
   );
