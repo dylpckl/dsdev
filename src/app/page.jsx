@@ -34,15 +34,16 @@ export default function Home() {
 
         <div>
           <p>
-            I’m Dylan, a ui designer based in Long Island, NY. I do x because y.
+            I&apos;m Dylan, a ui designer based in Long Island, NY. I do x
+            because y.
           </p>
           <p>
-            My focus is designing stuff that's are easy to use, nice to look at,
-            and get's out of the user's way.
+            My focus is designing stuff that&apos;s are easy to use, nice to
+            look at, and get&apos;s out of the user&apos;s way.
           </p>
           <p>
-            When I'm not at my computer, I can be found hanging out with my wife
-            & daughter, or telling stories around a table with friends.
+            When I&apos;m not at my computer, I can be found hanging out with my
+            wife & daughter, or telling stories around a table with friends.
           </p>
         </div>
       </div>
