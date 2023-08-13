@@ -49,7 +49,13 @@ const Navigation = (props) => {
       <ul className="flex gap-3">
         <NavItem href="/posts">posts</NavItem>
         <NavItem href="/projects">projects</NavItem>
-        <NavItem href="/resume">resume</NavItem>
+        <a
+          href="/dylan-smith-resume-08-2023.pdf"
+          target="_blank"
+          className="hover:text-teal-500 dark:hover:text-teal-400 px-3 py-2 font-mono text-sm"
+        >
+          resume
+        </a>
       </ul>
     </nav>
   );
@@ -116,7 +122,7 @@ function ThemeToggle() {
 export function Header() {
   return (
     <>
-      <header className="mx-auto w-full max-w-7xl lg:max-w-5xl my-4 flex justify-between">
+      <header className="mx-auto w-full my-4 flex justify-between">
         <Link
           href="/"
           className="flex items-center"

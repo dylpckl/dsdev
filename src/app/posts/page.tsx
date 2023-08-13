@@ -108,6 +108,8 @@ export default function PostIndex() {
 
       <LatestPost post={postMetadata[0]} />
 
+      <div></div>
+
       {/* List */}
       <div className="border-l pl-4 flex max-w-3xl flex-col space-y-10 mt-8">
         {postMetadata
