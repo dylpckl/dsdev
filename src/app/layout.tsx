@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
+
 import Link from "next/link";
 import Image from "next/image";
 import getPostMetadata from "../lib/getPostMetadata";
@@ -20,7 +21,12 @@ import Footer from "@/components/Footer";
 import mountains from "@/images/mountain.jpg";
 import { Providers } from "./providers";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+
+const jetbrains_mono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains_mono",
+});
 
 export const metadata: Metadata = {
   title: "Dylan Smith",
@@ -42,13 +48,16 @@ export default function RootLayout({
       className="scroll-smooth"
       suppressHydrationWarning
     >
-      {/* <Head>
+      <Head>
         <link
           rel="stylesheet"
           href="https://rsms.me/inter/inter.css"
         />
-      </Head> */}
-      <body className="bg-slate-900 font-sans selection:bg-teal-300 selection:text-teal-900">
+      </Head>
+      {/* <body className="bg-slate-900 font-sans selection:bg-teal-300 selection:text-teal-900"> */}
+      <body
+        className={`${inter.variable} ${jetbrains_mono.variable} font-sans bg-slate-900 font-sans selection:bg-teal-300 selection:text-teal-900`}
+      >
         <div className="mx-auto min-h-screen px-6 md:px-12 lg:px-24">
           <Image
             src={mountains}
@@ -65,11 +74,16 @@ export default function RootLayout({
             <Header />
 
             <div className="mx-auto w-full overflow-hidden rounded-lg h-full">
-              <main className="h-full bg-[#6c6573]/80 text-[#031739] p-4 flex-auto overflow-y-auto w-full rounded-lg">
-                <Providers>{children}</Providers>
+              <main
+                className={`${inter.variable} ${jetbrains_mono.variable} font-sans`}
+              >
+                {/* <main className="h-full bg-[#6c6573]/80 text-[#031739] p-4 flex-auto overflow-y-auto w-full rounded-lg"> */}
+                <div className="h-full bg-[#6c6573]/80 text-[#031739] p-4 flex-auto overflow-y-auto w-full rounded-lg">
+                  <Providers>{children}</Providers>
+                </div>
               </main>
+              <Footer />
             </div>
-            <Footer />
           </div>
         </div>
       </body>

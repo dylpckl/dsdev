@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-// const defaultTheme = require('tailwindcss/defaultTheme')
+const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
   content: [
@@ -18,12 +18,13 @@ module.exports = {
     },
     fontFamily: {
       sans: [
-        "Inter var, sans-serif",
+        'var(--font-inter)',
         {
-          fontFeatureSettings: '"cv11", "ss01, "ss03", "cv05"'
+          fontFeatureSettings: '"cv11", "ss01"',
         },
+        ...defaultTheme.fontFamily.sans,
       ],
-      mono: ['JetBrains Mono']
+      mono: ['var(--font-jetbrains_mono)']
     }
   },
   plugins: [

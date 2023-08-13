@@ -10,9 +10,11 @@ import dribbbleIcon from "../../public/icons8-dribbble.svg";
 import githubIcon from "../../public/icons8-github.svg";
 import linkedInIcon from "../../public/icons8-linkedin.svg";
 
-const Card = () => {
+const LandingPageCard = () => {
   return <div className="bg-pink-300 col-span-1">post </div>;
 };
+
+const topics = ["cooking", "dnd", "ui-design", "productivity", "note-taking"];
 
 export default function Home() {
   const postMetadata = getPostMetadata();
@@ -25,11 +27,16 @@ export default function Home() {
   //     <p>{post.dateCreated}</p>
   //   </div>
   // ));
+
+  const topics2 = postMetadata.map((post) => {
+    post.tags;
+  });
+
   return (
     <main className="">
       <div className="max-w-2xl">
         <h1 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
-          ui designer // storyteller // dad // dungeon master
+          ui designer // storyteller // dad // dungeon master // 123345
         </h1>
 
         <div>
@@ -48,16 +55,49 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex flex-col space-y-3">
-        <div className="bg-pink-300 col-span-1 md:col-span-2 rounded-lg p-4">
-          <Link href="/posts">check out my posts</Link>
-        </div>
-        <div className="bg-pink-300 col-span-1 md:col-span-2 rounded-lg p-4">
-          <Link href="/projects">projects</Link>
-        </div>
-        <div className="bg-pink-300 col-span-1 rounded-lg p-4">
-          <Link href="/resume">resume</Link>
-        </div>
+      <div className="flex flex-col md:flex-row md:space-x-3 space-y-3">
+        {/* Posts */}
+        <Link
+          href="/posts"
+          className="flex flex-col group border-2 border-teal-300 col-span-1 md:col-span-2 rounded-lg p-4 text-slate-200 bg-slate-700"
+        >
+          <>
+            <h2>i'm currently writing about</h2>
+
+            <ul className="flex flex-wrap">
+              {topics.map((topic) => (
+                <li className="mr-1 mt-2">
+                  <span className="bg-pink-300 rounded-full px-3 py-1 bg-teal-400/10 text-xs font-medium leading-5 text-teal-300">
+                    {topic}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="flex items-center">
+              <span className="font-mono border-b border-transparent transition group-hover:border-teal-300 motion-reduce:transition-none">
+                {" "}
+                check out my posts
+              </span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                className="ml-1 w-4 h-4 -translate-y-px transition-transform group-hover:translate-x-2 motion-reduce:transition-none"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                />
+              </svg>
+            </div>
+          </>
+        </Link>
+
+        {/* Projects */}
       </div>
     </main>
   );
