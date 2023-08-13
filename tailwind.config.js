@@ -18,11 +18,7 @@ module.exports = {
     },
     fontFamily: {
       sans: [
-        'var(--font-inter)',
-        {
-          fontFeatureSettings: '"cv11", "ss01"',
-        },
-        ...defaultTheme.fontFamily.sans,
+        'var(--font-inter)', ...defaultTheme.fontFamily.sans
       ],
       mono: ['var(--font-jetbrains_mono)']
     }

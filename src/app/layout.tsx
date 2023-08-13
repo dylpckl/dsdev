@@ -56,7 +56,7 @@ export default function RootLayout({
       </Head>
       {/* <body className="bg-slate-900 font-sans selection:bg-teal-300 selection:text-teal-900"> */}
       <body
-        className={`${inter.variable} ${jetbrains_mono.variable} font-sans bg-slate-900 font-sans selection:bg-teal-300 selection:text-teal-900`}
+        className={`${inter.variable} ${jetbrains_mono.variable} bg-slate-900 font-sans selection:bg-teal-300 selection:text-teal-900`}
       >
         <div className="mx-auto min-h-screen px-6 md:px-12 lg:px-24">
           <Image
@@ -70,7 +70,8 @@ export default function RootLayout({
             className="-z-10"
           />
 
-          <div className="flex flex-col w-full h-screen">
+          <div className="overflow-hidden">
+            {/* <div className="flex flex-col w-full h-screen"> */}
             <Header />
 
             <div className="mx-auto w-full overflow-hidden rounded-lg h-full">
