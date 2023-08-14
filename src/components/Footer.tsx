@@ -8,7 +8,7 @@ import {
 
 export default function Footer() {
   return (
-    <div className="flex justify-between items-center text-zinc-200 text-xs font-mono h-fit py-4">
+    <footer className="flex justify-between items-center text-zinc-200 text-xs font-mono h-fit py-4">
       <div className="">
         {"STACK // "}
         <ExternalLink
@@ -75,7 +75,7 @@ export default function Footer() {
           icon={LinkedInIcon}
         />
       </div>
-    </div>
+    </footer>
 
     // https://www.jetbrains.com/lp/mono/
 

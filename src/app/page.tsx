@@ -92,7 +92,7 @@ export default function Home() {
   // ));
 
   return (
-    <main className="">
+    <>
       <div className="max-w-2xl">
         <h1 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
           ui designer // storyteller // dad // dungeon master // 123345
@@ -129,6 +129,6 @@ export default function Home() {
         />
         {/* <LandingPageCard tags={projectTags} /> */}
       </div>
-    </main>
+    </>
   );
 }
