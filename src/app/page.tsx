@@ -5,22 +5,14 @@ import Link from "next/link";
 import matter from "gray-matter";
 import { PostMetadata } from "../components/PostMetadata";
 import getPostMetadata from "../lib/getPostMetadata";
+import SocialLink from "@/components/SocialLink";
+import {
+  GitHubIcon,
+  LinkedInIcon,
+  DribbbleIcon,
+} from "@/components/SocialIcons";
 
-import dribbbleIcon from "../../public/icons8-dribbble.svg";
-import githubIcon from "../../public/icons8-github.svg";
-import linkedInIcon from "../../public/icons8-linkedin.svg";
-
-const topicTags = [
-  "cooking",
-  "dnd",
-  "ui-design",
-  "productivity",
-  "note-taking",
-  "note-taking",
-  "note-taking",
-  "note-taking",
-];
-
+const topicTags = ["cooking", "dnd", "ui-design", "productivity", "journaling"];
 const projectTags = ["React", "Next.js", "Tailwind", "SQL"];
 
 const LandingPageCard = ({
@@ -34,14 +26,16 @@ const LandingPageCard = ({
   cta: string;
   href: string;
 }) => {
-  console.log(typeof tags);
   return (
     <Link
       href={href}
       className="flex flex-col h-full w-1/2 gap-2 group hover:ring-2 ring-teal-300 col-span-1 md:col-span-2 rounded-lg p-4 text-slate-200 bg-slate-700"
     >
       <>
-        <h2>{headline}</h2>
+        <div className="flex gap-2 items-baseline">
+          <h2>{headline}</h2>
+          <span className="text-slate-400 text-xs">{"//"}</span>
+        </div>
 
         {/* Tags */}
         <ul className="flex flex-wrap gap-2">
@@ -55,8 +49,9 @@ const LandingPageCard = ({
             ))}
         </ul>
 
-        <div className="flex items-center mt-4 self-end">
-          <span className="font-mono border-b border-transparent transition group-hover:border-teal-300 motion-reduce:transition-none">
+        {/* Call to Action */}
+        <div className="flex items-center mt-4 mr-2 self-end border-b border-transparent transition group-hover:border-teal-300  motion-reduce:transition-none">
+          <span className="font-mono font-light">
             {cta}
           </span>
           <svg
@@ -65,7 +60,7 @@ const LandingPageCard = ({
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            className="ml-1 w-4 h-4 -translate-y-px transition-transform group-hover:translate-x-2 motion-reduce:transition-none"
+            className="ml-1 w-4 h-4 -translate-y-px transition-transform group-hover:translate-x-2 group-hover:text-teal-300 motion-reduce:transition-none"
           >
             <path
               stroke-linecap="round"
@@ -81,27 +76,18 @@ const LandingPageCard = ({
 
 export default function Home() {
   const postMetadata = getPostMetadata();
-  // const postPreviews = postMetadata.map((post) => (
-  //   <div>
-  //     <Link href={`/posts/${post.slug}`}>
-  //       <h2>{post.slug}</h2>
-  //     </Link>
-  //     <p>{post.subtitle}</p>
-  //     <p>{post.dateCreated}</p>
-  //   </div>
-  // ));
 
   return (
     <>
       <div className="max-w-2xl">
-        <h1 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
-          ui designer // storyteller // dad // dungeon master // 123345
+        <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
+          Designer, developer, dad, and dungeon master.
         </h1>
 
-        <div>
-          <p>
-            I&apos;m Dylan, a ui designer based in Long Island, NY. I do x
-            because y.
+        <div className="flex flex-col gap-6 mt-6 text-slate-300">
+          <p className="">
+            I&apos;m Dylan, a UI designer & developer from Long Island, New
+            York. forum signatures.
           </p>
           <p>
             My focus is designing stuff that&apos;s are easy to use, nice to
@@ -112,22 +98,39 @@ export default function Home() {
             wife & daughter, or telling stories around a table with friends.
           </p>
         </div>
+
+        <div className="flex gap-6 mt-6">
+          <SocialLink
+            href="https://github.com/dylpckl"
+            aria-label="Follow on GitHub"
+            icon={GitHubIcon}
+          />
+          <SocialLink
+            href="https://dribbble.com/dylpckl"
+            aria-label="Follow on Dribbble"
+            icon={DribbbleIcon}
+          />
+          <SocialLink
+            href="https://www.linkedin.com/in/dylanjbsmith/"
+            aria-label="Follow on LinkedIn"
+            icon={LinkedInIcon}
+          />
+        </div>
       </div>
 
-      <div className="flex flex-col md:flex-row md:space-x-3">
+      <div className="flex flex-col md:flex-row md:space-x-6 mt-12">
         <LandingPageCard
-          headline="I'm currently writing about..."
+          headline="I write about"
           tags={topicTags}
           cta="check out my posts"
           href="/posts"
         />
         <LandingPageCard
-          headline="Tech I'm working with includes..."
+          headline="my current tech stack"
           tags={projectTags}
           cta="view projects"
           href="/projects"
         />
-        {/* <LandingPageCard tags={projectTags} /> */}
       </div>
     </>
   );

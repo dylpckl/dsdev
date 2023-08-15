@@ -76,7 +76,7 @@ export default function RootLayout({
 
           <div className="flex flex-col mx-auto w-full overflow-hidden grow rounded-lg h-full">
             <main
-              className={`${inter.variable} ${jetbrains_mono.variable} font-sans grow h-[100px] bg-[#6c6573]/80 text-[#031739] p-4 flex-auto overflow-y-auto w-full rounded-lg`}
+              className={`${inter.variable} ${jetbrains_mono.variable} font-sans grow h-[100px] bg-gradient-to-b from-[#6c6573]/80 to-transparent text-[#031739] p-8 flex-auto overflow-y-auto w-full rounded-lg`}
             >
               {/* <main className="h-full bg-[#6c6573]/80 text-[#031739] p-4 flex-auto overflow-y-auto w-full rounded-lg"> */}
               {/* <div className="h-full grow bg-[#6c6573]/80 text-[#031739] p-4 flex-auto overflow-y-auto w-full rounded-lg"> */}

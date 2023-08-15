@@ -130,7 +130,7 @@ export function Header() {
           {/* <Avatar /> */}
           <div className="">
             <span className="text-slate-200 text-2xl font-bold">
-              DylanSmith
+              dylansmith
             </span>
             <span className="text-zinc-400 text-2xl font-mono">.dev</span>
           </div>
