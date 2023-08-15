@@ -10,7 +10,8 @@ export default function Footer() {
   return (
     <footer className="flex justify-between items-center text-zinc-200 text-xs font-mono h-fit py-4">
       <div className="">
-        {"STACK // "}
+        <span>Built with</span>
+        <span className="text-slate-400 text-xs">{" // "}</span>
         <ExternalLink
           href="https://www.figma.com/"
           text="Figma"

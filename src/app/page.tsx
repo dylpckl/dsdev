@@ -12,8 +12,15 @@ import {
   DribbbleIcon,
 } from "@/components/SocialIcons";
 
-const topicTags = ["cooking", "dnd", "ui-design", "productivity", "journaling"];
-const projectTags = ["React", "Next.js", "Tailwind", "SQL"];
+const topicTags = ["ui-design", "cooking", "dnd", "productivity", "journaling"];
+const projectTags = [
+  "Figma",
+  "React",
+  "Next.js",
+  "Tailwind",
+  "SQL",
+  "PostgreSQL",
+];
 
 const LandingPageCard = ({
   tags,
@@ -29,11 +36,11 @@ const LandingPageCard = ({
   return (
     <Link
       href={href}
-      className="flex flex-col h-full w-1/2 gap-2 group hover:ring-2 ring-teal-300 col-span-1 md:col-span-2 rounded-lg p-4 text-slate-200 bg-slate-700"
+      className="flex flex-col h-full w-full md:w-1/2 gap-2 group hover:ring-2 ring-teal-300 col-span-1 md:col-span-2 rounded-lg p-4 text-slate-200 bg-slate-700"
     >
       <>
         <div className="flex gap-2 items-baseline">
-          <h2>{headline}</h2>
+          <h2 className="">{headline}</h2>
           <span className="text-slate-400 text-xs">{"//"}</span>
         </div>
 
@@ -80,7 +87,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="max-w-2xl">
+      <div className="">
         <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
           Designer, developer, dad, and dungeon master.
         </h1>
@@ -88,16 +95,24 @@ export default function Home() {
         <div className="flex flex-col gap-6 mt-6 text-slate-300">
           <p className="">
             I&apos;m Dylan, a UI designer & developer from Long Island, New
-            York. After being introduced to graphic design by way of forum
-            signatures in 2005.
+            York. Designing for the web has been a big part of my life going all
+            the way back to the summer of 2005, when I snagged myself a copy of
+            Photoshop CS and became obsessed with creating forum signatures.
           </p>
           <p>
-            My focus is designing stuff that&apos;s are easy to use, nice to
-            look at, and get&apos;s out of the user&apos;s way.
+            I'm currently the lead UI/UX Designer for{" "}
+            <a
+              className="font-medium text-slate-100 hover:text-teal-300 hover:underline"
+              href="https://multidataservices.com/"
+            >
+              New York's premier property management software solution
+            </a>
+            , where my focus is designing an enterprise application that&apos;s
+            easy to use, nice to look at, and that gets out of the user&apos;s way.
           </p>
           <p>
-            When I&apos;m not at my computer, I can be found hanging out with my
-            wife & daughter, or telling stories around a table with friends.
+            When I&apos;m not at my computer, I can usually be found hanging out with my
+            wife & daughter, hiking in the mountains, or telling stories around a table with friends.
           </p>
         </div>
 
@@ -120,15 +135,15 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex flex-col md:flex-row md:space-x-6 mt-12">
+      <div className="flex flex-col md:flex-row gap-6 mt-12">
         <LandingPageCard
-          headline="I write about"
+          headline="Currently writing about"
           tags={topicTags}
-          cta="check out my posts"
+          cta="read my journal"
           href="/posts"
         />
         <LandingPageCard
-          headline="my current tech stack"
+          headline="Building stuff with"
           tags={projectTags}
           cta="view projects"
           href="/projects"

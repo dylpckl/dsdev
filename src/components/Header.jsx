@@ -16,7 +16,7 @@ const NavItem = ({ href, children }) => {
       <Link
         href={href}
         className={clsx(
-          "relative block px-3 py-2 transition",
+          "relative block p-1 md:px-3 md:py-2 transition",
           isActive
             ? "text-teal-500 dark:text-teal-400"
             : "hover:text-teal-500 dark:hover:text-teal-400"
@@ -46,13 +46,15 @@ const Avatar = () => {
 const Navigation = (props) => {
   return (
     <nav {...props}>
-      <ul className="flex gap-3">
-        <NavItem href="/posts">posts</NavItem>
+      <ul className="flex gap-2 items-center md:gap-3">
+        <NavItem href="/journal">journal</NavItem>
+        <span className="text-slate-400 text-xs">{"//"}</span>
         <NavItem href="/projects">projects</NavItem>
+        <span className="text-slate-400 text-xs">{"//"}</span>
         <a
           href="/dylan-smith-resume-08-2023.pdf"
           target="_blank"
-          className="hover:text-teal-500 dark:hover:text-teal-400 px-3 py-2 font-mono text-sm"
+          className="hover:text-teal-500 dark:hover:text-teal-400 p-1 md:px-3 md:py-2 font-mono text-sm"
         >
           resume
         </a>
@@ -129,10 +131,12 @@ export function Header() {
         >
           {/* <Avatar /> */}
           <div className="">
-            <span className="text-slate-200 text-2xl font-bold">
+            <span className="text-slate-200 text-lg md:text-2xl font-bold">
               dylansmith
             </span>
-            <span className="text-zinc-400 text-2xl font-mono">.dev</span>
+            <span className="text-zinc-400 text-lg md:text-2xl font-mono">
+              .dev
+            </span>
           </div>
         </Link>
 

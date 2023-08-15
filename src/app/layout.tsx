@@ -56,7 +56,7 @@ export default function RootLayout({
       </Head>
 
       <body
-        className={`${inter.variable} ${jetbrains_mono.variable} bg-slate-900 font-sans selection:bg-teal-300 selection:text-teal-900 h-screen overflow-hidden `}
+        className={`${inter.variable} ${jetbrains_mono.variable} relative bg-slate-900 font-sans selection:bg-teal-300 selection:text-teal-900 h-screen overflow-hidden `}
       >
         <div className="flex flex-col mx-auto min-h-screen px-6 md:px-12 lg:px-24 overflow-hidden">
           <Image
