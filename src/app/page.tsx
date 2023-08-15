@@ -41,7 +41,10 @@ const LandingPageCard = ({
         <ul className="flex flex-wrap gap-2">
           {tags &&
             tags.map((tag) => (
-              <li className="">
+              <li
+                key={tag}
+                className=""
+              >
                 <span className="bg-pink-300 rounded-full px-3 py-1 bg-teal-400/10 text-xs font-medium leading-5 text-teal-300">
                   {tag}
                 </span>
@@ -51,9 +54,7 @@ const LandingPageCard = ({
 
         {/* Call to Action */}
         <div className="flex items-center mt-4 mr-2 self-end border-b border-transparent transition group-hover:border-teal-300  motion-reduce:transition-none">
-          <span className="font-mono font-light">
-            {cta}
-          </span>
+          <span className="font-mono font-light">{cta}</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -87,7 +88,8 @@ export default function Home() {
         <div className="flex flex-col gap-6 mt-6 text-slate-300">
           <p className="">
             I&apos;m Dylan, a UI designer & developer from Long Island, New
-            York. forum signatures.
+            York. After being introduced to graphic design by way of forum
+            signatures in 2005.
           </p>
           <p>
             My focus is designing stuff that&apos;s are easy to use, nice to

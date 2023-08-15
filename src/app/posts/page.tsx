@@ -5,7 +5,7 @@ import Link from "next/link";
 const PostCard = ({ post }: { post: PostMetadata }) => {
   return (
     <article className="flex text-zinc-100">
-      <p className="w-1/5">{post.dateCreated.toLocaleDateString()}</p>
+      <p className="w-1/5">{post.dateCreated ? post.dateCreated : "post"}</p>
 
       <div className="w-4/5 group relative flex flex-col ">
         <Link
@@ -41,57 +41,59 @@ const PostCard = ({ post }: { post: PostMetadata }) => {
   );
 };
 
-const LatestPost = ({ post }: { post: PostMetadata }) => {
-  return (
-    <article>
-      <h2 className="font-semibold text-2xl tracking-tight text-zinc-200">
-        {post.slug}
-      </h2>
-      <p>
-        {post.dateCreated.toLocaleDateString("en-us", {
-          weekday: "short",
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        })}
-      </p>
-      <p className="truncate">{post.subtitle}</p>
-      <div className="flex items-center text-sm font-medium mt-4">
-        Read Post
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 16 16"
-          stroke-width="1.5"
-          stroke="currentColor"
-          className="w-4 h-4"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M6.75 5.75 9.25 8l-2.5 2.25"
-          />
-        </svg>
-      </div>
-    </article>
-  );
-};
+// const LatestPost = ({ post }: { post: PostMetadata }) => {
+//   return (
+//     <article>
+//       <h2 className="font-semibold text-2xl tracking-tight text-zinc-200">
+//         {post.slug}
+//       </h2>
+//       <p>
+//         {post.dateCreated
+//           ? post.dateCreated.toLocaleDateString("en-us", {
+//               weekday: "short",
+//               year: "numeric",
+//               month: "long",
+//               day: "numeric",
+//             })
+//           : "post"}
+//       </p>
+//       <p className="truncate">{post.subtitle}</p>
+//       <div className="flex items-center text-sm font-medium mt-4">
+//         Read Post
+//         <svg
+//           xmlns="http://www.w3.org/2000/svg"
+//           fill="none"
+//           viewBox="0 0 16 16"
+//           stroke-width="1.5"
+//           stroke="currentColor"
+//           className="w-4 h-4"
+//         >
+//           <path
+//             stroke-linecap="round"
+//             stroke-linejoin="round"
+//             d="M6.75 5.75 9.25 8l-2.5 2.25"
+//           />
+//         </svg>
+//       </div>
+//     </article>
+//   );
+// };
 
 export default function PostIndex() {
   const postMetadata = getPostMetadata();
 
-  function convertStringToDate(arr: PostMetadata[], property: string) {
-    const newArr = arr.map((item) => {
-      const newItem = { ...item };
-      if (item[property] && typeof item[property] === "string") {
-        item[property] = new Date(item[property]);
-      }
-      return newItem;
-    });
-    return newArr;
-  }
-  convertStringToDate(postMetadata, "dateCreated");
-  console.log("sorted posts: ", postMetadata);
+  // function convertStringToDate(arr: PostMetadata[], property: string) {
+  //   const newArr = arr.map((item) => {
+  //     const newItem = { ...item };
+  //     if (item[property] && typeof item[property] === "string") {
+  //       item[property] = new Date(item[property]);
+  //     }
+  //     return newItem;
+  //   });
+  //   return newArr;
+  // }
+  // convertStringToDate(postMetadata, "dateCreated");
+  // console.log("sorted posts: ", postMetadata);
 
   return (
     <>
@@ -106,7 +108,7 @@ export default function PostIndex() {
 
       <p>Latest</p>
 
-      <LatestPost post={postMetadata[0]} />
+      {/* <LatestPost post={postMetadata[0]} /> */}
 
       <div></div>
 
@@ -114,22 +116,13 @@ export default function PostIndex() {
       <div className="border-l pl-4 flex max-w-3xl flex-col space-y-10 mt-8">
         {postMetadata
           .slice(1)
-          .sort((a, b) => b.dateCreated - a.dateCreated)
+          // .sort((a, b) => b.dateCreated - a.dateCreated)
           .map((post) => (
             <PostCard
               key={post.slug}
               post={post}
             />
           ))}
-        {/* {postMetadata
-          .slice(1)
-          .sort((a, b) => b.dateCreated - a.dateCreated)
-          .map((post) => (
-            <>
-              <p>{post.slug}</p>
-              <p>{post.dateCreated.toLocaleDateString()}</p>
-            </>
-          ))} */}
       </div>
     </>
   );
