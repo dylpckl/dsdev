@@ -43,7 +43,24 @@ const Avatar = () => {
   );
 };
 
-const Navigation = (props) => {
+const MobileNavigation = (props) => {
+  return (
+    <div
+      className=""
+      {...props}
+    >
+      <div className="w-screen absolute top-0 bg-slate-300 h-12">
+        <nav>
+          <ul>
+            <NavItem href="/journal">journal</NavItem>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  );
+};
+
+const DesktopNavigation = (props) => {
   return (
     <nav {...props}>
       <ul className="flex gap-2 items-center md:gap-3">
@@ -122,27 +139,80 @@ function ThemeToggle() {
 }
 
 export function Header() {
+  const [mobileNavIsOpen, setMobileNavIsOpen] = useState(false);
+
+  const handleMobileNav = () => {
+    setMobileNavIsOpen(!mobileNavIsOpen);
+  };
+
   return (
     <>
-      <header className="mx-auto w-full my-4 flex justify-between">
+      <header className="relative mx-auto w-full my-4 flex justify-between">
         <Link
           href="/"
-          className="flex items-center"
+          className="relative flex items-center"
         >
           {/* <Avatar /> */}
-          <div className="">
-            <span className="text-slate-200 text-lg md:text-2xl font-bold">
-              dylansmith
-            </span>
-            <span className="text-zinc-400 text-lg md:text-2xl font-mono">
-              .dev
-            </span>
-          </div>
+
+          <span className="text-slate-200 text-lg md:text-2xl font-bold">
+            dylansmith
+          </span>
+          <span className="text-zinc-400 text-lg md:text-2xl font-mono">
+            .dev
+          </span>
         </Link>
 
-        <div className="flex items-end">
-          <Navigation />
+        {/* Mobile Nav */}
+        <div className="md:hidden rounded-lg flex gap-6 justify-between z-20">
+          {mobileNavIsOpen && (
+            <nav className="w-full">
+              <ul className="flex flex-col gap-2 divide-y">
+                <NavItem href="/journal">journal</NavItem>
+                <NavItem href="/projects">projects</NavItem>
+                <NavItem href="/resume">resume</NavItem>
+              </ul>
+            </nav>
+          )}
+
+          <button
+            className="self-start z-30"
+            onClick={handleMobileNav}
+          >
+            {mobileNavIsOpen ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                />
+              </svg>
+            )}
+          </button>
         </div>
+
+        <DesktopNavigation className="pointer-events-auto hidden md:block" />
       </header>
     </>
   );
