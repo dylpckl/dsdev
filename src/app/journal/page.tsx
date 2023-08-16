@@ -1,10 +1,10 @@
 import getPostMetadata from "@/lib/getPostMetadata";
 import { PostMetadata } from "@/components/PostMetadata";
 import Link from "next/link";
-import TagGroup from "@/components/Tags";
+import TagGroup from "@/components/TagGroup";
 
 const PostCard = ({ post }: { post: PostMetadata }) => {
-  const options = {
+  const options: Intl.DateTimeFormatOptions = {
     year: "numeric",
     month: "long",
     day: "2-digit",

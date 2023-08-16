@@ -1,5 +1,5 @@
 export default function TagGroup({ tags }) {
-  console.log(tags);
+  // console.log(tags);
   return (
     <ul className="flex flex-wrap gap-2">
       {tags &&

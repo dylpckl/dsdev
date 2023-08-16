@@ -6,7 +6,7 @@ import Markdown from "markdown-to-jsx";
 import matter from "gray-matter";
 import getPostMetadata from "../../../lib/getPostMetadata";
 import BackButton from "@/components/BackButton";
-import TagGroup from "@/components/Tags";
+import TagGroup from "@/components/TagGroup";
 
 const getPostContent = (slug: string) => {
   const folder = "posts/";
@@ -53,10 +53,9 @@ const PostPage = (props: any) => {
           </h1>
           <p>{post.data.dateCreated}</p>
 
-          
-            {tags && <TagGroup tags={tags} />}
+          {tags && <TagGroup tags={tags} />}
 
-            {/* {tags.map((tag: string) => (
+          {/* {tags.map((tag: string) => (
               <div
                 key={tag}
                 className="text-xs font-mono bg-zinc-300 rounded-md py-1 px-2"
@@ -64,7 +63,6 @@ const PostPage = (props: any) => {
                 {tag}
               </div>
             ))} */}
-          
         </div>
       </div>
 

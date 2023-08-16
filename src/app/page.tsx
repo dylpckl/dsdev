@@ -11,7 +11,7 @@ import {
   LinkedInIcon,
   DribbbleIcon,
 } from "@/components/SocialIcons";
-import TagGroup from "@/components/Tags";
+import TagGroup from "@/components/TagGroup";
 
 const topicTags = ["ui-design", "cooking", "dnd", "productivity", "journaling"];
 const projectTags = [
