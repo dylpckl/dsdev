@@ -14,22 +14,22 @@ const PostCard = ({ post }: { post: PostMetadata }) => {
     options
   );
   return (
-    <article className="flex text-zinc-100">
-      <p className="w-1/5">{dateCreatedObj}</p>
+    <article className="flex text-zinc-100 group ">
+      <p className="w-1/6 py-4 font-mono text-sm">{dateCreatedObj}</p>
 
-      <div className="w-4/5 group relative flex flex-col ">
+      <div className="w-4/5 relative flex flex-col hover:bg-slate-700/75 hover:ring-2 rounded-lg ring-teal-300 px-4 py-2 scale-95 hover:scale-100 transition-all">
         <Link
           href={`/journal/${post.slug}`}
           className=""
         >
-          <h2 className="font-semibold tracking-tight">
+          <h2 className="font-semibold text-lg tracking-tight">
             {/* <h1 className="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl"> */}
             {post.slug}
             {/* <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl"></div> */}
           </h2>
-          <p>{post.subtitle}</p>
+          <p className="text-slate-300 mt-2">{post.subtitle}</p>
           <TagGroup tags={post.tags} />
-          <div className="flex items-center text-sm font-medium mt-4">
+          <div className="flex items-center text-sm font-medium mt-4 group-hover:text-teal-300">
             Read Post
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -109,7 +109,7 @@ export default function PostIndex() {
   const sortedPosts = postMetadata.slice().sort((a, b) => {
     const dateA = new Date(a.dateCreated);
     const dateB = new Date(b.dateCreated);
-    return dateA.getTime() - dateB.getTime();
+    return dateB.getTime() - dateA.getTime();
   });
 
   return (
@@ -123,12 +123,10 @@ export default function PostIndex() {
         and more, collected in chronological order.
       </p> */}
 
-      <p>Latest</p>
-
       {/* <LatestPost post={postMetadata[0]} /> */}
 
       {/* Post List */}
-      <div className="border-l pl-4 flex max-w-3xl flex-col space-y-10 mt-8">
+      <div className="flex max-w-4xl flex-col space-y-4 mt-8">
         {sortedPosts.map((post) => (
           <PostCard
             key={post.slug}
