@@ -11,6 +11,7 @@ import {
   LinkedInIcon,
   DribbbleIcon,
 } from "@/components/SocialIcons";
+import TagGroup from "@/components/Tags";
 
 const topicTags = ["ui-design", "cooking", "dnd", "productivity", "journaling"];
 const projectTags = [
@@ -45,7 +46,7 @@ const LandingPageCard = ({
         </div>
 
         {/* Tags */}
-        <ul className="flex flex-wrap gap-2">
+        {/* <ul className="flex flex-wrap gap-2">
           {tags &&
             tags.map((tag) => (
               <li
@@ -57,7 +58,9 @@ const LandingPageCard = ({
                 </span>
               </li>
             ))}
-        </ul>
+        </ul> */}
+
+        {tags && <TagGroup tags={tags} />}
 
         {/* Call to Action */}
         <div className="flex items-center mt-4 mr-2 self-end border-b border-transparent transition group-hover:border-teal-300  motion-reduce:transition-none">
@@ -142,7 +145,7 @@ export default function Home() {
           headline="Currently writing about"
           tags={topicTags}
           cta="read my journal"
-          href="/posts"
+          href="/journal"
         />
         <LandingPageCard
           headline="Building stuff with"

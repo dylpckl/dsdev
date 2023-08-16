@@ -1,7 +1,7 @@
 ---
 dateCreated: 2023-06-03 20:12
 noteType: #permanent
-tags: dnd dm
+tags: [dnd, dm]
 ---
 
 _Topics:_ [[dnd]]

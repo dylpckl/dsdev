@@ -1,15 +1,25 @@
 import getPostMetadata from "@/lib/getPostMetadata";
 import { PostMetadata } from "@/components/PostMetadata";
 import Link from "next/link";
+import TagGroup from "@/components/Tags";
 
 const PostCard = ({ post }: { post: PostMetadata }) => {
+  const options = {
+    year: "numeric",
+    month: "long",
+    day: "2-digit",
+  };
+  const dateCreatedObj = new Date(post.dateCreated).toLocaleDateString(
+    "en-us",
+    options
+  );
   return (
     <article className="flex text-zinc-100">
-      <p className="w-1/5">{post.dateCreated ? post.dateCreated : "post"}</p>
+      <p className="w-1/5">{dateCreatedObj}</p>
 
       <div className="w-4/5 group relative flex flex-col ">
         <Link
-          href={`/posts/${post.slug}`}
+          href={`/journal/${post.slug}`}
           className=""
         >
           <h2 className="font-semibold tracking-tight">
@@ -18,6 +28,7 @@ const PostCard = ({ post }: { post: PostMetadata }) => {
             {/* <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl"></div> */}
           </h2>
           <p>{post.subtitle}</p>
+          <TagGroup tags={post.tags} />
           <div className="flex items-center text-sm font-medium mt-4">
             Read Post
             <svg
@@ -82,18 +93,24 @@ const PostCard = ({ post }: { post: PostMetadata }) => {
 export default function PostIndex() {
   const postMetadata = getPostMetadata();
 
-  // function convertStringToDate(arr: PostMetadata[], property: string) {
-  //   const newArr = arr.map((item) => {
-  //     const newItem = { ...item };
-  //     if (item[property] && typeof item[property] === "string") {
-  //       item[property] = new Date(item[property]);
-  //     }
-  //     return newItem;
-  //   });
-  //   return newArr;
-  // }
-  // convertStringToDate(postMetadata, "dateCreated");
-  // console.log("sorted posts: ", postMetadata);
+  // const convertDateStringsToDateObjects = (
+  //   postArr: PostMetadata[]
+  // ): PostMetadata[] => {
+  //   const updatedPosts: PostMetadata[] = postArr.map((post) => ({
+  //     ...post,
+  //     dateCreated: new Date(post.dateCreated).toLocaleString(),
+  //   }));
+
+  //   return updatedPosts;
+  // };
+  // const sortedPosts = convertDateStringsToDateObjects(postMetadata);
+  // console.log(sortedPosts);
+
+  const sortedPosts = postMetadata.slice().sort((a, b) => {
+    const dateA = new Date(a.dateCreated);
+    const dateB = new Date(b.dateCreated);
+    return dateA.getTime() - dateB.getTime();
+  });
 
   return (
     <>
@@ -110,11 +127,15 @@ export default function PostIndex() {
 
       {/* <LatestPost post={postMetadata[0]} /> */}
 
-      <div></div>
-
-      {/* List */}
+      {/* Post List */}
       <div className="border-l pl-4 flex max-w-3xl flex-col space-y-10 mt-8">
-        {postMetadata
+        {sortedPosts.map((post) => (
+          <PostCard
+            key={post.slug}
+            post={post}
+          />
+        ))}
+        {/* {sortedPosts
           .slice(1)
           // .sort((a, b) => b.dateCreated - a.dateCreated)
           .map((post) => (
@@ -122,7 +143,7 @@ export default function PostIndex() {
               key={post.slug}
               post={post}
             />
-          ))}
+          ))} */}
       </div>
     </>
   );

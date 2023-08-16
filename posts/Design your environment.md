@@ -1,8 +1,7 @@
 ---
 dateCreated: 2023-06-03 20:12
 status: #idea
-topics: [[Productivity]]
-tags: habit productivity tenet
+tags: [habit productivity, tenet]
 subtitle: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 ---
 

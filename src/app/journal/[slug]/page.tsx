@@ -6,6 +6,7 @@ import Markdown from "markdown-to-jsx";
 import matter from "gray-matter";
 import getPostMetadata from "../../../lib/getPostMetadata";
 import BackButton from "@/components/BackButton";
+import TagGroup from "@/components/Tags";
 
 const getPostContent = (slug: string) => {
   const folder = "posts/";
@@ -39,7 +40,7 @@ const PostPage = (props: any) => {
   const post = getPostContent(decodeURI(slug)); // decodeURI handles spaces and other problematic characters
   // console.log(post);
   const tags = post.data.tags;
-  // console.log(tags);
+  console.log(tags);
   return (
     // <div className="flex flex-col">
     <>
@@ -52,20 +53,22 @@ const PostPage = (props: any) => {
           </h1>
           <p>{post.data.dateCreated}</p>
 
-          <div className="flex gap-2">
-            {tags.split(" ").map((tag: string) => (
+          
+            {tags && <TagGroup tags={tags} />}
+
+            {/* {tags.map((tag: string) => (
               <div
                 key={tag}
                 className="text-xs font-mono bg-zinc-300 rounded-md py-1 px-2"
               >
                 {tag}
               </div>
-            ))}
-          </div>
+            ))} */}
+          
         </div>
       </div>
 
-      <article className="prose prose-slate prose-sm max-w-none">
+      <article className="mt-6 prose prose-slate dark:prose-invert prose-sm max-w-none">
         <Markdown>{post.content}</Markdown>
       </article>
     </>
