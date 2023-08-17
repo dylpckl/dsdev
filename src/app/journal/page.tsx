@@ -28,9 +28,12 @@ const PostCard = ({ post }: { post: PostMetadata }) => {
             {/* <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl"></div> */}
           </h2>
           <p className="text-slate-300 mt-2">{post.subtitle}</p>
-          <TagGroup tags={post.tags} />
+          <div className="mt-2">
+            <TagGroup tags={post.tags} />
+          </div>
+
           <div className="flex items-center text-sm font-medium mt-4 group-hover:text-teal-300">
-            Read Post
+            Read Entry
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -92,19 +95,6 @@ const PostCard = ({ post }: { post: PostMetadata }) => {
 
 export default function PostIndex() {
   const postMetadata = getPostMetadata();
-
-  // const convertDateStringsToDateObjects = (
-  //   postArr: PostMetadata[]
-  // ): PostMetadata[] => {
-  //   const updatedPosts: PostMetadata[] = postArr.map((post) => ({
-  //     ...post,
-  //     dateCreated: new Date(post.dateCreated).toLocaleString(),
-  //   }));
-
-  //   return updatedPosts;
-  // };
-  // const sortedPosts = convertDateStringsToDateObjects(postMetadata);
-  // console.log(sortedPosts);
 
   const sortedPosts = postMetadata.slice().sort((a, b) => {
     const dateA = new Date(a.dateCreated);
