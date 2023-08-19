@@ -1,9 +1,30 @@
-import getPostMetadata from "@/lib/getPostMetadata";
-import { PostMetadata } from "@/components/PostMetadata";
+"use client";
+
+// problem: cannot use fs on client. getPostMetadata won't work - how do I get the posts for this page?
+// 0. ingest all journal entries so that I have all of their topics
+// 1. display array of topics from entries
+// 2. click a topic add its to a new array, filteredTopics (badges need x icon)
+// 3. list of entries needs to map over filteredTopics
+// - must be client component for onClick, useState
+// -
+// Solved with RouteHandlers https://nextjs.org/docs/app/building-your-application/routing/route-handlers
+
+// import getPostMetadata from "@/lib/getPostMetadata";
+import { JournalEntry } from "@/components/PostMetadata";
+// import { useState } from "react";
 import Link from "next/link";
 import TagGroup from "@/components/TagGroup";
 
-const PostCard = ({ post }: { post: PostMetadata }) => {
+// async function getPosts() {
+//   const res = await fetch("/api/journal", {
+//     method: "GET",
+//   });
+//   const posts = await res.json();
+//   console.log("POSTS", posts);
+//   return posts.posts;
+// }
+
+const PostCard = ({ post }: { post: JournalEntry }) => {
   const options: Intl.DateTimeFormatOptions = {
     year: "numeric",
     month: "long",
@@ -93,14 +114,34 @@ const PostCard = ({ post }: { post: PostMetadata }) => {
 //   );
 // };
 
-export default function PostIndex() {
-  const postMetadata = getPostMetadata();
+export default function JournalEntries({ entries }: JournalEntry[]) {
+  console.log(entries);
+  // const [filteredTopics, setFilteredTopics] = useState("");
+  // const postMetadata = getPostMetadata();
 
-  const sortedPosts = postMetadata.slice().sort((a, b) => {
+  // const postMetadata = await getPosts();
+  // console.log(postMetadata);
+
+  const sortedPosts = entries.slice().sort((a, b) => {
     const dateA = new Date(a.dateCreated);
     const dateB = new Date(b.dateCreated);
     return dateB.getTime() - dateA.getTime();
   });
+
+  const topicsArr: string[] = [];
+  function getTopics() {
+    entries.map((post: JournalEntry) => {
+      post.tags.map((tag) => {
+        if (!topicsArr.includes(tag)) {
+          topicsArr.push(tag);
+        }
+      });
+    });
+    // console.log(topicsArr);
+    return topicsArr;
+  }
+
+  getTopics();
 
   return (
     <>
@@ -115,9 +156,25 @@ export default function PostIndex() {
 
       {/* <LatestPost post={postMetadata[0]} /> */}
 
+      {/* Filter Topics */}
+
+      {/* <div>
+        <h1 className="text-lg">Topics</h1>
+        <div className="flex gap-4">
+          {topicsArr.map((topic) => (
+            <div
+              key={topic}
+              className=""
+            >
+              <button className="rounded-full px-3 py-1 bg-teal-400/10 text-xs font-medium leading-5 text-teal-300">{topic}</button>
+            </div>
+          ))}
+        </div>
+      </div> */}
+
       {/* Post List */}
       <div className="flex max-w-4xl flex-col space-y-4 mt-8">
-        {sortedPosts.map((post) => (
+        {sortedPosts.map((post: JournalEntry) => (
           <PostCard
             key={post.slug}
             post={post}

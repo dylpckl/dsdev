@@ -86,7 +86,6 @@ const LandingPageCard = ({
 };
 
 export default function Home() {
-  const postMetadata = getPostMetadata();
 
   return (
     <>
