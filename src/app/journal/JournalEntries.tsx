@@ -9,20 +9,10 @@
 // -
 // Solved with RouteHandlers https://nextjs.org/docs/app/building-your-application/routing/route-handlers
 
-// import getPostMetadata from "@/lib/getPostMetadata";
 import { JournalEntry } from "@/components/PostMetadata";
-// import { useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import TagGroup from "@/components/TagGroup";
-
-// async function getPosts() {
-//   const res = await fetch("/api/journal", {
-//     method: "GET",
-//   });
-//   const posts = await res.json();
-//   console.log("POSTS", posts);
-//   return posts.posts;
-// }
 
 const PostCard = ({ post }: { post: JournalEntry }) => {
   const options: Intl.DateTimeFormatOptions = {
@@ -76,51 +66,41 @@ const PostCard = ({ post }: { post: JournalEntry }) => {
   );
 };
 
-// const LatestPost = ({ post }: { post: PostMetadata }) => {
-//   return (
-//     <article>
-//       <h2 className="font-semibold text-2xl tracking-tight text-zinc-200">
-//         {post.slug}
-//       </h2>
-//       <p>
-//         {post.dateCreated
-//           ? post.dateCreated.toLocaleDateString("en-us", {
-//               weekday: "short",
-//               year: "numeric",
-//               month: "long",
-//               day: "numeric",
-//             })
-//           : "post"}
-//       </p>
-//       <p className="truncate">{post.subtitle}</p>
-//       <div className="flex items-center text-sm font-medium mt-4">
-//         Read Post
-//         <svg
-//           xmlns="http://www.w3.org/2000/svg"
-//           fill="none"
-//           viewBox="0 0 16 16"
-//           stroke-width="1.5"
-//           stroke="currentColor"
-//           className="w-4 h-4"
-//         >
-//           <path
-//             stroke-linecap="round"
-//             stroke-linejoin="round"
-//             d="M6.75 5.75 9.25 8l-2.5 2.25"
-//           />
-//         </svg>
-//       </div>
-//     </article>
-//   );
-// };
+function filterEntries(entries: any, tags: string[]): JournalEntry[] {
+  console.log(entries, tags);
+  // 1. use filter() method on the videos array to return a new array videos
+  // 2. use some() on video.items[0].snippet.tags to see if at least one element in the array
+  //      passes the test in the provided function
+  // 3. the provided function being:
+  //      use some() on the tags state array to find tags where
+  //      tag.value === t from video.items[0].snippet.tags
+  //      and where tag.active === true (checked)
+  // console.log(tags);
+  const result = entries.filter(
+    (entry: JournalEntry) =>
+      // video.items[0].snippet.tags.some((t) =>
+      entry.tags && entry.tags.some((t) => tags.some((i) => i === t))
+  );
+  return result;
+}
 
 export default function JournalEntries({ entries }: JournalEntry[]) {
   console.log(entries);
-  // const [filteredTopics, setFilteredTopics] = useState("");
+  const [filteredTags, setFilteredTags] = useState([]);
   // const postMetadata = getPostMetadata();
 
   // const postMetadata = await getPosts();
   // console.log(postMetadata);
+
+  const handleClick = (tag: string) => {
+    if (!filteredTags.includes(tag)) {
+      setFilteredTags((prev) => [...prev, tag]);
+    }
+  };
+
+  const removeTagFromFilter = (tag: string) => {
+    setFilteredTags(filteredTags.filter((item) => item !== tag));
+  };
 
   const sortedPosts = entries.slice().sort((a, b) => {
     const dateA = new Date(a.dateCreated);
@@ -143,6 +123,8 @@ export default function JournalEntries({ entries }: JournalEntry[]) {
 
   getTopics();
 
+  const filteredEntries = filterEntries(entries, filteredTags);
+
   return (
     <>
       {/* <h1 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-3xl">
@@ -154,11 +136,8 @@ export default function JournalEntries({ entries }: JournalEntry[]) {
         and more, collected in chronological order.
       </p> */}
 
-      {/* <LatestPost post={postMetadata[0]} /> */}
-
-      {/* Filter Topics */}
-
-      {/* <div>
+      {/* Filter Tags */}
+      <div>
         <h1 className="text-lg">Topics</h1>
         <div className="flex gap-4">
           {topicsArr.map((topic) => (
@@ -166,29 +145,37 @@ export default function JournalEntries({ entries }: JournalEntry[]) {
               key={topic}
               className=""
             >
-              <button className="rounded-full px-3 py-1 bg-teal-400/10 text-xs font-medium leading-5 text-teal-300">{topic}</button>
+              <button
+                onClick={() => handleClick(topic)}
+                className="rounded-full px-3 py-1 bg-teal-400/10 text-xs font-medium leading-5 text-teal-300"
+              >
+                {topic}
+              </button>
             </div>
           ))}
         </div>
-      </div> */}
+      </div>
+
+      <div className="my-3 flex gap-2">
+        {filteredTags.map((tag) => (
+          <button
+            onClick={() => removeTagFromFilter(tag)}
+            className="flex gap-2 rounded-full px-3 py-1 bg-teal-400/10 text-xs font-medium leading-5 text-teal-300"
+          >
+            <span>{tag}</span>
+            <span>x</span>
+          </button>
+        ))}
+      </div>
 
       {/* Post List */}
       <div className="flex max-w-4xl flex-col space-y-4 mt-8">
-        {sortedPosts.map((post: JournalEntry) => (
+        {filteredEntries.map((post: JournalEntry) => (
           <PostCard
             key={post.slug}
             post={post}
           />
         ))}
-        {/* {sortedPosts
-          .slice(1)
-          // .sort((a, b) => b.dateCreated - a.dateCreated)
-          .map((post) => (
-            <PostCard
-              key={post.slug}
-              post={post}
-            />
-          ))} */}
       </div>
     </>
   );
