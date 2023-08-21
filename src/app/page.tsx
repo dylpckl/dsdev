@@ -149,8 +149,8 @@ export default function Home() {
         <LandingPageCard
           headline="Building stuff with"
           tags={projectTags}
-          cta="view projects"
-          href="/projects"
+          cta="view my work"
+          href="/work"
         />
       </div>
     </>

@@ -66,7 +66,7 @@ const DesktopNavigation = (props) => {
       <ul className="flex gap-2 items-center md:gap-3">
         <NavItem href="/journal">journal</NavItem>
         <span className="text-slate-400 text-xs">{"//"}</span>
-        <NavItem href="/projects">projects</NavItem>
+        <NavItem href="/work">work</NavItem>
         <span className="text-slate-400 text-xs">{"//"}</span>
         <a
           href="/dylan-smith-resume-08-2023.pdf"
@@ -154,7 +154,7 @@ export function Header() {
         >
           {/* <Avatar /> */}
 
-          <span className="text-slate-200 text-lg md:text-2xl font-bold">
+          <span className="text-slate-200 text-lg md:text-2xl font-semibold">
             dylansmith
           </span>
           <span className="text-zinc-400 text-lg md:text-2xl font-mono">
@@ -168,7 +168,7 @@ export function Header() {
             <nav className="w-full">
               <ul className="flex flex-col gap-2 divide-y">
                 <NavItem href="/journal">journal</NavItem>
-                <NavItem href="/projects">projects</NavItem>
+                <NavItem href="/work">work</NavItem>
                 <NavItem href="/resume">resume</NavItem>
               </ul>
             </nav>
