@@ -3,32 +3,39 @@
 // dsdev
 // obsidian-sticky-header
 import steamparty from "../../../public/images/steamparty.png";
-
 import Image from "next/image";
 import Link from "next/link";
+import TagGroup from "@/components/TagGroup";
 
 export default function PostIndex() {
   return (
     <>
       <div className="flex flex-col">
-        {/* Spire UI/UX */}
+        {/* UI/UX Case Studies */}
         <div>
-          <h1 className="font-mono text-2xl">Spire UI</h1>
-          <div className="bg-pink-300 h-[500px] w-full"></div>
+          <h1 className="font-mono text-2xl">UI/UX Case Studies</h1>
+          <div className="bg-pink-300 w-full flex flex-col gap-4">
+            <div className="bg-sky-300 w-full">spire </div>
+            <div className="bg-sky-300 w-full">ds dev</div>
+          </div>
         </div>
 
         {/* Projects */}
         <div className="mt-12">
           <h1 className="font-mono text-2xl">Projects</h1>
 
+          {/* Project Grid */}
           <div className="grid grid-cols-2 gap-5 w-full">
-            <Link
-              href="/"
-              className="col-span-1 grid grid-cols-8 sm:gap-8 md:gap-4 bg-teal-300 p-2 rounded-lg"
+            {/* Project Card */}
+            <a
+              href="https://www.steamparty.io"
+              target="_blank"
+              className="col-span-1 grid grid-cols-8 sm:gap-8 md:gap-4 text-slate-200 bg-slate-700/40 hover:bg-slate-700 p-4 rounded-lg transition-all hover:ring-2 ring-teal-300"
+              // flex flex-col relative group h-full w-full md:w-1/2 gap-2 group transition-all hover:ring-2 ring-teal-300 col-span-1 md:col-span-2 rounded-lg p-4 text-slate-200 bg-slate-700/75
             >
               <Image
                 src={steamparty}
-                alt="Picture of steamparty.io user interface"
+                alt="Picture of www.steamparty.io user interface"
                 className="rounded-lg mr-4 col-span-2"
               />
 
@@ -60,10 +67,14 @@ export default function PostIndex() {
                   the query to find any games that everyone in the party owns.
                   Also includes a "pick for us" feature if you can't decide.
                 </p>
-                <ul>tags</ul>
+                <TagGroup tags={["React", "React Query", "Tailwind CSS"]} />
               </div>
-            </Link>
+            </a>
           </div>
+        
+        
+        
+        
         </div>
       </div>
     </>
