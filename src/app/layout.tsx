@@ -52,7 +52,7 @@ export default async function RootLayout({
       </Head>
 
       <body
-        className={`${inter.variable} ${jetbrains_mono.variable} relative bg-slate-900 font-sans selection:bg-teal-300 selection:text-teal-900 h-screen overflow-hidden `}
+        className={`${inter.variable} ${jetbrains_mono.variable} relative bg-slate-900 font-sans selection:bg-teal-300 selection:text-teal-900 h-screen overflow-y-auto md:overflow-hidden `}
       >
         {/* Photo Credit */}
         <div
@@ -94,7 +94,7 @@ export default async function RootLayout({
           </div>
         </div>
 
-        <div className="flex flex-col mx-auto min-h-screen px-4 md:px-12 lg:px-24 overflow-hidden">
+        <div className="flex flex-col mx-auto min-h-screen h-screen px-4 md:px-12 lg:px-24  overflow-y-auto overflow-hidden">
           <Image
             src={mountains}
             alt="mountains"
@@ -110,9 +110,9 @@ export default async function RootLayout({
           {/* <div className="flex flex-col w-full h-screen"> */}
           <Header />
 
-          <div className="flex flex-col mx-auto w-full overflow-hidden grow rounded-lg h-full">
+          <div className="flex flex-col mx-auto w-full md:overflow-hidden grow rounded-lg h-full">
             <main
-              className={`${inter.variable} ${jetbrains_mono.variable} font-sans grow h-[100px] bg-gradient-to-b from-[#6c6573]/80 to-transparent text-[#031739] p-4 md:p-8 flex-auto overflow-y-auto w-full rounded-lg`}
+              className={`${inter.variable} ${jetbrains_mono.variable} font-sans grow md:h-[100px] bg-gradient-to-b from-[#6c6573]/80 to-transparent text-[#031739] p-4 md:p-8 flex-auto md:overflow-y-auto w-full rounded-lg`}
             >
               {/* <main className="h-full bg-[#6c6573]/80 text-[#031739] p-4 flex-auto overflow-y-auto w-full rounded-lg"> */}
               {/* <div className="h-full grow bg-[#6c6573]/80 text-[#031739] p-4 flex-auto overflow-y-auto w-full rounded-lg"> */}

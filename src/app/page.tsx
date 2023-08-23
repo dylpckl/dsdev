@@ -12,6 +12,7 @@ import {
   DribbbleIcon,
 } from "@/components/SocialIcons";
 import TagGroup from "@/components/TagGroup";
+import Socials from "@/components/SocialLink";
 
 const topicTags = ["ui-design", "cooking", "dnd", "productivity", "journaling"];
 const projectTags = [
@@ -105,7 +106,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="flex gap-6 mt-6">
+        {/* <div className="flex gap-6 mt-6">
           <SocialLink
             href="https://github.com/dylpckl"
             aria-label="Follow on GitHub"
@@ -121,6 +122,9 @@ export default function Home() {
             aria-label="Follow on LinkedIn"
             icon={LinkedInIcon}
           />
+        </div> */}
+        <div className="mt-6">
+          <Socials />
         </div>
       </div>
 
