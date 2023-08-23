@@ -3,7 +3,6 @@ import fs, { readFile, readFileSync } from "fs";
 import path from "path";
 import Link from "next/link";
 import matter from "gray-matter";
-import { PostMetadata } from "../components/PostMetadata";
 import getPostMetadata from "../lib/getPostMetadata";
 import SocialLink from "@/components/SocialLink";
 import {

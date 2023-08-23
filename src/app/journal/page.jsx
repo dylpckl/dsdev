@@ -10,7 +10,7 @@
 // Solved with RouteHandlers https://nextjs.org/docs/app/building-your-application/routing/route-handlers
 
 // import getPostMetadata from "@/lib/getPostMetadata";
-import { JournalEntry } from "@/components/PostMetadata";
+import { JournalEntry } from "@/lib/JournalEntry";
 import JournalEntries from "./JournalEntries";
 // import { useState } from "react";
 import Link from "next/link";

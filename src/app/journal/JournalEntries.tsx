@@ -9,7 +9,7 @@
 // -
 // Solved with RouteHandlers https://nextjs.org/docs/app/building-your-application/routing/route-handlers
 
-import { JournalEntry } from "@/components/PostMetadata";
+import { JournalEntry } from "@/lib/JournalEntry";
 import { useState } from "react";
 import Link from "next/link";
 import TagGroup from "@/components/TagGroup";
@@ -84,13 +84,13 @@ function filterEntries(entries: any, tags: string[]): JournalEntry[] {
   return result;
 }
 
-export default function JournalEntries({ entries }: JournalEntry[]) {
+export default function JournalEntries({
+  entries,
+}: {
+  entries: JournalEntry[];
+}) {
   console.log(entries);
-  const [filteredTags, setFilteredTags] = useState([]);
-  // const postMetadata = getPostMetadata();
-
-  // const postMetadata = await getPosts();
-  // console.log(postMetadata);
+  const [filteredTags, setFilteredTags] = useState<string[]>([]);
 
   const handleClick = (tag: string) => {
     if (!filteredTags.includes(tag)) {
@@ -102,11 +102,11 @@ export default function JournalEntries({ entries }: JournalEntry[]) {
     setFilteredTags(filteredTags.filter((item) => item !== tag));
   };
 
-  const sortedPosts = entries.slice().sort((a, b) => {
-    const dateA = new Date(a.dateCreated);
-    const dateB = new Date(b.dateCreated);
-    return dateB.getTime() - dateA.getTime();
-  });
+  // const sortedPosts = entries.slice().sort((a, b) => {
+  //   const dateA = new Date(a.dateCreated);
+  //   const dateB = new Date(b.dateCreated);
+  //   return dateB.getTime() - dateA.getTime();
+  // });
 
   const topicsArr: string[] = [];
   function getTopics() {
@@ -159,6 +159,7 @@ export default function JournalEntries({ entries }: JournalEntry[]) {
       <div className="my-3 flex gap-2">
         {filteredTags.map((tag) => (
           <button
+            key={tag}
             onClick={() => removeTagFromFilter(tag)}
             className="flex gap-2 rounded-full px-3 py-1 bg-teal-400/10 text-xs font-medium leading-5 text-teal-300"
           >

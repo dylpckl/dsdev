@@ -65,16 +65,13 @@ export default function PostIndex() {
                   own. After connecting your Steam account, the app populates
                   your friend list so that you can build a party. Then execute
                   the query to find any games that everyone in the party owns.
-                  Also includes a "pick for us" feature if you can't decide.
+                  Also includes a &ldquo;pick for us&ldquo; feature if you
+                  can&apos;t decide.
                 </p>
                 <TagGroup tags={["React", "React Query", "Tailwind CSS"]} />
               </div>
             </a>
           </div>
-        
-        
-        
-        
         </div>
       </div>
     </>
