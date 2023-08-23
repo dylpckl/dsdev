@@ -3,7 +3,6 @@ import fs, { readFile, readFileSync } from "fs";
 import path from "path";
 import Link from "next/link";
 import matter from "gray-matter";
-import { PostMetadata } from "../components/PostMetadata";
 import getPostMetadata from "../lib/getPostMetadata";
 import SocialLink from "@/components/SocialLink";
 import {
@@ -12,6 +11,7 @@ import {
   DribbbleIcon,
 } from "@/components/SocialIcons";
 import TagGroup from "@/components/TagGroup";
+import Socials from "@/components/SocialLink";
 
 const topicTags = ["ui-design", "cooking", "dnd", "productivity", "journaling"];
 const projectTags = [
@@ -37,33 +37,19 @@ const LandingPageCard = ({
   return (
     <Link
       href={href}
-      className="flex flex-col h-full w-full md:w-1/2 gap-2 group hover:ring-2 ring-teal-300 col-span-1 md:col-span-2 rounded-lg p-4 text-slate-200 bg-slate-700"
+      className="flex flex-col relative group h-full w-full md:w-1/2 gap-2 group transition-all hover:ring-2 ring-teal-300 col-span-1 md:col-span-2 rounded-lg p-4 text-slate-200 bg-slate-700/75"
     >
+      {/* <div className="absolute -inset-x-1 -inset-y-1 z-0 hidden group-hover:block rounded-md transition motion-reduce:transition-none bg-slate-800/50 blur-sm"></div> */}
       <>
-        <div className="flex gap-2 items-baseline">
+        <div className="z-10 flex gap-2 items-baseline">
           <h2 className="">{headline}</h2>
           <span className="text-slate-400 text-xs">{"//"}</span>
         </div>
 
-        {/* Tags */}
-        {/* <ul className="flex flex-wrap gap-2">
-          {tags &&
-            tags.map((tag) => (
-              <li
-                key={tag}
-                className=""
-              >
-                <span className="bg-pink-300 rounded-full px-3 py-1 bg-teal-400/10 text-xs font-medium leading-5 text-teal-300">
-                  {tag}
-                </span>
-              </li>
-            ))}
-        </ul> */}
-
         {tags && <TagGroup tags={tags} />}
 
         {/* Call to Action */}
-        <div className="flex items-center mt-4 mr-2 self-end border-b border-transparent transition group-hover:border-teal-300  motion-reduce:transition-none">
+        <div className="z-10 flex items-center mt-4 mr-2 self-end border-b border-transparent transition group-hover:border-teal-300  motion-reduce:transition-none">
           <span className="font-mono font-light">{cta}</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -86,8 +72,6 @@ const LandingPageCard = ({
 };
 
 export default function Home() {
-  const postMetadata = getPostMetadata();
-
   return (
     <>
       <div className="">
@@ -121,7 +105,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="flex gap-6 mt-6">
+        {/* <div className="flex gap-6 mt-6">
           <SocialLink
             href="https://github.com/dylpckl"
             aria-label="Follow on GitHub"
@@ -137,6 +121,9 @@ export default function Home() {
             aria-label="Follow on LinkedIn"
             icon={LinkedInIcon}
           />
+        </div> */}
+        <div className="mt-6">
+          <Socials />
         </div>
       </div>
 
@@ -150,8 +137,8 @@ export default function Home() {
         <LandingPageCard
           headline="Building stuff with"
           tags={projectTags}
-          cta="view projects"
-          href="/projects"
+          cta="view my work"
+          href="/work"
         />
       </div>
     </>

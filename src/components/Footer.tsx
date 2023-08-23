@@ -5,12 +5,14 @@ import {
   LinkedInIcon,
   DribbbleIcon,
 } from "@/components/SocialIcons";
+import Socials from "@/components/SocialLink";
 
 export default function Footer() {
   return (
     <footer className="flex justify-between items-center text-zinc-200 text-xs font-mono h-fit py-4">
       <div className="">
-        <span>Built with</span>
+        <span>&copy; 2023 Dylan Smith</span>
+        {/* <span>Built with</span>
         <span className="text-slate-400 text-xs">{" // "}</span>
         <ExternalLink
           href="https://www.figma.com/"
@@ -56,26 +58,24 @@ export default function Footer() {
           href="https://icons8.com/icon/16166/linkedin"
           text="3"
         />
-        {"]"}
+        {"]"} */}
       </div>
 
-      <div className="flex items-end gap-4">
+      {/* <div className="flex items-end gap-4">
         <SocialLink
           href="https://github.com/dylpckl"
           aria-label="Follow on GitHub"
           icon={GitHubIcon}
         />
-        <SocialLink
-          href="https://dribbble.com/dylpckl"
-          aria-label="Follow on Dribbble"
-          icon={DribbbleIcon}
-        />
+        
         <SocialLink
           href="https://www.linkedin.com/in/dylanjbsmith/"
           aria-label="Follow on LinkedIn"
           icon={LinkedInIcon}
         />
-      </div>
+      </div> */}
+      
+      <Socials />
     </footer>
 
     // https://www.jetbrains.com/lp/mono/

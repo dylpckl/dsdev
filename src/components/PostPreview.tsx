@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PostMetadata } from "./PostMetadata";
+import { JournalEntry } from "../lib/JournalEntry";
 
 // const PostPreview = (props: PostMetadata) => {
 // const PostPreview = ({
@@ -10,7 +10,7 @@ import { PostMetadata } from "./PostMetadata";
 //   props: PostMetadata;
 // }) => {
 
-const PostPreview = (props:PostMetadata, params: { slug: string }) => {
+const PostPreview = (props: JournalEntry, params: { slug: string }) => {
   console.log(props, params);
   // const isActive =()=>{
   //   if(props.slug=== props.params.slug)

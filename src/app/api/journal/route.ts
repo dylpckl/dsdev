@@ -1,12 +1,11 @@
+import { NextResponse } from "next/server";
 import fs from "fs";
 import matter from "gray-matter";
-import { JournalEntry } from "./JournalEntry";
 
-const getPostMetadata = (): JournalEntry[] => {
+export async function GET() {
   const folder = "posts/";
   const files = fs.readdirSync(folder);
   const markdownPosts = files.filter((file) => file.endsWith(".md"));
-
   const posts = markdownPosts.map((fileName) => {
     const fileContents = fs.readFileSync(`posts/${fileName}`, "utf-8");
     const matterResult = matter(fileContents);
@@ -17,10 +16,6 @@ const getPostMetadata = (): JournalEntry[] => {
       tags: matterResult.data.tags,
     };
   });
-  return posts;
 
-  // const slugs = markdownPosts.map((file) => file.replace(".md", ""));
-  // return slugs;
-};
-
-export default getPostMetadata;
+  return NextResponse.json({ posts });
+}

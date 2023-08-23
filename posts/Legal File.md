@@ -4,5 +4,8 @@ status: #idea
 tags: [webdev]
 subtitle: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 ---
+# Goals
+- upgrade user experience with special attention to tasks/events
 
-Throughout my life,
+
+# Challenges

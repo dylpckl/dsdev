@@ -1,34 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@font-face {
-  font-family: JetBrains Mono;
-  src: url("fonts/JetBrainsMono-Regular.woff2") format("woff2");
-}
-
-/* :root {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 255, 204, 112;
-  --background-end-rgb: 65, 88, 208;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 255, 204, 112;
-    --background-middle-rgb: 200, 80, 192;
-    --background-end-rgb: 65, 88, 208;
-  }
-}
-
-body {
-  
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-middle-rgb)),
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-} */

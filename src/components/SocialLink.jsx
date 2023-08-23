@@ -1,3 +1,9 @@
+import {
+  GitHubIcon,
+  LinkedInIcon,
+  DribbbleIcon,
+} from "@/components/SocialIcons";
+
 const SocialLink = ({ icon: Icon, ...props }) => {
   return (
     <a
@@ -10,4 +16,26 @@ const SocialLink = ({ icon: Icon, ...props }) => {
   );
 };
 
-export default SocialLink;
+function Socials() {
+  return (
+    <div className="flex items-end gap-4">
+      <SocialLink
+        href="https://github.com/dylpckl"
+        aria-label="Follow on GitHub"
+        icon={GitHubIcon}
+      />
+      {/* <SocialLink
+    href="https://dribbble.com/dylpckl"
+    aria-label="Follow on Dribbble"
+    icon={DribbbleIcon}
+  /> */}
+      <SocialLink
+        href="https://www.linkedin.com/in/dylanjbsmith/"
+        aria-label="Follow on LinkedIn"
+        icon={LinkedInIcon}
+      />
+    </div>
+  );
+}
+
+export default Socials;

@@ -1,4 +1,4 @@
-export interface PostMetadata {
+export interface JournalEntry {
   dateCreated: string;
   subtitle: string;
   slug: string;

@@ -1,13 +1,13 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { PostMetadata } from "./PostMetadata";
+import { JournalEntry } from "@/lib/JournalEntry";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-const NavItem = (props: PostMetadata) => {
+const NavItem = (props: JournalEntry) => {
   const pathname = decodeURI(usePathname());
   // console.log(pathname);
   const isActive = pathname.replace("/posts/", "") === props.slug;
