@@ -17,12 +17,12 @@ const getPostContent = (slug: string) => {
   return matterResult;
 };
 
-export const generateStaticParams = async () => {
-  const posts = getPostMetadata();
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
-};
+// export const generateStaticParams = async () => {
+//   const posts = getPostMetadata();
+//   return posts.map((post) => ({
+//     slug: post.slug,
+//   }));
+// };
 
 const tag = (tag: string) => {
   return (
