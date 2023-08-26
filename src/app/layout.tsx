@@ -94,7 +94,7 @@ export default async function RootLayout({
           </div>
         </div>
 
-        <div className="flex flex-col mx-auto min-h-screen h-screen px-4 md:px-12 lg:px-24  overflow-y-auto overflow-hidden">
+        <div className="flex flex-col mx-auto min-h-screen h-screen px-4 md:px-12 lg:px-24 xl:px-40 overflow-y-auto overflow-hidden">
           <Image
             src={mountains}
             alt="mountains"

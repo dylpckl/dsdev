@@ -1,15 +1,13 @@
-// 'use client'
-// import {useRef}
-
 import fs from "fs";
 import Markdown from "markdown-to-jsx";
 import matter from "gray-matter";
 import getPostMetadata from "../../../lib/getPostMetadata";
 import BackButton from "@/components/BackButton";
 import TagGroup from "@/components/TagGroup";
+import { JournalEntry } from "@/lib/JournalEntry";
 
 const getPostContent = (slug: string) => {
-  const folder = "posts/";
+  const folder = "src/app/posts/";
   const file = `${folder}${slug}.md`;
   const content = fs.readFileSync(file, "utf-8");
   const matterResult = matter(content);
@@ -17,12 +15,19 @@ const getPostContent = (slug: string) => {
   return matterResult;
 };
 
-// export const generateStaticParams = async () => {
-//   const posts = getPostMetadata();
-//   return posts.map((post) => ({
-//     slug: post.slug,
-//   }));
-// };
+export const generateStaticParams = async () => {
+  const posts = getPostMetadata();
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
+};
+
+// export async function generateStaticParams() {
+//   const posts = await fetch("https://dylansmith.dev/posts").then((res) =>
+//     res.json()
+//   );
+//   return posts.map((post: any) => ({ slug: post.slug }));
+// }
 
 const tag = (tag: string) => {
   return (
@@ -35,10 +40,11 @@ const tag = (tag: string) => {
   );
 };
 
-const PostPage = (props: any) => {
-  const slug = props.params.slug;
+// const Page = (props: any) => {
+const Page = ({ params }: { params: JournalEntry }) => {
+  const { slug } = params;
   const post = getPostContent(decodeURI(slug)); // decodeURI handles spaces and other problematic characters
-  // console.log(post);
+  console.log(params);
   const tags = post.data.tags;
   console.log(tags);
   return (
@@ -74,4 +80,4 @@ const PostPage = (props: any) => {
   );
 };
 
-export default PostPage;
+export default Page;
