@@ -31,7 +31,7 @@ const projectTags = [
 
 async function ProjectCard({ project }) {
   // const project = getArticleFromSlug(article.slug);
-  console.log("HERE", project);
+  // console.log("HERE", project);
   return (
     <article className="col-span-6">
       <Link
@@ -70,7 +70,7 @@ async function ProjectCard({ project }) {
             {/* A complex form to accept and apply a tenants bill payment. */}
           </p>
           <div className="mt-6">
-            {/* {projectTags && <TagGroup tags={projectTags} />} */}
+            {projectTags && <TagGroup tags={project.tags} />}
           </div>
 
           {/* Call to Action */}
@@ -156,13 +156,6 @@ export default async function Home() {
         </div>
       </div>
 
-      {articles.map((article) => (
-        <>
-          {article.slug}
-          <ProjectCard project={article} />
-        </>
-      ))}
-
       <section
         id="projects"
         className="flex relative mt-12"
@@ -184,155 +177,12 @@ export default async function Home() {
         </span> */}
 
         <div className="grid grid-cols-6 gap-y-24 gap-x-12 mr-20 -ml-20">
-          <article className="col-span-6">
-            <Link
-              href="/tenant-payment-form"
-              className=" flex group w-full gap-2 group transition-all hover:ring-2 ring-teal-300 rounded-lg p-6 text-slate-200 bg-slate-700/50 drop-shadow-lg"
-            >
-              <div className="flex flex-col w-1/3">
-                <div className="z-10 flex gap-2 text-3xl">
-                  <h2 className="font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
-                    Tenant Payment Form
-                  </h2>
-                  {/* <span className="text-slate-400 text-2xl transition-transform group-hover:translate-x-2">
-                  {`//`}
-                </span> */}
-                  {/* <div className="z-10 flex items-center mr-2 motion-reduce:transition-none">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  className="ml-1 w-6 h-6 -translate-y-px transition-transform group-hover:translate-x-2 group-hover:text-teal-300 motion-reduce:transition-none"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                  />
-                </svg>
-              </div> */}
-                </div>
-                <p className="text-lg mt-6">
-                  A complex form to accept and apply a tenants bill payment.
-                </p>
-                <div className="mt-6">
-                  {projectTags && <TagGroup tags={projectTags} />}
-                </div>
-
-                {/* Call to Action */}
-                <div className="z-10 flex items-center mt-auto mr-2 transition group-hover:border-teal-300  motion-reduce:transition-none">
-                  <span className="font-mono text-xl font-light group-hover:text-teal-300">
-                    View Project
-                  </span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    className="ml-1 w-4 h-4 -translate-y-px transition-transform group-hover:translate-x-2 group-hover:text-teal-300 motion-reduce:transition-none"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                    />
-                  </svg>
-                </div>
-              </div>
-
-              {/* Right */}
-              <div className="relative w-2/3 overflow-hidden">
-                {/* <div className="absolute w-full h-full bg-gradient-to-r from-white from-5%"></div> */}
-                <Image
-                  src={spireLogo}
-                  alt="test"
-                  quality={100}
-                  // height={600}
-                  width={1000}
-                  // sizes="100vw"
-                  // objectFit="cover"
-                  className="rounded object-center -z-10"
-                />
-              </div>
-            </Link>
-          </article>
-
-          <article className="col-span-6">
-            <Link
-              href="/"
-              className="flex group w-full gap-2 group transition-all hover:ring-2 ring-teal-300 rounded-lg p-6 text-slate-200 bg-slate-700/10 drop-shadow-lg"
-            >
-              <div className="flex flex-col w-1/3">
-                <div className="z-10 flex gap-2 text-3xl">
-                  <h2 className="font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
-                    Invoice Validation Form
-                  </h2>
-                  {/* <span className="text-slate-400 text-2xl transition-transform group-hover:translate-x-2">
-                  {`//`}
-                </span> */}
-                  {/* <div className="z-10 flex items-center mr-2 motion-reduce:transition-none">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  className="ml-1 w-6 h-6 -translate-y-px transition-transform group-hover:translate-x-2 group-hover:text-teal-300 motion-reduce:transition-none"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                  />
-                </svg>
-              </div> */}
-                </div>
-                <p className="text-lg mt-2">A complex form</p>
-                <div className="mt-6">
-                  {projectTags && <TagGroup tags={projectTags} />}
-                </div>
-
-                {/* Call to Action */}
-                <div className="z-10 flex items-center mt-auto mr-2 transition group-hover:border-teal-300  motion-reduce:transition-none">
-                  <span className="font-mono font-light group-hover:text-teal-300">
-                    View Project
-                  </span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    className="ml-1 w-4 h-4 -translate-y-px transition-transform group-hover:translate-x-2 group-hover:text-teal-300 motion-reduce:transition-none"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                    />
-                  </svg>
-                </div>
-              </div>
-
-              <div className="relative w-2/3 overflow-hidden">
-                {/* <div className="absolute w-full h-full bg-gradient-to-r from-white from-5%"></div> */}
-                <Image
-                  src={RapidPay}
-                  alt="test"
-                  quality={100}
-                  sizes="(max-width: 500px) 100vw"
-                  // height={1000}
-                  // width={1000}
-                  // sizes="100vw"
-                  // objectFit="cover"
-                  className="rounded object-right -z-10"
-                />
-              </div>
-            </Link>
-          </article>
+          {articles.map((article) => (
+            <>
+              {/* {article.slug} */}
+              <ProjectCard project={article} />
+            </>
+          ))}
           {/* Project Grid */}
           <section className="col-span-3">
             <div className="">
