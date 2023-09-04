@@ -15,10 +15,17 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            fontFeatureSettings: '"salt", "ss01"',
+          }
+        }
+      }
     },
     fontFamily: {
       sans: [
-        'var(--font-inter)', ...defaultTheme.fontFamily.sans
+        'var(--font-inter)', { fontFeatureSettings: '"salt","ss01"' }
       ],
       mono: ['var(--font-jetbrains_mono)']
     }
