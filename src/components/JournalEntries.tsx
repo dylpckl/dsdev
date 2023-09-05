@@ -127,17 +127,17 @@ export default function JournalEntries({
 
   return (
     <>
-      {/* <h1 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-3xl">
+      <h1 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-3xl">
         Writing on software design, company building, and the aerospace
         industry.
       </h1>
       <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
         All of my long-form thoughts on programming, leadership, product design,
         and more, collected in chronological order.
-      </p> */}
+      </p>
 
       {/* Filter Tags */}
-      <div>
+      {/* <div>
         <h1 className="text-lg">Topics</h1>
         <div className="flex gap-4">
           {topicsArr.map((topic) => (
@@ -167,11 +167,21 @@ export default function JournalEntries({
             <span>x</span>
           </button>
         ))}
-      </div>
+      </div> */}
+
+      {/* Filtered List */}
+      {/* <div className="flex max-w-4xl flex-col space-y-4 mt-8">
+        {filteredEntries.map((post: JournalEntry) => (
+          <PostCard
+            key={post.slug}
+            post={post}
+          />
+        ))}
+      </div> */}
 
       {/* Post List */}
       <div className="flex max-w-4xl flex-col space-y-4 mt-8">
-        {filteredEntries.map((post: JournalEntry) => (
+        {entries.map((post: JournalEntry) => (
           <PostCard
             key={post.slug}
             post={post}
