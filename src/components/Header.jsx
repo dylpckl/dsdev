@@ -72,8 +72,8 @@ const DesktopNavigation = (props) => {
         <span className="text-slate-400 text-xs">{"//"}</span>
         {/* <NavItem href="/journal">journal</NavItem>
         <span className="text-slate-400 text-xs">{"//"}</span> */}
-        <NavItem href="/journal">about</NavItem>
-        <span className="text-slate-400 text-xs">{"//"}</span>
+        {/* <NavItem href="/journal">about</NavItem>
+        <span className="text-slate-400 text-xs">{"//"}</span> */}
         <a
           href="/dylan-smith-resume.pdf"
           target="_blank"
