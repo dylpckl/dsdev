@@ -6,7 +6,7 @@ function VerticalText({ text }) {
         >
             <span
                 id="sticky-element"
-                className="sticky top-12 font-mono tracking-widest text-5xl -z-10 text-slate-300/10 uppercase"
+                className="sticky top-12 font-mono tracking-widest text-5xl -z-10 text-slate-300/30 uppercase"
                 style={{ writingMode: "vertical-lr" }}
             >
                 {text}{"\\\\"}
