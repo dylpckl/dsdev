@@ -236,7 +236,7 @@ export default function Page() {
             patterns were adopted for this form. A button that previously opened
             another nested modal for multi-record selection becomes a Combobox
             (autocomplete) that displays results as badges inside the input
-            (super slick but I can't take credit for it) A radio group takes the
+            (super slick but I cant take credit for it) A radio group takes the
             form of a Segmented Control which saves vertical space and looks
             much more polished, professional and exciting. This is also an
             opportunity to add interesting hover states. User Instructions.
