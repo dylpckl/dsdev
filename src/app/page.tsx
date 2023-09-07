@@ -10,27 +10,101 @@ import {
   LinkedInIcon,
   DribbbleIcon,
 } from "@/components/SocialIcons";
+import VerticalText from "@/components/VerticalText";
 import TagGroup from "@/components/TagGroup";
 import Socials from "@/components/SocialLink";
 import LandingPageCard from "@/components/LandingPageCard";
-import spireLogo from "../../public/images/Batch Creation Form.png";
+import SelectTenantsMonthlyBilling from "../../public/images/Batch Creation Form.png";
 import RapidPay from "../../public/images/RapidPay - Exceptionv5.png";
 import steamparty from "../../public/images/steamparty.png";
 
-const topicTags = ["ui-design", "cooking", "dnd", "productivity", "journaling"];
-const projectTags = [
-  "Figma",
-  "React",
-  "Next.js",
-  "Tailwind",
-  "SQL",
-  "PostgreSQL",
+const projects = [
+  {
+    title: "Select Tenants by Monthly Billing",
+    subtitle:
+      "Redesigning the experience of entering tenant payments into property management software.",
+    image: SelectTenantsMonthlyBilling,
+    tags: ["ui design", "case study", "form design"],
+  },
+  {
+    title: "RapidPay",
+    subtitle:
+      "Redesigning the experience of entering tenant payments into property management software.",
+    image: RapidPay,
+    tags: ["ui design", "case study", "accordion", "form design", "accordion"],
+  },
 ];
+
+type Project = {
+  title: string;
+  subtitle: string;
+  image: string;
+  tags: string[];
+};
+
+const ProjectCard = ({ project }: { project: Project }) => {
+  return (
+    <article className="col-span-6">
+      <Link
+        href="/tenant-payment-form"
+        className=" flex group w-full gap-2 group transition-all hover:ring-2 ring-teal-300 rounded-lg p-6 text-slate-200 bg-slate-700/50 drop-shadow-lg"
+      >
+        <div className="flex flex-col w-1/3">
+          <div className="z-10 flex gap-2 text-3xl">
+            <h2 className="font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
+              {project.title}
+            </h2>
+          </div>
+          <p className="text-lg mt-6">{project.subtitle}</p>
+          <div className="mt-6">
+            {project.tags && <TagGroup tags={project.tags} />}
+          </div>
+
+          {/* Call to Action */}
+          <div className="z-10 flex items-center mt-auto mr-2 transition group-hover:border-teal-300 motion-reduce:transition-none">
+            <span className="font-mono text-xl font-light group-hover:text-teal-300">
+              View Project
+            </span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              className="ml-1 w-4 h-4 -translate-y-px transition-transform group-hover:translate-x-2 group-hover:text-teal-300 motion-reduce:transition-none"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+              />
+            </svg>
+          </div>
+        </div>
+
+        {/* Right */}
+        <div className="relative w-2/3 overflow-hidden">
+          {/* <div className="absolute w-full h-full bg-gradient-to-r from-white from-5%"></div> */}
+          <Image
+            src={project.image}
+            alt="test"
+            quality={100}
+            // height={600}
+            width={1000}
+            // sizes="100vw"
+            // objectFit="cover"
+            className="rounded object-center -z-10"
+          />
+        </div>
+      </Link>
+    </article>
+  );
+};
 
 export default function Home() {
   return (
     <>
-      <div className="p-6 md:p-12 ">
+      <div className="p-6">
         <h1 className="text-6xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
           Designer, developer, dad, and dungeon master.
         </h1>
@@ -68,9 +142,10 @@ export default function Home() {
 
       <section
         id="projects"
-        className="flex relative mt-12"
+        className="flex relative mt-12 px-4"
       >
-        <div
+        <VerticalText text="projects" />
+        {/* <div
           id="sticky-container"
           className="sticky top-20 w-full"
         >
@@ -81,159 +156,16 @@ export default function Home() {
           >
             PROJECTS\\
           </span>
-        </div>
+        </div> */}
         {/* <span className="font-mono tracking-widest absolute origin-bottom-left -rotate-90 text-[100px] left-24 top-[525px] -z-10 text-slate-300/20 mt-12">
           PROJECTS\\
         </span> */}
 
-        <div className="grid grid-cols-6 gap-y-24 gap-x-12 mr-20 -ml-20">
-          <article className="col-span-6">
-            <Link
-              href="/tenant-payment-form"
-              className=" flex group w-full gap-2 group transition-all hover:ring-2 ring-teal-300 rounded-lg p-6 text-slate-200 bg-slate-700/50 drop-shadow-lg"
-            >
-              <div className="flex flex-col w-1/3">
-                <div className="z-10 flex gap-2 text-3xl">
-                  <h2 className="font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
-                    Tenant Payment Form
-                  </h2>
-                  {/* <span className="text-slate-400 text-2xl transition-transform group-hover:translate-x-2">
-                  {`//`}
-                </span> */}
-                  {/* <div className="z-10 flex items-center mr-2 motion-reduce:transition-none">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  className="ml-1 w-6 h-6 -translate-y-px transition-transform group-hover:translate-x-2 group-hover:text-teal-300 motion-reduce:transition-none"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                  />
-                </svg>
-              </div> */}
-                </div>
-                <p className="text-lg mt-6">A complex form to accept and apply a tenants bill payment.</p>
-                <div className="mt-6">
-                  {projectTags && <TagGroup tags={projectTags} />}
-                </div>
+        <div className="grid grid-cols-6 gap-y-24 gap-x-12 mx-16">
+          {projects.map((project) => (
+            <ProjectCard project={project} />
+          ))}
 
-                {/* Call to Action */}
-                <div className="z-10 flex items-center mt-auto mr-2 transition group-hover:border-teal-300  motion-reduce:transition-none">
-                  <span className="font-mono text-xl font-light group-hover:text-teal-300">
-                    View Project
-                  </span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    className="ml-1 w-4 h-4 -translate-y-px transition-transform group-hover:translate-x-2 group-hover:text-teal-300 motion-reduce:transition-none"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                    />
-                  </svg>
-                </div>
-              </div>
-
-              {/* Right */}
-              <div className="relative w-2/3 overflow-hidden">
-                {/* <div className="absolute w-full h-full bg-gradient-to-r from-white from-5%"></div> */}
-                <Image
-                  src={spireLogo}
-                  alt="test"
-                  quality={100}
-                  // height={600}
-                  width={1000}
-                  // sizes="100vw"
-                  // objectFit="cover"
-                  className="rounded object-center -z-10"
-                />
-              </div>
-            </Link>
-          </article>
-
-          <article className="col-span-6">
-            <Link
-              href="/"
-              className="flex group w-full gap-2 group transition-all hover:ring-2 ring-teal-300 rounded-lg p-6 text-slate-200 bg-slate-700/10 drop-shadow-lg"
-            >
-              <div className="flex flex-col w-1/3">
-                <div className="z-10 flex gap-2 text-3xl">
-                  <h2 className="font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
-                    Invoice Validation Form
-                  </h2>
-                  {/* <span className="text-slate-400 text-2xl transition-transform group-hover:translate-x-2">
-                  {`//`}
-                </span> */}
-                  {/* <div className="z-10 flex items-center mr-2 motion-reduce:transition-none">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  className="ml-1 w-6 h-6 -translate-y-px transition-transform group-hover:translate-x-2 group-hover:text-teal-300 motion-reduce:transition-none"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                  />
-                </svg>
-              </div> */}
-                </div>
-                <p className="text-lg mt-2">A complex form</p>
-                <div className="mt-6">
-                  {projectTags && <TagGroup tags={projectTags} />}
-                </div>
-
-                {/* Call to Action */}
-                <div className="z-10 flex items-center mt-auto mr-2 transition group-hover:border-teal-300  motion-reduce:transition-none">
-                  <span className="font-mono font-light group-hover:text-teal-300">
-                    View Project
-                  </span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    className="ml-1 w-4 h-4 -translate-y-px transition-transform group-hover:translate-x-2 group-hover:text-teal-300 motion-reduce:transition-none"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                    />
-                  </svg>
-                </div>
-              </div>
-
-              <div className="relative w-2/3 overflow-hidden">
-                {/* <div className="absolute w-full h-full bg-gradient-to-r from-white from-5%"></div> */}
-                <Image
-                  src={RapidPay}
-                  alt="test"
-                  quality={100}
-                  sizes="(max-width: 500px) 100vw"
-                  // height={1000}
-                  // width={1000}
-                  // sizes="100vw"
-                  // objectFit="cover"
-                  className="rounded object-right -z-10"
-                />
-              </div>
-            </Link>
-          </article>
           {/* Project Grid */}
           <section className="col-span-3">
             <div className="">
@@ -292,3 +224,153 @@ export default function Home() {
     </>
   );
 }
+
+// {/* <article className="col-span-6">
+// <Link
+//   href="/tenant-payment-form"
+//   className=" flex group w-full gap-2 group transition-all hover:ring-2 ring-teal-300 rounded-lg p-6 text-slate-200 bg-slate-700/50 drop-shadow-lg"
+// >
+//   <div className="flex flex-col w-1/3">
+//     <div className="z-10 flex gap-2 text-3xl">
+//       <h2 className="font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
+//         Tenant Payment Form
+//       </h2>
+//       {/* <span className="text-slate-400 text-2xl transition-transform group-hover:translate-x-2">
+//       {`//`}
+//     </span> */}
+//       {/* <div className="z-10 flex items-center mr-2 motion-reduce:transition-none">
+//     <svg
+//       xmlns="http://www.w3.org/2000/svg"
+//       fill="none"
+//       viewBox="0 0 24 24"
+//       stroke-width="1.5"
+//       stroke="currentColor"
+//       className="ml-1 w-6 h-6 -translate-y-px transition-transform group-hover:translate-x-2 group-hover:text-teal-300 motion-reduce:transition-none"
+//     >
+//       <path
+//         stroke-linecap="round"
+//         stroke-linejoin="round"
+//         d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+//       />
+//     </svg>
+//   </div> */}
+//     </div>
+//     <p className="text-lg mt-6">
+//       A complex form to accept and apply a tenants bill payment.
+//     </p>
+//     <div className="mt-6">
+//       {projectTags && <TagGroup tags={projectTags} />}
+//     </div>
+
+//     {/* Call to Action */}
+//     <div className="z-10 flex items-center mt-auto mr-2 transition group-hover:border-teal-300  motion-reduce:transition-none">
+//       <span className="font-mono text-xl font-light group-hover:text-teal-300">
+//         View Project
+//       </span>
+//       <svg
+//         xmlns="http://www.w3.org/2000/svg"
+//         fill="none"
+//         viewBox="0 0 24 24"
+//         stroke-width="1.5"
+//         stroke="currentColor"
+//         className="ml-1 w-4 h-4 -translate-y-px transition-transform group-hover:translate-x-2 group-hover:text-teal-300 motion-reduce:transition-none"
+//       >
+//         <path
+//           stroke-linecap="round"
+//           stroke-linejoin="round"
+//           d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+//         />
+//       </svg>
+//     </div>
+//   </div>
+
+//   {/* Right */}
+//   <div className="relative w-2/3 overflow-hidden">
+//     {/* <div className="absolute w-full h-full bg-gradient-to-r from-white from-5%"></div> */}
+//     <Image
+//       src={RapidPay}
+//       alt="test"
+//       quality={100}
+//       // height={600}
+//       width={1000}
+//       // sizes="100vw"
+//       // objectFit="cover"
+//       className="rounded object-center -z-10"
+//     />
+//   </div>
+// </Link>
+// </article>
+
+// <article className="col-span-6">
+// <Link
+//   href="/"
+//   className="flex group w-full gap-2 group transition-all hover:ring-2 ring-teal-300 rounded-lg p-6 text-slate-200 bg-slate-700/10 drop-shadow-lg"
+// >
+//   <div className="flex flex-col w-1/3">
+//     <div className="z-10 flex gap-2 text-3xl">
+//       <h2 className="font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
+//         Invoice Validation Form
+//       </h2>
+//       {/* <span className="text-slate-400 text-2xl transition-transform group-hover:translate-x-2">
+//       {`//`}
+//     </span> */}
+//       {/* <div className="z-10 flex items-center mr-2 motion-reduce:transition-none">
+//     <svg
+//       xmlns="http://www.w3.org/2000/svg"
+//       fill="none"
+//       viewBox="0 0 24 24"
+//       stroke-width="1.5"
+//       stroke="currentColor"
+//       className="ml-1 w-6 h-6 -translate-y-px transition-transform group-hover:translate-x-2 group-hover:text-teal-300 motion-reduce:transition-none"
+//     >
+//       <path
+//         stroke-linecap="round"
+//         stroke-linejoin="round"
+//         d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+//       />
+//     </svg>
+//   </div> */}
+//     </div>
+//     <p className="text-lg mt-2">A complex form</p>
+//     <div className="mt-6">
+//       {projectTags && <TagGroup tags={projectTags} />}
+//     </div>
+
+//     {/* Call to Action */}
+//     <div className="z-10 flex items-center mt-auto mr-2 transition group-hover:border-teal-300  motion-reduce:transition-none">
+//       <span className="font-mono font-light group-hover:text-teal-300">
+//         View Project
+//       </span>
+//       <svg
+//         xmlns="http://www.w3.org/2000/svg"
+//         fill="none"
+//         viewBox="0 0 24 24"
+//         stroke-width="1.5"
+//         stroke="currentColor"
+//         className="ml-1 w-4 h-4 -translate-y-px transition-transform group-hover:translate-x-2 group-hover:text-teal-300 motion-reduce:transition-none"
+//       >
+//         <path
+//           stroke-linecap="round"
+//           stroke-linejoin="round"
+//           d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+//         />
+//       </svg>
+//     </div>
+//   </div>
+
+//   <div className="relative w-2/3 overflow-hidden">
+//     {/* <div className="absolute w-full h-full bg-gradient-to-r from-white from-5%"></div> */}
+//     <Image
+//       src={RapidPay}
+//       alt="test"
+//       quality={100}
+//       sizes="(max-width: 500px) 100vw"
+//       // height={1000}
+//       // width={1000}
+//       // sizes="100vw"
+//       // objectFit="cover"
+//       className="rounded object-right -z-10"
+//     />
+//   </div>
+// </Link>
+// </article> */}
