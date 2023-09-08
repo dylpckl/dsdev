@@ -65,7 +65,7 @@ const DesktopNavigation = (props) => {
   return (
     <nav {...props}>
       <ul className="flex gap-2 items-center md:gap-3">
-        <NavItem href="#projects">projects</NavItem>
+        <NavItem href="#work">work</NavItem>
         <span className="text-slate-400 text-xs">{"//"}</span>
         {/* <NavItem href="/journal">journal</NavItem>
         <span className="text-slate-400 text-xs">{"//"}</span> */}
@@ -174,7 +174,7 @@ export function Header() {
           {mobileNavIsOpen && (
             <nav className="w-full">
               <ul className="flex flex-col gap-2 divide-y">
-                <NavItem href="/projects">projects</NavItem>
+                <NavItem href="/work">work</NavItem>
                 <NavItem href="/about">about</NavItem>
                 <NavItem href="/resume">resume</NavItem>
               </ul>

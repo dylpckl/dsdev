@@ -75,14 +75,14 @@ const AppCard = ({ app }: { app: Project }) => {
       // flex flex-col relative group h-full w-full md:w-1/2 gap-2 group transition-all hover:ring-2 ring-teal-300 col-span-1 md:col-span-2 rounded-lg p-4 text-slate-200 bg-slate-700/75
     >
       <Image
-        src={steamparty}
+        src={app.image}
         alt="Picture of www.steamparty.io user interface"
         className="rounded-lg mr-4 col-span-1"
       />
 
       <div className="col-span-1 flex flex-col">
         <span className="flex items-center font-medium">
-          www.steamparty.io
+          {app.title}
           <span className="">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -102,13 +102,14 @@ const AppCard = ({ app }: { app: Project }) => {
         </span>
 
         <p className="text-sm mt-2">
-          Web app for finding Steam games that both you and your friends own.
+          {app.subtitle}
+          {/* Web app for finding Steam games that both you and your friends own.
           After connecting your Steam account, the app populates your friend
           list so that you can build a party. Then execute the query to find any
           games that everyone in the party owns. Also includes a &ldquo;pick for
-          us&ldquo; feature if you can&apos;t decide.
+          us&ldquo; feature if you can&apos;t decide. */}
         </p>
-        <TagGroup tags={["React", "React Query", "Tailwind CSS"]} />
+        <TagGroup tags={app.tags} />
       </div>
     </a>
   );
@@ -135,7 +136,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
           {/* Call to Action */}
           <div className="z-10 flex items-center mt-auto mr-2 transition group-hover:border-teal-300 motion-reduce:transition-none">
             <span className="font-mono text-xl font-light group-hover:text-teal-300">
-              View Project
+              View Case Study
             </span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -201,14 +202,21 @@ export default function Home() {
               .
             </p>
             <p>
-              Welcome to my tiny slice of the internet,
+              Welcome to my tiny slice of the internet &mdash;{" "}
               <Link
                 href="/about"
                 className="text-slate-100 font-medium underline hover:text-teal-300 transition-all hover:underline"
               >
-                Read more about me
+                read more about me
               </Link>{" "}
-              or check out my work below 👋
+              or{" "}
+              <Link
+                href="#projects"
+                className="text-slate-100 font-medium underline hover:text-teal-300 transition-all hover:underline"
+              >
+                check out my work below
+              </Link>{" "}
+              👋
             </p>
             <p>Made with (lots) of coffee on Long Island, NY.</p>
           </section>
@@ -218,78 +226,54 @@ export default function Home() {
         </section>
         {/* Case Studies */}
         <section
-          id="projects"
+          id="work"
           className="flex relative mt-12 px-4"
         >
-          <VerticalText text="projects" />
+          <VerticalText text="case studies" />
           <div className="mx-16 flex flex-col gap-20 auto-rows-min w-full">
-            <DividerWithText text="case studies" />
+            {/* <DividerWithText text="case studies" /> */}
             {CASE_STUDIES.map((project, idx) => (
               <Fragment key={idx}>
                 <ProjectCard project={project} />
               </Fragment>
             ))}
-
-            <DividerWithText text="apps" />
-            <section className="col-span-3">
-              <div className="">
-                {/* Project Grid */}
-                <div className="w-full gap-5">
-                  {/* Project Card */}
-                  <a
-                    href="https://www.steamparty.io"
-                    target="_blank"
-                    className="grid grid-cols-2 sm:gap-8 md:gap-4 text-slate-200 bg-slate-700/40 hover:bg-slate-700 p-4 rounded-lg transition-all hover:ring-2 ring-teal-300"
-                    // flex flex-col relative group h-full w-full md:w-1/2 gap-2 group transition-all hover:ring-2 ring-teal-300 col-span-1 md:col-span-2 rounded-lg p-4 text-slate-200 bg-slate-700/75
-                  >
-                    <Image
-                      src={steamparty}
-                      alt="Picture of www.steamparty.io user interface"
-                      className="rounded-lg mr-4 col-span-1"
-                    />
-
-                    <div className="col-span-1 flex flex-col">
-                      <span className="flex items-center font-medium">
-                        www.steamparty.io
-                        <span className="">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 20 20"
-                            stroke-width="1.5"
-                            stroke="currentColor"
-                            className="w-3 h-3 ml-2"
-                          >
-                            <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
-                            />
-                          </svg>
-                        </span>
-                      </span>
-
-                      <p className="text-sm mt-2">
-                        Web app for finding Steam games that both you and your
-                        friends own. After connecting your Steam account, the
-                        app populates your friend list so that you can build a
-                        party. Then execute the query to find any games that
-                        everyone in the party owns. Also includes a &ldquo;pick
-                        for us&ldquo; feature if you can&apos;t decide.
-                      </p>
-                      <TagGroup
-                        tags={["React", "React Query", "Tailwind CSS"]}
-                      />
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </section>
+          </div>
+        </section>
+        <section
+          id="projects"
+          className="flex relative mt-48 px-4"
+        >
+          <VerticalText text="projects" />
+          <div className="mx-16 flex flex-col gap-20 auto-rows-min w-full">
+            {/* <DividerWithText text="case studies" /> */}
+            {APPS.map((app, idx) => (
+              <Fragment key={idx}>
+                <AppCard app={app} />
+              </Fragment>
+            ))}
           </div>
         </section>
       </div>
     </>
   );
+}
+
+{
+  /* <VerticalText text="projects" />
+
+<section className="col-span-3">
+  <div className="">
+    
+    <div className="w-full gap-5">
+    
+      {APPS.map((app, idx) => (
+        <Fragment key={idx}>
+          <AppCard app={app} />
+        </Fragment>
+      ))}
+    </div>
+  </div>
+</section> */
 }
 
 // {/* <article className="col-span-6">
