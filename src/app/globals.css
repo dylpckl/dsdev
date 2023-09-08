@@ -1,8 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* 
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
 
-html {
+  body {
+    scroll-behavior: smooth !important;
+  }
+} */
+
+html, body {
   scroll-behavior: smooth !important;
   scroll-padding-top: var(--scroll-padding, 500px);
 }
+

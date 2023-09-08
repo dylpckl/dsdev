@@ -56,7 +56,7 @@ export default async function RootLayout({
       </Head>
 
       <body
-        className={`${inter.variable} ${jetbrains_mono.variable} relative bg-slate-900 font-sans selection:bg-teal-300 selection:text-teal-900 h-screen overflow-y-auto  `}
+        className={`${inter.variable} ${jetbrains_mono.variable} relative bg-slate-900 font-sans selection:bg-teal-300 selection:text-teal-900 h-screen overflow-y-auto scroll-smooth `}
       >
         {/* Photo Credit */}
         <div
@@ -69,7 +69,7 @@ export default async function RootLayout({
             className="relative flex"
           >
             {/* Tooltip body */}
-            <div className="absolute z-50 drop-shadow-lg flex flex-col min-w-[150px] p-2 -top-[74px] -right-2 text-sm font-mono rounded-lg bg-slate-100 text-slate-800 opacity-0 transition-opacity group-hover:opacity-100">
+            <div className="absolute z-50 drop-shadow-lg flex flex-col min-w-[150px] p-2 -top-[64px] -right-2 text-sm font-mono rounded-lg bg-slate-100 text-slate-800 opacity-0 transition-opacity group-hover:opacity-100">
               <span className="font-bold">Photo Cred</span>
 
               <div className="flex items-center underline">

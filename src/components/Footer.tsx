@@ -9,7 +9,7 @@ import Socials from "@/components/SocialLink";
 
 export default function Footer() {
   return (
-    <footer className="flex justify-between items-center text-zinc-200 text-xs font-mono h-fit py-4">
+    <footer className="flex justify-between items-center text-zinc-200 text-xs font-mono py-12 mt-12">
       <div className="">
         <span>&copy; 2023 Dylan Smith</span>
         {/* <span>Built with</span>

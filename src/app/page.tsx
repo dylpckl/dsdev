@@ -1,24 +1,26 @@
-import Image from "next/image";
-import fs, { readFile, readFileSync } from "fs";
-import path from "path";
+import { Fragment } from "react";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
-import matter from "gray-matter";
-import getPostMetadata from "../lib/getPostMetadata";
-import SocialLink from "@/components/SocialLink";
-import {
-  GitHubIcon,
-  LinkedInIcon,
-  DribbbleIcon,
-} from "@/components/SocialIcons";
+
+// Components
 import VerticalText from "@/components/VerticalText";
 import TagGroup from "@/components/TagGroup";
 import Socials from "@/components/SocialLink";
-import LandingPageCard from "@/components/LandingPageCard";
+import DividerWithText from "@/components/DividerWithText";
+
+// Images
 import SelectTenantsMonthlyBilling from "../../public/images/Batch Creation Form.png";
 import RapidPay from "../../public/images/RapidPay - Exceptionv5.png";
 import steamparty from "../../public/images/steamparty.png";
 
-const projects = [
+type Project = {
+  title: string;
+  subtitle: string;
+  image: StaticImageData;
+  tags: string[];
+};
+
+const CASE_STUDIES = [
   {
     title: "Select Tenants by Monthly Billing",
     subtitle:
@@ -34,13 +36,6 @@ const projects = [
     tags: ["ui design", "case study", "accordion", "form design", "accordion"],
   },
 ];
-
-type Project = {
-  title: string;
-  subtitle: string;
-  image: string;
-  tags: string[];
-};
 
 const ProjectCard = ({ project }: { project: Project }) => {
   return (
@@ -104,123 +99,104 @@ const ProjectCard = ({ project }: { project: Project }) => {
 export default function Home() {
   return (
     <>
-      <div className="p-6">
-        <h1 className="text-6xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
-          Designer, developer, dad, and dungeon master.
-        </h1>
+      <div className="flex flex-col px-4">
+        {/* Hero */}
+        <section className="p-6 h-[30vh]">
+          <h1 className="text-6xl font-bold text-zinc-800 dark:text-zinc-100">
+            Dylan Smith
+          </h1>
 
-        <section className="flex flex-col gap-6 mt-6 text-slate-300 text-lg">
-          <p className="">
-            I&apos;m Dylan, a UI designer & developer from Long Island, New
-            York. In the summer of 2005 I snagged myself a copy of Photoshop CS
-            and became obsessed with creating forum signatures. Designing for
-            the web has been a big part of my life ever since.
-          </p>
-          <p>
-            I&apos;m currently the lead UI/UX Designer for{" "}
-            <a
-              className="font-medium text-slate-100 hover:text-teal-300 hover:underline"
-              href="https://multidataservices.com/"
-              target="_blank"
-            >
-              New York&apos;s premier property management software solution
-            </a>
-            , where my focus is designing an enterprise application that&apos;s
-            easy to use, nice to look at, and that gets out of the user&apos;s
-            way.
-          </p>
-          <p>
-            When I&apos;m not at my computer, I can usually be found hanging out
-            with my wife & daughter, hiking in the mountains, or telling stories
-            around a table with friends.
-          </p>
-        </section>
-        <div className="mt-6">
-          <Socials />
-        </div>
-      </div>
-
-      <section
-        id="projects"
-        className="flex relative mt-12 px-4"
-      >
-        <VerticalText text="projects" />
-        {/* <div
-          id="sticky-container"
-          className="sticky top-20 w-full"
-        >
-          <span
-            id="sticky-element"
-            className="sticky top-12 font-mono tracking-widest text-[100px] -z-10 text-slate-300/10"
-            style={{ writingMode: "vertical-lr" }}
-          >
-            PROJECTS\\
-          </span>
-        </div> */}
-        {/* <span className="font-mono tracking-widest absolute origin-bottom-left -rotate-90 text-[100px] left-24 top-[525px] -z-10 text-slate-300/20 mt-12">
-          PROJECTS\\
-        </span> */}
-
-        <div className="grid grid-cols-6 gap-y-24 gap-x-12 mx-16">
-          {projects.map((project) => (
-            <ProjectCard project={project} />
-          ))}
-
-          {/* Project Grid */}
-          <section className="col-span-3">
-            <div className="">
-              {/* Project Grid */}
-              <div className="w-full gap-5">
-                {/* Project Card */}
-                <a
-                  href="https://www.steamparty.io"
-                  target="_blank"
-                  className="grid grid-cols-2 sm:gap-8 md:gap-4 text-slate-200 bg-slate-700/40 hover:bg-slate-700 p-4 rounded-lg transition-all hover:ring-2 ring-teal-300"
-                  // flex flex-col relative group h-full w-full md:w-1/2 gap-2 group transition-all hover:ring-2 ring-teal-300 col-span-1 md:col-span-2 rounded-lg p-4 text-slate-200 bg-slate-700/75
-                >
-                  <Image
-                    src={steamparty}
-                    alt="Picture of www.steamparty.io user interface"
-                    className="rounded-lg mr-4 col-span-1"
-                  />
-
-                  <div className="col-span-1 flex flex-col">
-                    <span className="flex items-center font-medium">
-                      www.steamparty.io
-                      <span className="">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 20 20"
-                          stroke-width="1.5"
-                          stroke="currentColor"
-                          className="w-3 h-3 ml-2"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
-                          />
-                        </svg>
-                      </span>
-                    </span>
-
-                    <p className="text-sm mt-2">
-                      Web app for finding Steam games that both you and your
-                      friends own. After connecting your Steam account, the app
-                      populates your friend list so that you can build a party.
-                      Then execute the query to find any games that everyone in
-                      the party owns. Also includes a &ldquo;pick for us&ldquo;
-                      feature if you can&apos;t decide.
-                    </p>
-                    <TagGroup tags={["React", "React Query", "Tailwind CSS"]} />
-                  </div>
-                </a>
-              </div>
-            </div>
+          <section className="flex flex-col gap-6 mt-6 text-slate-300 text-lg">
+            <p className="font-mono text-2xl leading-relaxed">
+              I&apos;m a designer & developer based in New York who&apos;s
+              focused on hand-crafting pixel perfect interfaces. I specialize in
+              creating design systems and advocating for the best possible user
+              experience.
+              {/* <Link
+                href="/about"
+                className="text-slate-100 font-medium underline hover:text-teal-300 transition-all hover:underline"
+              >
+                Read more about me
+              </Link>{" "}
+              or check out my work below 👋 */}
+            </p>
           </section>
-        </div>
-      </section>
+          <div className="mt-8">
+            <Socials />
+          </div>
+        </section>
+        {/* Case Studies */}
+        <section
+          id="projects"
+          className="flex relative mt-12 px-4"
+        >
+          <VerticalText text="projects" />
+          <div className="mx-16 flex flex-col gap-20 auto-rows-min w-full">
+            <DividerWithText text="case studies" />
+            {CASE_STUDIES.map((project, idx) => (
+              <Fragment key={idx}>
+                <ProjectCard project={project} />
+              </Fragment>
+            ))}
+
+            <DividerWithText text="apps" />
+            <section className="col-span-3">
+              <div className="">
+                {/* Project Grid */}
+                <div className="w-full gap-5">
+                  {/* Project Card */}
+                  <a
+                    href="https://www.steamparty.io"
+                    target="_blank"
+                    className="grid grid-cols-2 sm:gap-8 md:gap-4 text-slate-200 bg-slate-700/40 hover:bg-slate-700 p-4 rounded-lg transition-all hover:ring-2 ring-teal-300"
+                    // flex flex-col relative group h-full w-full md:w-1/2 gap-2 group transition-all hover:ring-2 ring-teal-300 col-span-1 md:col-span-2 rounded-lg p-4 text-slate-200 bg-slate-700/75
+                  >
+                    <Image
+                      src={steamparty}
+                      alt="Picture of www.steamparty.io user interface"
+                      className="rounded-lg mr-4 col-span-1"
+                    />
+
+                    <div className="col-span-1 flex flex-col">
+                      <span className="flex items-center font-medium">
+                        www.steamparty.io
+                        <span className="">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 20 20"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            className="w-3 h-3 ml-2"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+
+                      <p className="text-sm mt-2">
+                        Web app for finding Steam games that both you and your
+                        friends own. After connecting your Steam account, the
+                        app populates your friend list so that you can build a
+                        party. Then execute the query to find any games that
+                        everyone in the party owns. Also includes a &ldquo;pick
+                        for us&ldquo; feature if you can&apos;t decide.
+                      </p>
+                      <TagGroup
+                        tags={["React", "React Query", "Tailwind CSS"]}
+                      />
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </section>
+          </div>
+        </section>
+      </div>
     </>
   );
 }

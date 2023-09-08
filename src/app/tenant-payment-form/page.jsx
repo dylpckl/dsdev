@@ -3,6 +3,8 @@ import img1 from "../../../public/images/Batch Creation Form.png";
 import Image from "next/image";
 import VerticalText from "@/components/VerticalText";
 import legacy from "../../../public/images/image 4.png";
+import Callout from "@/components/Callout";
+import DividerWithText from "@/components/DividerWithText";
 
 const OVERVIEW = [
   {
@@ -28,29 +30,6 @@ const OverviewCard = ({ content }) => {
     <div className="col-span-6">
       <h2 className=" text-3xl font-semibold mb-6">{content.headline}</h2>
       <p className="text-lg">{content.body}</p>
-    </div>
-  );
-};
-
-const DividerWithText = ({ text }) => {
-  {
-    /* https://flowbite.com/docs/typography/hr/ */
-  }
-  return (
-    <div class="flex items-center w-full">
-      <span class="pr-3 shrink-0 text-md text-slate-300 font-semibold uppercase tracking-widest">
-        {text}
-      </span>
-      <hr class="grow h-px my-8 bg-teal-500 border-0" />
-    </div>
-  );
-};
-
-const Callout = ({ title, children }) => {
-  return (
-    <div className="w-full flex flex-col relative group gap-2 border-l-4 border-teal-300 group transition-all hover:ring-2 ring-teal-300 rounded-lg p-4 text-slate-200 bg-slate-700/75">
-      <span className="text-2xl">{title}</span>
-      {children}
     </div>
   );
 };
@@ -96,13 +75,13 @@ export default function Page() {
                 SPIRE
               </a>{" "}
               is a web-based property management software tailored specifically
-              for the NYC market. One key features of the application (and major
+              for the NYC market. One key feature of the application (and major
               user task) is applying tenant payments to their open charges, the
               majority of which originate from monthly bills.
             </p>
             <p className="text-lg mt-6">
-              This task can be completed manually by users who create a batch
-              and hand-select individual tenants to apply payments to.
+              This task can be completed by creating a batch of tenants
+              manually, hand-selecting individual tenants to apply payments to.
               Alternatively, users can choose to have SPIRE select the tenants
               automatically for them by analyzing monthly bills.
             </p>
@@ -131,7 +110,7 @@ export default function Page() {
                 <span className="text-lg text-teal-300 font-semibold capitalize">
                   project length
                 </span>
-                <span>3 weeks</span>
+                <span>2 weeks</span>
               </li>
               <li className="flex flex-col">
                 <span className="text-lg text-teal-300 font-semibold capitalize">
@@ -157,19 +136,6 @@ export default function Page() {
             on the project, I was tasked with updating the feature for the
             web-app as well as redesigning the experience to be easier to use.
           </p>
-          <p className="col-span-12 text-lg">
-            This section specifically looks at the problems the project is
-            trying to address. What are the business requirements, user needs,
-            pain points that the project solves? Who are the end-users and core
-            target market? What platforms was the project for and where there
-            any technical constraints or business KPIs you had to keep in mind?
-          </p>
-          <p className="col-span-12 text-lg">
-            What specific problem, user needs, business requirements and/or pain
-            points that the project solves. Were there any technical constraints
-            or business KPIs you had to keep in mind? Who are you users and what
-            are their specific needs
-          </p>
 
           <DividerWithText text="design goals" />
           <div className="flex">
@@ -179,19 +145,27 @@ export default function Page() {
               </span>
               <p>paragraph</p> */}
               <ol className="list-decimal ml-6">
-                <li className="text-lg font-semibold">Achieve parity</li>
+                <li className="text-lg font-semibold underline">
+                  Achieve parity.
+                </li>
                 <ul className="list-disc mt-2">
-                  <li>a</li>
-                  <li>b</li>
-                  <li>c</li>
+                  <li>Port the feature from legacy to the web-app.</li>
+                  <li>Keep all critical functionality intact.</li>
                 </ul>
-                <li className="text-lg font-semibold mt-6">
+                <li className="text-lg font-semibold mt-6 underline">
                   Improve the user experience
                 </li>
                 <ul className="list-disc mt-2">
-                  <li>a</li>
-                  <li>b</li>
-                  <li>c</li>
+                  <li>Make the form more digestible.</li>
+                  <li>
+                    Add user instruction where possible to reduce decision
+                    fatigue.
+                  </li>
+                  <li>
+                    Guide the user through the form in a logical manner so that
+                    it&apos;s clear which selections may inform or restrict
+                    inputs later in the form.
+                  </li>
                 </ul>
               </ol>
             </div>
@@ -202,7 +176,19 @@ export default function Page() {
               className="w-1/2"
             />
           </div>
-
+          <DividerWithText text="research" />
+          <p className="col-span-12 text-lg">
+            Given the extremely tight 2 week deadline, and being the lone
+            designer on the project, I was unable to take the time to conduct
+            any user research to uncover pain points or develop personas. This
+            particular feature has been in use for decades, and over time has
+            evolved quite a bit in accordance with user feedback. As such, my
+            main focus during discovery was auditing the UI components at play
+            and finding equivalents in use in the web-app, in addition to
+            crafting new components as needed.
+          </p>
+          <DividerWithText text="UI Audit" />
+          <p>image here with list of components in use</p>
           {/* <Image
             src={legacy}
             alt="legacy version"
@@ -220,15 +206,22 @@ export default function Page() {
             my design process
           </h1>
           <p className="col-span-12 text-lg mt-6">
-            Id Lorem voluptate et enim Lorem Lorem aliqua. Laboris aute sunt
-            aliqua cupidatat minim dolor do. Anim excepteur id in consequat qui
-            non aute ad id laborum sit quis aliqua deserunt. Exercitation nulla
-            dolore reprehenderit ea labore incididunt. Cupidatat cupidatat magna
-            deserunt cillum. - Structure. Because of the complexity of the form,
-            I opted to use a full page structure instead of a modal, which I
-            prefer to use sparingly for urgent user tasks. The extra space this
-            affords means that I can utilize a two-column layout and display
-            some extra instructions to the user. Organization. After
+            Flows,Wireframes,Prototypes,Testing,Iteration, andValidation. Again,
+            you need to answer a few questions for every step you made: What did
+            you want to achieve by doing this?How did this step contribute to
+            the final design? 📃 Length: At least 3-5 sentences for every method
+            you mention.
+            <br /> This section is going to be the longest as it showcases how
+            the project goals where achieved. Firstly, outline the design
+            process steps and methods followed during the project outlines the
+            layout of this section. Show your overall project steps, why you
+            chose the methods you used, Recruiters want to see all the relevant
+            design artifacts that you produced from sketches to visual mockups
+            to prototypes. <br />- Structure. Because of the complexity of the
+            form, I opted to use a full page structure instead of a modal, which
+            I prefer to use sparingly for urgent user tasks. The extra space
+            this affords means that I can utilize a two-column layout and
+            display some extra instructions to the user. Organization. After
             re-arranging form fields according to hierarchy, related fields are
             grouped together into rows to make the form more digestable for the
             user. Updated Controls. Several controls on the legacy modal are
@@ -250,25 +243,6 @@ export default function Page() {
             business requirements and/or pain points? How did features address
             the objectives?
           </p>
-
-          {/* <h2 className="col-span-12 text-md text-slate-300 font-semibold uppercase tracking-widest">
-            Design Goals
-          </h2> */}
-          <DividerWithText text="design goals" />
-
-          <ol className="col-span-12 list-decimal ml-6">
-            <li>achieve parity</li>
-            <li>
-              improve user experience
-              <ul className="list-disc ml-6">
-                <li>make form more digestible</li>
-                <li>
-                  add information and instructions that guide the user through
-                  the form
-                </li>
-              </ul>
-            </li>
-          </ol>
 
           <DividerWithText text="research" />
           <p>what research did i do?</p>
@@ -292,7 +266,9 @@ export default function Page() {
             />
           </div>
 
-          <DividerWithText text="wireframe" />
+          <DividerWithText text="wireframes" />
+          <DividerWithText text="components" />
+          <DividerWithText text="screens" />
         </div>
       </section>
 

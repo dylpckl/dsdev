@@ -18,14 +18,14 @@ module.exports = {
       typography: {
         DEFAULT: {
           css: {
-            fontFeatureSettings: '"salt", "ss01"',
+            fontFeatureSettings: '"salt","ss01","cv11"',
           }
         }
       }
     },
     fontFamily: {
       sans: [
-        'var(--font-inter)', { fontFeatureSettings: '"salt","ss01"' }
+        'var(--font-inter)', { fontFeatureSettings: '"salt","ss01","cv11"' }
       ],
       mono: ['var(--font-jetbrains_mono)']
     }
