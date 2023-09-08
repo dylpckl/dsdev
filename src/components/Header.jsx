@@ -7,6 +7,7 @@ import clsx from "clsx";
 import Link from "next/link";
 import Image from "next/image";
 import avatarImage from "@/images/avatar.jpg";
+import logo from "../../public/images/ds-logo.png";
 
 const NavItem = ({ href, children }) => {
   let isActive = usePathname().includes(href);
@@ -68,8 +69,8 @@ const DesktopNavigation = (props) => {
         <span className="text-slate-400 text-xs">{"//"}</span>
         {/* <NavItem href="/journal">journal</NavItem>
         <span className="text-slate-400 text-xs">{"//"}</span> */}
-        {/* <NavItem href="/about">about</NavItem>
-        <span className="text-slate-400 text-xs">{"//"}</span> */}
+        <NavItem href="/about">about</NavItem>
+        <span className="text-slate-400 text-xs">{"//"}</span>
         <a
           href="/dylan-smith-resume.pdf"
           target="_blank"
@@ -155,13 +156,17 @@ export function Header() {
           className="relative flex items-center"
         >
           {/* <Avatar /> */}
-
-          <span className="text-slate-200 text-lg md:text-2xl font-semibold">
-            dylansmith
+          <Image
+            src={logo}
+            alt="logo"
+            height={48}
+          />
+          {/* <span className="text-slate-200 text-lg md:text-2xl font-semibold">
+            dylan smith
           </span>
           <span className="text-zinc-400 text-lg md:text-2xl font-mono">
             .dev
-          </span>
+          </span> */}
         </Link>
 
         {/* Mobile Nav */}
@@ -169,8 +174,8 @@ export function Header() {
           {mobileNavIsOpen && (
             <nav className="w-full">
               <ul className="flex flex-col gap-2 divide-y">
-                <NavItem href="/journal">journal</NavItem>
-                {/* <NavItem href="/work">work</NavItem> */}
+                <NavItem href="/projects">projects</NavItem>
+                <NavItem href="/about">about</NavItem>
                 <NavItem href="/resume">resume</NavItem>
               </ul>
             </nav>

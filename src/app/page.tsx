@@ -25,6 +25,7 @@ const CASE_STUDIES = [
     title: "Select Tenants by Monthly Billing",
     subtitle:
       "Redesigning the experience of entering tenant payments into property management software.",
+    status: "shipped!",
     image: SelectTenantsMonthlyBilling,
     tags: ["ui design", "case study", "form design"],
   },
@@ -32,10 +33,86 @@ const CASE_STUDIES = [
     title: "RapidPay",
     subtitle:
       "Redesigning the experience of entering tenant payments into property management software.",
+    status: "shipped!",
     image: RapidPay,
     tags: ["ui design", "case study", "accordion", "form design", "accordion"],
   },
 ];
+
+const APPS = [
+  {
+    title: "www.steamparty.io",
+    subtitle:
+      "Redesigning the experience of entering tenant payments into property management software.",
+    status: "shipped!",
+    image: SelectTenantsMonthlyBilling,
+    tags: ["ui design", "case study", "form design"],
+  },
+  {
+    title: "RapidPay",
+    subtitle:
+      "Redesigning the experience of entering tenant payments into property management software.",
+    status: "concept",
+    image: RapidPay,
+    tags: ["ui design", "case study", "accordion", "form design", "accordion"],
+  },
+  {
+    title: "encounter+",
+    subtitle:
+      "Redesigning the experience of entering tenant payments into property management software.",
+    status: "coming soon",
+    image: RapidPay,
+    tags: ["ui design", "case study", "accordion", "form design", "accordion"],
+  },
+];
+
+const AppCard = ({ app }: { app: Project }) => {
+  return (
+    <a
+      href="https://www.steamparty.io"
+      target="_blank"
+      className="grid grid-cols-2 sm:gap-8 md:gap-4 text-slate-200 bg-slate-700/40 hover:bg-slate-700 p-4 rounded-lg transition-all hover:ring-2 ring-teal-300"
+      // flex flex-col relative group h-full w-full md:w-1/2 gap-2 group transition-all hover:ring-2 ring-teal-300 col-span-1 md:col-span-2 rounded-lg p-4 text-slate-200 bg-slate-700/75
+    >
+      <Image
+        src={steamparty}
+        alt="Picture of www.steamparty.io user interface"
+        className="rounded-lg mr-4 col-span-1"
+      />
+
+      <div className="col-span-1 flex flex-col">
+        <span className="flex items-center font-medium">
+          www.steamparty.io
+          <span className="">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 20 20"
+              stroke-width="1.5"
+              stroke="currentColor"
+              className="w-3 h-3 ml-2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+              />
+            </svg>
+          </span>
+        </span>
+
+        <p className="text-sm mt-2">
+          Web app for finding Steam games that both you and your friends own.
+          After connecting your Steam account, the app populates your friend
+          list so that you can build a party. Then execute the query to find any
+          games that everyone in the party owns. Also includes a &ldquo;pick for
+          us&ldquo; feature if you can&apos;t decide.
+        </p>
+        <TagGroup tags={["React", "React Query", "Tailwind CSS"]} />
+      </div>
+    </a>
+  );
+};
 
 const ProjectCard = ({ project }: { project: Project }) => {
   return (
@@ -101,27 +178,41 @@ export default function Home() {
     <>
       <div className="flex flex-col px-4">
         {/* Hero */}
-        <section className="p-6 h-[30vh]">
-          <h1 className="text-6xl font-bold text-zinc-800 dark:text-zinc-100">
-            Dylan Smith
+        <section className="flex flex-col gap-12 p-24 min-h-[30vh]">
+          <h1 className="text-6xl font-bold font-mono text-teal-400">
+            Hey there!
           </h1>
 
-          <section className="flex flex-col gap-6 mt-6 text-slate-300 text-lg">
-            <p className="font-mono text-2xl leading-relaxed">
-              I&apos;m a designer & developer based in New York who&apos;s
-              focused on hand-crafting pixel perfect interfaces. I specialize in
-              creating design systems and advocating for the best possible user
-              experience.
-              {/* <Link
+          <section className="flex flex-col gap-6 text-slate-300 text-lg">
+            <p className="font-sans text-2xl leading-relaxed tracking-tight">
+              I&apos;m{" "}
+              <span className="font-medium text-slate-100">Dylan Smith</span>, a
+              designer & developer focused on handcrafting pixel perfect
+              interfaces. I specialize in creating design systems and advocating
+              for the best possible user experience. Currently leading design
+              &#64;{" "}
+              <a
+                className="font-medium text-slate-100 hover:text-teal-300 hover:underline"
+                href="https://multidataservices.com/"
+                target="_blank"
+              >
+                MDS Property Management Software
+              </a>
+              .
+            </p>
+            <p>
+              Welcome to my tiny slice of the internet,
+              <Link
                 href="/about"
                 className="text-slate-100 font-medium underline hover:text-teal-300 transition-all hover:underline"
               >
                 Read more about me
               </Link>{" "}
-              or check out my work below 👋 */}
+              or check out my work below 👋
             </p>
+            <p>Made with (lots) of coffee on Long Island, NY.</p>
           </section>
-          <div className="mt-8">
+          <div className="">
             <Socials />
           </div>
         </section>
