@@ -12,8 +12,8 @@
   }
 } */
 
-html, body {
+html,
+body {
   scroll-behavior: smooth !important;
-  scroll-padding-top: var(--scroll-padding, 500px);
+  scroll-padding-top: 48px;
 }
-

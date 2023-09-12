@@ -5,7 +5,7 @@ import Link from "next/link";
 // Components
 import VerticalText from "@/components/VerticalText";
 import TagGroup from "@/components/TagGroup";
-import Socials from "@/components/SocialLink";
+import { Socials } from "@/components/SocialLink";
 import DividerWithText from "@/components/DividerWithText";
 
 // Images
@@ -177,21 +177,24 @@ const ProjectCard = ({ project }: { project: Project }) => {
 export default function Home() {
   return (
     <>
-      <div className="flex flex-col px-4">
+      <div className="flex flex-col md:px-4">
         {/* Hero */}
-        <section className="flex flex-col gap-12 p-24 min-h-[30vh]">
+        <section className="flex flex-col gap-12 p-6 lg:p-24 min-h-[30vh]">
           <h1 className="text-6xl font-bold font-mono text-teal-400">
             Hey there!
           </h1>
 
           <section className="flex flex-col gap-6 text-slate-300 text-lg">
-            <p className="font-sans text-2xl leading-relaxed tracking-tight">
+            <p className="font-sans text-2xl leading-relaxed tracking-tight ">
               I&apos;m{" "}
-              <span className="font-medium text-slate-100">Dylan Smith</span>, a
-              designer & developer focused on handcrafting pixel perfect
-              interfaces. I specialize in creating design systems and advocating
-              for the best possible user experience. Currently leading design
-              &#64;{" "}
+              <span className="font-medium text-slate-100 ">Dylan Smith</span>,
+              a designer & developer focused on handcrafting pixel perfect
+              interfaces.{" "}
+              <span className="mt-4">
+                I specialize in creating design systems and advocating for the
+                best possible user experience.{" "}
+              </span>
+              Currently leading design &#64;{" "}
               <a
                 className="font-medium text-slate-100 hover:text-teal-300 hover:underline"
                 href="https://multidataservices.com/"
@@ -211,12 +214,11 @@ export default function Home() {
               </Link>{" "}
               or{" "}
               <Link
-                href="#projects"
+                href="#case-studies"
                 className="text-slate-100 font-medium underline hover:text-teal-300 transition-all hover:underline"
               >
                 check out my work below
-              </Link>{" "}
-              👋
+              </Link>
             </p>
             <p>Made with (lots) of coffee on Long Island, NY.</p>
           </section>
@@ -224,21 +226,26 @@ export default function Home() {
             <Socials />
           </div>
         </section>
+
         {/* Case Studies */}
-        <section
-          id="work"
-          className="flex relative mt-12 px-4"
-        >
-          <VerticalText text="case studies" />
-          <div className="mx-16 flex flex-col gap-20 auto-rows-min w-full">
-            {/* <DividerWithText text="case studies" /> */}
-            {CASE_STUDIES.map((project, idx) => (
-              <Fragment key={idx}>
-                <ProjectCard project={project} />
-              </Fragment>
-            ))}
-          </div>
-        </section>
+        <div className="snap-y scroll-py-52">
+          <section
+            id="case-studies"
+            className="flex relative mt-12 px-4 snap-start"
+          >
+            <VerticalText text="case studies" />
+            <div className="mx-4 md:mx-16 flex flex-col gap-20 auto-rows-min w-full">
+              {/* <DividerWithText text="case studies" /> */}
+              {CASE_STUDIES.map((project, idx) => (
+                <Fragment key={idx}>
+                  <ProjectCard project={project} />
+                </Fragment>
+              ))}
+            </div>
+          </section>
+        </div>
+
+        {/* Apps */}
         <section
           id="projects"
           className="flex relative mt-48 px-4"

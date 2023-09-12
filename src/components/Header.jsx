@@ -65,7 +65,7 @@ const DesktopNavigation = (props) => {
   return (
     <nav {...props}>
       <ul className="flex gap-2 items-center md:gap-3">
-        <NavItem href="#work">work</NavItem>
+        <NavItem href="/#case-studies">work</NavItem>
         <span className="text-slate-400 text-xs">{"//"}</span>
         {/* <NavItem href="/journal">journal</NavItem>
         <span className="text-slate-400 text-xs">{"//"}</span> */}

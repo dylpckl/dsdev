@@ -1,11 +1,4 @@
-import ExternalLink from "./ExternalLink";
-import SocialLink from "@/components/SocialLink";
-import {
-  GitHubIcon,
-  LinkedInIcon,
-  DribbbleIcon,
-} from "@/components/SocialIcons";
-import Socials from "@/components/SocialLink";
+import { Socials } from "@/components/SocialLink";
 
 export default function Footer() {
   return (
@@ -74,7 +67,7 @@ export default function Footer() {
           icon={LinkedInIcon}
         />
       </div> */}
-      
+
       <Socials />
     </footer>
 

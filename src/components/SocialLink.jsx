@@ -4,7 +4,11 @@ import {
   DribbbleIcon,
 } from "@/components/SocialIcons";
 
-const SocialLink = ({ icon: Icon, ...props }) => {
+// type SocialLinkProps ={
+//   icon: "GithubIcon" | "LinkedInIcon",
+// }
+
+export function SocialLink({ icon: Icon, ...props }) {
   return (
     <a
       className="group -m-1 p-1"
@@ -14,9 +18,9 @@ const SocialLink = ({ icon: Icon, ...props }) => {
       <Icon className="h-8 w-8 fill-slate-300 transition group-hover:fill-teal-300" />
     </a>
   );
-};
+}
 
-function Socials() {
+export function Socials() {
   return (
     <div className="flex items-end gap-4">
       <SocialLink
@@ -37,5 +41,3 @@ function Socials() {
     </div>
   );
 }
-
-export default Socials;
