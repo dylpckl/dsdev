@@ -218,7 +218,7 @@ export default function Home() {
                 className="text-slate-100 font-medium underline hover:text-teal-300 transition-all hover:underline"
               >
                 check out my work below
-              </Link>
+              </Link>.
             </p>
             <p>Made with (lots) of coffee on Long Island, NY.</p>
           </section>

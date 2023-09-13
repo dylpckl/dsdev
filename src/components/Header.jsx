@@ -161,6 +161,7 @@ export function Header() {
             alt="logo"
             height={48}
           />
+          <span className="ml-4 font-mono text-slate-400">Dylan Smith</span>
           {/* <span className="text-slate-200 text-lg md:text-2xl font-semibold">
             dylan smith
           </span>
