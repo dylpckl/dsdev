@@ -3,6 +3,7 @@ import Image from "next/image";
 import { GitHubIcon, LinkedInIcon } from "@/components/SocialIcons";
 import clsx from "clsx";
 import Link from "next/link";
+import ExternalLink from "@/components/ExternalLink";
 
 function MailIcon(props) {
   return (
@@ -80,6 +81,35 @@ const Page = () => {
               out with my wife & daughter, hiking in the mountains, or telling
               stories around a table with friends.
             </p>
+
+            <div className="font-mono text-slate-300">
+              <span>This site is designed with</span>{" "}
+              <ExternalLink
+                href="https://www.figma.com/"
+                text="Figma"
+              />
+              {", "}
+              written with TypeScript in{" "}
+              <ExternalLink
+                href="https://code.visualstudio.com/"
+                text="VS Code"
+              />
+              {", "}built with{" "}
+              <ExternalLink
+                href="https://nextjs.org/"
+                text="Next.js"
+              />{" "}
+              {" + "}
+              <ExternalLink
+                href="https://tailwindcss.com/"
+                text="Tailwind CSS"
+              />{" "}
+              and deployed to{" "}
+              <ExternalLink
+                href="https://vercel.com/"
+                text="Vercel"
+              />{"."}
+            </div>
           </div>
         </div>
 
