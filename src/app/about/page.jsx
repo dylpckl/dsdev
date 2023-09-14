@@ -73,7 +73,7 @@ const Page = () => {
                 href="/#projects"
                 className="text-slate-100 font-medium underline hover:text-teal-300 transition-all hover:underline"
               >
-                be sure check out some stuff I've built!
+                be sure check out some stuff I&apos;ve built!
               </Link>
             </p>
             <p>
@@ -108,7 +108,8 @@ const Page = () => {
               <ExternalLink
                 href="https://vercel.com/"
                 text="Vercel"
-              />{"."}
+              />
+              {"."}
             </div>
           </div>
         </div>
