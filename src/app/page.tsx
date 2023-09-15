@@ -31,15 +31,21 @@ const CASE_STUDIES: Project[] = [
       "Redesigning the experience of entering tenant payments into property management software.",
     status: "coming soon",
     image: SelectTenantsMonthlyBilling,
-    tags: ["ui design", "case study", "form design"],
+    tags: ["ui design", "case study", "form design", "segmented control"],
   },
   {
     title: "RapidPay",
     subtitle:
-      "Redesigning the experience of entering tenant payments into property management software.",
+      "Streamlining a complex form used to validate invoices scanned by OCR software.",
     status: "coming soon",
     image: RapidPay,
-    tags: ["ui design", "case study", "accordion", "form design", "accordion"],
+    tags: [
+      "ui design",
+      "case study",
+      "user journey",
+      "form design",
+      "accordion",
+    ],
   },
 ];
 
@@ -75,9 +81,9 @@ const APPS: Project[] = [
 const AppCard = ({ app }: { app: Project }) => {
   return (
     <a
-      href={app.title}
+      href={app.link}
       target="_blank"
-      className="grid grid-cols-2 sm:gap-8 md:gap-4 min-h-[120px] text-slate-200 bg-slate-700/70 hover:bg-slate-700 p-4 rounded-lg transition-all hover:ring-2 ring-teal-300"
+      className="grid grid-cols-2 sm:gap-12 md:gap-8 min-h-[120px] text-slate-200 bg-slate-700/70 hover:bg-slate-700 p-4 rounded-lg transition-all hover:ring-2 ring-teal-300 scale-95 hover:scale-100 ease-out duration-200"
       // flex flex-col relative group h-full w-full md:w-1/2 gap-2 group transition-all hover:ring-2 ring-teal-300 col-span-1 md:col-span-2 rounded-lg p-4 text-slate-200 bg-slate-700/75
     >
       {app.image && (
@@ -89,10 +95,11 @@ const AppCard = ({ app }: { app: Project }) => {
       )}
 
       <div
-        className={clsx("flex flex-col", {
-          "col-span-1": app.image !== null,
-          "col-span-2": app.image === null,
-        })}
+        // className={clsx("flex flex-col", {
+        //   "col-span-1": app.image !== null,
+        //   "col-span-2": app.image === null,
+        // })}
+        className={app.image ? "col-span-1" : "col-span-2"}
       >
         <span className="flex items-center font-medium justify-between">
           <div className="flex items-center gap-2">
@@ -143,8 +150,8 @@ const CaseStudyCard = ({ caseStudy }: { caseStudy: Project }) => {
   return (
     <article className="col-span-6">
       <Link
-        href="/tenant-payment-form"
-        className=" flex group w-full gap-2 group transition-all hover:ring-2 ring-teal-300 rounded-lg p-6 text-slate-200 bg-slate-700/50 drop-shadow-lg"
+        href="/#"
+        className="flex group w-full sm:gap-12 md:gap-8 min-h-[400px] group transition-all scale-95 hover:scale-100  hover:ring-2 ring-teal-300 rounded-lg p-6 text-slate-200 bg-slate-700/50 drop-shadow-lg ease-out duration-200"
       >
         <div className="flex flex-col w-1/3">
           <div className="z-10 flex gap-2 text-3xl">
@@ -159,10 +166,27 @@ const CaseStudyCard = ({ caseStudy }: { caseStudy: Project }) => {
 
           {/* Call to Action */}
           <div className="z-10 flex items-center mt-auto mr-2 transition group-hover:border-teal-300 motion-reduce:transition-none">
-            <span className="font-mono text-xl font-light group-hover:text-teal-300">
-              View Case Study
+            <span className="font-mono text-xl font-light group-hover:text-teal-300 uppercase">
+              coming soon
             </span>
-            <svg
+            {/* <span
+              className={clsx(
+                "ml-4 rounded-full px-3 py-1 text-xs font-medium leading-5 uppercase",
+                {
+                  "bg-sky-500/30 text-sky-200":
+                    caseStudy.status === "proof of concept",
+                  "bg-teal-400/10 text-teal-300":
+                    caseStudy.status === "deployed",
+                  "bg-slate-600 text-slate-200":
+                    caseStudy.status === "coming soon",
+                  "bg-purple-500/30 text-purple-200":
+                    caseStudy.status === "in development",
+                }
+              )}
+            >
+              {caseStudy.status}
+            </span> */}
+            {/* <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -175,7 +199,7 @@ const CaseStudyCard = ({ caseStudy }: { caseStudy: Project }) => {
                 stroke-linejoin="round"
                 d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
               />
-            </svg>
+            </svg> */}
           </div>
         </div>
 
