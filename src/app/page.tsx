@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
+import clsx from "clsx";
 
 // Components
 import VerticalText from "@/components/VerticalText";
@@ -12,52 +13,28 @@ import DividerWithText from "@/components/DividerWithText";
 import SelectTenantsMonthlyBilling from "../../public/images/Batch Creation Form.png";
 import RapidPay from "../../public/images/RapidPay - Exceptionv5.png";
 import steamparty from "../../public/images/steamparty.png";
+import hubermandb from "../../public/images/huberman-db.png";
 
 type Project = {
   title: string;
   subtitle: string;
-  image: StaticImageData;
+  link?: string;
+  status: "deployed" | "proof of concept" | "coming soon" | "in development";
+  image?: StaticImageData;
   tags: string[];
 };
 
-const CASE_STUDIES = [
+const CASE_STUDIES: Project[] = [
   {
     title: "Select Tenants by Monthly Billing",
     subtitle:
       "Redesigning the experience of entering tenant payments into property management software.",
-    status: "shipped!",
+    status: "coming soon",
     image: SelectTenantsMonthlyBilling,
     tags: ["ui design", "case study", "form design"],
   },
   {
     title: "RapidPay",
-    subtitle:
-      "Redesigning the experience of entering tenant payments into property management software.",
-    status: "shipped!",
-    image: RapidPay,
-    tags: ["ui design", "case study", "accordion", "form design", "accordion"],
-  },
-];
-
-const APPS = [
-  {
-    title: "www.steamparty.io",
-    subtitle:
-      "Redesigning the experience of entering tenant payments into property management software.",
-    status: "shipped!",
-    image: SelectTenantsMonthlyBilling,
-    tags: ["ui design", "case study", "form design"],
-  },
-  {
-    title: "RapidPay",
-    subtitle:
-      "Redesigning the experience of entering tenant payments into property management software.",
-    status: "concept",
-    image: RapidPay,
-    tags: ["ui design", "case study", "accordion", "form design", "accordion"],
-  },
-  {
-    title: "encounter+",
     subtitle:
       "Redesigning the experience of entering tenant payments into property management software.",
     status: "coming soon",
@@ -66,56 +43,103 @@ const APPS = [
   },
 ];
 
+const APPS: Project[] = [
+  {
+    title: "SteamParty",
+    subtitle:
+      "Web app to find Steam games that both you and your friends own. After connecting your Steam account, the app populates your friend list so that you can build a party. You then execute the query to find the games that everyone in the party owns. If you can't decide what to play, you can use 'the pick for us' feature.",
+    link: "www.steamparty.io",
+    status: "deployed",
+    image: steamparty,
+    tags: ["React", "React Query", "Custom Backend"],
+  },
+  {
+    title: "huberman-db",
+    subtitle:
+      "Simple interface that allows filtering on YouTube videos based on embedded tags. Fetching from the YouTube Data API, videos are stored in a Supabase PostgreSQL instance and then exposed to a search bar with autocomplete.",
+    link: "https://github.com/dylpckl/huberman-db",
+    status: "proof of concept",
+    image: hubermandb,
+    tags: ["PostgreSQL", "API", "Next.js v13", "Supabase"],
+  },
+  {
+    title: "encounter+",
+    subtitle:
+      "A customizable dungeon master screen that allows you to easily run a quality tabletop roleplaying session. Add the widgets you need for any specific encounter, including a Combat Tracker, Music Player, NPC Generator, and more.",
+    link: "https://github.com/dylpckl/encounter-plus",
+    status: "in development",
+    tags: ["Next.js v13", "API", "CRUD", "dungeons & dragons", "dashboard"],
+  },
+];
+
 const AppCard = ({ app }: { app: Project }) => {
   return (
     <a
-      href="https://www.steamparty.io"
+      href={app.title}
       target="_blank"
-      className="grid grid-cols-2 sm:gap-8 md:gap-4 text-slate-200 bg-slate-700/40 hover:bg-slate-700 p-4 rounded-lg transition-all hover:ring-2 ring-teal-300"
+      className="grid grid-cols-2 sm:gap-8 md:gap-4 min-h-[120px] text-slate-200 bg-slate-700/70 hover:bg-slate-700 p-4 rounded-lg transition-all hover:ring-2 ring-teal-300"
       // flex flex-col relative group h-full w-full md:w-1/2 gap-2 group transition-all hover:ring-2 ring-teal-300 col-span-1 md:col-span-2 rounded-lg p-4 text-slate-200 bg-slate-700/75
     >
-      <Image
-        src={app.image}
-        alt="Picture of www.steamparty.io user interface"
-        className="rounded-lg mr-4 col-span-1"
-      />
+      {app.image && (
+        <Image
+          src={app.image}
+          alt="Picture of www.steamparty.io user interface"
+          className="rounded-lg mr-4 col-span-1"
+        />
+      )}
 
-      <div className="col-span-1 flex flex-col">
-        <span className="flex items-center font-medium">
-          {app.title}
-          <span className="">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 20 20"
-              stroke-width="1.5"
-              stroke="currentColor"
-              className="w-3 h-3 ml-2"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
-              />
-            </svg>
+      <div
+        className={clsx("flex flex-col", {
+          "col-span-1": app.image !== null,
+          "col-span-2": app.image === null,
+        })}
+      >
+        <span className="flex items-center font-medium justify-between">
+          <div className="flex items-center gap-2">
+            {app.title}
+            <span className="">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 20 20"
+                stroke-width="1.5"
+                stroke="currentColor"
+                className="w-3 h-3 ml-2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+                />
+              </svg>
+            </span>
+          </div>
+          <span
+            className={clsx(
+              "ml-4 rounded-full px-3 py-1 text-xs font-medium leading-5 uppercase",
+              {
+                "bg-sky-500/30 text-sky-200": app.status === "proof of concept",
+                "bg-teal-400/10 text-teal-300": app.status === "deployed",
+                "bg-slate-600 text-slate-200": app.status === "coming soon",
+                "bg-purple-500/30 text-purple-200":
+                  app.status === "in development",
+              }
+            )}
+          >
+            {app.status}
           </span>
         </span>
 
-        <p className="text-sm mt-2">
-          {app.subtitle}
-          {/* Web app for finding Steam games that both you and your friends own.
-          After connecting your Steam account, the app populates your friend
-          list so that you can build a party. Then execute the query to find any
-          games that everyone in the party owns. Also includes a &ldquo;pick for
-          us&ldquo; feature if you can&apos;t decide. */}
-        </p>
-        <TagGroup tags={app.tags} />
+        <p className="text-sm mt-2">{app.subtitle}</p>
+        <div className={app.image !== null ? "mt-auto" : "mt-6"}>
+          <TagGroup tags={app.tags} />
+        </div>
       </div>
     </a>
   );
 };
 
-const ProjectCard = ({ project }: { project: Project }) => {
+const CaseStudyCard = ({ caseStudy }: { caseStudy: Project }) => {
   return (
     <article className="col-span-6">
       <Link
@@ -125,12 +149,12 @@ const ProjectCard = ({ project }: { project: Project }) => {
         <div className="flex flex-col w-1/3">
           <div className="z-10 flex gap-2 text-3xl">
             <h2 className="font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
-              {project.title}
+              {caseStudy.title}
             </h2>
           </div>
-          <p className="text-lg mt-6">{project.subtitle}</p>
+          <p className="text-lg mt-6">{caseStudy.subtitle}</p>
           <div className="mt-6">
-            {project.tags && <TagGroup tags={project.tags} />}
+            {caseStudy.tags && <TagGroup tags={caseStudy.tags} />}
           </div>
 
           {/* Call to Action */}
@@ -158,7 +182,20 @@ const ProjectCard = ({ project }: { project: Project }) => {
         {/* Right */}
         <div className="relative w-2/3 overflow-hidden">
           {/* <div className="absolute w-full h-full bg-gradient-to-r from-white from-5%"></div> */}
-          <Image
+          {caseStudy.image && (
+            <Image
+              src={caseStudy.image}
+              alt="test"
+              quality={100}
+              // height={600}
+              width={1000}
+              // sizes="100vw"
+              // objectFit="cover"
+              className="rounded object-center -z-10"
+            />
+          )}
+
+          {/* <Image
             src={project.image}
             alt="test"
             quality={100}
@@ -167,7 +204,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
             // sizes="100vw"
             // objectFit="cover"
             className="rounded object-center -z-10"
-          />
+          /> */}
         </div>
       </Link>
     </article>
@@ -218,7 +255,8 @@ export default function Home() {
                 className="text-slate-100 font-medium underline hover:text-teal-300 transition-all hover:underline"
               >
                 check out my work below
-              </Link>.
+              </Link>
+              .
             </p>
             <p>Made with (lots) of coffee on Long Island, NY.</p>
           </section>
@@ -238,7 +276,7 @@ export default function Home() {
               {/* <DividerWithText text="case studies" /> */}
               {CASE_STUDIES.map((project, idx) => (
                 <Fragment key={idx}>
-                  <ProjectCard project={project} />
+                  <CaseStudyCard caseStudy={project} />
                 </Fragment>
               ))}
             </div>
@@ -264,171 +302,3 @@ export default function Home() {
     </>
   );
 }
-
-{
-  /* <VerticalText text="projects" />
-
-<section className="col-span-3">
-  <div className="">
-    
-    <div className="w-full gap-5">
-    
-      {APPS.map((app, idx) => (
-        <Fragment key={idx}>
-          <AppCard app={app} />
-        </Fragment>
-      ))}
-    </div>
-  </div>
-</section> */
-}
-
-// {/* <article className="col-span-6">
-// <Link
-//   href="/tenant-payment-form"
-//   className=" flex group w-full gap-2 group transition-all hover:ring-2 ring-teal-300 rounded-lg p-6 text-slate-200 bg-slate-700/50 drop-shadow-lg"
-// >
-//   <div className="flex flex-col w-1/3">
-//     <div className="z-10 flex gap-2 text-3xl">
-//       <h2 className="font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
-//         Tenant Payment Form
-//       </h2>
-//       {/* <span className="text-slate-400 text-2xl transition-transform group-hover:translate-x-2">
-//       {`//`}
-//     </span> */}
-//       {/* <div className="z-10 flex items-center mr-2 motion-reduce:transition-none">
-//     <svg
-//       xmlns="http://www.w3.org/2000/svg"
-//       fill="none"
-//       viewBox="0 0 24 24"
-//       stroke-width="1.5"
-//       stroke="currentColor"
-//       className="ml-1 w-6 h-6 -translate-y-px transition-transform group-hover:translate-x-2 group-hover:text-teal-300 motion-reduce:transition-none"
-//     >
-//       <path
-//         stroke-linecap="round"
-//         stroke-linejoin="round"
-//         d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-//       />
-//     </svg>
-//   </div> */}
-//     </div>
-//     <p className="text-lg mt-6">
-//       A complex form to accept and apply a tenants bill payment.
-//     </p>
-//     <div className="mt-6">
-//       {projectTags && <TagGroup tags={projectTags} />}
-//     </div>
-
-//     {/* Call to Action */}
-//     <div className="z-10 flex items-center mt-auto mr-2 transition group-hover:border-teal-300  motion-reduce:transition-none">
-//       <span className="font-mono text-xl font-light group-hover:text-teal-300">
-//         View Project
-//       </span>
-//       <svg
-//         xmlns="http://www.w3.org/2000/svg"
-//         fill="none"
-//         viewBox="0 0 24 24"
-//         stroke-width="1.5"
-//         stroke="currentColor"
-//         className="ml-1 w-4 h-4 -translate-y-px transition-transform group-hover:translate-x-2 group-hover:text-teal-300 motion-reduce:transition-none"
-//       >
-//         <path
-//           stroke-linecap="round"
-//           stroke-linejoin="round"
-//           d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-//         />
-//       </svg>
-//     </div>
-//   </div>
-
-//   {/* Right */}
-//   <div className="relative w-2/3 overflow-hidden">
-//     {/* <div className="absolute w-full h-full bg-gradient-to-r from-white from-5%"></div> */}
-//     <Image
-//       src={RapidPay}
-//       alt="test"
-//       quality={100}
-//       // height={600}
-//       width={1000}
-//       // sizes="100vw"
-//       // objectFit="cover"
-//       className="rounded object-center -z-10"
-//     />
-//   </div>
-// </Link>
-// </article>
-
-// <article className="col-span-6">
-// <Link
-//   href="/"
-//   className="flex group w-full gap-2 group transition-all hover:ring-2 ring-teal-300 rounded-lg p-6 text-slate-200 bg-slate-700/10 drop-shadow-lg"
-// >
-//   <div className="flex flex-col w-1/3">
-//     <div className="z-10 flex gap-2 text-3xl">
-//       <h2 className="font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
-//         Invoice Validation Form
-//       </h2>
-//       {/* <span className="text-slate-400 text-2xl transition-transform group-hover:translate-x-2">
-//       {`//`}
-//     </span> */}
-//       {/* <div className="z-10 flex items-center mr-2 motion-reduce:transition-none">
-//     <svg
-//       xmlns="http://www.w3.org/2000/svg"
-//       fill="none"
-//       viewBox="0 0 24 24"
-//       stroke-width="1.5"
-//       stroke="currentColor"
-//       className="ml-1 w-6 h-6 -translate-y-px transition-transform group-hover:translate-x-2 group-hover:text-teal-300 motion-reduce:transition-none"
-//     >
-//       <path
-//         stroke-linecap="round"
-//         stroke-linejoin="round"
-//         d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-//       />
-//     </svg>
-//   </div> */}
-//     </div>
-//     <p className="text-lg mt-2">A complex form</p>
-//     <div className="mt-6">
-//       {projectTags && <TagGroup tags={projectTags} />}
-//     </div>
-
-//     {/* Call to Action */}
-//     <div className="z-10 flex items-center mt-auto mr-2 transition group-hover:border-teal-300  motion-reduce:transition-none">
-//       <span className="font-mono font-light group-hover:text-teal-300">
-//         View Project
-//       </span>
-//       <svg
-//         xmlns="http://www.w3.org/2000/svg"
-//         fill="none"
-//         viewBox="0 0 24 24"
-//         stroke-width="1.5"
-//         stroke="currentColor"
-//         className="ml-1 w-4 h-4 -translate-y-px transition-transform group-hover:translate-x-2 group-hover:text-teal-300 motion-reduce:transition-none"
-//       >
-//         <path
-//           stroke-linecap="round"
-//           stroke-linejoin="round"
-//           d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-//         />
-//       </svg>
-//     </div>
-//   </div>
-
-//   <div className="relative w-2/3 overflow-hidden">
-//     {/* <div className="absolute w-full h-full bg-gradient-to-r from-white from-5%"></div> */}
-//     <Image
-//       src={RapidPay}
-//       alt="test"
-//       quality={100}
-//       sizes="(max-width: 500px) 100vw"
-//       // height={1000}
-//       // width={1000}
-//       // sizes="100vw"
-//       // objectFit="cover"
-//       className="rounded object-right -z-10"
-//     />
-//   </div>
-// </Link>
-// </article> */}
