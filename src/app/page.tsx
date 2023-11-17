@@ -49,7 +49,7 @@ const CASE_STUDIES: Project[] = [
   },
 ];
 
-const APPS: Project[] = [
+const PROJECTS: Project[] = [
   {
     title: "SteamParty",
     subtitle:
@@ -78,7 +78,7 @@ const APPS: Project[] = [
   },
 ];
 
-const AppCard = ({ app }: { app: Project }) => {
+const ProjectCard = ({ app }: { app: Project }) => {
   return (
     <a
       href={app.link}
@@ -137,8 +137,9 @@ const AppCard = ({ app }: { app: Project }) => {
           </span>
         </span>
 
-        <p className="text-sm mt-2">{app.subtitle}</p>
-        <div className={app.image !== null ? "mt-auto" : "mt-6"}>
+        <p className="text-sm mt-8">{app.subtitle}</p>
+        {/* <div className={app.image !== null ? "mt-auto" : "mt-6"}> */}
+        <div className="mt-8">
           <TagGroup tags={app.tags} />
         </div>
       </div>
@@ -255,7 +256,7 @@ export default function Home() {
                 I specialize in creating design systems and advocating for the
                 best possible user experience.{" "}
               </span>
-              Currently leading design &#64;{" "}
+              Currently leading design at{" "}
               <a
                 className="font-medium text-slate-100 hover:text-teal-300 hover:underline"
                 href="https://multidataservices.com/"
@@ -315,9 +316,9 @@ export default function Home() {
           <VerticalText text="projects" />
           <div className="mx-16 flex flex-col gap-20 auto-rows-min w-full">
             {/* <DividerWithText text="case studies" /> */}
-            {APPS.map((app, idx) => (
+            {PROJECTS.map((app, idx) => (
               <Fragment key={idx}>
-                <AppCard app={app} />
+                <ProjectCard app={app} />
               </Fragment>
             ))}
           </div>

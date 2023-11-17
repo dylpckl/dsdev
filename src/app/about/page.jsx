@@ -82,7 +82,7 @@ const Page = () => {
               stories around a table with friends.
             </p>
 
-            <div className="font-mono text-slate-300">
+            <div className="font-mono text-sm text-slate-300">
               <span>This site is designed with</span>{" "}
               <ExternalLink
                 href="https://www.figma.com/"
@@ -99,7 +99,7 @@ const Page = () => {
                 href="https://nextjs.org/"
                 text="Next.js"
               />{" "}
-              {" + "}
+              and{" "}
               <ExternalLink
                 href="https://tailwindcss.com/"
                 text="Tailwind CSS"
