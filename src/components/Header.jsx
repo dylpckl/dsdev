@@ -7,7 +7,7 @@ import clsx from "clsx";
 import Link from "next/link";
 import Image from "next/image";
 import avatarImage from "@/images/avatar.jpg";
-import logo from "../../public/images/ds-logo.png";
+import logo from "@/images/ds-logo.png";
 
 const NavItem = ({ href, children }) => {
   let isActive = usePathname().includes(href);

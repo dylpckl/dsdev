@@ -1,4 +1,4 @@
-import portraitImage from "../../../public/images/me.jpg";
+import portraitImage from "@/images/me.jpg";
 import Image from "next/image";
 import { GitHubIcon, LinkedInIcon } from "@/components/SocialIcons";
 import clsx from "clsx";
