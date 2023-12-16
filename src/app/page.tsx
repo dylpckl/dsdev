@@ -179,8 +179,8 @@ export default function Home() {
       <div className="flex flex-col md:px-4">
         {/* Hero */}
         <section className="flex flex-col gap-12 p-6 lg:p-24 min-h-[30vh]">
-          <h1 className="text-6xl font-bold font-mono text-teal-400">
-            Hey there!
+          <h1 className="text-6xl font-bold font-sans leading-relaxed text-teal-400">
+            Hey there! I&apos;m Dylan, a <span className="font-serif">designer</span> & <span className="font-mono">{`<`}developer{`/>`}</span> based in New York.
           </h1>
 
           <section className="flex flex-col gap-6 text-slate-300 text-lg">

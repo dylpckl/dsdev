@@ -1,4 +1,5 @@
 "use client";
+import { useState, useRef, TouchEvent } from "react";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
@@ -7,42 +8,131 @@ import TagGroup from "./TagGroup";
 import { Project } from "@/lib/constants/projects";
 
 function ProjectCard({ project }: { project: Project }) {
-  // console.log(project)
+  const [imageRevealFraq, setImageRevealFraq] = useState(0.25);
+  const imageContainer = useRef<HTMLDivElement>(undefined);
+
+  const slide = (xPos: number) => {
+    const containerBoundingRect =
+      imageContainer.current.getBoundingClientRect();
+    if (xPos < containerBoundingRect.left) {
+      return 0;
+    } else if (xPos > containerBoundingRect.right) {
+      return 1;
+    } else {
+      setImageRevealFraq(() => {
+        return (
+          (xPos - containerBoundingRect.left) / containerBoundingRect.width
+        );
+      });
+    }
+  };
+
+  const handleMouseDown = (): void => {
+    window.onmousemove = handleMouseMove;
+    window.onmouseup = handleMouseUp;
+  };
+
+  const handleMouseMove = (event: MouseEvent): void => {
+    slide(event.clientX);
+  };
+
+  const handleMouseUp = (): void => {
+    window.onmousemove = undefined;
+    window.onmouseup = undefined;
+  };
+
+  const handleTouchMove = (event: TouchEvent<HTMLDivElement>): void => {
+    slide(event.touches.item(0).clientX);
+  };
+
   return (
     // Image Comparison
     // Title, desc, tags, CTA
 
-    <Link
-      href="/#"
-      className="flex flex-col group/card w-full sm:gap-12 md:gap-8 height-[520px] group transition-all hover:scale-105 scale rounded-lg text-slate-200 bg-slate-700/50 drop-shadow-lg ease-out duration-500"
-    >
-      <article>
-        {/* <article className="group w-full flex flex-col sm:gap-12 md:gap-8 min-h-[400px] group transition-all scale-95 hover:scale-100 hover:ring-2 ring-teal-300 rounded-lg p-6 text-slate-200 bg-slate-700/50 drop-shadow-lg ease-out duration-700"> */}
+    // hover:scale-105
+    // <Link
+    //   href="/#"
+    //   className="flex flex-col group/card w-full sm:gap-12 md:gap-8 height-[520px] group transition-all rounded-lg text-slate-200 bg-slate-700/50 drop-shadow-lg ease-out duration-700 overflow-clip"
+    // >
+    <article className="flex flex-col group/card w-full sm:gap-12 md:gap-8 height-[520px] group transition-all rounded-lg text-slate-200 bg-slate-700/50 drop-shadow-lg ease-out duration-700 overflow-clip">
+      <div className="w-full">
+        {/* Image */}
+        <div
+          ref={imageContainer}
+          className="relative bg-pink-300 h-[420px] w-full select-none"
+        >
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            style={{ objectFit: "cover", objectPosition: "top" }}
+            className="pointer-events-none"
+          />
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            style={{
+              objectFit: "cover",
+              objectPosition: "top",
+              filter: "grayscale(100%)",
+              clipPath: `polygon(0 0, ${imageRevealFraq * 100}% 0, ${
+                imageRevealFraq * 100
+              }% 100%, 0 100%)`,
+            }}
+            className="absolute inset-0 pointer-events-none"
+          />
 
-        <div className="w-full">
-          {/* Image */}
-          <div className="bg-pink-300 h-96 w-full"></div>
+          {/* Drag Handle */}
+          <div
+            className="absolute inset-y-0"
+            style={{ left: `${imageRevealFraq * 100}%` }}
+          >
+            <div className="relative h-full">
+              <div className="absolute inset-y-0 bg-red-300 w-0.5 -ml-px">
+                <div
+                  style={{ touchAction: "none" }}
+                  onMouseDown={handleMouseDown}
+                  onTouchMove={handleTouchMove}
+                  className="flex justify-center items-center text-black h-12 w-12 -ml-6 -mt-6 rounded-full bg-white absolute top-1/2 shadow-xl"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    className="w-8 h-8 rotate-90"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="p-6">
           <h2 className="font-bold tracking-tight text-3xl text-zinc-800 dark:text-zinc-100">
             {project.title}
           </h2>
           <p className="text-lg mt-6">{project.subtitle}</p>
           <div className="mt-6 flex justify-between">
             {project.tags && <TagGroup tags={project.tags} />}
-            {/* <button
-              type="button"
-              className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            >
-              view case study
-            </button> */}
           </div>
         </div>
+      </div>
 
-        {/* Chin */}
-        {/* scale-y-0 group-hover:scale-y-100 */}
-        <div className="w-full bg-pink-300 group/cta overflow-hidden h-0 group-hover:h-16  transition-all ease-in duration-200">
+      {/* Footer */}
+      <Link href="/#">
+        <div className="w-full bg-teal-300 text-teal-700 font-medium group/cta overflow-hidden h-0 group-hover:h-16 transition-all ease-in-out duration-500">
           {/* https://tailwindcss.com/docs/hover-focus-and-other-states#differentiating-nested-groups */}
           <div className=" flex w-full h-full items-center justify-center">
-            <p className="font-mono text-xl font-light transition-colors ease-out group-hover/cta:text-teal-300 uppercase">
+            <p className="font-mono text-xl transition-colors ease-out group-hover/cta:text-teal-900 uppercase">
               view case study
             </p>
 
@@ -51,7 +141,7 @@ function ProjectCard({ project }: { project: Project }) {
               <span
                 className="absolute top-0 left-0 transition-all delay-150 duration-300
                opacity-1 translate-x-1/2 group-hover/cta:translate-x-[230%]
-                group-hover/cta:opacity-0 motion-reduce:transform-none"
+                group-hover/cta:opacity-0 group-hover/cta:text-teal-900 motion-reduce:transform-none"
               >
                 -&gt;
               </span>
@@ -60,15 +150,15 @@ function ProjectCard({ project }: { project: Project }) {
               <span
                 className="absolute top-0 left-0 transition-all delay-150 duration-300
                opacity-0 -translate-x-8 group-hover/cta:translate-x-1/2
-                group-hover/cta:opacity-100 motion-reduce:transform-none"
+                group-hover/cta:opacity-100  group-hover/cta:text-teal-900 motion-reduce:transform-none"
               >
                 -&gt;
               </span>
             </span>
           </div>
         </div>
-      </article>
-    </Link>
+      </Link>
+    </article>
   );
 }
 
@@ -178,3 +268,7 @@ export default ProjectCard;
 //         className="rounded object-center -z-10"
 //       /> */}
 // </div>
+
+{
+  /* <article className="group w-full flex flex-col sm:gap-12 md:gap-8 min-h-[400px] group transition-all scale-95 hover:scale-100 hover:ring-2 ring-teal-300 rounded-lg p-6 text-slate-200 bg-slate-700/50 drop-shadow-lg ease-out duration-700"> */
+}
