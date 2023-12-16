@@ -6,22 +6,46 @@ import RapidPay from "@/images/RapidPay - Exceptionv5.png";
 import steamparty from "@/images/steamparty.png";
 import hubermandb from "@/images/huberman-db.png";
 
+import Explorer from '/projects/dylansmithdev/public/projects/bank-rec/Explorer.png'
+import Spire from '/projects/dylansmithdev/public/projects/bank-rec/Spire.png'
+
 export type Project = {
   title: string;
   subtitle: string;
   link?: string;
   status: "deployed" | "proof of concept" | "coming soon" | "in development";
-  image?: StaticImageData;
+  explorerImage: StaticImageData;
+  spireImage: StaticImageData;
   tags: string[];
 };
 
+// export type Project = {
+//   title: string;
+//   subtitle: string;
+//   link?: string;
+//   status: "deployed" | "proof of concept" | "coming soon" | "in development";
+//   image?: StaticImageData;
+//   tags: string[];
+// };
+
 export const CASE_STUDIES: Project[] = [
+  {
+    title: "Bank Reconcilation",
+    subtitle:
+      "Redesigning the experience of entering tenant payments into property management software.",
+    status: "coming soon",
+    explorerImage: Explorer,
+    spireImage: Spire,
+    tags: ["ui design", "case study", "form design", "segmented control"],
+  },
   {
     title: "Select Tenants by Monthly Billing",
     subtitle:
       "Redesigning the experience of entering tenant payments into property management software.",
     status: "coming soon",
-    image: SelectTenantsMonthlyBilling,
+    
+    explorerImage: SelectTenantsMonthlyBilling,
+    spireImage: SelectTenantsMonthlyBilling,
     tags: ["ui design", "case study", "form design", "segmented control"],
   },
   {
@@ -29,7 +53,8 @@ export const CASE_STUDIES: Project[] = [
     subtitle:
       "Streamlining a complex form used to validate invoices scanned by OCR software.",
     status: "coming soon",
-    image: RapidPay,
+    explorerImage: RapidPay,
+    spireImage: RapidPay,
     tags: [
       "ui design",
       "case study",

@@ -61,15 +61,17 @@ function ProjectCard({ project }: { project: Project }) {
           ref={imageContainer}
           className="relative bg-pink-300 h-[420px] w-full select-none"
         >
+          {/* p */}
           <Image
-            src={project.image}
+            src={project.spireImage}
             alt={project.title}
             fill
             style={{ objectFit: "cover", objectPosition: "top" }}
             className="pointer-events-none"
           />
+          {/* Explorer Image */}
           <Image
-            src={project.image}
+            src={project.explorerImage}
             alt={project.title}
             fill
             style={{
@@ -94,7 +96,7 @@ function ProjectCard({ project }: { project: Project }) {
                   style={{ touchAction: "none" }}
                   onMouseDown={handleMouseDown}
                   onTouchMove={handleTouchMove}
-                  className="flex justify-center items-center text-black h-12 w-12 -ml-6 -mt-6 rounded-full bg-white absolute top-1/2 shadow-xl"
+                  className="flex justify-center items-center text-black h-12 w-12 -ml-6 -mt-6 rounded-full bg-white absolute top-1/2 shadow-xl cursor-pointer"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
