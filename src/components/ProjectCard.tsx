@@ -9,21 +9,24 @@ import { Project } from "@/lib/constants/projects";
 
 function ProjectCard({ project }: { project: Project }) {
   const [imageRevealFraq, setImageRevealFraq] = useState(0.25);
-  const imageContainer = useRef<HTMLDivElement>(undefined);
+  const imageContainer = useRef<HTMLDivElement>(null);
 
   const slide = (xPos: number) => {
-    const containerBoundingRect =
-      imageContainer.current.getBoundingClientRect();
-    if (xPos < containerBoundingRect.left) {
-      return 0;
-    } else if (xPos > containerBoundingRect.right) {
-      return 1;
-    } else {
-      setImageRevealFraq(() => {
-        return (
-          (xPos - containerBoundingRect.left) / containerBoundingRect.width
-        );
-      });
+    const container = imageContainer.current;
+
+    if (container) {
+      const containerBoundingRect = container.getBoundingClientRect();
+      if (xPos < containerBoundingRect.left) {
+        return 0;
+      } else if (xPos > containerBoundingRect.right) {
+        return 1;
+      } else {
+        setImageRevealFraq(() => {
+          return (
+            (xPos - containerBoundingRect.left) / containerBoundingRect.width
+          );
+        });
+      }
     }
   };
 
@@ -37,8 +40,8 @@ function ProjectCard({ project }: { project: Project }) {
   };
 
   const handleMouseUp = (): void => {
-    window.onmousemove = undefined;
-    window.onmouseup = undefined;
+    window.onmousemove = null;
+    window.onmouseup = null;
   };
 
   const handleTouchMove = (event: TouchEvent<HTMLDivElement>): void => {
@@ -91,12 +94,13 @@ function ProjectCard({ project }: { project: Project }) {
             style={{ left: `${imageRevealFraq * 100}%` }}
           >
             <div className="relative h-full">
-              <div className="absolute inset-y-0 bg-red-300 w-0.5 -ml-px">
+              <div className="absolute inset-y-0 bg-white w-0.5 -ml-px">
+                {/* <div className="absolute inset-y-0 bg-red-300 w-0.5 -ml-px"> */}
                 <div
                   style={{ touchAction: "none" }}
                   onMouseDown={handleMouseDown}
                   onTouchMove={handleTouchMove}
-                  className="flex justify-center items-center text-black h-12 w-12 -ml-6 -mt-6 rounded-full bg-white absolute top-1/2 shadow-xl cursor-pointer"
+                  className="flex justify-center items-center h-12 w-12 -ml-6 -mt-6 rounded-full absolute top-1/2 bg-teal-300 text-teal-800 shadow-xl  cursor-e-resize"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

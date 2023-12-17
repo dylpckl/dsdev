@@ -14,10 +14,15 @@ module.exports = {
         fadeToRight: {
           '0%': { opacity: 1, transform: 'translateX(0)' },
           '100%': { opacity: 0, transform: 'translateX(100%)' },
+        },
+        growProgress: {
+          'from': { transform: 'scaleX(0)' },
+          'to': { transform: 'scaleX(1)' }
         }
       },
       animation: {
-        fadeToRight: 'fadeToRight .5s linear infinite'
+        fadeToRight: 'fadeToRight .5s linear infinite',
+        growProgress: 'growProgress auto linear'
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
