@@ -7,7 +7,7 @@ import TagGroup from "./TagGroup";
 
 import { Project } from "@/lib/constants/projects";
 
-function ProjectCard({ project }: { project: Project }) {
+function CastStudyCard({ project }: { project: Project }) {
   const [imageRevealFraq, setImageRevealFraq] = useState(0.25);
   const imageContainer = useRef<HTMLDivElement>(null);
 
@@ -57,7 +57,7 @@ function ProjectCard({ project }: { project: Project }) {
     //   href="/#"
     //   className="flex flex-col group/card w-full sm:gap-12 md:gap-8 height-[520px] group transition-all rounded-lg text-slate-200 bg-slate-700/50 drop-shadow-lg ease-out duration-700 overflow-clip"
     // >
-    <article className="flex flex-col group/card w-full sm:gap-12 md:gap-8 height-[520px] group transition-all rounded-lg text-slate-200 bg-slate-700/50 drop-shadow-lg ease-out duration-700 overflow-clip">
+    <article className="flex flex-col max-w-4xl mx-auto group/card w-full sm:gap-12 md:gap-8 height-[520px] group transition-all rounded-lg text-slate-200 bg-slate-700/50 shadow-xl ease-out duration-700 overflow-clip">
       <div className="w-full">
         {/* Image */}
         <div
@@ -94,7 +94,7 @@ function ProjectCard({ project }: { project: Project }) {
             style={{ left: `${imageRevealFraq * 100}%` }}
           >
             <div className="relative h-full">
-              <div className="absolute inset-y-0 bg-white w-0.5 -ml-px">
+              <div className="absolute inset-y-0 bg-teal-300 w-0.5 -ml-px">
                 {/* <div className="absolute inset-y-0 bg-red-300 w-0.5 -ml-px"> */}
                 <div
                   style={{ touchAction: "none" }}
@@ -135,10 +135,10 @@ function ProjectCard({ project }: { project: Project }) {
 
       {/* Footer */}
       <Link href="/#">
-        <div className="w-full bg-teal-300 text-teal-700 font-medium group/cta overflow-hidden h-0 group-hover:h-16 transition-all ease-in-out duration-500">
+        <div className="w-full bg-teal-300 text-teal-900 font-medium group/cta overflow-hidden h-0 group-hover:h-16 transition-all ease-in-out duration-500">
           {/* https://tailwindcss.com/docs/hover-focus-and-other-states#differentiating-nested-groups */}
           <div className=" flex w-full h-full items-center justify-center">
-            <p className="font-mono text-xl transition-colors ease-out group-hover/cta:text-teal-900 uppercase">
+            <p className="font-mono text-xl transition-colors ease-out group-hover/cta:text-teal-700 uppercase">
               view case study
             </p>
 
@@ -147,7 +147,7 @@ function ProjectCard({ project }: { project: Project }) {
               <span
                 className="absolute top-0 left-0 transition-all delay-150 duration-300
                opacity-1 translate-x-1/2 group-hover/cta:translate-x-[230%]
-                group-hover/cta:opacity-0 group-hover/cta:text-teal-900 motion-reduce:transform-none"
+                group-hover/cta:opacity-0 group-hover/cta:text-teal-700 motion-reduce:transform-none"
               >
                 -&gt;
               </span>
@@ -156,7 +156,7 @@ function ProjectCard({ project }: { project: Project }) {
               <span
                 className="absolute top-0 left-0 transition-all delay-150 duration-300
                opacity-0 -translate-x-8 group-hover/cta:translate-x-1/2
-                group-hover/cta:opacity-100  group-hover/cta:text-teal-900 motion-reduce:transform-none"
+                group-hover/cta:opacity-100  group-hover/cta:text-teal-700 motion-reduce:transform-none"
               >
                 -&gt;
               </span>
@@ -168,7 +168,7 @@ function ProjectCard({ project }: { project: Project }) {
   );
 }
 
-export default ProjectCard;
+export default CastStudyCard;
 
 // {/* <Link
 //     href="/#"
