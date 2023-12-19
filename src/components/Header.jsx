@@ -17,7 +17,7 @@ const NavItem = ({ href, children }) => {
       <Link
         href={href}
         className={clsx(
-          "relative block p-1 md:px-3 md:py-2 transition",
+          "relative block p-1 md:px-3 md:py-2 transition [text-shadow:_0_1px_0_rgb(0_0_0_/_70%)]",
           isActive
             ? "text-teal-500 dark:text-teal-400"
             : "hover:text-teal-500 dark:hover:text-teal-400"
@@ -150,7 +150,7 @@ export function Header() {
 
   return (
     <>
-      <header className="relative mx-auto w-full my-4 flex justify-between">
+      <header className="sticky top-0 z-20 py-5 mx-auto w-full backdrop-blur-md flex justify-between">
         <Link
           href="/"
           className="relative flex items-center"
