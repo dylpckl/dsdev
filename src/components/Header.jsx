@@ -144,6 +144,7 @@ export function Header() {
       </div>
 
       <DesktopNavigation className="pointer-events-auto hidden md:block" />
+
     </header>
   );
 }

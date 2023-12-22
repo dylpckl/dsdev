@@ -14,104 +14,82 @@ import { CASE_STUDIES } from "@/lib/constants/projects";
 
 export default function Home() {
   return (
+    // <div className="flex flex-col md:px-4">
     <>
-      <div className="flex flex-col md:px-4">
-        {/* Hero */}
-        <section className="flex flex-col gap-12 py-24 px-48 min-h-[30vh]">
-          <h1 className="text-4xl font-bold font-sans leading-relaxed text-teal-400">
-            {/* Hey there! I&apos;m Dylan, a <span className="font-serif">designer</span> & <span className="font-mono">{`<`}developer{`/>`}</span> based in New York. */}
-            Dylan Smith &mdash; Designer &amp; Developer
-          </h1>
-          {/* <div className="flex flex-col gap-6 text-slate-300 text-lg"> */}
-          <p className="font-sans text-xl text-slate-300 leading-relaxed tracking-tight ">
-            <span className="mt-4">
-              I specialize in creating design systems and advocating for the
-              best possible user experience.{" "}
-            </span>
-            I&apos;m currently leading the design effort at{" "}
-            <a
-              className="font-medium text-slate-100 hover:text-teal-300 hover:underline"
-              href="https://multidataservices.com/"
-              target="_blank"
-            >
-              MDS Property Management Software
-            </a>
-            .
+      {/* Hero */}
+      <section className="flex flex-col gap-12 py-24 px-48 min-h-[30vh]">
+        <h1 className="text-4xl font-bold font-sans leading-relaxed text-teal-400">
+
+          Dylan Smith &mdash; Designer &amp; Developer
+        </h1>
+        <p className="font-sans text-xl text-slate-300 leading-relaxed tracking-tight ">
+          <span className="mt-4">
+            I specialize in creating design systems and advocating for the best
+            possible user experience.{" "}
+          </span>
+          I&apos;m currently leading the design effort at{" "}
+          <a
+            className="font-medium text-slate-100 hover:text-teal-300 hover:underline"
+            href="https://multidataservices.com/"
+            target="_blank"
+          >
+            MDS Property Management Software
+          </a>
+          .
+        </p>
+        <div className="flex gap-5">
+          <button
+            type="button"
+            className="rounded-md bg-white w-full px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+          >
+            Design Case Studies
+          </button>
+
+          <button
+            type="button"
+            className="rounded-md bg-white  w-full px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+          >
+            Dev Projects
+          </button>
+
+          <button
+            type="button"
+            className="rounded-md bg-white w-full px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+          >
+            Read more about me
+          </button>
+        </div>
+
+        <div className="flex justify-between items-center text-slate-300">
+          <p className="font-mono text-sm">
+            Made with (lots) of coffee on Long Island, NY.
           </p>
           <div className="flex gap-5">
-            <button
-              type="button"
-              className="rounded-md bg-white w-full px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-            >
-              Design Case Studies
-            </button>
+            <SocialLink site="github" />
 
-            <button
-              type="button"
-              className="rounded-md bg-white  w-full px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-            >
-              Dev Projects
-            </button>
-
-            <button
-              type="button"
-              className="rounded-md bg-white w-full px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-            >
-              Read more about me
-            </button>
+            <SocialLink site="linkedin" />
           </div>
+        </div>
+      </section>
 
-          {/* <p>
-              Welcome to my tiny slice of the internet &mdash;{" "}
-              <Link
-                href="/about"
-                className="text-slate-100 font-medium underline hover:text-teal-300 transition-all hover:underline"
-              >
-                read more about me
-              </Link>{" "}
-              or{" "}
-              <Link
-                href="#case-studies"
-                className="text-slate-100 font-medium underline hover:text-teal-300 transition-all hover:underline"
-              >
-                check out my work below
-              </Link>
-              .
-            </p> */}
-          {/* <p>Made with (lots) of coffee on Long Island, NY.</p> */}
-          {/* </div> */}
-          <div className="flex justify-between items-center text-slate-300">
-            <p className="font-mono text-sm">
-              Made with (lots) of coffee on Long Island, NY.
-            </p>
-            <div className="flex gap-5">
-              <SocialLink site="github" />
+      {/* Case Studies */}
+      <section
+        id="case-studies"
+        className="flex relative mt-12 px-4"
+      >
+        <VerticalText text="case studies" />
+        <div className="mx-4 md:mx-16 lg:mx-24 xl:mx-32 flex flex-col gap-20 auto-rows-min w-full">
+          {CASE_STUDIES.map((caseStudy, idx) => (
+            <CastStudyCard
+              project={caseStudy}
+              key={caseStudy.title}
+            />
+          ))}
+        </div>
+      </section>
 
-              <SocialLink site="linkedin" />
-            </div>
-          </div>
-        </section>
-
-        {/* Case Studies */}
-        {/* <div className="snap-y scroll-py-52"> */}
-        <section
-          id="case-studies"
-          className="flex relative mt-12 px-4"
-        >
-          <VerticalText text="case studies" />
-          <div className="mx-4 md:mx-16 lg:mx-24 xl:mx-32 flex flex-col gap-20 auto-rows-min w-full">
-            {CASE_STUDIES.map((caseStudy, idx) => (
-              <CastStudyCard
-                project={caseStudy}
-                key={caseStudy.title}
-              />
-            ))}
-          </div>
-        </section>
-        {/* </div> */}
-
-        {/* Projects */}
-        <section
+      {/* Projects */}
+      {/* <section
           id="case-studies"
           className="flex relative mt-64 px-4 "
         >
@@ -124,8 +102,7 @@ export default function Home() {
               />
             ))}
           </div>
-        </section>
-      </div>
+        </section> */}
     </>
   );
 }

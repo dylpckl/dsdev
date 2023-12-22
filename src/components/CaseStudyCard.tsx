@@ -1,10 +1,13 @@
 "use client";
+// External
 import { useState, useRef, TouchEvent } from "react";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
+// Components
 import TagGroup from "./TagGroup";
 
+// Lib
 import { Project } from "@/lib/constants/projects";
 
 function CastStudyCard({ project }: { project: Project }) {
@@ -49,16 +52,13 @@ function CastStudyCard({ project }: { project: Project }) {
   };
 
   return (
-    // Image Comparison
-    // Title, desc, tags, CTA
-
     // hover:scale-105
     // <Link
     //   href="/#"
     //   className="flex flex-col group/card w-full sm:gap-12 md:gap-8 height-[520px] group transition-all rounded-lg text-slate-200 bg-slate-700/50 drop-shadow-lg ease-out duration-700 overflow-clip"
     // >
-    <article className="flex flex-col max-w-4xl mx-auto group/card w-full sm:gap-12 md:gap-8 height-[520px] group transition-all rounded-lg text-slate-200 bg-slate-700/50 shadow-xl ease-out duration-700 overflow-clip">
-      <div className="w-full">
+    <article className="flex flex-col max-w-4xl mx-auto group/card w-full group transition-all rounded-lg text-slate-200 bg-slate-700/50 shadow-xl ease-out duration-700 overflow-clip">
+      {/* <div className="w-full"> */}
         {/* Image */}
         <div
           ref={imageContainer}
@@ -122,16 +122,20 @@ function CastStudyCard({ project }: { project: Project }) {
           </div>
         </div>
 
-        <div className="p-6">
-          <h2 className="font-bold tracking-tight text-3xl text-zinc-800 dark:text-zinc-100">
-            {project.title}
-          </h2>
-          <p className="text-lg mt-6">{project.subtitle}</p>
+        <div className="relative p-6">
+          <h2 className="font-bold tracking-tight text-3xl">{project.title}</h2>
+          <p className="text-lg mt-6 z-10">{project.subtitle}</p>
           <div className="mt-6 flex justify-between">
             {project.tags && <TagGroup tags={project.tags} />}
           </div>
+          <span
+            id="progress-bar"
+            className="absolute top-1/2 text-9xl uppercase font-mono whitespace-nowrap text-slate-300/10 animate-growProgress select-none"
+          >
+            {project.title}
+          </span>
         </div>
-      </div>
+      {/* </div> */}
 
       {/* Footer */}
       <Link href="/#">
