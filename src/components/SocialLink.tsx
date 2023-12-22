@@ -53,9 +53,10 @@ export function Socials() {
   return (
     <div className="flex items-end gap-4">
       <SocialLink
-        href="https://github.com/dylpckl"
+        site="github"
+        // href="https://github.com/dylpckl"
         aria-label="Follow on GitHub"
-        icon={GitHubIcon}
+        // icon={GitHubIcon}
       />
       {/* <SocialLink
     href="https://dribbble.com/dylpckl"
@@ -63,9 +64,10 @@ export function Socials() {
     icon={DribbbleIcon}
   /> */}
       <SocialLink
-        href="https://www.linkedin.com/in/dylanjbsmith/"
+        site="linkedin"
+        // href="https://www.linkedin.com/in/dylanjbsmith/"
         aria-label="Follow on LinkedIn"
-        icon={LinkedInIcon}
+        // icon={LinkedInIcon}
       />
     </div>
   );

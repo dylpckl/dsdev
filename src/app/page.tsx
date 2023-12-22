@@ -8,53 +8,9 @@ import clsx from "clsx";
 import VerticalText from "@/components/VerticalText";
 import TagGroup from "@/components/TagGroup";
 import { Socials, SocialLink } from "@/components/SocialLink";
-import DividerWithText from "@/components/DividerWithText";
 import CastStudyCard from "@/components/CaseStudyCard";
 
-import { Project } from "@/lib/constants/projects";
-import { CASE_STUDIES, PROJECTS } from "@/lib/constants/projects";
-
-const Card = ({ project }: { project: Project }) => {
-  return (
-    <article className="">
-      <Link
-        href="/#"
-        className="flex group w-full sm:gap-12 md:gap-8 min-h-[400px] group transition-all scale-95 hover:scale-100  hover:ring-2 ring-teal-300 rounded-lg p-6 text-slate-200 bg-slate-700/50 drop-shadow-lg ease-out duration-200"
-      >
-        <Image
-          src={project.image}
-          alt="test"
-          // quality={100}
-          // height={600}
-          fill
-          // width={1000}
-          // sizes="100vw"
-          // objectFit="cover"
-          style={{
-            objectFit: "cover",
-          }}
-          className="rounded object-center -z-10"
-        />
-
-        {/* <div className="flex flex-col w-1/3">
-          <div className="z-10 flex gap-2 text-3xl">
-            <h2 className="font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
-              title
-            </h2>
-          </div>
-          <p className="text-lg mt-6">desc</p>
-          <div className="mt-6">
-          </div>
-          <div className="z-10 flex items-center mt-auto mr-2 transition group-hover:border-teal-300 motion-reduce:transition-none">
-            <span className="font-mono text-xl font-light group-hover:text-teal-300 uppercase">
-              coming soon
-            </span>
-          </div>
-        </div> */}
-      </Link>
-    </article>
-  );
-};
+import { CASE_STUDIES } from "@/lib/constants/projects";
 
 export default function Home() {
   return (
@@ -72,7 +28,7 @@ export default function Home() {
               I specialize in creating design systems and advocating for the
               best possible user experience.{" "}
             </span>
-            I'm currently leading the design effort at{" "}
+            I&apos;m currently leading the design effort at{" "}
             <a
               className="font-medium text-slate-100 hover:text-teal-300 hover:underline"
               href="https://multidataservices.com/"
@@ -140,7 +96,7 @@ export default function Home() {
         {/* <div className="snap-y scroll-py-52"> */}
         <section
           id="case-studies"
-          className="flex relative mt-12 px-4 snap-start"
+          className="flex relative mt-12 px-4"
         >
           <VerticalText text="case studies" />
           <div className="mx-4 md:mx-16 lg:mx-24 xl:mx-32 flex flex-col gap-20 auto-rows-min w-full">
@@ -157,7 +113,7 @@ export default function Home() {
         {/* Projects */}
         <section
           id="case-studies"
-          className="flex relative mt-64 px-4 snap-start"
+          className="flex relative mt-64 px-4 "
         >
           <VerticalText text="dev projects" />
           <div className="mx-4 md:mx-16 flex flex-col gap-20 auto-rows-min w-full">
