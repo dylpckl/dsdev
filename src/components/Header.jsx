@@ -2,11 +2,9 @@
 
 import { Fragment, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import { useTheme } from "next-themes";
 import clsx from "clsx";
 import Link from "next/link";
 import Image from "next/image";
-import avatarImage from "@/images/avatar.jpg";
 import logo from "@/images/ds-logo.png";
 
 const NavItem = ({ href, children }) => {
@@ -79,7 +77,8 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-20 py-5 px-10 w-full backdrop-blur-md flex justify-between">
+    // <header className="sticky top-0 z-20 py-5 px-10 w-full backdrop-blur-md flex justify-between">
+    <header className="py-5 px-10 w-full backdrop-blur-md flex justify-between">
       <Link
         href="/"
         className="relative flex items-center"

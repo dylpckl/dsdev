@@ -66,7 +66,6 @@ export default function Home() {
           </p>
           <div className="flex gap-5">
             <SocialLink site="github" />
-
             <SocialLink site="linkedin" />
           </div>
         </div>
@@ -89,7 +88,7 @@ export default function Home() {
       </section>
 
       {/* Projects */}
-      {/* <section
+      <section
           id="case-studies"
           className="flex relative mt-64 px-4 "
         >
@@ -102,7 +101,7 @@ export default function Home() {
               />
             ))}
           </div>
-        </section> */}
+        </section>
     </>
   );
 }
