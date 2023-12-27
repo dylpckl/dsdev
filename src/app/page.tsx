@@ -76,7 +76,7 @@ export default function Home() {
         id="case-studies"
         className="flex relative mt-12 px-4"
       >
-        <VerticalText text="case studies" />
+        <VerticalText caption="DSGN" text="case studies" />
         <div className="mx-4 md:mx-16 lg:mx-24 xl:mx-32 flex flex-col gap-20 auto-rows-min w-full">
           {CASE_STUDIES.map((caseStudy, idx) => (
             <CastStudyCard
@@ -92,7 +92,7 @@ export default function Home() {
           id="case-studies"
           className="flex relative mt-64 px-4 "
         >
-          <VerticalText text="dev projects" />
+          <VerticalText caption="DEV" text="projects" />
           <div className="mx-4 md:mx-16 flex flex-col gap-20 auto-rows-min w-full">
             {CASE_STUDIES.map((caseStudy, idx) => (
               <CastStudyCard
