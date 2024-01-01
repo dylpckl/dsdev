@@ -11,6 +11,7 @@ import { cn } from "@/lib/utils";
 import {
   WrenchScrewdriverIcon,
   CalendarDaysIcon,
+  UserIcon,
 } from "@heroicons/react/24/outline";
 
 // Components
@@ -67,9 +68,9 @@ const CaseStudySection = ({
 
 const OVERVIEW_STATS = [
   {
-    title: "tools",
+    title: "role",
     data: "Figma",
-    icon: WrenchScrewdriverIcon,
+    icon: UserIcon,
   },
   {
     title: "timeline",
@@ -113,7 +114,7 @@ export default function Page() {
         </div>
 
         <h1 className="text-7xl font-bold font-sans leading-relaxed text-teal-400">
-          Redesigning a 
+          Redesigning a
         </h1>
         <p className="text-2xl">A brief description of the feature</p>
         <div className="relative w-full h-full ">
@@ -133,12 +134,43 @@ export default function Page() {
         title="overview"
       >
         {/* Container */}
-        <div className="h-full w-full flex gap-12">
-          <div className=" flex flex-col gap-12 w-2/3 h-full">
-            <Card className="h-full">xxx</Card>
-            <Card className="h-full">xxx</Card>
+        <div className="h-full w-full flex flex-col gap-12">
+          <div className="flex gap-12">
+            {OVERVIEW_STATS.map(({ title, data, icon: Icon }) => (
+              <Card className="text-teal-300 tracking-widest text-sm">
+                <div className="flex gap-6 w-full items-center ">
+                  <Icon className="w-6 h-6" />
+                  <span className="font-mono font-semibold uppercase">
+                    {title} {" \\\\"}
+                  </span>
+                </div>
+
+                <p className="mt-6 text-slate-100">{data}</p>
+              </Card>
+            ))}
           </div>
-          <div className=" flex flex-col gap-12 w-1/3 h-full">
+
+          <div className="flex gap-12">
+            <Card><div><h1 className="text-6xl">objectives</h1></div></Card>
+            <Card></Card>
+          </div>
+        </div>
+      </CaseStudySection>
+
+      {/* .02 */}
+      <CaseStudySection
+        number={2}
+        title="test"
+      >
+        {/* Container */}
+        <div className="bg-gray-800 h-full w-full"></div>
+      </CaseStudySection>
+    </>
+  );
+}
+
+{
+  /* <div className="flex gap-12 w-1/3 h-full">
             {OVERVIEW_STATS.map(({ title, data, icon: Icon }) => (
               <Card className="bg-transparent backdrop-blur-none">
                 <div className="flex gap-6 w-full items-center text-teal-300 tracking-widest text-sm">
@@ -151,11 +183,7 @@ export default function Page() {
                 <p className="mt-6 text-slate-100">{data}</p>
               </Card>
             ))}
-          </div>
-        </div>
-      </CaseStudySection>
-    </>
-  );
+          </div> */
 }
 
 {

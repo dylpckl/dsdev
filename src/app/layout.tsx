@@ -12,7 +12,7 @@ import "./globals.css";
 // Components
 import { Header } from "@/components/Header";
 import Footer from "@/components/Footer";
-import mountains from "@/images/mountain.jpg";
+import Mountains from "public/images/mountain.jpg";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const jetbrains_mono = JetBrains_Mono({
@@ -56,7 +56,7 @@ export default async function RootLayout({
       >
         {/* <div className="flex flex-col mx-auto min-h-screen h-screen px-4 overflow-y-auto"> */}
         <Image
-          src={mountains}
+          src={Mountains}
           alt="mountains"
           placeholder="blur"
           quality={100}

@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import Link from "next/link";
 import Image from "next/image";
-import logo from "@/images/ds-logo.png";
+import Logo from "public/images/ds-logo.png";
 
 const NavItem = ({ href, children }) => {
   let isActive = usePathname().includes(href);
@@ -85,7 +85,7 @@ export function Header() {
       >
         {/* <Avatar /> */}
         <Image
-          src={logo}
+          src={Logo}
           alt="logo"
           height={48}
         />
@@ -143,7 +143,6 @@ export function Header() {
       </div>
 
       <DesktopNavigation className="pointer-events-auto hidden md:block" />
-
     </header>
   );
 }

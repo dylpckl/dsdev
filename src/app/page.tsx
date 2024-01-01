@@ -10,16 +10,16 @@ import TagGroup from "@/components/TagGroup";
 import { Socials, SocialLink } from "@/components/SocialLink";
 import CastStudyCard from "@/components/CaseStudyCard";
 
-import { CASE_STUDIES } from "@/lib/constants/projects";
+// import { CASE_STUDIES } from "@/lib/constants/projects";
+import { CASE_STUDIES } from "@/lib/data";
+// import { data } from "/data.json";
 
 export default function Home() {
   return (
-    // <div className="flex flex-col md:px-4">
     <>
       {/* Hero */}
       <section className="flex flex-col gap-12 py-24 px-48 min-h-[30vh]">
         <h1 className="text-4xl font-bold font-sans leading-relaxed text-teal-400">
-
           Dylan Smith &mdash; Designer &amp; Developer
         </h1>
         <p className="font-sans text-xl text-slate-300 leading-relaxed tracking-tight ">
@@ -76,11 +76,14 @@ export default function Home() {
         id="case-studies"
         className="flex relative mt-12 px-4"
       >
-        <VerticalText caption="DSGN" text="case studies" />
+        <VerticalText
+          caption="DSGN"
+          text="case studies"
+        />
         <div className="mx-4 md:mx-16 lg:mx-24 xl:mx-32 flex flex-col gap-20 auto-rows-min w-full">
-          {CASE_STUDIES.map((caseStudy, idx) => (
+          {CASE_STUDIES.map((caseStudy) => (
             <CastStudyCard
-              project={caseStudy}
+              caseStudy={caseStudy}
               key={caseStudy.title}
             />
           ))}
@@ -88,20 +91,23 @@ export default function Home() {
       </section>
 
       {/* Projects */}
-      <section
-          id="case-studies"
-          className="flex relative mt-64 px-4 "
-        >
-          <VerticalText caption="DEV" text="projects" />
-          <div className="mx-4 md:mx-16 flex flex-col gap-20 auto-rows-min w-full">
-            {CASE_STUDIES.map((caseStudy, idx) => (
-              <CastStudyCard
-                project={caseStudy}
-                key={caseStudy.title}
-              />
-            ))}
-          </div>
-        </section>
+      {/* <section
+        id="case-studies"
+        className="flex relative mt-64 px-4 "
+      >
+        <VerticalText
+          caption="DEV"
+          text="projects"
+        />
+        <div className="mx-4 md:mx-16 flex flex-col gap-20 auto-rows-min w-full">
+          {CASE_STUDIES.map((caseStudy, idx) => (
+            <CastStudyCard
+              project={caseStudy}
+              key={caseStudy.title}
+            />
+          ))}
+        </div>
+      </section> */}
     </>
   );
 }
