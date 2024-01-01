@@ -12,7 +12,7 @@ import "./globals.css";
 // Components
 import { Header } from "@/components/Header";
 import Footer from "@/components/Footer";
-import Mountains from "public/images/mountain.jpg";
+import Mountains from "/public/images/mountain.jpg";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const jetbrains_mono = JetBrains_Mono({

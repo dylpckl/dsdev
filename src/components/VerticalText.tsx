@@ -5,16 +5,27 @@ type VerticalTextProps = {
 
 export default function VerticalText({ caption, text }: VerticalTextProps) {
   const Caption = () => {
-    if (caption && typeof caption === "number") {
-      return (
-        <span className="text-teal-300/60 text-xl">
-          {".0"}
-          {caption}
-        </span>
-      );
-    } else {
-      return <span className="text-teal-300/60 text-xl ml-2">{caption}</span>;
-    }
+    const captionIsNumber = typeof caption === "number";
+
+    return (
+      <span
+        className={`text-teal-300/60 text-xl mb-6 ${captionIsNumber ? "" : "ml-2"}`}
+      >
+        {captionIsNumber && ".0"}
+        {caption}
+      </span>
+    );
+
+    // if (caption && typeof caption === "number") {
+    //   return (
+    //     <span className="text-teal-300/60 text-xl">
+    //       {".0"}
+    //       {caption}
+    //     </span>
+    //   );
+    // } else {
+    //   return <span className="text-teal-300/60 text-xl ml-2">{caption}</span>;
+    // }
   };
 
   return (
@@ -28,7 +39,7 @@ export default function VerticalText({ caption, text }: VerticalTextProps) {
       >
         {caption ? <Caption /> : null}
         <span
-          className="mt-6"
+          className=""
           style={{ writingMode: "vertical-lr" }}
         >
           {text}

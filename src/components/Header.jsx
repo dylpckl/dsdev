@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import Link from "next/link";
 import Image from "next/image";
-import Logo from "public/images/ds-logo.png";
+import Logo from "/public/images/ds-logo.png";
 
 const NavItem = ({ href, children }) => {
   let isActive = usePathname().includes(href);
@@ -78,7 +78,7 @@ export function Header() {
 
   return (
     // <header className="sticky top-0 z-20 py-5 px-10 w-full backdrop-blur-md flex justify-between">
-    <header className="py-5 px-10 w-full backdrop-blur-md flex justify-between">
+    <header className="py-5 px-10 w-full flex justify-between">
       <Link
         href="/"
         className="relative flex items-center"

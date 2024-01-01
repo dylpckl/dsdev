@@ -8,11 +8,11 @@ import clsx from "clsx";
 import VerticalText from "@/components/VerticalText";
 import TagGroup from "@/components/TagGroup";
 import { Socials, SocialLink } from "@/components/SocialLink";
-import CastStudyCard from "@/components/CaseStudyCard";
+import CaseStudyCard from "@/components/CaseStudyCard";
+import DividerWithText from "@/components/DividerWithText";
 
-// import { CASE_STUDIES } from "@/lib/constants/projects";
+// Data
 import { CASE_STUDIES } from "@/lib/data";
-// import { data } from "/data.json";
 
 export default function Home() {
   return (
@@ -77,15 +77,20 @@ export default function Home() {
         className="flex relative mt-12 px-4"
       >
         <VerticalText
-          caption="DSGN"
+          // caption="DSGN"
           text="case studies"
         />
-        <div className="mx-4 md:mx-16 lg:mx-24 xl:mx-32 flex flex-col gap-20 auto-rows-min w-full">
-          {CASE_STUDIES.map((caseStudy) => (
-            <CastStudyCard
-              caseStudy={caseStudy}
-              key={caseStudy.title}
-            />
+        <div className="mx-4 md:mx-16 lg:mx-24 xl:mx-32 flex flex-col gap-20 w-full">
+          {CASE_STUDIES.map((caseStudy, index) => (
+            <>
+              <div className="flex flex-col">
+                <DividerWithText text={`dsgn.0${index + 1}`} />
+                <CaseStudyCard
+                  caseStudy={caseStudy}
+                  key={caseStudy.title}
+                />
+              </div>
+            </>
           ))}
         </div>
       </section>

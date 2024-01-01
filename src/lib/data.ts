@@ -6,26 +6,22 @@ import RapidPay from "@/images/RapidPay - Exceptionv5.png";
 import steamparty from "@/images/steamparty.png";
 import hubermandb from "@/images/huberman-db.png";
 
-import Explorer from '/projects/dylansmithdev/public/projects/bank-rec/Explorer.png'
-import Spire from '/projects/dylansmithdev/public/projects/bank-rec/Spire.png'
+import Explorer from "/projects/dylansmithdev/public/projects/bank-rec/Explorer.png";
+import Spire from "/projects/dylansmithdev/public/projects/bank-rec/Spire.png";
 
 // Bank Rec
-import BankRec_Explorer from 'public/images/bank-rec/Explorer.png'
-import BankRec_Spire from 'public/images/bank-rec/Spire.png'
-
-
-
+import BankRec_Explorer from "/public/images/bank-rec/Explorer.png";
+import BankRec_Spire from "/public/images/bank-rec/Spire.png";
 
 export type CaseStudy = {
   title: string;
   subtitle: string;
-  link?: string;
+  slug: string;
   status: "deployed" | "proof of concept" | "coming soon" | "in development";
   explorerImage: StaticImageData;
   spireImage: StaticImageData;
   tags: string[];
 };
-
 
 // export type Project = {
 //   title: string;
@@ -37,7 +33,6 @@ export type CaseStudy = {
 //   tags: string[];
 // };
 
-
 // export type Project = {
 //   title: string;
 //   subtitle: string;
@@ -47,12 +42,12 @@ export type CaseStudy = {
 //   tags: string[];
 // };
 
-
 export const CASE_STUDIES: CaseStudy[] = [
   {
     title: "Bank Reconcilation",
     subtitle:
       "Redesigning the experience of entering tenant payments into property management software.",
+    slug: "/bank-rec",
     status: "coming soon",
     explorerImage: BankRec_Explorer,
     spireImage: BankRec_Spire,
@@ -63,7 +58,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   //   subtitle:
   //     "Redesigning the experience of entering tenant payments into property management software.",
   //   status: "coming soon",
-    
+
   //   explorerImage: SelectTenantsMonthlyBilling,
   //   spireImage: SelectTenantsMonthlyBilling,
   //   tags: ["ui design", "case study", "form design", "segmented control"],
@@ -85,7 +80,6 @@ export const CASE_STUDIES: CaseStudy[] = [
   // },
 ];
 
-
 // export const CASE_STUDIES: Project[] = [
 //   {
 //     title: "Bank Reconcilation",
@@ -101,7 +95,7 @@ export const CASE_STUDIES: CaseStudy[] = [
 //     subtitle:
 //       "Redesigning the experience of entering tenant payments into property management software.",
 //     status: "coming soon",
-    
+
 //     explorerImage: SelectTenantsMonthlyBilling,
 //     spireImage: SelectTenantsMonthlyBilling,
 //     tags: ["ui design", "case study", "form design", "segmented control"],

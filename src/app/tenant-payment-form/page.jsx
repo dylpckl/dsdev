@@ -39,9 +39,8 @@ const OverviewCard = ({ content }) => {
 export default function Page() {
   return (
     <article className="flex flex-col font-sans dark:text-zinc-100 px-4">
-
-    <div id="progress-bar" ></div>
-    {/* <div id="progress-bar" className="fixed left-0 top-0 w-full h-0.5 origin-top-left animate-growProgress"></div> */}
+      {/* <div id="progress-bar" ></div> */}
+      {/* <div id="progress-bar" className="fixed left-0 top-0 w-full h-0.5 origin-top-left animate-growProgress"></div> */}
 
       {/* Hero */}
       <section className="p-12">
