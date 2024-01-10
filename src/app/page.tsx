@@ -10,6 +10,7 @@ import TagGroup from "@/components/TagGroup";
 import { Socials, SocialLink } from "@/components/SocialLink";
 import CaseStudyCard from "@/components/CaseStudyCard";
 import DividerWithText from "@/components/DividerWithText";
+import ScrollingCarousel from "@/components/ScrollingCarousel";
 
 // Data
 import { CASE_STUDIES } from "@/lib/data";
@@ -22,7 +23,7 @@ export default function Home() {
         <h1 className="text-4xl font-bold font-sans leading-relaxed text-teal-400">
           Dylan Smith &mdash; Designer &amp; Developer
         </h1>
-        <p className="font-sans text-xl text-slate-300 leading-relaxed tracking-tight ">
+        <p className="font-sans text-xl text-slate-200">
           <span className="mt-4">
             I specialize in creating design systems and advocating for the best
             possible user experience.{" "}
@@ -62,13 +63,21 @@ export default function Home() {
 
         <div className="flex justify-between items-center text-slate-300">
           <p className="font-mono text-sm">
-            Made with (lots) of coffee on Long Island, NY.
+            Made with lots of coffee on Long Island, NY.
           </p>
           <div className="flex gap-5">
             <SocialLink site="github" />
             <SocialLink site="linkedin" />
           </div>
         </div>
+      </section>
+
+      <section className="flex relative mt-12 px-4">
+        {" "}
+        <VerticalText text="design system" />
+        check out my design system!!
+        <ScrollingCarousel />
+        https://twitter.com/steventey
       </section>
 
       {/* Case Studies */}
@@ -80,17 +89,18 @@ export default function Home() {
           // caption="DSGN"
           text="case studies"
         />
-        <div className="mx-4 md:mx-16 lg:mx-24 xl:mx-32 flex flex-col gap-20 w-full">
+        <div className="mx-4 md:mx-16 lg:mx-24 xl:mx-32 flex flex-col gap-40 w-full">
           {CASE_STUDIES.map((caseStudy, index) => (
-            <>
-              <div className="flex flex-col">
-                <DividerWithText text={`dsgn.0${index + 1}`} />
-                <CaseStudyCard
-                  caseStudy={caseStudy}
-                  key={caseStudy.title}
-                />
-              </div>
-            </>
+            <div
+              key={index}
+              className="flex flex-col gap-6"
+            >
+              <DividerWithText text={`dsgn.0${index + 1}`} />
+              <CaseStudyCard
+                caseStudy={caseStudy}
+                key={caseStudy.title}
+              />
+            </div>
           ))}
         </div>
       </section>

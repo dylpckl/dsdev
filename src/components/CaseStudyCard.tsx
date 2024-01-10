@@ -115,7 +115,7 @@ function CaseStudyCard({ caseStudy }: { caseStudy: CaseStudy }) {
         </div>
       </div>
 
-      <div className="relative p-6">
+      <div className="relative px-6 py-12">
         <h2 className="font-bold tracking-tight text-3xl">{caseStudy.title}</h2>
         <p className="text-lg mt-6 z-10">{caseStudy.subtitle}</p>
         {/* <div className="mt-6 flex justify-between">

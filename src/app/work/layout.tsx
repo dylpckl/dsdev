@@ -1,12 +1,7 @@
-export default function WorkLayout({
+export default function CaseStudyLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <section>
-      stuff
-      {children}
-    </section>
-  );
+  return <div className="mx-6">{children}</div>;
 }

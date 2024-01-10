@@ -47,37 +47,39 @@ export const CASE_STUDIES: CaseStudy[] = [
     title: "Bank Reconcilation",
     subtitle:
       "Redesigning the experience of entering tenant payments into property management software.",
-    slug: "/bank-rec",
+    slug: "/work/bank-rec",
     status: "coming soon",
     explorerImage: BankRec_Explorer,
     spireImage: BankRec_Spire,
     tags: ["ui design", "case study", "form design", "segmented control"],
   },
-  // {
-  //   title: "Select Tenants by Monthly Billing",
-  //   subtitle:
-  //     "Redesigning the experience of entering tenant payments into property management software.",
-  //   status: "coming soon",
+  {
+    title: "Select Tenants by Monthly Billing",
+    subtitle:
+      "Redesigning the experience of entering tenant payments into property management software.",
+    slug: "/work/bank-rec",
+    status: "coming soon",
 
-  //   explorerImage: SelectTenantsMonthlyBilling,
-  //   spireImage: SelectTenantsMonthlyBilling,
-  //   tags: ["ui design", "case study", "form design", "segmented control"],
-  // },
-  // {
-  //   title: "RapidPay",
-  //   subtitle:
-  //     "Streamlining a complex form used to validate invoices scanned by OCR software.",
-  //   status: "coming soon",
-  //   explorerImage: RapidPay,
-  //   spireImage: RapidPay,
-  //   tags: [
-  //     "ui design",
-  //     "case study",
-  //     "user journey",
-  //     "form design",
-  //     "accordion",
-  //   ],
-  // },
+    explorerImage: BankRec_Explorer,
+    spireImage: BankRec_Spire,
+    tags: ["ui design", "case study", "form design", "segmented control"],
+  },
+  {
+    title: "RapidPay",
+    subtitle:
+      "Streamlining a complex form used to validate invoices scanned by OCR software.",
+    slug: "/work/bank-rec",
+    status: "coming soon",
+    explorerImage: BankRec_Explorer,
+    spireImage: BankRec_Spire,
+    tags: [
+      "ui design",
+      "case study",
+      "user journey",
+      "form design",
+      "accordion",
+    ],
+  },
 ];
 
 // export const CASE_STUDIES: Project[] = [

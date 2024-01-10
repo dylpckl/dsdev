@@ -11,19 +11,19 @@ const NavItem = ({ href, children }) => {
   let isActive = usePathname().includes(href);
 
   return (
-    <li className="font-mono text-sm">
+    <li className="font-mono text-sm text-slate-200">
       <Link
         href={href}
         className={clsx(
-          "relative block p-1 md:px-3 md:py-2 transition [text-shadow:_0_1px_0_rgb(0_0_0_/_70%)]",
+          "relative block p-1 md:px-3 md:py-2 transition",
           isActive
-            ? "text-teal-500 dark:text-teal-400"
-            : "hover:text-teal-500 dark:hover:text-teal-400"
+            ? "text-teal-300"
+            : "hover:text-teal-300"
         )}
       >
         {children}
         {isActive && (
-          <span className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-teal-500/0 via-teal-500/40 to-teal-500/0 dark:from-teal-400/0 dark:via-teal-400/40 dark:to-teal-400/0" />
+          <span className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-teal-500/0 via-teal-500/40 to-teal-500/0" />
         )}
       </Link>
     </li>
@@ -51,8 +51,8 @@ const DesktopNavigation = (props) => {
   return (
     <nav {...props}>
       <ul className="flex gap-2 items-center md:gap-3">
-        <NavItem href="/#case-studies">work</NavItem>
-        <span className="text-slate-400 text-xs">{"//"}</span>
+        {/* <NavItem href="/#case-studies">work</NavItem>
+        <span className="text-slate-400 text-xs">{"//"}</span> */}
         {/* <NavItem href="/journal">journal</NavItem>
         <span className="text-slate-400 text-xs">{"//"}</span> */}
         <NavItem href="/about">about</NavItem>
@@ -60,7 +60,7 @@ const DesktopNavigation = (props) => {
         <a
           href="/dylan-smith-resume.pdf"
           target="_blank"
-          className="hover:text-teal-500 dark:hover:text-teal-400 p-1 md:px-3 md:py-2 font-mono text-sm"
+          className="hover:text-teal-300 text-slate-200 p-1 md:px-3 md:py-2 font-mono text-sm"
         >
           resume
         </a>
@@ -89,7 +89,7 @@ export function Header() {
           alt="logo"
           height={48}
         />
-        <span className="ml-4 font-mono text-slate-400">Dylan Smith</span>
+        <span className="ml-8 font-mono text-2xl text-slate-200">Dylan Smith</span>
       </Link>
 
       {/* Mobile Nav */}
