@@ -2,6 +2,7 @@
 
 // External
 import Image from "next/image";
+import { StaticImageData } from "next/image";
 import Link from "next/link";
 
 // Utils
@@ -20,28 +21,49 @@ import VerticalText from "@/components/VerticalText";
 import DividerWithText from "@/components/DividerWithText";
 import { ReactNode } from "react";
 import TagGroup from "@/components/TagGroup";
+import Card from "@/components/Card";
 
 // Images
-import image1 from "/public/case-studies/bank-rec/spire_bank rec.png";
+import image1 from "/public/case-studies/bank-rec/spire.png";
 import Legacy from "/public/case-studies/bank-rec/legacy.png";
 
-type CardProps = {
-  children: ReactNode;
-  className?: string;
-};
+// type CardProps = {
+//   children: ReactNode;
+//   className?: string;
+// };
 
-const Card = ({ className, children }: CardProps) => {
-  return (
-    <div
-      className={cn(
-        "bg-slate-700/60 backdrop-blur-sm w-full p-6 rounded-xl",
-        className
-      )}
-    >
-      {children}
-    </div>
-  );
-};
+import { CaseStudy, CASE_STUDIES } from "@/lib/data";
+
+// const Card = ({ className, children }: CardProps) => {
+//   return (
+//     <div
+//       className={cn(
+//         "bg-slate-700/80 text-slate-100 backdrop-blur-sm w-full p-6 rounded-lg",
+//         className
+//       )}
+//     >
+//       {children}
+//     </div>
+//   );
+// };
+
+const OVERVIEW_STATS = [
+  {
+    title: "roles",
+    data: "Figma",
+    icon: UserIcon,
+  },
+  {
+    title: "timeline",
+    data: "1 week",
+    icon: CalendarDaysIcon,
+  },
+  {
+    title: "tools & methods",
+    data: "Figma",
+    icon: WrenchScrewdriverIcon,
+  },
+];
 
 const CaseStudySection = ({
   number,
@@ -55,7 +77,7 @@ const CaseStudySection = ({
   return (
     <section
       id="case-studies"
-      className="min-h-[90vh] mt-24 flex relative gap-12 py-12"
+      className="mt-24 max-w-7xl mx-auto flex relative gap-12 py-12"
       // className="h-[90vh] mt-24 flex relative gap-8 py-12 snap-center snap-always"
     >
       <VerticalText
@@ -69,23 +91,9 @@ const CaseStudySection = ({
   );
 };
 
-const OVERVIEW_STATS = [
-  {
-    title: "role",
-    data: "Figma",
-    icon: UserIcon,
-  },
-  {
-    title: "timeline",
-    data: "1 week",
-    icon: CalendarDaysIcon,
-  },
-  {
-    title: "tools",
-    data: "Figma",
-    icon: WrenchScrewdriverIcon,
-  },
-];
+// const caseStudy = CASE_STUDIES.find(
+//   (caseStudy) => caseStudy.slug === "/work/bank-rec"
+// );
 
 export default function Page() {
   return (
@@ -111,14 +119,14 @@ export default function Page() {
           </Link>
           <div className="font-mono text-sm uppercase">
             <span className="font-semibold">DSGN 01 {" \\\\"}</span>
-            <span className="ml-4">Bank Reconcilation</span>
+            <span className="ml-4">Bank Reconcillation</span>
           </div>
         </div>
 
         {/* Headline */}
         <div className="mt-12 max-w-5xl">
           <h1 className="text-5xl capitalize font-bold font-sans leading-relaxed text-teal-400">
-            Redesigning an accountant's critical monthly task
+            Redesigning an accountant&apos;s critical monthly task.
           </h1>
           {/* <p className="text-xl my-12">The Bank Reconciliation feature </p> */}
         </div>
@@ -128,7 +136,6 @@ export default function Page() {
           <Image
             src={image1}
             alt="xx"
-            
             style={{ objectFit: "cover", objectPosition: "top" }}
             className="rounded-lg"
           />
@@ -146,7 +153,7 @@ export default function Page() {
             {OVERVIEW_STATS.map(({ title, data, icon: Icon }, index) => (
               <Card
                 key={index}
-                className="text-teal-300 tracking-widest text-sm bg-slate-700/60 backdrop-blur-sm"
+                className="text-teal-300 tracking-widest text-sm"
               >
                 <div className="flex gap-6 w-full items-center ">
                   <Icon className="w-6 h-6" />
@@ -161,7 +168,7 @@ export default function Page() {
           </div>
 
           <div className="flex gap-12">
-            <Card className="text-teal-300  bg-slate-700/60 backdrop-blur-sm">
+            <Card className="text-teal-300">
               <div className="flex gap-6 w-full items-center ">
                 <ClipboardDocumentCheckIcon className="w-6 h-6" />
                 <span className="font-mono font-semibold uppercase tracking-widest text-sm">
@@ -171,7 +178,7 @@ export default function Page() {
 
               <p className="mt-6 text-lg font-sans font-normal text-slate-100">
                 The Bank Reconciliation feature is a key part of a trustworthy
-                accounting system. U
+                accounting system.
               </p>
               <ul>
                 <li>page header</li>
@@ -213,13 +220,15 @@ export default function Page() {
           </Card>
           <div className="w-full flex gap-8">
             <Card className="w-1/3">
-              some cards are full width - some are side by side
+              The first order of business is to take an audit the existing
+              functionality
             </Card>
             <Card className="w-2/3 p-0">
               {" "}
               <Image
                 src={Legacy}
                 alt="xx"
+                quality={100}
                 // style={{ objectFit: "cover", objectPosition: "top" }}
                 className="rounded-lg"
               />

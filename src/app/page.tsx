@@ -9,18 +9,19 @@ import VerticalText from "@/components/VerticalText";
 import TagGroup from "@/components/TagGroup";
 import { Socials, SocialLink } from "@/components/SocialLink";
 import CaseStudyCard from "@/components/CaseStudyCard";
+import ProjectCard from "@/components/ProjectCard";
 import DividerWithText from "@/components/DividerWithText";
 import ScrollingCarousel from "@/components/ScrollingCarousel";
 
 // Data
-import { CASE_STUDIES } from "@/lib/data";
+import { CASE_STUDIES, PROJECTS } from "@/lib/data";
 
 export default function Home() {
   return (
     <>
       {/* Hero */}
       <section className="flex flex-col gap-12 py-24 px-48 min-h-[30vh]">
-        <h1 className="text-4xl font-bold font-sans leading-relaxed text-teal-400">
+        <h1 className="text-5xl font-bold font-sans leading-relaxed tracking-wide text-teal-400">
           Dylan Smith &mdash; Designer &amp; Developer
         </h1>
         <p className="font-sans text-xl text-slate-200">
@@ -72,13 +73,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="flex relative mt-12 px-4">
+      {/* Design System */}
+      {/* <section className="flex relative mt-12 px-4">
         {" "}
         <VerticalText text="design system" />
         check out my design system!!
         <ScrollingCarousel />
         https://twitter.com/steventey
-      </section>
+      </section> */}
 
       {/* Case Studies */}
       <section
@@ -99,6 +101,31 @@ export default function Home() {
               <CaseStudyCard
                 caseStudy={caseStudy}
                 key={caseStudy.title}
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Projects */}
+      <section
+        id="case-studies"
+        className="flex relative mt-64 px-4"
+      >
+        <VerticalText
+          // caption="DSGN"
+          text="projects"
+        />
+        <div className="mx-4 md:mx-16 lg:mx-24 xl:mx-32 flex flex-col gap-32 w-full">
+          {PROJECTS.map((project, index) => (
+            <div
+              key={index}
+              className="flex flex-col gap-6"
+            >
+              <DividerWithText text={`dev.0${index + 1}`} />
+              <ProjectCard
+                project={project}
+                key={project.title}
               />
             </div>
           ))}
