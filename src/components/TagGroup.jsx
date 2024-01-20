@@ -8,7 +8,7 @@ export default function TagGroup({ tags }) {
             key={tag}
             className=""
           >
-            <span className="rounded-full px-3 py-1 bg-teal-400/10 text-xs font-medium leading-5 text-teal-300 capitalize">
+            <span className="rounded-full px-3 py-1 bg-teal-400/10 text-xs font-medium leading-5 text-teal-300">
               {tag}
             </span>
           </li>

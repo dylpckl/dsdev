@@ -10,6 +10,30 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      keyframes: {
+        fadeToRight: {
+          '0%': { opacity: 1, transform: 'translateX(0)' },
+          '100%': { opacity: 0, transform: 'translateX(100%)' },
+        },
+        growProgress: {
+          'from': { transform: 'scaleX(0)' },
+          'to': { transform: 'scaleX(1)' }
+        },
+        skewScroll: {
+          '0%': {
+            transform: 'rotatex(20deg) rotateZ(-20deg) skewX(20deg) translateZ(0) translateY(0)',
+          },
+          '100%': {
+            transform:
+              'rotatex(20deg) rotateZ(-20deg) skewX(20deg) translateZ(0) translateY(-100%)',
+          },
+        },
+      },
+      animation: {
+        fadeToRight: 'fadeToRight .5s linear infinite',
+        growProgress: 'growProgress auto linear',
+        skewScroll: 'skewScroll 20s linear infinite',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':

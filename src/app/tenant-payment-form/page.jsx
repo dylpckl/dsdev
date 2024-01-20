@@ -6,6 +6,8 @@ import legacy from "../../../public/images/image 4.png";
 import Callout from "@/components/Callout";
 import DividerWithText from "@/components/DividerWithText";
 
+import "./style.css";
+
 const OVERVIEW = [
   {
     headline: "headline",
@@ -37,6 +39,9 @@ const OverviewCard = ({ content }) => {
 export default function Page() {
   return (
     <article className="flex flex-col font-sans dark:text-zinc-100 px-4">
+      {/* <div id="progress-bar" ></div> */}
+      {/* <div id="progress-bar" className="fixed left-0 top-0 w-full h-0.5 origin-top-left animate-growProgress"></div> */}
+
       {/* Hero */}
       <section className="p-12">
         <h1 className="text-7xl font-bold tracking-tight capitalize">
