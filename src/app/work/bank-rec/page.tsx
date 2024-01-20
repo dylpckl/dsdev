@@ -76,8 +76,7 @@ const CaseStudySection = ({
 }) => {
   return (
     <section
-      id="case-studies"
-      className="mt-24 max-w-7xl mx-auto flex relative gap-12 py-12"
+      className="mt-24 max-w-7xl mx-auto flex relative gap-12 py-12 snap-start"
       // className="h-[90vh] mt-24 flex relative gap-8 py-12 snap-center snap-always"
     >
       <VerticalText
@@ -235,6 +234,14 @@ export default function Page() {
             </Card>
           </div>
         </div>
+      </CaseStudySection>
+
+      {/* Final */}
+      <CaseStudySection
+        number={3}
+        title="final prototype"
+      >
+        xx
       </CaseStudySection>
     </>
   );

@@ -12,64 +12,73 @@ import CaseStudyCard from "@/components/CaseStudyCard";
 import ProjectCard from "@/components/ProjectCard";
 import DividerWithText from "@/components/DividerWithText";
 import ScrollingCarousel from "@/components/ScrollingCarousel";
+import Typewriter from "@/components/Typewriter";
+
+import { EnvelopeIcon } from "@heroicons/react/24/outline";
 
 // Data
 import { CASE_STUDIES, PROJECTS } from "@/lib/data";
+
+const Test = ({ text }: { text: string }) => {
+  return (
+    <div className="flex gap-5 font-mono uppercase">
+      <span className="flex justify-between w-1/3 font-semibold">
+        <span>{text}</span>
+        <span>{"\\\\"}</span>
+      </span>
+      <span className="w-2/3">case studies</span>
+    </div>
+  );
+};
 
 export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="flex flex-col gap-12 py-24 px-48 min-h-[30vh]">
+      <section className="flex flex-col gap-12 py-24 px-48 min-h-[80vh] text-slate-100">
         <h1 className="text-5xl font-bold font-sans leading-relaxed tracking-wide text-teal-400">
-          Dylan Smith &mdash; Designer &amp; Developer
+          Hey, I&apos;m Dylan.
         </h1>
-        <p className="font-sans text-xl text-slate-200">
-          <span className="mt-4">
+        {/* <Typewriter
+          text="designer"
+          delay={100}
+        /> */}
+        <p className="flex flex-col gap-4 font-sans text-xl text-slate-200">
+          <span className="">
             I specialize in creating design systems and advocating for the best
             possible user experience.{" "}
           </span>
-          I&apos;m currently leading the design effort at{" "}
-          <a
-            className="font-medium text-slate-100 hover:text-teal-300 hover:underline"
-            href="https://multidataservices.com/"
-            target="_blank"
-          >
-            MDS Property Management Software
-          </a>
-          .
+
+          <span className="">
+            I&apos;m currently leading the design effort at{" "}
+            <a
+              href="https://multidataservices.com/"
+              target="_blank"
+              className="group relative underline hover:decoration-teal-900"
+            >
+              <span className="relative z-20 group-hover:text-teal-900 ">
+                MDS Property Management Software
+              </span>
+              {"."}
+              <span className="absolute z-10 inset-0 bg-teal-300 w-0 group-hover:w-full group-hover:transition-all duration-500 ease-in-out"></span>
+            </a>
+          </span>
         </p>
-        <div className="flex gap-5">
-          <button
-            type="button"
-            className="rounded-md bg-white w-full px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-          >
-            Design Case Studies
-          </button>
-
-          <button
-            type="button"
-            className="rounded-md bg-white  w-full px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-          >
-            Dev Projects
-          </button>
-
-          <button
-            type="button"
-            className="rounded-md bg-white w-full px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-          >
-            Read more about me
-          </button>
-        </div>
-
-        <div className="flex justify-between items-center text-slate-300">
-          <p className="font-mono text-sm">
+        <div className="flex justify-between items-center">
+          <p className="">
             Made with lots of coffee on Long Island, NY.
           </p>
           <div className="flex gap-5">
+            <EnvelopeIcon className="text-red-500 w-6 h-6" />
             <SocialLink site="github" />
             <SocialLink site="linkedin" />
           </div>
+        </div>
+
+        <div className="flex flex-col gap-8 text-4xl">
+          <Test text="design" />
+          <Test text="dev" />
+          <Test text="about" />
         </div>
       </section>
 
@@ -88,7 +97,7 @@ export default function Home() {
         className="flex relative mt-12 px-4"
       >
         <VerticalText
-          // caption="DSGN"
+          caption={0}
           text="case studies"
         />
         <div className="mx-4 md:mx-16 lg:mx-24 xl:mx-32 flex flex-col gap-40 w-full">
@@ -113,7 +122,7 @@ export default function Home() {
         className="flex relative mt-64 px-4"
       >
         <VerticalText
-          // caption="DSGN"
+          caption={1}
           text="projects"
         />
         <div className="mx-4 md:mx-16 lg:mx-24 xl:mx-32 flex flex-col gap-32 w-full">

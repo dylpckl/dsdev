@@ -6,10 +6,12 @@ type VerticalTextProps = {
 export default function VerticalText({ caption, text }: VerticalTextProps) {
   const Caption = () => {
     const captionIsNumber = typeof caption === "number";
-
+    console.log(captionIsNumber, caption);
     return (
       <span
-        className={`text-teal-300/80 text-xl mb-6 ${captionIsNumber ? "ml-2" : "ml-2"}`}
+        className={`text-teal-300/80 text-xl mb-6 ${
+          captionIsNumber ? "ml-2" : "ml-2"
+        }`}
       >
         {captionIsNumber && "0"}
         {caption}

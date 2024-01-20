@@ -15,7 +15,7 @@ import Card from "./Card";
 import { CaseStudy } from "@/lib/data";
 
 function CaseStudyCard({ caseStudy }: { caseStudy: CaseStudy }) {
-  const [imageRevealFraq, setImageRevealFraq] = useState(0.25);
+  const [imageRevealFraq, setImageRevealFraq] = useState(0.50);
   const imageContainer = useRef<HTMLDivElement>(null);
 
   const slide = (xPos: number) => {
@@ -133,7 +133,7 @@ function CaseStudyCard({ caseStudy }: { caseStudy: CaseStudy }) {
         {/* Footer */}
 
         {caseStudy.status === "coming soon" ? (
-          <div className="w-full h-16 flex gap-4 items-center justify-center bg-gray-300 text-teal-900 font-medium transition-all ease-in-out duration-500">
+          <div className="w-full h-16 flex gap-4 items-center justify-center bg-slate-300 text-teal-900 font-medium transition-all ease-in-out duration-500">
             {" "}
             <svg
               xmlns="http://www.w3.org/2000/svg"
