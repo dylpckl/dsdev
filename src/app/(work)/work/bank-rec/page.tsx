@@ -27,25 +27,7 @@ import Card from "@/components/Card";
 import image1 from "/public/case-studies/bank-rec/spire.png";
 import Legacy from "/public/case-studies/bank-rec/legacy.png";
 
-// type CardProps = {
-//   children: ReactNode;
-//   className?: string;
-// };
-
 import { CaseStudy, CASE_STUDIES } from "@/lib/data";
-
-// const Card = ({ className, children }: CardProps) => {
-//   return (
-//     <div
-//       className={cn(
-//         "bg-slate-700/80 text-slate-100 backdrop-blur-sm w-full p-6 rounded-lg",
-//         className
-//       )}
-//     >
-//       {children}
-//     </div>
-//   );
-// };
 
 const OVERVIEW_STATS = [
   {
@@ -76,23 +58,17 @@ const CaseStudySection = ({
 }) => {
   return (
     <section
-      className="mt-24 max-w-7xl mx-auto flex relative gap-12 py-12 snap-start"
+      className="relative flex w-full max-w-7xl mt-24 mx-auto gap-12 py-12 snap-start"
       // className="h-[90vh] mt-24 flex relative gap-8 py-12 snap-center snap-always"
     >
       <VerticalText
         caption={number}
         text={title}
       />
-      {/* mx-4 md:mx-16 lg:mx-24 xl:mx-32 */}
-
       {children}
     </section>
   );
 };
-
-// const caseStudy = CASE_STUDIES.find(
-//   (caseStudy) => caseStudy.slug === "/work/bank-rec"
-// );
 
 export default function Page() {
   return (
