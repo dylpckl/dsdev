@@ -78,7 +78,7 @@ export function Header() {
 
   return (
     // <header className="sticky top-0 z-20 py-5 px-10 w-full backdrop-blur-md flex justify-between">
-    <header className="py-5 px-10 w-full flex justify-between">
+    <header className="py-5 px-10 w-full flex justify-between snap-start">
       <Link
         href="/"
         className="relative flex items-center"
