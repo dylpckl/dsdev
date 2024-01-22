@@ -25,8 +25,6 @@ export const LinkedInIcon = (props: any) => {
   );
 };
 
-// write a function that takes a string, either "github" or "linkedin" and returns the appropriate icon inside of an <a> tag
-
 type SocialLinkProps = {
   site: "github" | "linkedin";
 };

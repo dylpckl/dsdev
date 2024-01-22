@@ -15,7 +15,17 @@ import ScrollingCarousel from "@/components/ScrollingCarousel";
 import Typewriter from "@/components/Typewriter";
 import Card from "@/components/Card";
 
-import { EnvelopeIcon } from "@heroicons/react/24/outline";
+import {
+  ArrowRightCircleIcon,
+  AtSymbolIcon,
+  ChevronDoubleDownIcon,
+  ChevronDownIcon,
+  EnvelopeIcon,
+  PaintBrushIcon,
+  CodeBracketIcon,
+  ArrowDownIcon,
+  ArrowLongDownIcon,
+} from "@heroicons/react/24/outline";
 
 // Data
 import { CASE_STUDIES, PROJECTS, CaseStudy } from "@/lib/data";
@@ -41,7 +51,6 @@ const CaseStudyCard2 = ({
 }) => {
   return (
     <Card className="flex flex-col gap-6 w-1/3 h-fit text-slate-100 group">
-   
       <span className="uppercase font-mono text-2xl text-teal-300">{`dsgn.0${
         index + 1
       }`}</span>
@@ -102,28 +111,66 @@ const CaseStudyCard2 = ({
           </span>
         </Link>
       )}
-
-      
     </Card>
   );
 };
 
+const nav = [
+  {
+    name: "design",
+    href: "#design",
+    icon: PaintBrushIcon,
+  },
+  {
+    name: "dev",
+    href: "#dev",
+    icon: CodeBracketIcon,
+  },
+  {
+    name: "about",
+    href: "#about",
+    icon: AtSymbolIcon,
+  },
+];
+
+const Test2 = ({
+  name,
+  href,
+  icon: Icon,
+}: {
+  name: string;
+  href: string;
+  icon: React.ComponentType<any>;
+}) => {
+  return (
+    <Card className="font-mono hover:-translate-y-3 hover:ring-2 hover:text-teal-300 ring-teal-300 transition-all ease-out">
+      <Link
+        href={href}
+        className="flex gap-8 items-center"
+      >
+        <Icon className="w-6 h-6" />
+        <span>{name}</span>
+      </Link>
+    </Card>
+  );
+};
 export default function Home() {
   return (
     <>
       {/* Hero */}
       <section className="flex flex-col gap-12 py-24 px-48 min-h-[80vh] text-slate-100">
-        <h1 className="text-5xl font-bold font-sans leading-relaxed tracking-wide text-teal-400">
-          Hey, I&apos;m Dylan.
+        <h1 className="text-7xl font-bold font-sans leading-relaxed tracking-wide">
+          I&apos;m <span className="text-teal-300">Dylan</span>, a designer
+          &amp; developer based in New York.
         </h1>
         {/* <Typewriter
           text="designer"
           delay={100}
         /> */}
-        <p className="flex flex-col gap-4 font-sans text-xl text-slate-200">
+        <p className="flex flex-col gap-4 font-sans text-2xl text-slate-200">
           <span className="">
             I specialize in creating design systems and advocating for the best
-            possible user experience.{" "}
+            possible user experience.
           </span>
 
           <span className="">
@@ -142,7 +189,6 @@ export default function Home() {
           </span>
         </p>
         <div className="flex justify-between items-center">
-          <p className="">Made with lots of coffee on Long Island, NY.</p>
           <div className="flex gap-5">
             <EnvelopeIcon className="text-red-500 w-6 h-6" />
             <SocialLink site="github" />
@@ -150,32 +196,27 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-8 text-4xl">
-          <Test text="design" />
-          <Test text="dev" />
-          <Test text="about" />
+        <div className="flex gap-8 text-4xl">
+          {nav.map((nav) => (
+            <Test2
+              name={nav.name}
+              href={nav.href}
+              key={nav.name}
+              icon={nav.icon}
+            />
+          ))}
         </div>
       </section>
 
       {/* Design System */}
-      {/* <section className="flex relative mt-12 px-4">
-        {" "}
-        <VerticalText text="design system" />
-        check out my design system!!
-        <ScrollingCarousel />
-        https://twitter.com/steventey
-      </section> */}
 
       {/* Case Studies */}
       <section
-        id="case-studies"
-        className="flex relative mt-12 px-4"
+        id="design"
+        className="flex relative mt-12 px-4 md:px-12"
       >
-        <VerticalText
-          caption={0}
-          text="case studies"
-        />
-        <div className="mx-4 md:mx-16 lg:mx-24 flex flex-col gap-40 w-full">
+        <VerticalText text="design" />
+        <div className="ml-6 md:ml-12 flex flex-col gap-40 w-full">
           {CASE_STUDIES.map((caseStudy, index) => (
             <div
               key={index}
@@ -192,18 +233,68 @@ export default function Home() {
               />
             </div>
           ))}
+          <div>
+            <Card className="p-0 shadow-xl">
+              <article className="flex gap-6 p-6 mx-auto group/card w-full group transition-all rounded-md text-slate-200  ease-out duration-300 overflow-clip">
+                <div className="flex flex-col gap-6 justify-between w-1/3">
+                  <div className="flex flex-col gap-6">
+                    {/* <span className="uppercase font-mono text-xl text-teal-300">{`dsgn.0${
+                    index + 1
+                  }`}</span> */}
+                    <span className="font-bold text-4xl mt-6">
+                      Design System
+                    </span>
+                    <span className="text-lg">check out my ds</span>
+                  </div>
+
+                  <Link
+                    href="/#"
+                    className="w-full h-16 rounded-sm flex items-center justify-center bg-teal-300 text-teal-900 font-medium group/cta hover:bg-teal-400 transition-all ease-in-out duration-500 "
+                  >
+                    {/* <div className="w-full bg-teal-300 text-teal-900 font-medium group/cta overflow-hidden h-0 group-hover:h-16 transition-all ease-in-out duration-500"> */}
+
+                    {/* https://tailwindcss.com/docs/hover-focus-and-other-states#differentiating-nested-groups */}
+                    {/* <div className=" flex w-full h-full items-center justify-center"> */}
+                    <p className="font-mono text-xl transition-colors ease-out group-hover/cta:text-teal-700 uppercase">
+                      view case study
+                    </p>
+
+                    <span className="ml-4 relative w-6 h-6 inline-block">
+                      {/* Fade To Right */}
+                      <span
+                        className="absolute top-0 left-0 transition-all delay-150 duration-300
+               opacity-1 translate-x-1/2 group-hover/cta:translate-x-[230%]
+                group-hover/cta:opacity-0 group-hover/cta:text-teal-700 motion-reduce:transform-none"
+                      >
+                        -&gt;
+                      </span>
+
+                      {/* Fade From Left */}
+                      <span
+                        className="absolute top-0 left-0 transition-all delay-150 duration-300
+               opacity-0 -translate-x-8 group-hover/cta:translate-x-1/2
+                group-hover/cta:opacity-100  group-hover:text-teal-700 motion-reduce:transform-none"
+                      >
+                        -&gt;
+                      </span>
+                    </span>
+                  </Link>
+                </div>
+                <div>
+                  <ScrollingCarousel />
+                </div>
+              </article>
+            </Card>
+          </div>
         </div>
       </section>
 
-      {/* Projects */}
+      {/* Dev */}
       <section
-        id="case-studies"
+        id="dev"
         className="flex relative mt-64 px-4"
       >
-        <VerticalText
-          caption={1}
-          text="projects"
-        />
+        <VerticalText text="dev" />
         <div className="mx-4 md:mx-16 lg:mx-24 xl:mx-32 flex flex-col gap-32 w-full">
           {PROJECTS.map((project, index) => (
             <div
@@ -219,67 +310,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-
-      {/* Projects */}
-      {/* <section
-        id="case-studies"
-        className="flex relative mt-64 px-4 "
-      >
-        <VerticalText
-          caption="DEV"
-          text="projects"
-        />
-        <div className="mx-4 md:mx-16 flex flex-col gap-20 auto-rows-min w-full">
-          {CASE_STUDIES.map((caseStudy, idx) => (
-            <CastStudyCard
-              project={caseStudy}
-              key={caseStudy.title}
-            />
-          ))}
-        </div>
-      </section> */}
     </>
   );
-}
-
-{
-  /* <div className="flex flex-col gap-6 text-slate-300 text-lg">
-<p className="font-sans text-2xl leading-relaxed tracking-tight ">
-  I&apos;m{" "}
-  <span className="font-medium text-slate-100 ">Dylan Smith</span>,
-  a designer & developer focused on handcrafting pixel perfect
-  interfaces.{" "}
-  <span className="mt-4">
-    I specialize in creating design systems and advocating for the
-    best possible user experience.{" "}
-  </span>
-  Currently leading design at{" "}
-  <a
-    className="font-medium text-slate-100 hover:text-teal-300 hover:underline"
-    href="https://multidataservices.com/"
-    target="_blank"
-  >
-    MDS Property Management Software
-  </a>
-  .
-</p>
-<p>
-  Welcome to my tiny slice of the internet &mdash;{" "}
-  <Link
-    href="/about"
-    className="text-slate-100 font-medium underline hover:text-teal-300 transition-all hover:underline"
-  >
-    read more about me
-  </Link>{" "}
-  or{" "}
-  <Link
-    href="#case-studies"
-    className="text-slate-100 font-medium underline hover:text-teal-300 transition-all hover:underline"
-  >
-    check out my work below
-  </Link>
-  .
-</p>
-<p>Made with (lots) of coffee on Long Island, NY.</p>
-</div> */
 }

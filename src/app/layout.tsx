@@ -73,7 +73,7 @@ export default async function RootLayout({
         <Header />
         {/* <div className="flex flex-col mx-auto w-full grow rounded-lg h-full"> */}
         {/* <main className="bg-gradient-to-b from-[#6c6573]/80 backdrop-blur-sm text-[#031739] flex-auto w-full rounded-lg h-screen"> */}
-        <main className="w-full flex flex-col md:px-4">{children}</main>
+        <main className="w-full flex flex-col">{children}</main>
         <Footer />
       </body>
     </html>

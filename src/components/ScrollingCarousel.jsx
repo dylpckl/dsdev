@@ -1,11 +1,11 @@
 export default function ScrollingCarousel() {
   return (
-    <div class="flex h-screen w-screen items-center justify-center">
+    <div class="flex h-full w-full items-center justify-center">
       <div class="relative w-full max-w-screen-lg overflow-hidden">
-        <div className="pointer-events-none absolute -top-1 z-10 h-20 w-full bg-gradient-to-b from-white to-transparent" />
-        <div class="pointer-events-none absolute -bottom-1 z-10 h-20 w-full bg-gradient-to-t from-white to-transparent" />
-        <div class="pointer-events-none absolute -left-1 z-10 h-full w-20 bg-gradient-to-r from-white to-transparent" />
-        <div class="pointer-events-none absolute -right-1 z-10 h-full w-20 bg-gradient-to-l from-white to-transparent" />
+        <div className="pointer-events-none absolute -top-1 z-10 h-20 w-full bg-gradient-to-b from-bg-slate-700/80 to-transparent" />
+        <div class="pointer-events-none absolute -bottom-1 z-10 h-20 w-full bg-gradient-to-t from-bg-slate-700/80 to-transparent" />
+        <div class="pointer-events-none absolute -left-1 z-10 h-full w-20 bg-gradient-to-r from-bg-slate-700/80 to-transparent" />
+        <div class="pointer-events-none absolute -right-1 z-10 h-full w-20 bg-gradient-to-l from-bg-slate-700/80 to-transparent" />
 
         <div class="mx-auto grid h-[250px] w-[300px] animate-skewScroll grid-cols-1 gap-5 sm:w-[600px] sm:grid-cols-2">
           {/* These are all the same components - if you're using React, you can use a map to iterate through all of them */}
