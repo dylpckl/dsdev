@@ -128,7 +128,7 @@ const nav = [
   },
   {
     name: "about",
-    href: "#about",
+    href: "/about",
     icon: AtSymbolIcon,
   },
 ];
@@ -167,14 +167,14 @@ export default function Home() {
           text="designer"
           delay={100}
         /> */}
-        <p className="flex flex-col gap-4 font-sans text-2xl text-slate-200">
+        <p className="flex flex-col gap-4 font-sans text-3xl text-slate-200">
           <span className="">
             I specialize in creating design systems and advocating for the best
             possible user experience.
           </span>
 
           <span className="">
-            I&apos;m currently leading the design effort at{" "}
+            Currently leading the design effort at{" "}
             <a
               href="https://multidataservices.com/"
               target="_blank"
@@ -196,15 +196,18 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex gap-8 text-4xl">
-          {nav.map((nav) => (
-            <Test2
-              name={nav.name}
-              href={nav.href}
-              key={nav.name}
-              icon={nav.icon}
-            />
-          ))}
+        <div className="flex flex-col">
+          <span className="font-mono uppercase mb-6">jump to {"\\\\"}</span>
+          <div className="flex gap-8 text-4xl">
+            {nav.map((nav) => (
+              <Test2
+                name={nav.name}
+                href={nav.href}
+                key={nav.name}
+                icon={nav.icon}
+              />
+            ))}
+          </div>
         </div>
       </section>
 
@@ -233,14 +236,11 @@ export default function Home() {
               />
             </div>
           ))}
-          <div>
+          {/* <div>
             <Card className="p-0 shadow-xl">
               <article className="flex gap-6 p-6 mx-auto group/card w-full group transition-all rounded-md text-slate-200  ease-out duration-300 overflow-clip">
                 <div className="flex flex-col gap-6 justify-between w-1/3">
                   <div className="flex flex-col gap-6">
-                    {/* <span className="uppercase font-mono text-xl text-teal-300">{`dsgn.0${
-                    index + 1
-                  }`}</span> */}
                     <span className="font-bold text-4xl mt-6">
                       Design System
                     </span>
@@ -251,16 +251,12 @@ export default function Home() {
                     href="/#"
                     className="w-full h-16 rounded-sm flex items-center justify-center bg-teal-300 text-teal-900 font-medium group/cta hover:bg-teal-400 transition-all ease-in-out duration-500 "
                   >
-                    {/* <div className="w-full bg-teal-300 text-teal-900 font-medium group/cta overflow-hidden h-0 group-hover:h-16 transition-all ease-in-out duration-500"> */}
-
-                    {/* https://tailwindcss.com/docs/hover-focus-and-other-states#differentiating-nested-groups */}
-                    {/* <div className=" flex w-full h-full items-center justify-center"> */}
+  
                     <p className="font-mono text-xl transition-colors ease-out group-hover/cta:text-teal-700 uppercase">
                       view case study
                     </p>
 
                     <span className="ml-4 relative w-6 h-6 inline-block">
-                      {/* Fade To Right */}
                       <span
                         className="absolute top-0 left-0 transition-all delay-150 duration-300
                opacity-1 translate-x-1/2 group-hover/cta:translate-x-[230%]
@@ -269,7 +265,6 @@ export default function Home() {
                         -&gt;
                       </span>
 
-                      {/* Fade From Left */}
                       <span
                         className="absolute top-0 left-0 transition-all delay-150 duration-300
                opacity-0 -translate-x-8 group-hover/cta:translate-x-1/2
@@ -285,7 +280,7 @@ export default function Home() {
                 </div>
               </article>
             </Card>
-          </div>
+          </div> */}
         </div>
       </section>
 

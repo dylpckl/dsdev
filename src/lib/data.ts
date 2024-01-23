@@ -36,7 +36,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     title: "Bank Reconcilation",
     subtitle: "Redesigning an accountant's critical monthly task.",
     slug: "/work/bank-rec",
-    status: "completed",
+    status: "coming soon",
     explorerImage: BankRec_Explorer,
     spireImage: BankRec_Spire,
   },
