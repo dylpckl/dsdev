@@ -1,13 +1,21 @@
+// TODO
+// accept icon, title, divider
+//
+//
+
 // Utils
 import { cn } from "@/lib/utils";
-import { ReactNode } from "react";
+import { ReactElement, ReactNode } from "react";
 
 type CardProps = {
   children: ReactNode;
   className?: string;
+  divider: boolean;
+  title?: string;
+  icon?: ReactElement;
 };
 
-const Card = ({ className, children }: CardProps) => {
+const Card = ({ className, children, title, icon, divider }: CardProps) => {
   return (
     <div
       className={cn(
@@ -15,25 +23,18 @@ const Card = ({ className, children }: CardProps) => {
         className
       )}
     >
-      {children}
+      {title && (
+        <div className="flex gap-4 w-full items-center text-teal-300">
+          {icon && icon}
+          <span className="font-mono font-semibold uppercase tracking-widest">
+            {title}
+          </span>
+          {divider && <hr className="grow h-px border-0 bg-teal-300" />}
+        </div>
+      )}
+      <div className="mt-6">{children}</div>
     </div>
   );
 };
 
 export default Card;
-
-
-// <Card
-//                 key={index}
-//                 className="flex flex-col gap-4"
-//               >
-//                 <div className="flex gap-4 w-full items-center text-teal-300 tracking-wide">
-//                   <Icon className="w-5 h-5" />
-//                   <span className="font-mono font-semibold uppercase">
-//                     {title}
-//                   </span>
-//                   {/* <hr className="grow h-px border-0 bg-teal-300" /> */}
-//                 </div>
-
-//                 {content}
-//               </Card>

@@ -13,6 +13,7 @@ import {
   QuestionMarkCircleIcon,
   ViewfinderCircleIcon,
 } from "@heroicons/react/24/outline";
+import { Microscope, Frame, ScanSearch } from "lucide-react";
 
 // Components
 import VerticalText from "@/components/VerticalText";
@@ -104,7 +105,7 @@ const CaseStudySection = ({
 }) => {
   return (
     <section
-      className="mt-24 max-w-7xl mx-auto flex relative gap-12 py-12 snap-start"
+      className="mt-24 max-w-7xl min-h-[80vh] mx-auto flex relative gap-12 py-12 snap-start"
       // className="h-[90vh] mt-24 flex relative gap-8 py-12 snap-center snap-always"
     >
       <VerticalText
@@ -173,32 +174,31 @@ export default function Page() {
         {/* Container */}
         <div className="h-full w-full flex flex-col gap-12">
           <div className="flex gap-6">
-            {OVERVIEW_STATS.map(({ title, content, icon: Icon }, index) => (
+            {/* {OVERVIEW_STATS.map(({ title, content, icon }, index) => (
               <Card
+                title={title}
+                icon={icon}
+                divider={false}
                 key={index}
                 className="flex flex-col gap-4"
               >
-                <div className="flex gap-4 w-full items-center text-teal-300 tracking-wide">
-                  <Icon className="w-5 h-5" />
-                  <span className="font-mono font-semibold uppercase">
-                    {title}
-                  </span>
-                  {/* <hr className="grow h-px border-0 bg-teal-300" /> */}
-                </div>
-
                 {content}
               </Card>
-            ))}
+            ))} */}
           </div>
 
-          <Card className="">
-            <div className="flex gap-4 w-full items-center text-teal-300">
+          <Card
+            title="a bank what?"
+            icon={<QuestionMarkCircleIcon className="w-6 h-6" />}
+            divider={true}
+          >
+            {/* <div className="flex gap-4 w-full items-center text-teal-300">
               <QuestionMarkCircleIcon className="w-6 h-6" />
               <span className="font-mono font-semibold uppercase tracking-widest text-md">
                 a bank what?
               </span>
               <hr className="grow h-px border-0 bg-teal-300" />
-            </div>
+            </div> */}
 
             <div className="mt-6 text-lg">
               <h2 className="text-xl">
@@ -219,15 +219,11 @@ export default function Page() {
             </div>
           </Card>
 
-          <Card>
-            <div className="flex gap-4 w-full items-center text-teal-300">
-              <ClipboardDocumentCheckIcon className="w-6 h-6" />
-              <span className="font-mono font-semibold uppercase tracking-widest text-md">
-                objectives
-              </span>
-              <hr className="grow h-px border-0 bg-teal-300" />
-            </div>
-
+          <Card
+            title="objectives"
+            divider={true}
+            icon={<ClipboardDocumentCheckIcon className="w-6 h-6" />}
+          >
             <p className="mt-6 text-lg font-sans font-normal text-slate-100">
               The Bank Reconciliation feature is a key part of a trustworthy
               accounting system.
@@ -248,7 +244,55 @@ export default function Page() {
       >
         {/* Container */}
         <div className="flex flex-col gap-24 w-full">
-          <Card>
+          <Card
+            title="research"
+            icon={<Microscope />}
+            divider={true}
+            className="text-lg"
+          >
+            <h2 className="font-semibold text-orange-200 capitalize">
+              user research
+            </h2>
+            <p className="">
+              Given that I was the lone designer on this project with a very
+              tight timeframe, I was not afforded the time to unable to conduct
+              any user research to uncover pain points or develop personas.
+              Fortunately, the legacy software has nearly two decades of user
+              research built into it.
+              <br />
+              As such, my main focus during the research phase was auditing the
+              legacy application and mapping controls to their  at play and finding equivalents in use in the
+              web-app, in addition to crafting new components as needed.
+            </p>
+            <h2 className="mt-6 font-semibold text-orange-200 capitalize">
+              competitive analysis
+            </h2>
+            <p>
+              QuickBooks. QB displays only a single table for both types of
+              transactions (deposits and checks).{" "}
+            </p>
+          </Card>
+          <Card
+            title="ui audit"
+            icon={<ScanSearch />}
+            divider={true}
+          >
+            xx
+          </Card>
+          <Card
+            title="wireframing"
+            icon={<Frame />}
+            divider={true}
+          >
+            xx
+          </Card>
+          <Card
+            title="xx"
+            divider={true}
+          >
+            xx
+          </Card>
+          {/* <Card>
             with the main objective being to achieve parity, port the feature to
             the new system, and the tight timeframe, Given the extremely tight 2
             week deadline, and being the lone designer on the project, I was
@@ -273,8 +317,8 @@ export default function Page() {
             <Card className="w-1/3">
               The first order of business is to take an audit the existing
               functionality
-            </Card>
-            <Card className="w-2/3 p-0">
+            </Card> */}
+          {/* <Card className="w-2/3 p-0">
               {" "}
               <Image
                 src={Legacy}
@@ -283,8 +327,7 @@ export default function Page() {
                 // style={{ objectFit: "cover", objectPosition: "top" }}
                 className="rounded-lg"
               />
-            </Card>
-          </div>
+            </Card> */}
         </div>
       </CaseStudySection>
 
