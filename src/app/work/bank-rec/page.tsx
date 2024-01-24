@@ -2,11 +2,7 @@
 
 // External
 import Image from "next/image";
-import { StaticImageData } from "next/image";
 import Link from "next/link";
-
-// Utils
-import { cn } from "@/lib/utils";
 
 // Icons
 import {
@@ -14,6 +10,8 @@ import {
   CalendarDaysIcon,
   UserIcon,
   ClipboardDocumentCheckIcon,
+  QuestionMarkCircleIcon,
+  ViewfinderCircleIcon,
 } from "@heroicons/react/24/outline";
 
 // Components
@@ -27,41 +25,71 @@ import Card from "@/components/Card";
 import image1 from "/public/case-studies/bank-rec/spire.png";
 import Legacy from "/public/case-studies/bank-rec/legacy.png";
 
-// type CardProps = {
-//   children: ReactNode;
-//   className?: string;
-// };
-
 import { CaseStudy, CASE_STUDIES } from "@/lib/data";
-
-// const Card = ({ className, children }: CardProps) => {
-//   return (
-//     <div
-//       className={cn(
-//         "bg-slate-700/80 text-slate-100 backdrop-blur-sm w-full p-6 rounded-lg",
-//         className
-//       )}
-//     >
-//       {children}
-//     </div>
-//   );
-// };
 
 const OVERVIEW_STATS = [
   {
     title: "roles",
-    data: "Figma",
     icon: UserIcon,
+    content: (
+      <div className="flex flex-col gap-4">
+        <span className="font-semibold text-orange-200">
+          As a solo designer, I was responsible for:
+          <ul className="list-disc list-inside text-slate-100 font-normal">
+            <li>UX Research</li>
+            <li>UI Design</li>
+          </ul>
+        </span>
+        <span className="font-semibold text-orange-200">
+          In collaboration with:
+          <ul className="list-disc list-inside capitalize text-slate-100 font-normal">
+            <li>end users</li>
+            <li>front-end & back-end developers</li>
+            <li>project managers</li>
+          </ul>
+        </span>
+      </div>
+    ),
   },
   {
-    title: "timeline",
-    data: "1 week",
-    icon: CalendarDaysIcon,
+    title: "scope & constraints",
+    icon: ViewfinderCircleIcon,
+    content: (
+      <div>
+        <ol className="list-decimal list-inside">
+          <li>
+            <span className="font-semibold text-orange-200 capitalize">
+              timeline:
+            </span>{" "}
+            <span>One week</span>
+          </li>
+          <li>
+            <span className="font-semibold text-orange-200 capitalize">
+              data first:
+            </span>{" "}
+            <span>Both data tables must be visible at all times</span>
+          </li>
+          <li>
+            <span className="font-semibold text-orange-200 capitalize">
+              Desktop & tablet:
+            </span>{" "}
+            <span>This feature is not available on mobile.</span>
+          </li>
+        </ol>
+      </div>
+    ),
   },
   {
     title: "tools & methods",
-    data: "Figma",
     icon: WrenchScrewdriverIcon,
+    content: (
+      <ul className="list-disc list-inside">
+        <li>Figma</li>
+        <li>Competitive Analysis</li>
+        <li>Jira</li>
+        <li>Confluence</li>
+      </ul>
+    ),
   },
 ];
 
@@ -90,16 +118,12 @@ const CaseStudySection = ({
   );
 };
 
-// const caseStudy = CASE_STUDIES.find(
-//   (caseStudy) => caseStudy.slug === "/work/bank-rec"
-// );
-
 export default function Page() {
   return (
     <>
-      <section className="flex flex-col mt-16 min-h-[80vh]">
+      <section className="max-w-7xl mx-auto flex flex-col mt-16 min-h-[80vh]">
         {/* Back Button */}
-        <div className="flex gap-6 items-center">
+        <div className="flex gap-6 items-center text-teal-300">
           <Link href="/#">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -123,9 +147,9 @@ export default function Page() {
         </div>
 
         {/* Headline */}
-        <div className="mt-12 max-w-5xl">
-          <h1 className="text-5xl capitalize font-bold font-sans leading-relaxed text-teal-400">
-            Redesigning an accountant&apos;s critical monthly task.
+        <div className="mt-12 max-w-5xl text-slate-100">
+          <h1 className="text-6xl capitalize font-bold font-sans leading-relaxed">
+            Redesigning an accountant&apos;s critical monthly task
           </h1>
           {/* <p className="text-xl my-12">The Bank Reconciliation feature </p> */}
         </div>
@@ -148,44 +172,72 @@ export default function Page() {
       >
         {/* Container */}
         <div className="h-full w-full flex flex-col gap-12">
-          <div className="flex gap-12">
-            {OVERVIEW_STATS.map(({ title, data, icon: Icon }, index) => (
+          <div className="flex gap-6">
+            {OVERVIEW_STATS.map(({ title, content, icon: Icon }, index) => (
               <Card
                 key={index}
-                className="text-teal-300 tracking-widest text-sm"
+                className="flex flex-col gap-4"
               >
-                <div className="flex gap-6 w-full items-center ">
-                  <Icon className="w-6 h-6" />
+                <div className="flex gap-4 w-full items-center text-teal-300 tracking-wide">
+                  <Icon className="w-5 h-5" />
                   <span className="font-mono font-semibold uppercase">
-                    {title} {" \\\\"}
+                    {title}
                   </span>
+                  {/* <hr className="grow h-px border-0 bg-teal-300" /> */}
                 </div>
 
-                <p className="mt-6 text-slate-100">{data}</p>
+                {content}
               </Card>
             ))}
           </div>
 
-          <div className="flex gap-12">
-            <Card className="text-teal-300">
-              <div className="flex gap-6 w-full items-center ">
-                <ClipboardDocumentCheckIcon className="w-6 h-6" />
-                <span className="font-mono font-semibold uppercase tracking-widest text-sm">
-                  objectives {" \\\\"}
-                </span>
-              </div>
+          <Card className="">
+            <div className="flex gap-4 w-full items-center text-teal-300">
+              <QuestionMarkCircleIcon className="w-6 h-6" />
+              <span className="font-mono font-semibold uppercase tracking-widest text-md">
+                a bank what?
+              </span>
+              <hr className="grow h-px border-0 bg-teal-300" />
+            </div>
 
-              <p className="mt-6 text-lg font-sans font-normal text-slate-100">
+            <div className="mt-6 text-lg">
+              <h2 className="text-xl">
                 The Bank Reconciliation feature is a key part of a trustworthy
                 accounting system.
+              </h2>{" "}
+              <p className="mt-4">
+                A company prepares a bank reconciliation statement to compare
+                the balance in its accounting records with its bank account
+                balance. The statement shows reasons for any discrepancies
+                between the two.{" "}
+                <b className="text-orange-200">
+                  A bank reconciliation statement is a valuable internal tool
+                  that can affect tax and financial reporting and detect errors
+                  and intentional fraud.
+                </b>
               </p>
-              <ul>
-                <li>page header</li>
-                <li>summary</li>
-                <li>bank statement</li>
-              </ul>
-            </Card>
-          </div>
+            </div>
+          </Card>
+
+          <Card>
+            <div className="flex gap-4 w-full items-center text-teal-300">
+              <ClipboardDocumentCheckIcon className="w-6 h-6" />
+              <span className="font-mono font-semibold uppercase tracking-widest text-md">
+                objectives
+              </span>
+              <hr className="grow h-px border-0 bg-teal-300" />
+            </div>
+
+            <p className="mt-6 text-lg font-sans font-normal text-slate-100">
+              The Bank Reconciliation feature is a key part of a trustworthy
+              accounting system.
+            </p>
+            <ul>
+              <li>page header</li>
+              <li>summary</li>
+              <li>bank statement</li>
+            </ul>
+          </Card>
         </div>
       </CaseStudySection>
 
