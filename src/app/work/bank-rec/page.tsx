@@ -4,6 +4,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
+// Utilities
+import { cn } from "@/lib/utils";
+
 // Icons
 import {
   WrenchScrewdriverIcon,
@@ -25,6 +28,8 @@ import Card from "@/components/Card";
 // Images
 import image1 from "/public/case-studies/bank-rec/spire.png";
 import Legacy from "/public/case-studies/bank-rec/legacy.png";
+import Audit from "/public/case-studies/bank-rec/audit.png";
+import Wireframe from "/public/case-studies/bank-rec/wireframe.png";
 
 import { CaseStudy, CASE_STUDIES } from "@/lib/data";
 
@@ -97,16 +102,20 @@ const OVERVIEW_STATS = [
 const CaseStudySection = ({
   number,
   title,
+  className,
   children,
 }: {
   number: number;
   title: string;
+  className?: string;
   children: ReactNode;
 }) => {
   return (
     <section
-      className="mt-24 max-w-7xl min-h-[80vh] mx-auto flex relative gap-12 py-12 snap-start"
-      // className="h-[90vh] mt-24 flex relative gap-8 py-12 snap-center snap-always"
+      className={cn(
+        "mt-24 mx-auto min-h-[80vh] flex relative gap-12 py-12",
+        className
+      )}
     >
       <VerticalText
         caption={number}
@@ -121,223 +130,278 @@ const CaseStudySection = ({
 
 export default function Page() {
   return (
-    <>
-      <section className="max-w-7xl mx-auto flex flex-col mt-16 min-h-[80vh]">
-        {/* Back Button */}
-        <div className="flex gap-6 items-center text-teal-300">
-          <Link href="/#">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-4 h-4 hover:-translate-x-2 transition-transform duration-300 ease-in-out"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
-              />
-            </svg>
-          </Link>
-          <div className="font-mono text-sm uppercase">
-            <span className="font-semibold">DSGN 01 {" \\\\"}</span>
-            <span className="ml-4">Bank Reconcillation</span>
-          </div>
-        </div>
-
-        {/* Headline */}
-        <div className="mt-12 max-w-5xl text-slate-100">
-          <h1 className="text-6xl capitalize font-bold font-sans leading-relaxed">
-            Redesigning an accountant&apos;s critical monthly task
-          </h1>
-          {/* <p className="text-xl my-12">The Bank Reconciliation feature </p> */}
-        </div>
-
-        {/* Hero Image */}
-        <div className="mt-12 relative w-full h-full flex justify-center">
-          <Image
-            src={image1}
-            alt="xx"
-            style={{ objectFit: "cover", objectPosition: "top" }}
-            className="rounded-lg"
-          />
-        </div>
-      </section>
-
-      {/* .01 */}
-      <CaseStudySection
-        number={1}
-        title="overview"
-      >
-        {/* Container */}
-        <div className="h-full w-full flex flex-col gap-12">
-          <div className="flex gap-6">
-            {/* {OVERVIEW_STATS.map(({ title, content, icon }, index) => (
-              <Card
-                title={title}
-                icon={icon}
-                divider={false}
-                key={index}
-                className="flex flex-col gap-4"
+    <div className="flex gap-16 max-w-[60vw] mx-auto">
+      <div className="w-full">
+        {/* Hero */}
+        <section className="mx-auto flex flex-col mt-16 min-h-[80vh]">
+          {/* Back Button */}
+          <div className="flex gap-6 items-center text-teal-300">
+            <Link href="/#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-4 h-4 hover:-translate-x-2 transition-transform duration-300 ease-in-out"
               >
-                {content}
-              </Card>
-            ))} */}
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
+                />
+              </svg>
+            </Link>
+            <div className="font-mono text-sm uppercase">
+              <span className="font-semibold">DSGN 01 {" \\"}</span>
+              <span className="ml-4">Bank Reconcillation</span>
+            </div>
           </div>
+          {/* Headline */}
+          <div className="mt-12 max-w-5xl text-slate-100">
+            <h1 className="text-6xl capitalize font-bold font-sans leading-relaxed">
+              Redesigning an accountant&apos;s critical monthly task
+            </h1>
+            {/* <p className="text-xl my-12">The Bank Reconciliation feature </p> */}
+          </div>
+          {/* Hero Image */}
+          <div className="mt-12 relative w-full h-full flex justify-center">
+            <Image
+              src={image1}
+              alt="xx"
+              style={{ objectFit: "cover", objectPosition: "top" }}
+              className="rounded-lg"
+            />
+          </div>
+        </section>
 
-          <Card
-            title="a bank what?"
-            icon={<QuestionMarkCircleIcon className="w-6 h-6" />}
-            divider={true}
-          >
-            {/* <div className="flex gap-4 w-full items-center text-teal-300">
-              <QuestionMarkCircleIcon className="w-6 h-6" />
-              <span className="font-mono font-semibold uppercase tracking-widest text-md">
-                a bank what?
-              </span>
-              <hr className="grow h-px border-0 bg-teal-300" />
-            </div> */}
-
-            <div className="mt-6 text-lg">
-              <h2 className="text-xl">
+        {/* Overview */}
+        <CaseStudySection
+          number={1}
+          title="overview"
+        >
+          {/* Container */}
+          <div className="h-full w-full flex flex-col gap-12">
+            <div className="flex gap-6">
+              {/* {OVERVIEW_STATS.map(({ title, content, icon }, index) => (
+                <Card
+                  title={title}
+                  icon={icon}
+                  divider={false}
+                  key={index}
+                  className="flex flex-col gap-4"
+                >
+                  {content}
+                </Card>
+              ))} */}
+            </div>
+            <Card
+              title="a bank what?"
+              icon={<QuestionMarkCircleIcon className="w-6 h-6" />}
+              divider={true}
+            >
+              {/* <div className="flex gap-4 w-full items-center text-teal-300">
+                <QuestionMarkCircleIcon className="w-6 h-6" />
+                <span className="font-mono font-semibold uppercase tracking-widest text-md">
+                  a bank what?
+                </span>
+                <hr className="grow h-px border-0 bg-teal-300" />
+              </div> */}
+              <div className="mt-6 text-lg">
+                <h2 className="text-xl">
+                  The Bank Reconciliation feature is a key part of a trustworthy
+                  accounting system.
+                </h2>{" "}
+                <p className="mt-4">
+                  A company prepares a bank reconciliation statement to compare
+                  the balance in its accounting records with its bank account
+                  balance. The statement shows reasons for any discrepancies
+                  between the two.{" "}
+                  <b className="text-orange-200">
+                    A bank reconciliation statement is a valuable internal tool
+                    that can affect tax and financial reporting and detect
+                    errors and intentional fraud.
+                  </b>
+                </p>
+              </div>
+            </Card>
+            <Card
+              title="objectives"
+              divider={true}
+              icon={<ClipboardDocumentCheckIcon className="w-6 h-6" />}
+            >
+              <p className="mt-6 text-lg font-sans font-normal text-slate-100">
                 The Bank Reconciliation feature is a key part of a trustworthy
                 accounting system.
-              </h2>{" "}
-              <p className="mt-4">
-                A company prepares a bank reconciliation statement to compare
-                the balance in its accounting records with its bank account
-                balance. The statement shows reasons for any discrepancies
-                between the two.{" "}
-                <b className="text-orange-200">
-                  A bank reconciliation statement is a valuable internal tool
-                  that can affect tax and financial reporting and detect errors
-                  and intentional fraud.
-                </b>
               </p>
-            </div>
-          </Card>
+              <ul>
+                <li>page header</li>
+                <li>summary</li>
+                <li>bank statement</li>
+              </ul>
+            </Card>
+          </div>
+        </CaseStudySection>
 
-          <Card
-            title="objectives"
-            divider={true}
-            icon={<ClipboardDocumentCheckIcon className="w-6 h-6" />}
-          >
-            <p className="mt-6 text-lg font-sans font-normal text-slate-100">
-              The Bank Reconciliation feature is a key part of a trustworthy
-              accounting system.
-            </p>
-            <ul>
-              <li>page header</li>
-              <li>summary</li>
-              <li>bank statement</li>
-            </ul>
-          </Card>
-        </div>
-      </CaseStudySection>
+        {/* Design Process */}
+        <CaseStudySection
+          number={2}
+          title="design process"
+        >
+          <div className="flex flex-col gap-12">
+            {/* Research */}
+            <Card
+              title="research"
+              icon={<Microscope />}
+              divider={true}
+            >
+              <h2 className="text-lg font-semibold text-orange-200 capitalize">
+                user research
+              </h2>
+              <p className="">
+                Given that I was the lone designer on this project with a very
+                tight (1 week) timeframe, I was not afforded the time to conduct
+                any user research to uncover pain points or develop personas.
+                Fortunately, the legacy software has nearly two decades of user
+                research built into it.
+              </p>
+              <h2 className="mt-6 text-lg font-semibold text-orange-200 capitalize">
+                competitive analysis
+              </h2>
+              <p>
+                QuickBooks. QB displays only a single table for both types of
+                transactions (deposits and checks).{" "}
+              </p>
+            </Card>
 
-      {/* .02 */}
-      <CaseStudySection
-        number={2}
-        title="design process"
-      >
-        {/* Container */}
-        <div className="flex flex-col gap-24 w-full">
-          <Card
-            title="research"
-            icon={<Microscope />}
-            divider={true}
-            className="text-lg"
-          >
-            <h2 className="font-semibold text-orange-200 capitalize">
-              user research
-            </h2>
-            <p className="">
-              Given that I was the lone designer on this project with a very
-              tight timeframe, I was not afforded the time to unable to conduct
-              any user research to uncover pain points or develop personas.
-              Fortunately, the legacy software has nearly two decades of user
-              research built into it.
-              <br />
-              As such, my main focus during the research phase was auditing the
-              legacy application and mapping controls to their  at play and finding equivalents in use in the
-              web-app, in addition to crafting new components as needed.
-            </p>
-            <h2 className="mt-6 font-semibold text-orange-200 capitalize">
-              competitive analysis
-            </h2>
-            <p>
-              QuickBooks. QB displays only a single table for both types of
-              transactions (deposits and checks).{" "}
-            </p>
-          </Card>
-          <Card
-            title="ui audit"
-            icon={<ScanSearch />}
-            divider={true}
-          >
-            xx
-          </Card>
-          <Card
-            title="wireframing"
-            icon={<Frame />}
-            divider={true}
-          >
-            xx
-          </Card>
-          <Card
-            title="xx"
-            divider={true}
-          >
-            xx
-          </Card>
-          {/* <Card>
-            with the main objective being to achieve parity, port the feature to
-            the new system, and the tight timeframe, Given the extremely tight 2
-            week deadline, and being the lone designer on the project, I was
-            unable to take the time to conduct any user research to uncover pain
-            points or develop personas. This particular feature has been in use
-            for decades, and over time has evolved quite a bit in accordance
-            with user feedback. As such, my main focus during discovery was
-            auditing the UI components at play and finding equivalents in use in
-            the web-app, in addition to crafting new components as needed.
-          </Card>
-          <Card>audit - functionality, ui components</Card>
-          <Card>
-            highlight tabular numbers
-            https://help.figma.com/hc/en-us/articles/360039956634-Explore-text-properties#numbers
-          </Card>
-          <Card>restructure the layout - hierarchy</Card>
-          <Card>
-            use a two column layout here - image plus text so reader can see
-            what im talking about
-          </Card>
-          <div className="w-full flex gap-8">
-            <Card className="w-1/3">
-              The first order of business is to take an audit the existing
-              functionality
-            </Card> */}
-          {/* <Card className="w-2/3 p-0">
-              {" "}
+            {/* Audit */}
+            <Card
+              title="ui audit"
+              icon={<ScanSearch />}
+              divider={true}
+              className=""
+            >
+              <div className="flex flex-col gap-6">
+                First let&apos;s take a look at the legacy UI.
+                <div className="flex flex-col">
+                  <h2 className="text-lg font-semibold text-orange-200">
+                    What are the main user tasks on this page?{" "}
+                  </h2>
+                  <p>
+                    As a user, my goal on this page is to reach a Running Total
+                    of $0.00, which means that my bank statement matches my book
+                    balance. This is achieved by clearing deposits and checks
+                    that have cleared the bank.
+                  </p>
+                  <b className="mt-2">
+                    Therefore, the main user task on this page is to interact
+                    with the side-by-side data tables.
+                  </b>
+                </div>
+                <div className="flex flex-col">
+                  <h2 className="text-lg font-semibold text-orange-200">
+                    Is there a proper visual hierachy?
+                  </h2>
+                  <p></p>
+                </div>
+                <div className="flex flex-col">
+                  <h2 className="text-lg font-semibold text-orange-200">
+                    What actions can be moved or consolidated?
+                  </h2>
+                  <p>
+                    The buttons on the right side of the screen are a jumble of
+                    one-time actions as well as the primary page actions
+                  </p>
+                </div>
+                <div className="flex flex-col">
+                  <h2 className="text-lg font-semibold text-orange-200">
+                    Are there other screens or modals involved in the user flow?
+                  </h2>
+                  <p></p>
+                </div>
+              </div>
               <Image
-                src={Legacy}
-                alt="xx"
-                quality={100}
-                // style={{ objectFit: "cover", objectPosition: "top" }}
-                className="rounded-lg"
+                src={Audit}
+                alt="audit image"
+                className="mx-auto rounded-sm"
               />
-            </Card> */}
-        </div>
-      </CaseStudySection>
+            </Card>
 
-      {/* Final */}
-      <CaseStudySection
-        number={3}
-        title="final prototype"
-      >
-        xx
-      </CaseStudySection>
-    </>
+            {/* Wireframing */}
+            <Card
+              title="wireframing"
+              icon={<Frame />}
+              divider={true}
+              className=""
+            >
+              After orienting myself with the legacy UI, I began wireframing
+              what the new structure might look like.
+              <Image
+                src={Wireframe}
+                alt="wireframe"
+                className="mt-6 mx-auto rounded-sm"
+              />
+            </Card>
+          </div>
+          {/* <Card>
+              with the main objective being to achieve parity, port the feature to
+              the new system, and the tight timeframe, Given the extremely tight 2
+              week deadline, and being the lone designer on the project, I was
+              unable to take the time to conduct any user research to uncover pain
+              points or develop personas. This particular feature has been in use
+              for decades, and over time has evolved quite a bit in accordance
+              with user feedback. As such, my main focus during discovery was
+              auditing the UI components at play and finding equivalents in use in
+              the web-app, in addition to crafting new components as needed.
+            </Card>
+            <Card>audit - functionality, ui components</Card>
+            <Card>
+              highlight tabular numbers
+              https://help.figma.com/hc/en-us/articles/360039956634-Explore-text-properties#numbers
+            </Card>
+            <Card>restructure the layout - hierarchy</Card>
+            <Card>
+              use a two column layout here - image plus text so reader can see
+              what im talking about
+            </Card>
+            <div className="w-full flex gap-8">
+              <Card className="w-1/3">
+                The first order of business is to take an audit the existing
+                functionality
+              </Card> */}
+          {/* <Card className="w-2/3 p-0">
+                {" "}
+                <Image
+                  src={Legacy}
+                  alt="xx"
+                  quality={100}
+                  // style={{ objectFit: "cover", objectPosition: "top" }}
+                  className="rounded-lg"
+                />
+              </Card> */}
+        </CaseStudySection>
+
+        {/* Final */}
+        <CaseStudySection
+          number={3}
+          title="final prototype"
+        >
+          xx
+        </CaseStudySection>
+      </div>
+      {/* <div className="w-96 sticky top-12">
+        <div className="sticky top-12 bg-pink-300">
+          list of links with href to section id's. listen to scroll event
+          <ul>
+            <li>intro</li>
+            <li>design process</li>
+            <li>research</li>
+            <li>ui audit</li>
+            <li>wireframing</li>
+            <li>final prototype</li>
+          </ul>
+        </div>
+      </div> */}
+    </div>
   );
 }

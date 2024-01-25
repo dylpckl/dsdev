@@ -3,5 +3,5 @@ export default function CaseStudyLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div className="mx-6">{children}</div>;
+  return <div className="">{children}</div>;
 }

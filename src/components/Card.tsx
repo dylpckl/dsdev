@@ -32,7 +32,8 @@ const Card = ({ className, children, title, icon, divider }: CardProps) => {
           {divider && <hr className="grow h-px border-0 bg-teal-300" />}
         </div>
       )}
-      <div className="mt-6">{children}</div>
+      {/* If title exists, add mt-6 to children */}
+      <div className={cn({ "mt-6": title })}>{children}</div>
     </div>
   );
 };
