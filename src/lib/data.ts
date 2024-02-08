@@ -64,13 +64,13 @@ export const PROJECTS: Project[] = [
   {
     title: "www.steamparty.io",
     subtitle:
-      "When a couple of friends and I couldn't easily find which Steam games we all had in common, it was time for us to build the solution ourselves.",
+      "When a couple of friends couldn't easily find which Steam games we all had in common, it was time for us to build the solution ourselves.",
     description:
       "SteamParty is a web app to find Steam games that both you and your friends own.",
     slug: "https://www.steamparty.io",
     status: "deployed",
     image: steamparty,
-    tags: ["React", "React Query", "Custom Backend"],
+    tags: ["React", "React Query", "Framer Motion", "TailwindCSS"],
   },
   {
     title: "huberman-db",
@@ -80,7 +80,7 @@ export const PROJECTS: Project[] = [
     slug: "https://github.com/dylpckl/huberman-db",
     status: "proof of concept",
     image: hubermandb,
-    tags: ["PostgreSQL", "API", "Next.js v13", "Supabase"],
+    tags: ["PostgreSQL", "YouTube Data API", "Next.js", "Supabase"],
   },
   {
     title: "encounter+",
@@ -89,6 +89,6 @@ export const PROJECTS: Project[] = [
     description: "",
     slug: "https://github.com/dylpckl/encounter-plus",
     status: "in development",
-    tags: ["Next.js v13", "API", "CRUD", "dungeons & dragons", "dashboard"],
+    tags: ["Next.js", "Firebase", "TailwindCSS"],
   },
 ];

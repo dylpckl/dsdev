@@ -58,7 +58,7 @@ const DesktopNavigation = (props) => {
         <NavItem href="/about">about</NavItem>
         <span className="text-slate-400 text-xs">{"//"}</span>
         <a
-          href="/dylan-smith-resume.pdf"
+          href="/Dylan-Smith-Resume.pdf"
           target="_blank"
           className="hover:text-teal-300 text-slate-200 p-1 md:px-3 md:py-2 font-mono text-sm"
         >

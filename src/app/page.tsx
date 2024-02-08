@@ -143,7 +143,7 @@ const Test2 = ({
   icon: React.ComponentType<any>;
 }) => {
   return (
-    <Card className="font-mono hover:-translate-y-3 hover:ring-2 hover:text-teal-300 ring-teal-300 transition-all ease-out">
+    <Card divider={false} className="font-mono hover:-translate-y-3 hover:ring-2 hover:text-teal-300 ring-teal-300 transition-all ease-out">
       <Link
         href={href}
         className="flex gap-8 items-center"
@@ -169,12 +169,11 @@ export default function Home() {
         /> */}
         <p className="flex flex-col gap-4 font-sans text-3xl text-slate-200">
           <span className="">
-            I specialize in creating design systems and advocating for the best
-            possible user experience.
+            I care about building software that solves a problem and is delightful to use.
           </span>
 
-          <span className="">
-            Currently leading the design effort at{" "}
+          <span className="mt-4">
+            I&apos;m Currently leading the design effort at{" "}
             <a
               href="https://multidataservices.com/"
               target="_blank"
@@ -190,14 +189,14 @@ export default function Home() {
         </p>
         <div className="flex justify-between items-center">
           <div className="flex gap-5">
-            <EnvelopeIcon className="text-red-500 w-6 h-6" />
+            {/* <EnvelopeIcon className="w-6 h-6" /> */}
             <SocialLink site="github" />
             <SocialLink site="linkedin" />
           </div>
         </div>
 
         <div className="flex flex-col">
-          <span className="font-mono uppercase mb-6">jump to {"\\\\"}</span>
+          {/* <span className="font-mono uppercase mb-6">jump to {"\\\\"}</span> */}
           <div className="flex gap-8 text-4xl">
             {nav.map((nav) => (
               <Test2
@@ -216,7 +215,7 @@ export default function Home() {
       {/* Case Studies */}
       <section
         id="design"
-        className="flex relative mt-12 px-4 md:px-12"
+        className="flex relative mt-12 px-4 md:px-12 max-w-[60vw]"
       >
         <VerticalText text="design" />
         <div className="ml-6 md:ml-12 flex flex-col gap-40 w-full">
@@ -236,58 +235,13 @@ export default function Home() {
               />
             </div>
           ))}
-          {/* <div>
-            <Card className="p-0 shadow-xl">
-              <article className="flex gap-6 p-6 mx-auto group/card w-full group transition-all rounded-md text-slate-200  ease-out duration-300 overflow-clip">
-                <div className="flex flex-col gap-6 justify-between w-1/3">
-                  <div className="flex flex-col gap-6">
-                    <span className="font-bold text-4xl mt-6">
-                      Design System
-                    </span>
-                    <span className="text-lg">check out my ds</span>
-                  </div>
-
-                  <Link
-                    href="/#"
-                    className="w-full h-16 rounded-sm flex items-center justify-center bg-teal-300 text-teal-900 font-medium group/cta hover:bg-teal-400 transition-all ease-in-out duration-500 "
-                  >
-  
-                    <p className="font-mono text-xl transition-colors ease-out group-hover/cta:text-teal-700 uppercase">
-                      view case study
-                    </p>
-
-                    <span className="ml-4 relative w-6 h-6 inline-block">
-                      <span
-                        className="absolute top-0 left-0 transition-all delay-150 duration-300
-               opacity-1 translate-x-1/2 group-hover/cta:translate-x-[230%]
-                group-hover/cta:opacity-0 group-hover/cta:text-teal-700 motion-reduce:transform-none"
-                      >
-                        -&gt;
-                      </span>
-
-                      <span
-                        className="absolute top-0 left-0 transition-all delay-150 duration-300
-               opacity-0 -translate-x-8 group-hover/cta:translate-x-1/2
-                group-hover/cta:opacity-100  group-hover:text-teal-700 motion-reduce:transform-none"
-                      >
-                        -&gt;
-                      </span>
-                    </span>
-                  </Link>
-                </div>
-                <div>
-                  <ScrollingCarousel />
-                </div>
-              </article>
-            </Card>
-          </div> */}
         </div>
       </section>
 
       {/* Dev */}
       <section
         id="dev"
-        className="flex relative mt-64 px-4"
+        className="flex relative mt-64 px-4 md:px-12"
       >
         <VerticalText text="dev" />
         <div className="mx-4 md:mx-16 lg:mx-24 xl:mx-32 flex flex-col gap-32 w-full">
