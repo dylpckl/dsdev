@@ -7,7 +7,10 @@ import Card from "./Card";
 
 const ProjectCard = ({ project }: { project: Project }) => {
   return (
-    <Card className="hover:-translate-y-3 hover:ring-2 ring-teal-300 transition-all ease-out">
+    <Card
+      divider={false}
+      className="hover:-translate-y-3 hover:ring-2 ring-teal-300 transition-all ease-out"
+    >
       <a
         href={project.slug}
         target="_blank"

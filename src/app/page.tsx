@@ -50,7 +50,10 @@ const CaseStudyCard2 = ({
   index: number;
 }) => {
   return (
-    <Card className="flex flex-col gap-6 w-1/3 h-fit text-slate-100 group">
+    <Card
+      divider={false}
+      className="flex flex-col gap-6 w-1/3 h-fit text-slate-100 group"
+    >
       <span className="uppercase font-mono text-2xl text-teal-300">{`dsgn.0${
         index + 1
       }`}</span>
@@ -143,7 +146,10 @@ const Test2 = ({
   icon: React.ComponentType<any>;
 }) => {
   return (
-    <Card divider={false} className="font-mono hover:-translate-y-3 hover:ring-2 hover:text-teal-300 ring-teal-300 transition-all ease-out">
+    <Card
+      divider={false}
+      className="font-mono hover:-translate-y-3 hover:ring-2 hover:text-teal-300 ring-teal-300 transition-all ease-out"
+    >
       <Link
         href={href}
         className="flex gap-8 items-center"
@@ -169,7 +175,8 @@ export default function Home() {
         /> */}
         <p className="flex flex-col gap-4 font-sans text-3xl text-slate-200">
           <span className="">
-            I care about building software that solves a problem and is delightful to use.
+            I care about building software that solves a problem and is
+            delightful to use.
           </span>
 
           <span className="mt-4">
