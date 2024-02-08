@@ -28,8 +28,8 @@ import Card from "@/components/Card";
 // Images
 import image1 from "/public/case-studies/bank-rec/spire.png";
 import Legacy from "/public/case-studies/bank-rec/legacy.png";
-// import Audit from "/public/case-studies/bank-rec/Audit.png";
-// import Wireframe from "/public/case-studies/bank-rec/Wireframe.png";
+import Audit from "/public/case-studies/bank-rec/audit.png";
+import Wireframe from "/public/case-studies/bank-rec/wireframe.png";
 
 import { CaseStudy, CASE_STUDIES } from "@/lib/data";
 
