@@ -15,6 +15,9 @@ import ScrollingCarousel from "@/components/ScrollingCarousel";
 import Typewriter from "@/components/Typewriter";
 import Card from "@/components/Card";
 
+import { Header } from "@/components/Header";
+import Footer from "@/components/Footer";
+
 import {
   ArrowRightCircleIcon,
   AtSymbolIcon,
@@ -160,112 +163,224 @@ const Test2 = ({
     </Card>
   );
 };
+
 export default function Home() {
   return (
-    <>
-      {/* Hero */}
-      <section className="flex flex-col gap-12 py-24 px-48 min-h-[80vh] text-slate-100">
-        <h1 className="text-7xl font-bold font-sans leading-relaxed tracking-wide">
-          I&apos;m <span className="text-teal-300">Dylan</span>, a designer
-          &amp; developer based in New York.
-        </h1>
-        {/* <Typewriter
-          text="designer"
-          delay={100}
-        /> */}
-        <p className="flex flex-col gap-4 font-sans text-3xl text-slate-200">
-          <span className="">
-            I care about building software that solves a problem and is
-            delightful to use.
-          </span>
+<>
+    <div className="w-screen h-screen bg-yellow-300/40">
 
-          <span className="mt-4">
-            I&apos;m Currently leading the design effort at{" "}
-            <a
-              href="https://multidataservices.com/"
-              target="_blank"
-              className="group relative underline hover:decoration-teal-900"
-            >
-              <span className="relative z-20 group-hover:text-teal-900 ">
-                MDS Property Management Software
-              </span>
-              {"."}
-              <span className="absolute z-10 inset-0 bg-teal-300 w-0 group-hover:w-full group-hover:transition-all duration-500 ease-in-out"></span>
-            </a>
-          </span>
-        </p>
-        <div className="flex justify-between items-center">
-          <div className="flex gap-5">
-            {/* <EnvelopeIcon className="w-6 h-6" /> */}
-            <SocialLink site="github" />
-            <SocialLink site="linkedin" />
+    </div>
+
+
+<div className="min-h-screen lg:flex lg:gap-12">
+      <header className="bg-red-300/20 lg:w-1/3 lg:max-h-screen lg:sticky lg:top-0 lg:flex lg:flex-col">
+        <section className="flex flex-col gap-12 py-24 text-slate-100">
+          <h1 className="text-47xl font-bold font-sans leading-relaxed tracking-wide">
+            I&apos;m <span className="text-teal-300">Dylan</span>, a designer
+            &amp; developer based in New York.
+          </h1>
+
+          <p className="flex flex-col gap-4 font-sans text-3xl text-slate-200">
+            <span className="">
+              I care about building software that solves a problem and is
+              delightful to use.
+            </span>
+
+            <span className="mt-4">
+              I&apos;m Currently leading the design effort at{" "}
+              <a
+                href="https://multidataservices.com/"
+                target="_blank"
+                className="group relative underline hover:decoration-teal-900"
+              >
+                <span className="relative z-20 group-hover:text-teal-900 ">
+                  MDS Property Management Software
+                </span>
+                {"."}
+                <span className="absolute z-10 inset-0 bg-teal-300 w-0 group-hover:w-full group-hover:transition-all duration-500 ease-in-out"></span>
+              </a>
+            </span>
+          </p>
+          <div className="flex justify-between items-center">
+            <div className="flex gap-5">
+              {/* <EnvelopeIcon className="w-6 h-6" /> */}
+              <SocialLink site="github" />
+              <SocialLink site="linkedin" />
+            </div>
           </div>
-        </div>
 
-        <div className="flex flex-col">
-          {/* <span className="font-mono uppercase mb-6">jump to {"\\\\"}</span> */}
-          <div className="flex gap-8 text-4xl">
-            {nav.map((nav) => (
-              <Test2
-                name={nav.name}
-                href={nav.href}
-                key={nav.name}
-                icon={nav.icon}
-              />
+          {/* <div className="flex flex-col">
+            
+            <div className="flex gap-8 text-4xl">
+              {nav.map((nav) => (
+                <Test2
+                  name={nav.name}
+                  href={nav.href}
+                  key={nav.name}
+                  icon={nav.icon}
+                />
+              ))}
+            </div>
+          </div> */}
+        </section>
+        <div>links</div>
+        <div>socials</div>
+      </header>
+
+      <main className="bg-green-300/20 lg:w-2/3 ">
+        {/* Design */}
+        <section
+          id="design"
+          className="flex relative mt-12"
+          // className="flex relative mt-12 px-4 md:px-12 max-w-[60vw]"
+        >
+          <VerticalText text="design" />
+          <div className="ml-6 md:ml-12 flex flex-col gap-40 w-full">
+            {CASE_STUDIES.map((caseStudy, index) => (
+              <div
+                key={index}
+                className="flex gap-12"
+              >
+                <CaseStudyCard
+                  caseStudy={caseStudy}
+                  index={index}
+                  key={caseStudy.title}
+                />
+              </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Design System */}
+        {/* Dev */}
+        <section
+          id="dev"
+          className="flex relative mt-64"
+        >
+          <VerticalText text="dev" />
+          <div className="mx-4 md:mx-16 lg:mx-24 xl:mx-32 flex flex-col gap-32 w-full">
+            {PROJECTS.map((project, index) => (
+              <div
+                key={index}
+                className="flex flex-col gap-6"
+              >
+                <DividerWithText text={`dev.0${index + 1}`} />
+                <ProjectCard
+                  project={project}
+                  key={project.title}
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+      </main>
 
-      {/* Case Studies */}
-      <section
-        id="design"
-        className="flex relative mt-12 px-4 md:px-12 max-w-[60vw]"
-      >
-        <VerticalText text="design" />
-        <div className="ml-6 md:ml-12 flex flex-col gap-40 w-full">
-          {CASE_STUDIES.map((caseStudy, index) => (
-            <div
-              key={index}
-              className="flex gap-12"
-            >
-              {/* <CaseStudyCard2
-                caseStudy={caseStudy}
-                index={index}
-              /> */}
-              <CaseStudyCard
-                caseStudy={caseStudy}
-                index={index}
-                key={caseStudy.title}
-              />
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Dev */}
-      <section
-        id="dev"
-        className="flex relative mt-64 px-4 md:px-12"
-      >
-        <VerticalText text="dev" />
-        <div className="mx-4 md:mx-16 lg:mx-24 xl:mx-32 flex flex-col gap-32 w-full">
-          {PROJECTS.map((project, index) => (
-            <div
-              key={index}
-              className="flex flex-col gap-6"
-            >
-              <DividerWithText text={`dev.0${index + 1}`} />
-              <ProjectCard
-                project={project}
-                key={project.title}
-              />
-            </div>
-          ))}
-        </div>
-      </section>
+    </div>
     </>
   );
 }
+
+// <>
+//   {/* Hero */}
+//   <section className="flex flex-col gap-12 py-24 px-48 min-h-[80vh] text-slate-100">
+//     <h1 className="text-7xl font-bold font-sans leading-relaxed tracking-wide">
+//       I&apos;m <span className="text-teal-300">Dylan</span>, a designer
+//       &amp; developer based in New York.
+//     </h1>
+//     {/* <Typewriter
+//       text="designer"
+//       delay={100}
+//     /> */}
+//     <p className="flex flex-col gap-4 font-sans text-3xl text-slate-200">
+//       <span className="">
+//         I care about building software that solves a problem and is
+//         delightful to use.
+//       </span>
+
+//       <span className="mt-4">
+//         I&apos;m Currently leading the design effort at{" "}
+//         <a
+//           href="https://multidataservices.com/"
+//           target="_blank"
+//           className="group relative underline hover:decoration-teal-900"
+//         >
+//           <span className="relative z-20 group-hover:text-teal-900 ">
+//             MDS Property Management Software
+//           </span>
+//           {"."}
+//           <span className="absolute z-10 inset-0 bg-teal-300 w-0 group-hover:w-full group-hover:transition-all duration-500 ease-in-out"></span>
+//         </a>
+//       </span>
+//     </p>
+//     <div className="flex justify-between items-center">
+//       <div className="flex gap-5">
+//         {/* <EnvelopeIcon className="w-6 h-6" /> */}
+//         <SocialLink site="github" />
+//         <SocialLink site="linkedin" />
+//       </div>
+//     </div>
+
+//     <div className="flex flex-col">
+//       {/* <span className="font-mono uppercase mb-6">jump to {"\\\\"}</span> */}
+//       <div className="flex gap-8 text-4xl">
+//         {nav.map((nav) => (
+//           <Test2
+//             name={nav.name}
+//             href={nav.href}
+//             key={nav.name}
+//             icon={nav.icon}
+//           />
+//         ))}
+//       </div>
+//     </div>
+//   </section>
+
+//   {/* Design System */}
+
+//   {/* Case Studies */}
+//   <section
+//     id="design"
+//     className="flex relative mt-12 px-4 md:px-12 max-w-[60vw]"
+//   >
+//     <VerticalText text="design" />
+//     <div className="ml-6 md:ml-12 flex flex-col gap-40 w-full">
+//       {CASE_STUDIES.map((caseStudy, index) => (
+//         <div
+//           key={index}
+//           className="flex gap-12"
+//         >
+//           {/* <CaseStudyCard2
+//             caseStudy={caseStudy}
+//             index={index}
+//           /> */}
+//           <CaseStudyCard
+//             caseStudy={caseStudy}
+//             index={index}
+//             key={caseStudy.title}
+//           />
+//         </div>
+//       ))}
+//     </div>
+//   </section>
+
+//   {/* Dev */}
+//   <section
+//     id="dev"
+//     className="flex relative mt-64 px-4 md:px-12"
+//   >
+//     <VerticalText text="dev" />
+//     <div className="mx-4 md:mx-16 lg:mx-24 xl:mx-32 flex flex-col gap-32 w-full">
+//       {PROJECTS.map((project, index) => (
+//         <div
+//           key={index}
+//           className="flex flex-col gap-6"
+//         >
+//           <DividerWithText text={`dev.0${index + 1}`} />
+//           <ProjectCard
+//             project={project}
+//             key={project.title}
+//           />
+//         </div>
+//       ))}
+//     </div>
+//   </section>
+// </>

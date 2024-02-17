@@ -38,7 +38,7 @@ export default async function RootLayout({
       // className="scroll-smooth snap snap-y snap-mandatory"
       suppressHydrationWarning
     >
-      <Head>
+      {/* <Head>
         <link
           rel="stylesheet"
           href="https://rsms.me/inter/inter.css"
@@ -47,12 +47,12 @@ export default async function RootLayout({
           rel="icon"
           href="/favicon.ico"
         />
-      </Head>
+      </Head> */}
 
       {/* <body
         className={`${inter.variable} ${jetbrains_mono.variable} relative bg-slate-900 font-sans selection:bg-teal-300 selection:text-teal-900 h-screen overflow-y-auto scroll-smooth `} */}
       <body
-        className={`${inter.variable} ${jetbrains_mono.variable} relative  font-sans selection:bg-teal-300 selection:text-teal-900 `}
+        className={`${inter.variable} ${jetbrains_mono.variable} relative font-sans selection:bg-teal-300 selection:text-teal-900 `}
       >
         {/* <div className="flex flex-col mx-auto min-h-screen h-screen px-4 overflow-y-auto"> */}
         <Image
@@ -70,11 +70,7 @@ export default async function RootLayout({
           }}
           className="fixed"
         />
-        <Header />
-        {/* <div className="flex flex-col mx-auto w-full grow rounded-lg h-full"> */}
-        {/* <main className="bg-gradient-to-b from-[#6c6573]/80 backdrop-blur-sm text-[#031739] flex-auto w-full rounded-lg h-screen"> */}
-        <main className="w-full flex flex-col">{children}</main>
-        <Footer />
+        {children}
       </body>
     </html>
   );

@@ -121,85 +121,93 @@ function CaseStudyCard({
   };
 
   return (
-    <Card divider={false} className="bg-transparent p-0 backdrop-blur-0">
-      <article className="flex gap-6 mx-auto group/card w-full group transition-all rounded-md text-slate-200 ease-out duration-300 overflow-clip">
+    <Card
+      divider={true}
+      className=""
+      title={`dsgn.0${index + 1}`}
+    >
+      <article className="flex flex-col gap-6 mx-auto group/card w-full group transition-all rounded-md text-slate-200 ease-out duration-300 overflow-clip">
         {/* Headline */}
-        <Card divider={false} className="flex flex-col gap-6 justify-between w-1/3 h-fit">
           <div className="flex flex-col gap-6">
-            <span className="flex items-center gap-4 w-full uppercase font-mono text-xl text-teal-300">
+            {/* <span className="flex items-center gap-4 w-full uppercase font-mono text-xl text-teal-300">
               {`dsgn.0${index + 1}`}
               <hr className="h-px border-0 bg-teal-300" />
-            </span>
-            <span className="font-bold text-4xl mt-6">{caseStudy.title}</span>
+            </span> */}
+            <span className="font-bold text-4xl">{caseStudy.title}</span>
             <span className="text-lg">{caseStudy.subtitle}</span>
           </div>
-          <CTA />
-        </Card>
-        {/* Images */}
+     
+        <CTA />
+        <div
+          ref={imageContainer}
+          className="relative overflow-hidden w-full h-[60vh] bg-pink-300 select-none rounded-md"
+        >
+          {/* p */}
+          <Image
+            src={caseStudy.spireImage}
+            alt={caseStudy.title}
+            fill
+            style={{ objectFit: "cover", objectPosition: "left top" }}
+            className="pointer-events-none"
+          />
+          {/* Explorer Image */}
+          <Image
+            src={caseStudy.explorerImage}
+            alt={caseStudy.title}
+            fill
+            style={{
+              objectFit: "cover",
+              objectPosition: "left top",
+              filter: "grayscale(100%)",
+              clipPath: `polygon(0 0, ${imageRevealFraq * 100}% 0, ${
+                imageRevealFraq * 100
+              }% 100%, 0 100%)`,
+            }}
+            className="absolute inset-0 pointer-events-none"
+          />
 
-        <Card divider={false} className="p-3 w-2/3">
+          {/* Drag Handle */}
           <div
-            ref={imageContainer}
-            className="relative overflow-hidden w-full h-[60vh] bg-pink-300 select-none rounded-md"
+            className="absolute inset-y-0"
+            style={{ left: `${imageRevealFraq * 100}%` }}
           >
-            {/* p */}
-            <Image
-              src={caseStudy.spireImage}
-              alt={caseStudy.title}
-              fill
-              style={{ objectFit: "cover", objectPosition: "left top" }}
-              className="pointer-events-none"
-            />
-            {/* Explorer Image */}
-            <Image
-              src={caseStudy.explorerImage}
-              alt={caseStudy.title}
-              fill
-              style={{
-                objectFit: "cover",
-                objectPosition: "left top",
-                filter: "grayscale(100%)",
-                clipPath: `polygon(0 0, ${imageRevealFraq * 100}% 0, ${
-                  imageRevealFraq * 100
-                }% 100%, 0 100%)`,
-              }}
-              className="absolute inset-0 pointer-events-none"
-            />
-
-            {/* Drag Handle */}
-            <div
-              className="absolute inset-y-0"
-              style={{ left: `${imageRevealFraq * 100}%` }}
-            >
-              <div className="relative h-full">
-                <div className="absolute inset-y-0 bg-teal-300 w-0.5 -ml-px">
-                  {/* <div className="absolute inset-y-0 bg-red-300 w-0.5 -ml-px"> */}
-                  <div
-                    style={{ touchAction: "none" }}
-                    onMouseDown={handleMouseDown}
-                    onTouchMove={handleTouchMove}
-                    className="flex justify-center items-center h-12 w-12 -ml-6 -mt-6 rounded-full absolute top-1/2 bg-teal-300 text-teal-800 shadow-xl  cursor-e-resize"
+            <div className="relative h-full">
+              <div className="absolute inset-y-0 bg-teal-300 w-0.5 -ml-px">
+                {/* <div className="absolute inset-y-0 bg-red-300 w-0.5 -ml-px"> */}
+                <div
+                  style={{ touchAction: "none" }}
+                  onMouseDown={handleMouseDown}
+                  onTouchMove={handleTouchMove}
+                  className="flex justify-center items-center h-12 w-12 -ml-6 -mt-6 rounded-full absolute top-1/2 bg-teal-300 text-teal-800 shadow-xl  cursor-e-resize"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    className="w-8 h-8 rotate-90"
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      className="w-8 h-8 rotate-90"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"
-                      />
-                    </svg>
-                  </div>
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"
+                    />
+                  </svg>
                 </div>
               </div>
             </div>
           </div>
-        </Card>
+        </div>
+
+        {/* <Card
+          divider={false}
+          className="flex flex-col gap-6 justify-between w-1/3 h-fit"
+        >
+        </Card> */}
+        {/* Images */}
+
+        
       </article>
     </Card>
   );
