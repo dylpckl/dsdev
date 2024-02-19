@@ -65,7 +65,7 @@ function CaseStudyCard({
     return (
       <>
         {caseStudy.status === "coming soon" ? (
-          <div className="w-full h-16 flex gap-4 mt-6 items-center justify-center bg-slate-300 text-teal-900 font-medium transition-all ease-in-out duration-500">
+          <div className="h-16 flex gap-4 p-4 rounded-lg mt-6 items-center justify-center bg-slate-300 text-teal-900 font-medium transition-all ease-in-out duration-500">
             {" "}
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +88,7 @@ function CaseStudyCard({
         ) : (
           <Link
             href={caseStudy.slug}
-            className="w-full h-16 mt-6 rounded-sm flex items-center justify-center bg-teal-300 text-teal-900 font-medium group/cta hover:bg-teal-400 transition-all ease-in-out duration-500 "
+            className="h-16 mt-6 p-4 rounded-lg flex items-center justify-center bg-teal-300 text-teal-900 font-medium group/cta hover:bg-teal-400 transition-all ease-in-out duration-500 "
           >
             {/* https://tailwindcss.com/docs/hover-focus-and-other-states#differentiating-nested-groups */}
             <p className="font-mono text-xl transition-colors ease-out group-hover/cta:text-teal-700 uppercase">
@@ -128,16 +128,18 @@ function CaseStudyCard({
     >
       <article className="flex flex-col gap-6 mx-auto group/card w-full group transition-all rounded-md text-slate-200 ease-out duration-300 overflow-clip">
         {/* Headline */}
+
+        <div className="flex justify-between">
           <div className="flex flex-col gap-6">
-            {/* <span className="flex items-center gap-4 w-full uppercase font-mono text-xl text-teal-300">
-              {`dsgn.0${index + 1}`}
-              <hr className="h-px border-0 bg-teal-300" />
-            </span> */}
             <span className="font-bold text-4xl">{caseStudy.title}</span>
-            <span className="text-lg">{caseStudy.subtitle}</span>
           </div>
-     
-        <CTA />
+
+          <div>
+            <span className="text-lg">{caseStudy.subtitle}</span>
+            <CTA />
+          </div>
+        </div>
+
         <div
           ref={imageContainer}
           className="relative overflow-hidden w-full h-[60vh] bg-pink-300 select-none rounded-md"
@@ -206,8 +208,6 @@ function CaseStudyCard({
         >
         </Card> */}
         {/* Images */}
-
-        
       </article>
     </Card>
   );

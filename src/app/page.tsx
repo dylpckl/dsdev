@@ -1,5 +1,7 @@
+"use client";
+
 // External
-import { Fragment } from "react";
+import { Fragment, useEffect, useState, useRef } from "react";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import clsx from "clsx";
@@ -14,9 +16,11 @@ import DividerWithText from "@/components/DividerWithText";
 import ScrollingCarousel from "@/components/ScrollingCarousel";
 import Typewriter from "@/components/Typewriter";
 import Card from "@/components/Card";
-
+import Logo from "/public/images/ds-logo.png";
 import { Header } from "@/components/Header";
 import Footer from "@/components/Footer";
+
+import Nav from "@/components/Nav";
 
 import {
   ArrowRightCircleIcon,
@@ -32,6 +36,7 @@ import {
 
 // Data
 import { CASE_STUDIES, PROJECTS, CaseStudy } from "@/lib/data";
+import { UrlObject } from "url";
 
 const Test = ({ text }: { text: string }) => {
   return (
@@ -165,27 +170,73 @@ const Test2 = ({
 };
 
 export default function Home() {
+  const [activeSection, setActiveSection] = useState("about");
+  const aboutRef = useRef(null);
+  const designRef = useRef(null);
+  const devRef = useRef(null);
+
+  let links = ["about", "design", "dev"];
+
+  useEffect(() => {
+    // const about = document.getElementById("about");
+    // const design = document.getElementById("design");
+    // const dev = document.getElementById("dev");
+    let sections = [aboutRef, designRef, devRef];
+
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.25,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        console.log(entry.isIntersecting, entry.target.id);
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    }, observerOptions);
+
+    sections?.forEach((section) => {
+      section.current && observer.observe(section.current);
+    });
+  }, []);
+
   return (
-<>
-    <div className="w-screen h-screen bg-yellow-300/40">
+    <div className="min-h-screen lg:flex lg:gap-12">
+      <header className="bg-red-300/20 lg:w-1/6 h-screen lg:sticky lg:top-0 lg:flex lg:flex-col p-6">
+        <Image
+          src={Logo}
+          alt="logo"
+          height={64}
+        />
+        <span className="text-4xl font-semibold tracking-wide leading-normal">
+          Dylan Smith
+        </span>
 
-    </div>
+        <Nav
+          links={links}
+          activeSection={activeSection}
+        />
 
+        <Link href="#dev">resume</Link>
+        <div className="flex gap-5">
+          <SocialLink site="github" />
+          <SocialLink site="linkedin" />
+        </div>
+      </header>
 
-<div className="min-h-screen lg:flex lg:gap-12">
-      <header className="bg-red-300/20 lg:w-1/3 lg:max-h-screen lg:sticky lg:top-0 lg:flex lg:flex-col">
-        <section className="flex flex-col gap-12 py-24 text-slate-100">
-          <h1 className="text-47xl font-bold font-sans leading-relaxed tracking-wide">
+      <main className="lg:w-5/6">
+        <section
+          ref={aboutRef}
+          id="about"
+          className="bg-blue-300/40 text-3xl h-[90vh]"
+        >
+          <p>
             I&apos;m <span className="text-teal-300">Dylan</span>, a designer
-            &amp; developer based in New York.
-          </h1>
-
-          <p className="flex flex-col gap-4 font-sans text-3xl text-slate-200">
-            <span className="">
-              I care about building software that solves a problem and is
-              delightful to use.
-            </span>
-
+            &amp; developer based in New York. I care about building software
+            that solves a problem and is delightful to use.
             <span className="mt-4">
               I&apos;m Currently leading the design effort at{" "}
               <a
@@ -201,37 +252,13 @@ export default function Home() {
               </a>
             </span>
           </p>
-          <div className="flex justify-between items-center">
-            <div className="flex gap-5">
-              {/* <EnvelopeIcon className="w-6 h-6" /> */}
-              <SocialLink site="github" />
-              <SocialLink site="linkedin" />
-            </div>
-          </div>
-
-          {/* <div className="flex flex-col">
-            
-            <div className="flex gap-8 text-4xl">
-              {nav.map((nav) => (
-                <Test2
-                  name={nav.name}
-                  href={nav.href}
-                  key={nav.name}
-                  icon={nav.icon}
-                />
-              ))}
-            </div>
-          </div> */}
         </section>
-        <div>links</div>
-        <div>socials</div>
-      </header>
 
-      <main className="bg-green-300/20 lg:w-2/3 ">
         {/* Design */}
         <section
+          ref={designRef}
           id="design"
-          className="flex relative mt-12"
+          className="flex relative mt-12 bg-green-300/40 mr-12"
           // className="flex relative mt-12 px-4 md:px-12 max-w-[60vw]"
         >
           <VerticalText text="design" />
@@ -253,8 +280,9 @@ export default function Home() {
 
         {/* Dev */}
         <section
+          ref={devRef}
           id="dev"
-          className="flex relative mt-64"
+          className="flex relative mt-64 bg-yellow-300/40"
         >
           <VerticalText text="dev" />
           <div className="mx-4 md:mx-16 lg:mx-24 xl:mx-32 flex flex-col gap-32 w-full">
@@ -273,9 +301,7 @@ export default function Home() {
           </div>
         </section>
       </main>
-
     </div>
-    </>
   );
 }
 
