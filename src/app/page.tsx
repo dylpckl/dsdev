@@ -22,6 +22,8 @@ import Footer from "@/components/Footer";
 
 import Nav from "@/components/Nav";
 
+import { ArrowUpRightSquare, GithubIcon } from "lucide-react";
+
 import {
   ArrowRightCircleIcon,
   AtSymbolIcon,
@@ -178,9 +180,6 @@ export default function Home() {
   let links = ["about", "design", "dev"];
 
   useEffect(() => {
-    // const about = document.getElementById("about");
-    // const design = document.getElementById("design");
-    // const dev = document.getElementById("dev");
     let sections = [aboutRef, designRef, devRef];
 
     const observerOptions = {
@@ -191,7 +190,6 @@ export default function Home() {
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        console.log(entry.isIntersecting, entry.target.id);
         if (entry.isIntersecting) {
           setActiveSection(entry.target.id);
         }
@@ -205,60 +203,75 @@ export default function Home() {
 
   return (
     <div className="min-h-screen lg:flex lg:gap-12">
-      <header className="bg-red-300/20 lg:w-1/6 h-screen lg:sticky lg:top-0 lg:flex lg:flex-col p-6">
+      <header className="bg-red-300/30 lg:w-1/6 h-screen lg:sticky lg:top-0 lg:flex lg:flex-col p-6">
         <Image
           src={Logo}
           alt="logo"
           height={64}
         />
-        <span className="text-4xl font-semibold tracking-wide leading-normal">
-          Dylan Smith
-        </span>
+        <div className="ml-2">
+          <Nav
+            links={links}
+            activeSection={activeSection}
+          />
 
-        <Nav
-          links={links}
-          activeSection={activeSection}
-        />
+          <Link
+            href="/Dylan-Smith-Resume.pdf"
+            target="_blank"
+            className="flex gap-4 mt-6 border-t-2 border-slate-300 pt-6"
+          >
+            resume
+          </Link>
 
-        <Link href="#dev">resume</Link>
-        <div className="flex gap-5">
-          <SocialLink site="github" />
-          <SocialLink site="linkedin" />
+          <div className="flex gap-5">
+            <SocialLink site="github" />
+            <SocialLink site="linkedin" />
+
+            {/* ? `https://github.com/dylpckl`
+          : `https://www.linkedin.com/in/dylanjbsmith/` */}
+            <a
+              href="https://github.com/dylpckl"
+              className="h-8 w-8 fill-slate-300 transition hover:fill-teal-300"
+            >
+              <GithubIcon />
+            </a>
+          </div>
         </div>
       </header>
 
       <main className="lg:w-5/6">
+        {/* About */}
         <section
           ref={aboutRef}
           id="about"
-          className="bg-blue-300/40 text-3xl h-[90vh]"
+          className="bg-blue-300/40 text-3xl h-[70vh] flex flex-col gap-4 py-48 px-48"
         >
-          <p>
-            I&apos;m <span className="text-teal-300">Dylan</span>, a designer
-            &amp; developer based in New York. I care about building software
-            that solves a problem and is delightful to use.
-            <span className="mt-4">
-              I&apos;m Currently leading the design effort at{" "}
-              <a
-                href="https://multidataservices.com/"
-                target="_blank"
-                className="group relative underline hover:decoration-teal-900"
-              >
-                <span className="relative z-20 group-hover:text-teal-900 ">
-                  MDS Property Management Software
-                </span>
-                {"."}
-                <span className="absolute z-10 inset-0 bg-teal-300 w-0 group-hover:w-full group-hover:transition-all duration-500 ease-in-out"></span>
-              </a>
-            </span>
-          </p>
+          <div className="bg-red-300/40 w-full flex flex-col">
+            <span className="text-7xl font-sans font-bold">Dylan</span>
+            <span className="text-7xl font-sans font-bold ml-20">Smith</span>
+          </div>
+
+          <div className="bg-red-300/40 w-full h-32 ">I care about...</div>
+          <div className="bg-red-300/40 w-full h-32 ">
+            <a
+              href="https://multidataservices.com/"
+              target="_blank"
+              className="group relative underline hover:decoration-teal-900"
+            >
+              <span className="relative z-20 group-hover:text-teal-900 ">
+                MDS Property Management Software
+              </span>
+              {"."}
+              <span className="absolute z-10 inset-0 bg-teal-300 w-0 group-hover:w-full group-hover:transition-all duration-500 ease-in-out"></span>
+            </a>
+          </div>
         </section>
 
         {/* Design */}
         <section
           ref={designRef}
           id="design"
-          className="flex relative mt-12 bg-green-300/40 mr-12"
+          className="flex relative mt-12 mr-12"
           // className="flex relative mt-12 px-4 md:px-12 max-w-[60vw]"
         >
           <VerticalText text="design" />
@@ -282,7 +295,7 @@ export default function Home() {
         <section
           ref={devRef}
           id="dev"
-          className="flex relative mt-64 bg-yellow-300/40"
+          className="flex relative mt-64"
         >
           <VerticalText text="dev" />
           <div className="mx-4 md:mx-16 lg:mx-24 xl:mx-32 flex flex-col gap-32 w-full">
