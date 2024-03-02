@@ -63,9 +63,9 @@ function CaseStudyCard({
 
   const CTA = () => {
     return (
-      <>
+      <div className="w-1/3">
         {caseStudy.status === "coming soon" ? (
-          <div className="h-16 flex gap-4 p-4 rounded-lg mt-6 items-center justify-center bg-slate-300 text-teal-900 font-medium transition-all ease-in-out duration-500">
+          <div className="h-16 flex gap-4 p-4 rounded-lg items-center justify-center bg-slate-300 text-teal-900 font-medium transition-all ease-in-out duration-500">
             {" "}
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +88,7 @@ function CaseStudyCard({
         ) : (
           <Link
             href={caseStudy.slug}
-            className="h-16 mt-6 p-4 rounded-lg flex items-center justify-center bg-teal-300 text-teal-900 font-medium group/cta hover:bg-teal-400 transition-all ease-in-out duration-500 "
+            className="h-16 p-4 rounded-lg flex items-center justify-center bg-teal-300 text-teal-900 font-medium group/cta hover:bg-teal-400 transition-all ease-in-out duration-500 "
           >
             {/* https://tailwindcss.com/docs/hover-focus-and-other-states#differentiating-nested-groups */}
             <p className="font-mono text-xl transition-colors ease-out group-hover/cta:text-teal-700 uppercase">
@@ -116,7 +116,7 @@ function CaseStudyCard({
             </span>
           </Link>
         )}
-      </>
+      </div>
     );
   };
 
@@ -129,15 +129,13 @@ function CaseStudyCard({
       <article className="flex flex-col gap-6 mx-auto group/card w-full group transition-all rounded-md text-slate-200 ease-out duration-300 overflow-clip">
         {/* Headline */}
 
-        <div className="flex justify-between">
-          <div className="flex flex-col gap-6">
+        <div className="flex gap-12 justify-between">
+          <div className="w-2/3 flex flex-col gap-6">
             <span className="font-bold text-4xl">{caseStudy.title}</span>
+            <span className="text-lg">{caseStudy.subtitle}</span>
           </div>
 
-          <div>
-            <span className="text-lg">{caseStudy.subtitle}</span>
-            <CTA />
-          </div>
+          <CTA />
         </div>
 
         <div
