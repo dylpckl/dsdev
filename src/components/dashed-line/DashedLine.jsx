@@ -7,8 +7,7 @@ export default function DashLine({ width }) {
   console.log(width);
   return (
     <>
-
-  <div className="dashed-line"/>
+      <div className={`dashed-line`}></div>
 
       {/* <div
         className={`absolute -left-1/2 w-[906.17185px] border-t-2 border-orange-300 border-dashed h-10 -top-1`}

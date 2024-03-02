@@ -26,13 +26,13 @@ export default function Home() {
   const introRef = useRef(null);
   const designRef = useRef(null);
   const devRef = useRef(null);
-  const [aboutWidth, setAboutWidth] = useState(0);
+  const [introWidth, setIntroWidth] = useState(0);
 
   let links = ["intro", "design", "dev"];
 
   useEffect(() => {
-    const aboutWidth = introRef.current.getBoundingClientRect().width;
-    setAboutWidth(aboutWidth);
+    const introWidth = introRef.current.getBoundingClientRect().width;
+    setIntroWidth(introWidth);
 
     let sections = [introRef, designRef, devRef];
 
@@ -90,10 +90,10 @@ export default function Home() {
           id="intro"
           className="bg-blue-300/40 text-3xl h-[70vh] flex flex-col gap-4 py-48 px-48 overflow-hidden"
         >
-          <div className="bg-red-300/40 w-full flex flex-col">
+          <div className="w-full flex flex-col">
             <span className="text-7xl font-sans font-bold">Dylan</span>
-            <span className="relative text-7xl font-sans font-bold ml-20  w-fit">
-              {/* <DashedLine width={aboutWidth} /> */}
+            <span className="relative text-7xl font-sans font-bold ml-20">
+              <DashedLine width={introWidth} />
               Smith
             </span>
           </div>
