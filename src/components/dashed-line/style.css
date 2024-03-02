@@ -1,8 +1,26 @@
-.dashed-line {
-  /* background-color: red; */
+.vertical {
   position: absolute;
+  height: 100vh;
+  width: 2px;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0 4px,
+    #d78775 4px 8px
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    #000 15%,
+    #000 85%,
+    transparent 100%
+  );
+}
+
+.horizontal {
+  position: absolute;
+  left: -50%;
   height: 2px;
-  width: 100%;
+  width: 100vw;
   background-image: repeating-linear-gradient(
     90deg,
     transparent 0 4px,
@@ -15,28 +33,23 @@
     #000 85%,
     transparent 100%
   );
-  /* background-image: repeating-linear-gradient(
-    90deg,
-    transparent,
-    transparent 20px,
-    black 20px,
-    black 40px
-  ); */
-  /* linear-gradient(to right, black, transparent); */
-
-  /* background: repeating-linear-gradient(
-    -45deg,
-    transparent,
-    transparent 20px,
-    black 20px,
-    black 40px
-  );
-  background-image: repeating-linear-gradient(
-    -45deg,
-    transparent 0 20px,
-    black 20px 40px
-  );
-  background-size: 2px 100%;
-  background-position: 80%;
-  background-repeat: no-repeat; */
 }
+
+
+/* position: "left" | "top" | "right" | "bottom"; */
+
+/* .left {
+
+}
+
+.top {
+  
+}
+
+.right {
+
+}
+
+.bottom {
+
+} */

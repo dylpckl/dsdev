@@ -12,7 +12,7 @@ import CaseStudyCard from "@/components/CaseStudyCard";
 import ProjectCard from "@/components/ProjectCard";
 import DividerWithText from "@/components/DividerWithText";
 import Nav from "@/components/Nav";
-import DashedLine from "@/components/dashed-line/DashedLine";
+import DashedLine from "@/components/dashed-line/Guideline";
 
 // Images & Icons
 import Logo from "/public/images/ds-logo.png";
@@ -93,13 +93,20 @@ export default function Home() {
           <div className="w-full flex flex-col">
             <span className="text-7xl font-sans font-bold">Dylan</span>
             <span className="relative text-7xl font-sans font-bold ml-20">
-              <DashedLine width={introWidth} />
+              <DashedLine
+                orientation="horizontal"
+                position="top"
+              />
+              <DashedLine
+                orientation="vertical"
+                position="left"
+              />
               Smith
             </span>
           </div>
 
-          <div className="bg-red-300/40 w-full h-32 ">I care about...</div>
-          <div className="bg-red-300/40 w-full h-32 ">
+          <div className="w-full h-32 ">I care about...</div>
+          <div className="w-full h-32 ">
             <a
               href="https://multidataservices.com/"
               target="_blank"
