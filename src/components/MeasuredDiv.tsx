@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { useDimensions } from "@/lib/useDimensions";
 
-import Guideline from "@/components/guideline/Guideline";
+import { Guideline } from "@/components/guideline/Guideline";
 import Measurement from "@/components/Measurement";
 
 // measurement accepts top, bottom, left, right

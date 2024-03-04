@@ -124,7 +124,7 @@ export default function Home() {
           <MeasuredDiv
             guideline={{
               enabled: true,
-              orientation: "vertical",
+              orientation: "horizontal",
               position: "top",
             }}
             measurement={{

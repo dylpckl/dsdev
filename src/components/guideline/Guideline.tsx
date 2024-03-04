@@ -51,7 +51,7 @@ type ConditionalProps =
 
 type Props = CommonProps & ConditionalProps;
 
-export const DashedLine = (props: Props) => {
+export const Guideline = (props: Props) => {
   const { enabled, orientation, edge, length } = props;
   return (
     <div
