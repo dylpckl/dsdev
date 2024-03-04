@@ -12,14 +12,19 @@ import CaseStudyCard from "@/components/CaseStudyCard";
 import ProjectCard from "@/components/ProjectCard";
 import DividerWithText from "@/components/DividerWithText";
 import Nav from "@/components/Nav";
-import DashedLine from "@/components/dashed-line/Guideline";
+import DashedLine from "@/components/guideline/Guideline";
+import Measurement from "@/components/Measurement";
+
+import MeasuredDiv from "@/components/MeasuredDiv";
 
 // Images & Icons
 import Logo from "/public/images/ds-logo.png";
 import { ArrowUpRightSquare, GithubIcon } from "lucide-react";
+import { useDimensions } from "@/lib/useDimensions";
 
 // Data
 import { CASE_STUDIES, PROJECTS, CaseStudy } from "@/lib/data";
+import { test } from "gray-matter";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("about");
@@ -27,6 +32,9 @@ export default function Home() {
   const designRef = useRef(null);
   const devRef = useRef(null);
   const [introWidth, setIntroWidth] = useState(0);
+
+  const testRef = useRef(null);
+  const { width, height } = useDimensions(testRef);
 
   let links = ["intro", "design", "dev"];
 
@@ -92,18 +100,41 @@ export default function Home() {
         >
           <div className="w-full flex flex-col">
             <span className="text-7xl font-sans font-bold">Dylan</span>
-            <span className="relative text-7xl font-sans font-bold ml-20">
-              <DashedLine
+
+            {/* want the measurements of this span, so need a ref */}
+            <span
+              ref={testRef}
+              className="relative text-7xl font-sans font-bold ml-20 w-fit"
+            >
+              {/* <DashedLine
                 orientation="horizontal"
                 position="top"
               />
               <DashedLine
                 orientation="vertical"
                 position="left"
-              />
+              /> */}
               Smith
+              {/* pass the measurements to this */}
+              {/* <Measurement orientation="horizontal" position="top" length={100} /> */}
             </span>
+            {/* want the measurements of this span, so need a ref */}
           </div>
+
+          <MeasuredDiv
+            guideline={{
+              enabled: true,
+              orientation: "vertical",
+              position: "top",
+            }}
+            measurement={{
+              enabled: false,
+              orientation: "horizontal",
+              position: "top",
+            }}
+          >
+            <span>test</span>
+          </MeasuredDiv>
 
           <div className="w-full h-32 ">I care about...</div>
           <div className="w-full h-32 ">
