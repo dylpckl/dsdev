@@ -1,7 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
 import "./style.css";
-import { forwardRef } from "react";
 
 // a guideline is a dashed line that can be positioned vertically along the left or right ridge
 // vertical: h-full, w-px (full height, 1px wide)
@@ -19,40 +18,44 @@ import { forwardRef } from "react";
 // vertical, left, right
 // horizontal, top, bottom
 
-// if vertical, then need to know left edge or right edge
+// positioning:
+// width of the parent (MeasuredDiv)
+// vertically oriented: position in the middle of the parent
+// horizontally oriented: position in the middle of the parent
+// always positioned in the middle of the parent
+// horizontal: top-0 | bottom-0 + left-1/2
+// vertical: left-0 | right-0 + top-1/2
 
-// -----------------------------------------------------------
-// Conditional Props !!!
+// length (width [horizontal]):
+// left edge of parent to left edge of ancestor
+// right edge of parent to right edge of ancestor
+
 
 // props that always exist
-interface CommonProps {
+type CommonProps = {
   enabled: boolean;
-}
+};
 
 type ConditionalProps =
   // if I choose vertical, then edge needs to be either "left" or "right"
   | {
       orientation?: "vertical";
       edge?: "left" | "right";
-      length?: number;
+      height?: number;
     }
   // if I choose horizontal, then edge needs to be either "top" or "bottom"
   | {
       orientation?: "horizontal";
       edge?: "top" | "bottom";
-      length?: number;
+      width?: number;
     };
-
-// type GuidelineProps = {
-//   orientation: "horizontal" | "vertical";
-//   edge: "left" | "top" | "right" | "bottom";
-//   length?: number;
-// };
 
 type Props = CommonProps & ConditionalProps;
 
 export const Guideline = (props: Props) => {
-  const { enabled, orientation, edge, length } = props;
+  const { enabled, orientation, edge, height, width } = props;
+  const isHorizontal = orientation === "horizontal";
+  const isVertical = orientation === "vertical";
   return (
     <div
       id="guideline"
@@ -60,10 +63,8 @@ export const Guideline = (props: Props) => {
         orientation,
         "absolute",
         {
-          "w-full": orientation === "horizontal",
-          "h-px": orientation === "horizontal",
-          "h-full": orientation === "vertical",
-          "w-px": orientation === "vertical",
+          [`w-[2000px] h-px -left-[500px]`]: isHorizontal,
+          "h-full w-px top-1/2": isVertical,
         },
         {
           "left-0": edge === "left",

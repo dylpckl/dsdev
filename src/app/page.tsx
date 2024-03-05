@@ -98,15 +98,15 @@ export default function Home() {
           id="intro"
           className="bg-blue-300/40 text-3xl h-[70vh] flex flex-col gap-4 py-48 px-48 overflow-hidden"
         >
-          <div className="w-full flex flex-col">
-            <span className="text-7xl font-sans font-bold">Dylan</span>
+          <div className="flex flex-col">
+            {/* <span className="text-7xl font-sans font-bold">Dylan</span> */}
 
             {/* want the measurements of this span, so need a ref */}
-            <span
+            {/* <span
               ref={testRef}
               className="relative text-7xl font-sans font-bold ml-20 w-fit"
-            >
-              {/* <DashedLine
+            > */}
+            {/* <DashedLine
                 orientation="horizontal"
                 position="top"
               />
@@ -114,27 +114,44 @@ export default function Home() {
                 orientation="vertical"
                 position="left"
               /> */}
-              Smith
-              {/* pass the measurements to this */}
-              {/* <Measurement orientation="horizontal" position="top" length={100} /> */}
-            </span>
+            {/* Smith */}
+            {/* pass the measurements to this */}
+            {/* <Measurement orientation="horizontal" position="top" length={100} /> */}
+            {/* </span> */}
             {/* want the measurements of this span, so need a ref */}
+
+            <MeasuredDiv
+              className="w-fit"
+              guideline={{
+                enabled: true,
+                orientation: "horizontal",
+                position: "top",
+                
+              }}
+              measurement={{
+                enabled: true,
+                orientation: "horizontal",
+                position: "top",
+              }}
+            >
+              <span className="text-7xl font-sans font-bold">Dylan</span>
+            </MeasuredDiv>
           </div>
 
-          <MeasuredDiv
+          {/* <MeasuredDiv
             guideline={{
               enabled: true,
               orientation: "horizontal",
               position: "top",
             }}
             measurement={{
-              enabled: false,
-              orientation: "horizontal",
-              position: "top",
+              enabled: true,
+              orientation: "vertical",
+              position: "left",
             }}
           >
             <span>test</span>
-          </MeasuredDiv>
+          </MeasuredDiv> */}
 
           <div className="w-full h-32 ">I care about...</div>
           <div className="w-full h-32 ">

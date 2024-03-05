@@ -1,14 +1,24 @@
-import { useRef } from "react";
-import { useDimensions } from "@/lib/useDimensions";
+"use client";
 
+// External
+import { useRef } from "react";
+
+// Utils
+import { useDimensions } from "@/lib/useDimensions";
+import { cn } from "@/lib/utils";
+
+// Components
 import { Guideline } from "@/components/guideline/Guideline";
 import Measurement from "@/components/Measurement";
 
 // measurement accepts top, bottom, left, right
 // guideline accepts top, bottom, left, right
 
-// PROPS ------------------------------------------------------
+// This component utilizies the useDimensions hook
+// to dynamically measure the width and height of the div
+// and pass the values to the guideline and measurement components
 
+// PROPS ------------------------------------------------------
 // -----------------------------------------------------------
 
 // a generic div that measures its width and height and can render
@@ -18,7 +28,12 @@ import Measurement from "@/components/Measurement";
 // Only supports 1x guideline and 1x measurement
 // -----------------------------------------------------------
 
-type MeasuredDivProps = {
+type CommonProps = {
+  className?: string;
+  children: React.ReactNode;
+};
+
+type ConditionalProps = {
   guideline: {
     enabled: boolean;
     orientation: "horizontal" | "vertical";
@@ -30,38 +45,43 @@ type MeasuredDivProps = {
     position: "left" | "top" | "right" | "bottom";
   };
   // length?: string;
-  children: React.ReactNode;
 };
 
+type MeasuredDivProps = CommonProps & ConditionalProps;
+
 export default function MeasuredDiv({
+  className,
   guideline,
   measurement,
   children,
 }: MeasuredDivProps) {
   const divRef = useRef(null);
   const { width, height } = useDimensions(divRef);
+  console.log(width, width * 4, "width");
   return (
     <div
       id="measured-div"
       ref={divRef}
-      className="bg-gray-100 p-4 relative"
+      className={cn("relative", className)}
     >
       {guideline.enabled && (
         <Guideline
+          enabled={guideline.enabled}
           orientation={guideline.orientation}
           edge={guideline.position}
-          length={100} // pass width or height depending on orientation
+          
+           // pass width or height depending on orientation
         />
       )}
       {measurement.enabled && (
         <Measurement
           orientation={measurement.orientation}
           position={measurement.position}
-          length={100}
+          length={width}
         />
       )}
-      <p>Width: {width}px</p>
-      <p>Height: {height}px</p>
+      {/* <p>Width: {width}px</p>
+      <p>Height: {height}px</p> */}
       {children}
     </div>
   );
