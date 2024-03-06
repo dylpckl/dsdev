@@ -124,6 +124,8 @@ export default function Home() {
             className="flex flex-col w-fit text-7xl font-sans font-bold"
             guideline={true}
             guidelineProps={{ orientation: "horizontal", edge: "bottom" }}
+            measurement={true}
+            measurementProps={{ orientation: "horizontal", edge: "top" }}
 
             // measurement={{
             //   enabled: true,

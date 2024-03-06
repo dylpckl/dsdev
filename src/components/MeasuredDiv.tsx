@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 
 // Components
 import { Guideline, GuidlineProps } from "@/components/guideline/Guideline";
-import Measurement from "@/components/Measurement";
+import { Measurement, MeasurementProps } from "@/components/Measurement";
 
 // measurement accepts top, bottom, left, right
 // guideline accepts top, bottom, left, right
@@ -33,6 +33,8 @@ type MeasuredDivProps = {
   guideline: boolean;
   children: React.ReactNode;
   guidelineProps: GuidlineProps;
+  measurement: boolean;
+  measurementProps: MeasurementProps;
 };
 
 // type ConditionalProps = {
@@ -56,6 +58,8 @@ export default function MeasuredDiv({
   children,
   guideline,
   guidelineProps,
+  measurement,
+  measurementProps,
 }: MeasuredDivProps) {
   const divRef = useRef(null);
   const { width, height } = useDimensions(divRef);
@@ -74,13 +78,13 @@ export default function MeasuredDiv({
           // pass width or height depending on orientation
         />
       )}
-      {/* {measurement.enabled && (
+      {measurement && (
         <Measurement
-          orientation={measurement.orientation}
-          position={measurement.position}
+          orientation={measurementProps.orientation}
+          edge={measurementProps.edge}
           length={width}
         />
-      )} */}
+      )}
       {/* <p>Width: {width}px</p>
       <p>Height: {height}px</p> */}
       {children}
