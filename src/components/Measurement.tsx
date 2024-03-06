@@ -40,15 +40,16 @@ export const Measurement = (props: MeasurementProps) => {
     // vertical: w-px, h-full
 
     // vertical - left edge
+    // left must match width
     <span
       id="measurement"
-      className="absolute w-2 bg-red-300/40 flex flex-col h-full items-center left-0 t-1/2 text-xs font-mono text-center border-b-2 border-b-red-300 border-t-2 border-t-red-300"
+      className="absolute w-2 flex flex-col h-full items-center -left-2 t-1/2 text-xs font-mono text-center border-b-2 border-b-red-300 border-t-2 border-t-red-300"
     >
       {/* Relative Container */}
-      <div className="relative">
-        <hr className="w-px h-12 border-0 bg-red-300" />
-        <span className="absolute -l-1/2">{length}px</span>
-        <hr className="w-px h-12 border-0 bg-red-300" />
+      <div className="relative w-full h-full flex items-center justify-center ">
+        <hr className="w-px h-full border-0 bg-red-300" />
+        <span className="absolute -left-10">{length}px</span>
+        {/* <hr className="w-px h-12 border-0 bg-red-300" /> */}
       </div>
     </span>
 
