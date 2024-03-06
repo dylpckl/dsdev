@@ -96,17 +96,17 @@ export default function Home() {
         <section
           ref={introRef}
           id="intro"
-          className="bg-blue-300/40 text-3xl h-[70vh] flex flex-col gap-4 py-48 px-48 overflow-hidden"
+          className="text-3xl h-[70vh] flex flex-col gap-4 py-48 px-48 overflow-hidden"
         >
-          <div className="flex flex-col">
-            {/* <span className="text-7xl font-sans font-bold">Dylan</span> */}
+          {/* <div className="flex flex-col"> */}
+          {/* <span className="text-7xl font-sans font-bold">Dylan</span> */}
 
-            {/* want the measurements of this span, so need a ref */}
-            {/* <span
+          {/* want the measurements of this span, so need a ref */}
+          {/* <span
               ref={testRef}
               className="relative text-7xl font-sans font-bold ml-20 w-fit"
             > */}
-            {/* <DashedLine
+          {/* <DashedLine
                 orientation="horizontal"
                 position="top"
               />
@@ -114,29 +114,27 @@ export default function Home() {
                 orientation="vertical"
                 position="left"
               /> */}
-            {/* Smith */}
-            {/* pass the measurements to this */}
-            {/* <Measurement orientation="horizontal" position="top" length={100} /> */}
-            {/* </span> */}
-            {/* want the measurements of this span, so need a ref */}
+          {/* Smith */}
+          {/* pass the measurements to this */}
+          {/* <Measurement orientation="horizontal" position="top" length={100} /> */}
+          {/* </span> */}
+          {/* want the measurements of this span, so need a ref */}
 
-            <MeasuredDiv
-              className="w-fit"
-              guideline={{
-                enabled: true,
-                orientation: "horizontal",
-                position: "top",
-                
-              }}
-              measurement={{
-                enabled: true,
-                orientation: "horizontal",
-                position: "top",
-              }}
-            >
-              <span className="text-7xl font-sans font-bold">Dylan</span>
-            </MeasuredDiv>
-          </div>
+          <MeasuredDiv
+            className="flex flex-col w-fit text-7xl font-sans font-bold"
+            guideline={true}
+            guidelineProps={{ orientation: "horizontal", edge: "bottom" }}
+
+            // measurement={{
+            //   enabled: true,
+            //   orientation: "horizontal",
+            //   position: "top",
+            // }}
+          >
+            <span className="">Dylan</span>
+            <span className="ml-20">Smith</span>
+          </MeasuredDiv>
+          {/* </div> */}
 
           {/* <MeasuredDiv
             guideline={{
@@ -153,8 +151,11 @@ export default function Home() {
             <span>test</span>
           </MeasuredDiv> */}
 
-          <div className="w-full h-32 ">I care about...</div>
           <div className="w-full h-32 ">
+            Designing interfaces by day and building them by night
+          </div>
+          <div className="w-full h-32 ">
+            Currently leading design for{" "}
             <a
               href="https://multidataservices.com/"
               target="_blank"

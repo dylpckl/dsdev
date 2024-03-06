@@ -1,4 +1,3 @@
-"use client";
 import { cn } from "@/lib/utils";
 import "./style.css";
 
@@ -30,30 +29,32 @@ import "./style.css";
 // left edge of parent to left edge of ancestor
 // right edge of parent to right edge of ancestor
 
-
 // props that always exist
 type CommonProps = {
-  enabled: boolean;
+  // enabled: boolean;
 };
 
 type ConditionalProps =
   // if I choose vertical, then edge needs to be either "left" or "right"
   | {
-      orientation?: "vertical";
-      edge?: "left" | "right";
-      height?: number;
+      orientation: "vertical";
+      edge: "left" | "right";
+      // height: number;
+      // width: never;
     }
   // if I choose horizontal, then edge needs to be either "top" or "bottom"
   | {
-      orientation?: "horizontal";
-      edge?: "top" | "bottom";
-      width?: number;
+      orientation: "horizontal";
+      edge: "top" | "bottom";
+      // height: never;
+      // width: number;
     };
 
-type Props = CommonProps & ConditionalProps;
+type GuidlineProps = CommonProps & ConditionalProps;
 
-export const Guideline = (props: Props) => {
-  const { enabled, orientation, edge, height, width } = props;
+export const Guideline = (props: GuidlineProps) => {
+  const { orientation, edge } = props;
+  // const { orientation, edge, height, width } = props;
   const isHorizontal = orientation === "horizontal";
   const isVertical = orientation === "vertical";
   return (
@@ -75,43 +76,6 @@ export const Guideline = (props: Props) => {
       )}
     />
   );
-  // return <div className={`${orientation} ${position} ${length}`} />;
 };
 
-// function DashedLine({
-//   orientation,
-//   edge,
-//   length,
-// }: GuidelineProps) {
-//   return (
-//     <div
-//       id="guideline"
-//       className={cn(
-//         orientation,
-//         "absolute",
-//         {
-//           "w-full": orientation === "horizontal",
-//           "h-px": orientation === "horizontal",
-//           "h-full": orientation === "vertical",
-//           "w-px": orientation === "vertical",
-//         },
-//         {
-//           "left-0": edge === "left",
-//           "top-0": edge === "top",
-//           "right-0": edge === "right",
-//           "bottom-0": edge === "bottom",
-//         }
-//       )}
-//     />
-//   );
-// }
-
-// {
-//   "bg-sky-500/30 text-sky-200":
-//     project.status === "proof of concept",
-//   "bg-teal-400/10 text-teal-300": project.status === "deployed",
-//   "bg-slate-600 text-slate-200":
-//     project.status === "coming soon",
-//   "bg-purple-500/30 text-purple-200":
-//     project.status === "in development",
-// }
+export type { GuidlineProps };
