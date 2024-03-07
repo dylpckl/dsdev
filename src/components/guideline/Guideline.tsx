@@ -29,6 +29,14 @@ import "./style.css";
 // left edge of parent to left edge of ancestor
 // right edge of parent to right edge of ancestor
 
+// ----------------
+
+// I actually only need left, right, top, bottom
+// left = vertical left edge
+// right = vertical right edge
+// top = horizontal top edge
+// bottom = horizontal bottom edge
+
 // props that always exist
 type CommonProps = {
   // enabled: boolean;
@@ -65,7 +73,7 @@ export const Guideline = (props: GuidlineProps) => {
         "absolute",
         {
           [`w-[2000px] h-px -left-[500px]`]: isHorizontal,
-          "h-full w-px top-1/2": isVertical,
+          "h-[2000px] w-px -top-[500px]": isVertical,
         },
         {
           "left-0": edge === "left",

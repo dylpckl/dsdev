@@ -125,16 +125,19 @@ export default function Home() {
             guideline={true}
             guidelineProps={{ orientation: "horizontal", edge: "bottom" }}
             measurement={true}
-            measurementProps={{ orientation: "horizontal", edge: "top" }}
-
-            // measurement={{
-            //   enabled: true,
-            //   orientation: "horizontal",
-            //   position: "top",
-            // }}
+            measurementProps={{ orientation: "vertical", edge: "left" }}
           >
             <span className="">Dylan</span>
-            <span className="ml-20">Smith</span>
+            {/* <span className="ml-20">Smith</span> */}
+            <MeasuredDiv
+              className="ml-20"
+              guideline={true}
+              guidelineProps={{ orientation: "vertical", edge: "left" }}
+              measurement={true}
+              measurementProps={{ orientation: "horizontal", edge: "bottom" }}
+            >
+              <span>Smith</span>
+            </MeasuredDiv>
           </MeasuredDiv>
           {/* </div> */}
 
@@ -153,7 +156,7 @@ export default function Home() {
             <span>test</span>
           </MeasuredDiv> */}
 
-          <div className="w-full h-32 ">
+          <div className="w-full h-32 mt-12">
             Designing interfaces by day and building them by night
           </div>
           <div className="w-full h-32 ">
