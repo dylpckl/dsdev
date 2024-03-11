@@ -29,51 +29,30 @@ import "./style.css";
 // left edge of parent to left edge of ancestor
 // right edge of parent to right edge of ancestor
 
-// ----------------
-
 // I actually only need left, right, top, bottom
 // left = vertical left edge
 // right = vertical right edge
 // top = horizontal top edge
 // bottom = horizontal bottom edge
 
-// props that always exist
-type CommonProps = {
-  // enabled: boolean;
+type GuidlineProps = {
+  edge: "left" | "right" | "top" | "bottom";
 };
 
-type ConditionalProps =
-  // if I choose vertical, then edge needs to be either "left" or "right"
-  | {
-      orientation: "vertical";
-      edge: "left" | "right";
-      // height: number;
-      // width: never;
-    }
-  // if I choose horizontal, then edge needs to be either "top" or "bottom"
-  | {
-      orientation: "horizontal";
-      edge: "top" | "bottom";
-      // height: never;
-      // width: number;
-    };
-
-type GuidlineProps = CommonProps & ConditionalProps;
-
-export const Guideline = (props: GuidlineProps) => {
-  const { orientation, edge } = props;
-  // const { orientation, edge, height, width } = props;
-  const isHorizontal = orientation === "horizontal";
-  const isVertical = orientation === "vertical";
+const Guideline = (props: GuidlineProps) => {
+  const { edge } = props;
+  const isHorizontal = edge === "top" || edge === "bottom";
+  const isVertical = edge === "left" || edge === "right";
   return (
     <div
       id="guideline"
       className={cn(
-        orientation,
         "absolute",
         {
           [`w-[2000px] h-px -left-[500px]`]: isHorizontal,
           "h-[2000px] w-px -top-[500px]": isVertical,
+          vertical: isVertical,
+          horizontal: isHorizontal,
         },
         {
           "left-0": edge === "left",
@@ -85,5 +64,7 @@ export const Guideline = (props: GuidlineProps) => {
     />
   );
 };
+
+export default Guideline;
 
 export type { GuidlineProps };

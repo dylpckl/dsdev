@@ -12,25 +12,20 @@ import CaseStudyCard from "@/components/CaseStudyCard";
 import ProjectCard from "@/components/ProjectCard";
 import DividerWithText from "@/components/DividerWithText";
 import Nav from "@/components/Nav";
-import DashedLine from "@/components/guideline/Guideline";
-import Measurement from "@/components/Measurement";
-
 import MeasuredDiv from "@/components/MeasuredDiv";
 
 // Images & Icons
 import Logo from "/public/images/ds-logo.png";
-import { ArrowUpRightSquare, GithubIcon } from "lucide-react";
 import { useDimensions } from "@/lib/useDimensions";
 
 // Data
 import { CASE_STUDIES, PROJECTS, CaseStudy } from "@/lib/data";
-import { test } from "gray-matter";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("about");
-  const introRef = useRef(null);
-  const designRef = useRef(null);
-  const devRef = useRef(null);
+  const introRef = useRef<HTMLDivElement | null>(null);
+  const designRef = useRef<HTMLDivElement | null>(null);
+  const devRef = useRef<HTMLDivElement | null>(null);
   const [introWidth, setIntroWidth] = useState(0);
 
   const testRef = useRef(null);
@@ -39,7 +34,8 @@ export default function Home() {
   let links = ["intro", "design", "dev"];
 
   useEffect(() => {
-    const introWidth = introRef.current.getBoundingClientRect().width;
+    const introWidth =
+      (introRef.current && introRef.current.getBoundingClientRect().width) || 0;
     setIntroWidth(introWidth);
 
     let sections = [introRef, designRef, devRef];
@@ -123,18 +119,18 @@ export default function Home() {
           <MeasuredDiv
             className="flex flex-col w-fit text-7xl font-sans font-bold"
             guideline={true}
-            guidelineProps={{ orientation: "horizontal", edge: "bottom" }}
+            guidelineProps={{ edge: "bottom" }}
             measurement={true}
-            measurementProps={{ orientation: "vertical", edge: "left" }}
+            measurementProps={{ edge: "left" }}
           >
             <span className="">Dylan</span>
             {/* <span className="ml-20">Smith</span> */}
             <MeasuredDiv
               className="ml-20"
               guideline={true}
-              guidelineProps={{ orientation: "vertical", edge: "left" }}
+              guidelineProps={{ edge: "left" }}
               measurement={true}
-              measurementProps={{ orientation: "horizontal", edge: "bottom" }}
+              measurementProps={{ edge: "bottom" }}
             >
               <span>Smith</span>
             </MeasuredDiv>

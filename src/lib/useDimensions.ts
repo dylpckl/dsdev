@@ -1,3 +1,4 @@
+"use client";
 import { RefObject, useMemo, useSyncExternalStore } from "react";
 
 function subscribe(callback: (e: Event) => void) {

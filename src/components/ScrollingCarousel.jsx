@@ -26,9 +26,9 @@ export default function ScrollingCarousel() {
               viewBox="0 0 24 24"
               fill="currentColor"
               stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               class="h-6 w-6 flex-none text-violet-600"
             >
               <circle
@@ -48,9 +48,9 @@ export default function ScrollingCarousel() {
               viewBox="0 0 24 24"
               fill="currentColor"
               stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               class="h-6 w-6 flex-none text-violet-600"
             >
               <circle
@@ -70,9 +70,9 @@ export default function ScrollingCarousel() {
               viewBox="0 0 24 24"
               fill="currentColor"
               stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               class="h-6 w-6 flex-none text-violet-600"
             >
               <circle
@@ -92,9 +92,9 @@ export default function ScrollingCarousel() {
               viewBox="0 0 24 24"
               fill="currentColor"
               stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               class="h-6 w-6 flex-none text-violet-600"
             >
               <circle
@@ -121,9 +121,9 @@ export default function ScrollingCarousel() {
               viewBox="0 0 24 24"
               fill="currentColor"
               stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               class="h-6 w-6 flex-none text-violet-600"
             >
               <circle
@@ -143,9 +143,9 @@ export default function ScrollingCarousel() {
               viewBox="0 0 24 24"
               fill="currentColor"
               stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               class="h-6 w-6 flex-none text-violet-600"
             >
               <circle
@@ -165,9 +165,9 @@ export default function ScrollingCarousel() {
               viewBox="0 0 24 24"
               fill="currentColor"
               stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               class="h-6 w-6 flex-none text-violet-600"
             >
               <circle
@@ -187,9 +187,9 @@ export default function ScrollingCarousel() {
               viewBox="0 0 24 24"
               fill="currentColor"
               stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               class="h-6 w-6 flex-none text-violet-600"
             >
               <circle
@@ -209,9 +209,9 @@ export default function ScrollingCarousel() {
               viewBox="0 0 24 24"
               fill="currentColor"
               stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               class="h-6 w-6 flex-none text-violet-600"
             >
               <circle
@@ -231,9 +231,9 @@ export default function ScrollingCarousel() {
               viewBox="0 0 24 24"
               fill="currentColor"
               stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               class="h-6 w-6 flex-none text-violet-600"
             >
               <circle
@@ -253,9 +253,9 @@ export default function ScrollingCarousel() {
               viewBox="0 0 24 24"
               fill="currentColor"
               stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               class="h-6 w-6 flex-none text-violet-600"
             >
               <circle
@@ -275,9 +275,9 @@ export default function ScrollingCarousel() {
               viewBox="0 0 24 24"
               fill="currentColor"
               stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               class="h-6 w-6 flex-none text-violet-600"
             >
               <circle
@@ -297,9 +297,9 @@ export default function ScrollingCarousel() {
               viewBox="0 0 24 24"
               fill="currentColor"
               stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               class="h-6 w-6 flex-none text-violet-600"
             >
               <circle
@@ -319,9 +319,9 @@ export default function ScrollingCarousel() {
               viewBox="0 0 24 24"
               fill="currentColor"
               stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               class="h-6 w-6 flex-none text-violet-600"
             >
               <circle

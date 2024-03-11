@@ -12,28 +12,33 @@ import { cn } from "@/lib/utils";
 //   length?: number;
 // };
 
-type MeasurementProps =
-  // if I choose vertical, then edge needs to be either "left" or "right"
-  | {
-      orientation: "vertical";
-      edge: "left" | "right";
-      length?: number;
-      // height: number;
-      // width: never;
-    }
-  // if I choose horizontal, then edge needs to be either "top" or "bottom"
-  | {
-      orientation: "horizontal";
-      edge: "top" | "bottom";
-      length?: number;
-      // height: never;
-      // width: number;
-    };
+// type MeasurementProps =
+//   // if I choose vertical, then edge needs to be either "left" or "right"
+//   | {
+//       orientation: "vertical";
+//       edge: "left" | "right";
+//       length?: number;
+//       // height: number;
+//       // width: never;
+//     }
+//   // if I choose horizontal, then edge needs to be either "top" or "bottom"
+//   | {
+//       orientation: "horizontal";
+//       edge: "top" | "bottom";
+//       length?: number;
+//       // height: never;
+//       // width: number;
+//     };
+
+type MeasurementProps = {
+  edge: "left" | "top" | "right" | "bottom";
+  length?: number;
+};
 
 export const Measurement = (props: MeasurementProps) => {
-  const { orientation, edge, length } = props;
-  const isHorizontal = orientation === "horizontal";
-  const isVertical = orientation === "vertical";
+  const { edge, length } = props;
+  const isHorizontal = (edge === "top" || edge === "bottom") as boolean;
+  const isVertical = (edge === "left" || edge === "right") as boolean;
   return (
     <>
       {isHorizontal ? (

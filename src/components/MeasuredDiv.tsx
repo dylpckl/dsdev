@@ -8,7 +8,8 @@ import { useDimensions } from "@/lib/useDimensions";
 import { cn } from "@/lib/utils";
 
 // Components
-import { Guideline, GuidlineProps } from "@/components/guideline/Guideline";
+import Guideline from "@/components/guideline/Guideline";
+import { GuidlineProps } from "@/components/guideline/Guideline";
 import { Measurement, MeasurementProps } from "@/components/Measurement";
 
 // measurement accepts top, bottom, left, right
@@ -70,23 +71,13 @@ export default function MeasuredDiv({
       ref={divRef}
       className={cn("relative", className)}
     >
-      {guideline && (
-        <Guideline
-          orientation={guidelineProps.orientation}
-          edge={guidelineProps.edge}
-
-          // pass width or height depending on orientation
-        />
-      )}
+      {guideline && <Guideline edge={guidelineProps.edge} />}
       {measurement && (
         <Measurement
-          orientation={measurementProps.orientation}
           edge={measurementProps.edge}
           length={width}
         />
       )}
-      {/* <p>Width: {width}px</p>
-      <p>Height: {height}px</p> */}
       {children}
     </div>
   );
