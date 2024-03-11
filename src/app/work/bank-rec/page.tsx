@@ -321,7 +321,8 @@ export default function Page() {
                 </div>
               </div>
               <Image
-                src={Audit}
+                // src={Audit}
+                src={`/case-studies/bank-rec/audit.png`}
                 alt="audit image"
                 className="mx-auto rounded-sm"
               />
@@ -337,7 +338,8 @@ export default function Page() {
               After orienting myself with the legacy UI, I began wireframing
               what the new structure might look like.
               <Image
-                src={Wireframe}
+                // src={Wireframe}
+                src={`public/case-studies/bank-rec/wireframe.png`}
                 alt="wireframe"
                 className="mt-6 mx-auto rounded-sm"
               />
