@@ -38,7 +38,7 @@ export default async function RootLayout({
       // className="scroll-smooth snap snap-y snap-mandatory"
       suppressHydrationWarning
     >
-      <Head>
+      {/* <Head>
         <link
           rel="stylesheet"
           href="https://rsms.me/inter/inter.css"
@@ -47,12 +47,12 @@ export default async function RootLayout({
           rel="icon"
           href="/favicon.ico"
         />
-      </Head>
+      </Head> */}
 
       {/* <body
         className={`${inter.variable} ${jetbrains_mono.variable} relative bg-slate-900 font-sans selection:bg-teal-300 selection:text-teal-900 h-screen overflow-y-auto scroll-smooth `} */}
       <body
-        className={`${inter.variable} ${jetbrains_mono.variable} relative  font-sans selection:bg-teal-300 selection:text-teal-900 `}
+        className={`${inter.variable} ${jetbrains_mono.variable} relative font-sans selection:bg-teal-300 selection:text-teal-900 `}
       >
         {/* <div className="flex flex-col mx-auto min-h-screen h-screen px-4 overflow-y-auto"> */}
         <Image
@@ -70,11 +70,7 @@ export default async function RootLayout({
           }}
           className="fixed"
         />
-        <Header />
-        {/* <div className="flex flex-col mx-auto w-full grow rounded-lg h-full"> */}
-        {/* <main className="bg-gradient-to-b from-[#6c6573]/80 backdrop-blur-sm text-[#031739] flex-auto w-full rounded-lg h-screen"> */}
-        <main className="w-full flex flex-col">{children}</main>
-        <Footer />
+        {children}
       </body>
     </html>
   );
@@ -105,13 +101,13 @@ export default async function RootLayout({
 //           xmlns="http://www.w3.org/2000/svg"
 //           fill="none"
 //           viewBox="0 0 24 24"
-//           stroke-width="1.5"
+//           strokeWidth="1.5"
 //           stroke="currentColor"
 //           className="w-4 h-4 ml-2"
 //         >
 //           <path
-//             stroke-linecap="round"
-//             stroke-linejoin="round"
+//             strokeLinecap="round"
+//             strokeLinejoin="round"
 //             d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
 //           />
 //         </svg>

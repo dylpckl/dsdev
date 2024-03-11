@@ -40,7 +40,7 @@ export function SocialLink({ site }: SocialLinkProps) {
           ? `https://github.com/dylpckl`
           : `https://www.linkedin.com/in/dylanjbsmith/`
       }
-      className="h-8 w-8 fill-slate-300 transition hover:fill-teal-300"
+      className="h-7 w-7 fill-slate-300 transition hover:fill-teal-300"
     >
       {site === "github" ? <GitHubIcon /> : <LinkedInIcon />}
     </a>
