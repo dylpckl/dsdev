@@ -16,7 +16,7 @@ import MeasuredDiv from "@/components/MeasuredDiv";
 
 // Images & Icons
 import Logo from "/public/images/ds-logo.png";
-import { useDimensions } from "@/lib/useDimensions";
+// import useDimensions from "@/lib/useDimensions";
 
 // Data
 import { CASE_STUDIES, PROJECTS, CaseStudy } from "@/lib/data";
@@ -29,7 +29,7 @@ export default function Home() {
   const [introWidth, setIntroWidth] = useState(0);
 
   const testRef = useRef(null);
-  const { width, height } = useDimensions(testRef);
+  // const { width, height } = useDimensions(testRef);
 
   let links = ["intro", "design", "dev"];
 
