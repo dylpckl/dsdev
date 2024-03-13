@@ -38,22 +38,6 @@ type MeasuredDivProps = {
   measurementProps: MeasurementProps;
 };
 
-// type ConditionalProps = {
-//   guideline: {
-//     enabled: boolean;
-//     orientation: "horizontal" | "vertical";
-//     position: "left" | "top" | "right" | "bottom";
-//   };
-//   measurement: {
-//     enabled: boolean;
-//     orientation: "horizontal" | "vertical";
-//     position: "left" | "top" | "right" | "bottom";
-//   };
-//   // length?: string;
-// };
-
-// type MeasuredDivProps = CommonProps & ConditionalProps;
-
 export default function MeasuredDiv({
   className,
   children,
@@ -64,7 +48,7 @@ export default function MeasuredDiv({
 }: MeasuredDivProps) {
   const divRef = useRef(null);
   const { width, height } = useDimensions(divRef);
-  console.log(width, width * 4, "width");
+  // console.log(width, width * 4, "width");
   return (
     <div
       id="measured-div"
@@ -82,3 +66,8 @@ export default function MeasuredDiv({
     </div>
   );
 }
+
+// 4 possible guidelines,
+// {guidelineLeft && <Guideline edge={"left"} />}
+// {guidelineRight && <Guideline edge={"right"} />}
+// guideline={{left: true, right: true, top: true, bottom: true}}

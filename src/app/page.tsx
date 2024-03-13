@@ -20,6 +20,7 @@ import Logo from "/public/images/ds-logo.png";
 
 // Data
 import { CASE_STUDIES, PROJECTS, CaseStudy } from "@/lib/data";
+import DevCard from "@/components/DevCard";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("about");
@@ -92,7 +93,7 @@ export default function Home() {
         <section
           ref={introRef}
           id="intro"
-          className="text-3xl h-[70vh] flex flex-col gap-4 py-48 px-48 overflow-hidden"
+          className="text-3xl flex flex-col gap-4 py-48 px-48 overflow-hidden text-slate-200"
         >
           {/* <div className="flex flex-col"> */}
           {/* <span className="text-7xl font-sans font-bold">Dylan</span> */}
@@ -117,18 +118,25 @@ export default function Home() {
           {/* want the measurements of this span, so need a ref */}
 
           <MeasuredDiv
-            className="flex flex-col w-fit text-7xl font-sans font-bold"
+            className="flex flex-col w-fit text-9xl font-sans font-bold"
             guideline={true}
-            guidelineProps={{ edge: "bottom" }}
-            measurement={true}
+            guidelineProps={{ edge: "top" }}
+            measurement={false}
             measurementProps={{ edge: "left" }}
           >
-            <span className="">Dylan</span>
+            <MeasuredDiv
+              guideline={true}
+              guidelineProps={{ edge: "bottom" }}
+              measurement={true}
+              measurementProps={{ edge: "left" }}
+            >
+              Dylan
+            </MeasuredDiv>
             {/* <span className="ml-20">Smith</span> */}
             <MeasuredDiv
               className="ml-20"
               guideline={true}
-              guidelineProps={{ edge: "left" }}
+              guidelineProps={{ edge: "right" }}
               measurement={true}
               measurementProps={{ edge: "bottom" }}
             >
@@ -208,7 +216,13 @@ export default function Home() {
                 key={index}
                 className="flex flex-col gap-6"
               >
-                <DividerWithText text={`dev.0${index + 1}`} />
+                {/* <DividerWithText text={`dev.0${index + 1}`} /> */}
+                <DevCard
+                  key={project.title}
+                  title={project.title}
+                  subtitle={project.subtitle}
+                  index={index}
+                />
                 <ProjectCard
                   project={project}
                   key={project.title}

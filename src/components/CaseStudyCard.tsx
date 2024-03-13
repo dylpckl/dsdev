@@ -129,10 +129,10 @@ function CaseStudyCard({
       <article className="flex flex-col gap-6 mx-auto group/card w-full group transition-all rounded-md text-slate-200 ease-out duration-300 overflow-clip">
         {/* Headline */}
 
-        <div className="flex gap-12 justify-between">
-          <div className="w-2/3 flex flex-col gap-6">
+        <div className="flex gap-12 justify-between items-center">
+          <div className="w-2/3 flex flex-col">
             <span className="font-bold text-4xl">{caseStudy.title}</span>
-            <span className="text-lg">{caseStudy.subtitle}</span>
+            <span className="text-lg mt-4">{caseStudy.subtitle}</span>
           </div>
 
           <CTA />
