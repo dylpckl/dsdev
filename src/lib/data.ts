@@ -12,6 +12,17 @@ import BankRec_Spire from "/public/case-studies/bank-rec/spire.png";
 import RapidPay_Explorer from "/public/case-studies/rapidpay/legacy.png";
 import RapidPay_Spire from "/public/case-studies/rapidpay/spire.png";
 
+export type Project = {
+  title: string;
+  subtitle: string;
+  description?: string;
+  slug?: string;
+  status: "deployed" | "proof of concept" | "coming soon" | "in development";
+  image1?: StaticImageData;
+  image2?: StaticImageData;
+  tags?: string[];
+};
+
 export type CaseStudy = {
   title: string;
   subtitle: string;
@@ -21,46 +32,37 @@ export type CaseStudy = {
   spireImage: StaticImageData;
 };
 
-export type Project = {
-  title: string;
-  subtitle: string;
-  description?: string;
-  slug?: string;
-  status: "deployed" | "proof of concept" | "coming soon" | "in development";
-  image?: StaticImageData;
-  tags: string[];
-};
+// export type Project = {
+//   title: string;
+//   subtitle: string;
+//   description?: string;
+//   slug?: string;
+//   status: "deployed" | "proof of concept" | "coming soon" | "in development";
+//   image?: StaticImageData;
+//   tags: string[];
+// };
 
-export const CASE_STUDIES: CaseStudy[] = [
+export const CASE_STUDIES: Project[] = [
   {
     title: "Bank Reconcilation",
     subtitle: "Redesigning an accountant's critical monthly task.",
     slug: "/work/bank-rec",
     status: "coming soon",
-    explorerImage: BankRec_Explorer,
-    spireImage: BankRec_Spire,
+    image1: BankRec_Explorer,
+    image2: BankRec_Spire,
   },
-  // {
-  //   title: "Select Tenants by Monthly Billing",
-  //   subtitle:
-  //     "Redesigning the experience of entering tenant payments into property management software.",
-  //   slug: "/work/cbmv",
-  //   status: "coming soon",
-  //   explorerImage: BankRec_Explorer,
-  //   spireImage: BankRec_Spire,
-  // },
   {
     title: "RapidPay",
     subtitle:
       "Streamlining a complex form used to validate invoices scanned by OCR software.",
     slug: "/work/rapidpay",
     status: "coming soon",
-    explorerImage: RapidPay_Explorer,
-    spireImage: RapidPay_Spire,
+    image1: RapidPay_Explorer,
+    image2: RapidPay_Spire,
   },
 ];
 
-export const PROJECTS: Project[] = [
+export const DEV_PROJECTS: Project[] = [
   {
     title: "www.steamparty.io",
     subtitle:
@@ -69,7 +71,7 @@ export const PROJECTS: Project[] = [
       "SteamParty is a web app to find Steam games that both you and your friends own.",
     slug: "https://www.steamparty.io",
     status: "deployed",
-    image: steamparty,
+    image1: steamparty,
     tags: ["React", "React Query", "Framer Motion", "TailwindCSS"],
   },
   {
@@ -79,7 +81,7 @@ export const PROJECTS: Project[] = [
     description: "",
     slug: "https://github.com/dylpckl/huberman-db",
     status: "proof of concept",
-    image: hubermandb,
+    image1: hubermandb,
     tags: ["PostgreSQL", "YouTube Data API", "Next.js", "Supabase"],
   },
   {
