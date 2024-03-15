@@ -22,6 +22,7 @@ import Card from "./Card";
 // Utils
 import { cn } from "@/lib/utils";
 
+// Types
 import { Project } from "@/lib/data";
 
 type LandingPageCardProps = {
@@ -33,7 +34,7 @@ export default function LandingPageCard(props: LandingPageCardProps) {
   const { title, subtitle, status, description, slug, image1, image2, tags } =
     props.project;
   const { index } = props;
-  console.log(props);
+  // console.log(props);
 
   // const CTA = () => {
   //   return (

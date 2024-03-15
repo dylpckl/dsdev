@@ -62,7 +62,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen lg:flex lg:gap-12">
+    <div className="min-h-screen mx-auto max-w-screen-2xl lg:flex lg:gap-12">
       <header className="lg:w-1/6 w-1/ h-screen lg:sticky lg:top-0 lg:flex lg:flex-col p-6">
         <Image
           src={Logo}
@@ -184,7 +184,7 @@ export default function Home() {
         <section
           ref={designRef}
           id="design"
-          className="flex relative mt-12 mr-12"
+          className="flex relative mt-12 mr-12 max-w-7xl"
           // className="flex relative mt-12 px-4 md:px-12 max-w-[60vw]"
         >
           <VerticalText text="design" />
