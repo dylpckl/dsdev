@@ -1,6 +1,11 @@
 "use client";
 
-// tags, image (or image compare)
+// TODO
+//
+//
+//
+//
+//
 
 // External
 import { useState, useRef, TouchEvent } from "react";
@@ -17,59 +22,24 @@ import Card from "./Card";
 // Utils
 import { cn } from "@/lib/utils";
 
-export default function LandingPageCard({
-  title,
-  subtitle,
-  index,
-}: {
-  title: string;
-  subtitle: string;
+// Types
+import { Project } from "@/lib/data";
+
+type LandingPageCardProps = {
+  project: Project;
   index: number;
-}) {
-  // const [imageRevealFraq, setImageRevealFraq] = useState(0.5);
-  // const imageContainer = useRef<HTMLDivElement>(null);
+};
 
-  // const slide = (xPos: number) => {
-  //   const container = imageContainer.current;
-
-  //   if (container) {
-  //     const containerBoundingRect = container.getBoundingClientRect();
-  //     if (xPos < containerBoundingRect.left) {
-  //       return 0;
-  //     } else if (xPos > containerBoundingRect.right) {
-  //       return 1;
-  //     } else {
-  //       setImageRevealFraq(() => {
-  //         return (
-  //           (xPos - containerBoundingRect.left) / containerBoundingRect.width
-  //         );
-  //       });
-  //     }
-  //   }
-  // };
-
-  // const handleMouseDown = (): void => {
-  //   window.onmousemove = handleMouseMove;
-  //   window.onmouseup = handleMouseUp;
-  // };
-
-  // const handleMouseMove = (event: MouseEvent): void => {
-  //   slide(event.clientX);
-  // };
-
-  // const handleMouseUp = (): void => {
-  //   window.onmousemove = null;
-  //   window.onmouseup = null;
-  // };
-
-  // const handleTouchMove = (event: TouchEvent<HTMLDivElement>): void => {
-  //   slide(event.touches.item(0).clientX);
-  // };
+export default function LandingPageCard(props: LandingPageCardProps) {
+  const { title, subtitle, status, description, slug, image1, image2, tags } =
+    props.project;
+  const { index } = props;
+  // console.log(props);
 
   // const CTA = () => {
   //   return (
   //     <div className="w-1/3">
-  //       {caseStudy.status === "coming soon" ? (
+  //       {status === "coming soon" ? (
   //         <div className="h-16 flex gap-4 p-4 rounded-lg items-center justify-center bg-slate-300 text-teal-900 font-medium transition-all ease-in-out duration-500">
   //           {" "}
   //           <svg
@@ -92,7 +62,7 @@ export default function LandingPageCard({
   //         </div>
   //       ) : (
   //         <Link
-  //           href={caseStudy.slug}
+  //           href={slug}
   //           className="h-16 p-4 rounded-lg flex items-center justify-center bg-teal-300 text-teal-900 font-medium group/cta hover:bg-teal-400 transition-all ease-in-out duration-500 "
   //         >
   //           {/* https://tailwindcss.com/docs/hover-focus-and-other-states#differentiating-nested-groups */}
@@ -133,7 +103,6 @@ export default function LandingPageCard({
     >
       <article className="flex flex-col gap-6 mx-auto group/card w-full group transition-all rounded-md text-slate-200 ease-out duration-300 overflow-clip">
         {/* Headline */}
-
         <div className="flex gap-12 justify-between items-center">
           <div className="w-2/3 flex flex-col">
             <span className="font-bold text-4xl">{title}</span>
@@ -142,6 +111,8 @@ export default function LandingPageCard({
 
           {/* <CTA /> */}
         </div>
+
+        {/* Image (or compare) */}
 
         {/* <ImageComparison /> */}
       </article>

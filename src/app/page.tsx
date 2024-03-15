@@ -9,6 +9,7 @@ import Link from "next/link";
 import VerticalText from "@/components/VerticalText";
 import { Socials, SocialLink } from "@/components/SocialLink";
 import CaseStudyCard from "@/components/CaseStudyCard";
+import LandingPageCard from "@/components/LandingPageCard";
 import ProjectCard from "@/components/ProjectCard";
 import DividerWithText from "@/components/DividerWithText";
 import Nav from "@/components/Nav";
@@ -19,8 +20,8 @@ import Logo from "/public/images/ds-logo.png";
 // import useDimensions from "@/lib/useDimensions";
 
 // Data
-import { CASE_STUDIES, PROJECTS, CaseStudy } from "@/lib/data";
-import DevCard from "@/components/DevCard";
+import { CASE_STUDIES, DEV_PROJECTS, CaseStudy, Project } from "@/lib/data";
+import DevCard from "@/components/LandingPageCard";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("about");
@@ -61,7 +62,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen lg:flex lg:gap-12">
+    <div className="min-h-screen mx-auto max-w-screen-2xl lg:flex lg:gap-12">
       <header className="lg:w-1/6 w-1/ h-screen lg:sticky lg:top-0 lg:flex lg:flex-col p-6">
         <Image
           src={Logo}
@@ -183,7 +184,7 @@ export default function Home() {
         <section
           ref={designRef}
           id="design"
-          className="flex relative mt-12 mr-12"
+          className="flex relative mt-12 mr-12 max-w-7xl"
           // className="flex relative mt-12 px-4 md:px-12 max-w-[60vw]"
         >
           <VerticalText text="design" />
@@ -198,6 +199,11 @@ export default function Home() {
                   index={index}
                   key={caseStudy.title}
                 />
+                {/* <LandingPageCard
+                  project={caseStudy}
+                  index={index}
+                  key={caseStudy.title}
+                /> */}
               </div>
             ))}
           </div>
@@ -211,20 +217,25 @@ export default function Home() {
         >
           <VerticalText text="dev" />
           <div className="mx-4 md:mx-16 lg:mx-24 xl:mx-32 flex flex-col gap-32 w-full">
-            {PROJECTS.map((project, index) => (
+            {DEV_PROJECTS.map((project, index) => (
               <div
                 key={index}
                 className="flex flex-col gap-6"
               >
                 {/* <DividerWithText text={`dev.0${index + 1}`} /> */}
-                <DevCard
+                {/* <DevCard
                   key={project.title}
                   title={project.title}
                   subtitle={project.subtitle}
                   index={index}
-                />
-                <ProjectCard
+                /> */}
+                {/* <ProjectCard
                   project={project}
+                  key={project.title}
+                /> */}
+                <LandingPageCard
+                  project={project}
+                  index={index}
                   key={project.title}
                 />
               </div>
