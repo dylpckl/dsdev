@@ -12,13 +12,13 @@ import TagGroup from "./TagGroup";
 import Card from "./Card";
 
 // Lib
-import { CaseStudy } from "@/lib/data";
+import { Project } from "@/lib/data";
 
 function CaseStudyCard({
   caseStudy,
   index,
 }: {
-  caseStudy: CaseStudy;
+  caseStudy: Project;
   index: number;
 }) {
   const [imageRevealFraq, setImageRevealFraq] = useState(0.5);
@@ -144,7 +144,7 @@ function CaseStudyCard({
         >
           {/* p */}
           <Image
-            src={caseStudy.spireImage}
+            src={caseStudy.image1}
             alt={caseStudy.title}
             fill
             style={{ objectFit: "cover", objectPosition: "left top" }}
@@ -152,7 +152,7 @@ function CaseStudyCard({
           />
           {/* Explorer Image */}
           <Image
-            src={caseStudy.explorerImage}
+            src={caseStudy.image2}
             alt={caseStudy.title}
             fill
             style={{

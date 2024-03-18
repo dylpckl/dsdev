@@ -14,6 +14,7 @@ import ProjectCard from "@/components/ProjectCard";
 import DividerWithText from "@/components/DividerWithText";
 import Nav from "@/components/Nav";
 import MeasuredDiv from "@/components/MeasuredDiv";
+import ScrollingCarousel from "@/components/ScrollingCarousel";
 
 // Images & Icons
 import Logo from "/public/images/ds-logo.png";
@@ -22,6 +23,7 @@ import Logo from "/public/images/ds-logo.png";
 // Data
 import { CASE_STUDIES, DEV_PROJECTS, CaseStudy, Project } from "@/lib/data";
 import DevCard from "@/components/LandingPageCard";
+import { SunIcon } from "lucide-react";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("about");
@@ -63,7 +65,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen mx-auto max-w-screen-2xl lg:flex lg:gap-12">
-      <header className="lg:w-1/6 w-1/ h-screen lg:sticky lg:top-0 lg:flex lg:flex-col p-6">
+      <header className="lg:w-1/6 w-1/ h-screen lg:sticky lg:top-0 lg:flex lg:flex-col p-6  py-24">
         <Image
           src={Logo}
           alt="logo"
@@ -77,7 +79,7 @@ export default function Home() {
           <Link
             href="/Dylan-Smith-Resume.pdf"
             target="_blank"
-            className="flex gap-4 mt-6 border-t-2 border-slate-400 pt-6 text-slate-200 uppercase text-sm font-semibold cursor-pointer font-mono"
+            className="flex gap-4 mt-6 pt-6 text-slate-200 uppercase text-sm font-semibold cursor-pointer font-mono"
           >
             resume
           </Link>
@@ -89,94 +91,79 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="lg:w-5/6">
+      <main className="lg:w-5/6 py-24">
         {/* Intro */}
         <section
           ref={introRef}
           id="intro"
-          className="text-3xl flex flex-col gap-4 py-48 px-48 overflow-hidden text-slate-200"
+          className="text-3xl flex gap-12 py-2 px-2 pb-24 overflow-hidden text-slate-200 relative"
         >
-          {/* <div className="flex flex-col"> */}
-          {/* <span className="text-7xl font-sans font-bold">Dylan</span> */}
-
-          {/* want the measurements of this span, so need a ref */}
-          {/* <span
-              ref={testRef}
-              className="relative text-7xl font-sans font-bold ml-20 w-fit"
-            > */}
-          {/* <DashedLine
-                orientation="horizontal"
-                position="top"
-              />
-              <DashedLine
-                orientation="vertical"
-                position="left"
-              /> */}
-          {/* Smith */}
-          {/* pass the measurements to this */}
-          {/* <Measurement orientation="horizontal" position="top" length={100} /> */}
-          {/* </span> */}
-          {/* want the measurements of this span, so need a ref */}
-
-          <MeasuredDiv
-            className="flex flex-col w-fit text-9xl font-sans font-bold"
-            guideline={true}
-            guidelineProps={{ edge: "top" }}
-            measurement={false}
-            measurementProps={{ edge: "left" }}
-          >
-            <MeasuredDiv
-              guideline={true}
-              guidelineProps={{ edge: "bottom" }}
-              measurement={true}
-              measurementProps={{ edge: "left" }}
-            >
-              Dylan
-            </MeasuredDiv>
-            {/* <span className="ml-20">Smith</span> */}
-            <MeasuredDiv
-              className="ml-20"
-              guideline={true}
-              guidelineProps={{ edge: "right" }}
-              measurement={true}
-              measurementProps={{ edge: "bottom" }}
-            >
-              <span>Smith</span>
-            </MeasuredDiv>
-          </MeasuredDiv>
-          {/* </div> */}
-
-          {/* <MeasuredDiv
-            guideline={{
-              enabled: true,
-              orientation: "horizontal",
-              position: "top",
-            }}
-            measurement={{
-              enabled: true,
-              orientation: "vertical",
-              position: "left",
-            }}
-          >
-            <span>test</span>
-          </MeasuredDiv> */}
-
-          <div className="w-full h-32 mt-12">
-            Designing interfaces by day and building them by night
+          {/* left   */}
+          <div className="flex flex-col w-1/2 gap-12">
+            <div className="bg-red-300/40">
+              <MeasuredDiv
+                className="flex flex-col w-fit text-9xl font-sans font-bold z-20"
+                guideline={false}
+                guidelineProps={{ edge: "top" }}
+                measurement={false}
+                measurementProps={{ edge: "left" }}
+              >
+                <MeasuredDiv
+                  guideline={false}
+                  guidelineProps={{ edge: "bottom" }}
+                  measurement={false}
+                  measurementProps={{ edge: "left" }}
+                >
+                  <span className=" ">Dylan</span>
+                </MeasuredDiv>
+                <MeasuredDiv
+                  className="ml-20"
+                  guideline={false}
+                  guidelineProps={{ edge: "right" }}
+                  measurement={false}
+                  measurementProps={{ edge: "bottom" }}
+                >
+                  <span>Smith</span>
+                </MeasuredDiv>
+              </MeasuredDiv>
+            </div>
+            <div className="bg-red-300/40">
+              Currently leading design for{" "}
+              <a
+                href="https://multidataservices.com/"
+                target="_blank"
+                className="group relative underline hover:decoration-teal-900"
+              >
+                <span className="relative z-20 group-hover:text-teal-900 ">
+                  MDS Property Management Software
+                </span>
+                {"."}
+                <span className="absolute z-10 inset-0 bg-teal-300 w-0 group-hover:w-full group-hover:transition-all duration-500 ease-in-out"></span>
+              </a>
+            </div>
           </div>
-          <div className="w-full h-32 ">
-            Currently leading design for{" "}
-            <a
-              href="https://multidataservices.com/"
-              target="_blank"
-              className="group relative underline hover:decoration-teal-900"
+
+          <div className="flex flex-col w-1/2 gap-12">
+            <Link
+              href="#design"
+              className="relative flex flex-col items-center justify-center w-full h-48 z-20 bg-slate-200/40 text-black overflow-hidden group hover:ring-2 ring-yellow-300 transition-all ease-out rounded-md cursor-pointer"
             >
-              <span className="relative z-20 group-hover:text-teal-900 ">
-                MDS Property Management Software
-              </span>
-              {"."}
-              <span className="absolute z-10 inset-0 bg-teal-300 w-0 group-hover:w-full group-hover:transition-all duration-500 ease-in-out"></span>
-            </a>
+              {/* <SunIcon
+                size={256}
+                className="absolute -left-24 -top-24 group-hover:animate-spin-slow"
+              /> */}
+              <span className="z-10">Designing interfaces by day</span>
+              <div>CTA</div>
+              <div className="absoute -z-10">
+                <ScrollingCarousel />
+              </div>
+            </Link>
+
+            <div className="w-full h-48 z-20 bg-slate-200/40 text-black">
+              Building them by night
+            </div>
+
+            {/* <div className="absolute inset-0 h-full w-full bg-[radial-gradient(#5eead4_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)]"></div> */}
           </div>
         </section>
 
@@ -184,7 +171,7 @@ export default function Home() {
         <section
           ref={designRef}
           id="design"
-          className="flex relative mt-12 mr-12 max-w-7xl"
+          className="flex relative mt-12"
           // className="flex relative mt-12 px-4 md:px-12 max-w-[60vw]"
         >
           <VerticalText text="design" />
@@ -216,7 +203,8 @@ export default function Home() {
           className="flex relative mt-64"
         >
           <VerticalText text="dev" />
-          <div className="mx-4 md:mx-16 lg:mx-24 xl:mx-32 flex flex-col gap-32 w-full">
+          <div className="ml-6 md:ml-12 flex flex-col gap-40 w-full">
+            {/* <div className="mx-4 md:mx-16 lg:mx-24 xl:mx-32 flex flex-col gap-32 w-full"> */}
             {DEV_PROJECTS.map((project, index) => (
               <div
                 key={index}

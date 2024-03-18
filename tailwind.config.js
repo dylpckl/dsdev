@@ -33,6 +33,7 @@ module.exports = {
         fadeToRight: 'fadeToRight .5s linear infinite',
         growProgress: 'growProgress auto linear',
         skewScroll: 'skewScroll 20s linear infinite',
+        'spin-slow': 'spin 10s linear infinite',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
