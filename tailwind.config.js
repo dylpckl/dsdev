@@ -25,14 +25,14 @@ module.exports = {
           },
           '100%': {
             transform:
-              'rotatex(20deg) rotateZ(-20deg) skewX(20deg) translateZ(0) translateY(-100%)',
+              'rotatex(20deg) rotateZ(-20deg) skewX(20deg) translateZ(0) translateY(-68.6%)',
           },
         },
       },
       animation: {
         fadeToRight: 'fadeToRight .5s linear infinite',
         growProgress: 'growProgress auto linear',
-        skewScroll: 'skewScroll 20s linear infinite',
+        skewScroll: 'skewScroll 5s linear infinite',
         'spin-slow': 'spin 10s linear infinite',
       },
       backgroundImage: {

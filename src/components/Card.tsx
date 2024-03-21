@@ -23,7 +23,7 @@ const Card = ({ className, children, title, icon, divider }: CardProps) => {
         className
       )}
     >
-      {title && (
+      {title ? (
         <div className="flex gap-4 w-full items-center text-teal-300">
           {icon && icon}
           <span className="font-mono font-semibold uppercase tracking-widest">
@@ -31,7 +31,7 @@ const Card = ({ className, children, title, icon, divider }: CardProps) => {
           </span>
           {divider && <hr className="grow h-px border-0 bg-teal-300" />}
         </div>
-      )}
+      ) : null}
       {/* If title exists, add mt-6 to children */}
       <div className={cn({ "mt-6": title })}>{children}</div>
     </div>

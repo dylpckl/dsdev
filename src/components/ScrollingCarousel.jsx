@@ -25,7 +25,7 @@ function Card() {
         />
         <path d="m9 12 2 2 4-4" />
       </svg>
-      <p class="text-gray-600">Priority support</p>
+      <p class="text-gray-600">Priority</p>
     </div>
   );
 }

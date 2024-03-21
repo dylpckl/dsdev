@@ -15,6 +15,7 @@ import DividerWithText from "@/components/DividerWithText";
 import Nav from "@/components/Nav";
 import MeasuredDiv from "@/components/MeasuredDiv";
 import ScrollingCarousel from "@/components/ScrollingCarousel";
+import Card from "@/components/Card";
 
 // Images & Icons
 import Logo from "/public/images/ds-logo.png";
@@ -65,13 +66,14 @@ export default function Home() {
 
   return (
     <div className="min-h-screen mx-auto max-w-screen-2xl lg:flex lg:gap-12">
-      <header className="lg:w-1/6 w-1/ h-screen lg:sticky lg:top-0 lg:flex lg:flex-col p-6  py-24">
-        <Image
-          src={Logo}
-          alt="logo"
-          height={64}
-        />
-        <div className="ml-2">
+      <header className="w-full lg:w-1/6 lg:h-screen lg:sticky lg:top-0 lg:flex lg:flex-col p-6  py-24">
+        <span className="text-4xl">Dylan Smith</span>
+        <div className="ml-2 hidden lg:block">
+          <Image
+            src={Logo}
+            alt="logo"
+            height={64}
+          />
           <Nav
             links={links}
             activeSection={activeSection}
@@ -83,30 +85,32 @@ export default function Home() {
           >
             resume
           </Link>
-
-          <div className="flex gap-3 mt-6">
-            <SocialLink site="github" />
-            <SocialLink site="linkedin" />
-          </div>
+        </div>
+        <div className="flex gap-3 mt-6">
+          <SocialLink site="github" />
+          <SocialLink site="linkedin" />
         </div>
       </header>
 
-      <main className="lg:w-5/6 py-24">
+      <main className="w-full lg:w-5/6 py-24">
         {/* Intro */}
         <section
           ref={introRef}
           id="intro"
-          className="text-3xl flex gap-12 py-2 px-2 pb-24 overflow-hidden text-slate-200 relative"
+          className="text-3xl flex flex-col gap-12 py-2 px-2 pb-24 overflow-hidden text-slate-200 relative"
         >
           {/* left   */}
-          <div className="flex flex-col w-1/2 gap-12">
-            <div className="bg-red-300/40">
+          <div className="flex w-full gap-12">
+            <div className="">
+              {/* <span className=" text-9xl font-sans font-bold z-20">
+                Dylan Smith
+              </span> */}
               <MeasuredDiv
-                className="flex flex-col w-fit text-9xl font-sans font-bold z-20"
-                guideline={false}
+                className="flex flex-col w-fit text-3xl lg:text-9xl font-sans font-bold z-20"
+                guideline={true}
                 guidelineProps={{ edge: "top" }}
-                measurement={false}
-                measurementProps={{ edge: "left" }}
+                measurement={true}
+                measurementProps={{ edge: "right" }}
               >
                 <MeasuredDiv
                   guideline={false}
@@ -118,17 +122,48 @@ export default function Home() {
                 </MeasuredDiv>
                 <MeasuredDiv
                   className="ml-20"
-                  guideline={false}
+                  guideline={true}
                   guidelineProps={{ edge: "right" }}
-                  measurement={false}
+                  measurement={true}
                   measurementProps={{ edge: "bottom" }}
                 >
                   <span>Smith</span>
                 </MeasuredDiv>
               </MeasuredDiv>
             </div>
-            <div className="bg-red-300/40">
-              Currently leading design for{" "}
+          </div>
+          <div className="flex flex-col lg:flex-row w-full gap-12">
+            <Link
+              href="#design"
+              className="relative flex flex-col items-center justify-center w-full h-48 z-20 bg-slate-200/40 text-black overflow-hidden group hover:ring-2 ring-yellow-300 transition-all ease-out rounded-md cursor-pointer"
+            >
+              {/* <SunIcon
+                size={256}
+                className="absolute -left-24 -top-24 group-hover:animate-spin-slow"
+              /> */}
+              <span className="z-10">Designing interfaces by day</span>
+
+              <div className="absoute -z-10">
+                <ScrollingCarousel />
+              </div>
+            </Link>
+
+            <div className="w-full h-48 z-20 bg-slate-200/40 text-black">
+              Building them by night
+            </div>
+
+            {/* <div className="absolute inset-0 h-full w-full bg-[radial-gradient(#5eead4_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)]"></div> */}
+          </div>{" "}
+          {/* <Card
+            divider={false}
+            className=""
+          >
+            <div className="flex flex-col justify-center items-center">
+              <div className="flex gap-6">
+                <SocialLink site="github" />
+                <SocialLink site="linkedin" />
+              </div>
+              <span>Leading design at </span>
               <a
                 href="https://multidataservices.com/"
                 target="_blank"
@@ -141,39 +176,15 @@ export default function Home() {
                 <span className="absolute z-10 inset-0 bg-teal-300 w-0 group-hover:w-full group-hover:transition-all duration-500 ease-in-out"></span>
               </a>
             </div>
-          </div>
-
-          <div className="flex flex-col w-1/2 gap-12">
-            <Link
-              href="#design"
-              className="relative flex flex-col items-center justify-center w-full h-48 z-20 bg-slate-200/40 text-black overflow-hidden group hover:ring-2 ring-yellow-300 transition-all ease-out rounded-md cursor-pointer"
-            >
-              {/* <SunIcon
-                size={256}
-                className="absolute -left-24 -top-24 group-hover:animate-spin-slow"
-              /> */}
-              <span className="z-10">Designing interfaces by day</span>
-              <div>CTA</div>
-              <div className="absoute -z-10">
-                <ScrollingCarousel />
-              </div>
-            </Link>
-
-            <div className="w-full h-48 z-20 bg-slate-200/40 text-black">
-              Building them by night
-            </div>
-
-            {/* <div className="absolute inset-0 h-full w-full bg-[radial-gradient(#5eead4_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)]"></div> */}
-          </div>
+          </Card> */}
         </section>
 
         {/* Design */}
-        <section
+        {/* <section
           ref={designRef}
           id="design"
-          className="flex relative mt-12"
-          // className="flex relative mt-12 px-4 md:px-12 max-w-[60vw]"
-        >
+          className="flex flex-col lg:flex-row relative mt-12"
+                  >
           <VerticalText text="design" />
           <div className="ml-6 md:ml-12 flex flex-col gap-40 w-full">
             {CASE_STUDIES.map((caseStudy, index) => (
@@ -186,41 +197,25 @@ export default function Home() {
                   index={index}
                   key={caseStudy.title}
                 />
-                {/* <LandingPageCard
-                  project={caseStudy}
-                  index={index}
-                  key={caseStudy.title}
-                /> */}
+                
               </div>
             ))}
           </div>
-        </section>
+        </section> */}
 
         {/* Dev */}
-        <section
+        {/* <section
           ref={devRef}
           id="dev"
           className="flex relative mt-64"
         >
           <VerticalText text="dev" />
           <div className="ml-6 md:ml-12 flex flex-col gap-40 w-full">
-            {/* <div className="mx-4 md:mx-16 lg:mx-24 xl:mx-32 flex flex-col gap-32 w-full"> */}
             {DEV_PROJECTS.map((project, index) => (
               <div
                 key={index}
                 className="flex flex-col gap-6"
               >
-                {/* <DividerWithText text={`dev.0${index + 1}`} /> */}
-                {/* <DevCard
-                  key={project.title}
-                  title={project.title}
-                  subtitle={project.subtitle}
-                  index={index}
-                /> */}
-                {/* <ProjectCard
-                  project={project}
-                  key={project.title}
-                /> */}
                 <LandingPageCard
                   project={project}
                   index={index}
@@ -229,7 +224,7 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </section>
+        </section> */}
       </main>
     </div>
   );
