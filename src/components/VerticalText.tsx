@@ -17,17 +17,6 @@ export default function VerticalText({ caption, text }: VerticalTextProps) {
         {caption}
       </span>
     );
-
-    // if (caption && typeof caption === "number") {
-    //   return (
-    //     <span className="text-teal-300/60 text-xl">
-    //       {".0"}
-    //       {caption}
-    //     </span>
-    //   );
-    // } else {
-    //   return <span className="text-teal-300/60 text-xl ml-2">{caption}</span>;
-    // }
   };
 
   return (
@@ -53,20 +42,10 @@ export default function VerticalText({ caption, text }: VerticalTextProps) {
 }
 
 {
-  /* <div
-id="sticky-container"
-className="sticky flex flex-col top-20 text-center font-mono"
->
-<span className="sticky top-0 mb-6 text-teal-300/60 text-xl">.01</span>
-<span
-    id="sticky-element"
-    className="sticky top-12 font-mono tracking-widest text-xl -ml-2 md:ml-0 md:text-5xl -z-10 text-slate-300/30 uppercase"
-    style={{ writingMode: "vertical-lr" }}
->
-    <span style={{ writingMode: "vertical-lr" }}>
-        {text}{"\\\\"}
-    </span>
-</span>
-</div>
-) */
+  /* <div className="sticky top-0 w-full z-20 mb-4 bg-slate-800/60 backdrop-blur-lg px-6 py-5">
+            <span className="font-mono tracking-widest text-xl md:text-5xl -z-10  text-slate-300 uppercase">
+              case studies
+              {" \\\\"}
+            </span>
+          </div> */
 }

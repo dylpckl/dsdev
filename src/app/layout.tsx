@@ -66,10 +66,11 @@ export default async function RootLayout({
             position: "fixed",
             width: "100%",
             height: "100%",
-            zIndex: -5,
+            zIndex: -30,
           }}
           className="fixed"
         />
+        {/* <div className="fixed -z-20 inset-0 h-full w-full bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:16px_16px]"></div> */}
         {children}
       </body>
     </html>

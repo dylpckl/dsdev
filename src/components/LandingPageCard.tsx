@@ -105,14 +105,15 @@ export default function LandingPageCard(props: LandingPageCardProps) {
         {/* Headline */}
         <div className="flex gap-12 justify-between items-center">
           <div className="w-2/3 flex flex-col">
-            <span className="font-bold text-4xl">{title}</span>
-            <span className="text-lg mt-4">{subtitle}</span>
+            <span className="font-bold text-lg lg:text-4xl">{title}</span>
+            <span className="text-sm lg:text-lg mt-4">{subtitle}</span>
           </div>
 
           <CTA />
         </div>
 
         {/* Image (or compare) */}
+        {/* use straight image on mobile */}
 
         {/* <ImageComparison /> */}
       </article>

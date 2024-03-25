@@ -63,7 +63,7 @@ function CaseStudyCard({
 
   const CTA = () => {
     return (
-      <div className="w-1/3">
+      <div className="w-full lg:w-1/3">
         {caseStudy.status === "coming soon" ? (
           <div className="h-16 flex gap-4 p-4 rounded-lg items-center justify-center bg-slate-300 text-teal-900 font-medium transition-all ease-in-out duration-500">
             {" "}
@@ -129,8 +129,8 @@ function CaseStudyCard({
       <article className="flex flex-col gap-6 mx-auto group/card w-full group transition-all rounded-md text-slate-200 ease-out duration-300 overflow-clip">
         {/* Headline */}
 
-        <div className="flex gap-12 justify-between items-center">
-          <div className="w-2/3 flex flex-col">
+        <div className="flex flex-col lg:flex-row gap-12 justify-between ">
+          <div className="w-full lg:w-2/3 flex flex-col">
             <span className="font-bold text-4xl">{caseStudy.title}</span>
             <span className="text-lg mt-4">{caseStudy.subtitle}</span>
           </div>
@@ -142,6 +142,7 @@ function CaseStudyCard({
           ref={imageContainer}
           className="relative overflow-hidden w-full h-[60vh] bg-pink-300 select-none rounded-md"
         >
+          {/* on mobile, just show spire image */}
           {/* p */}
           <Image
             src={caseStudy.image1}
