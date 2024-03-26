@@ -62,7 +62,7 @@ export default function LandingPageCard(props: LandingPageCardProps) {
           </div>
         ) : (
           <Link
-            href={slug}
+            href={slug as string}
             className="h-16 p-4 rounded-lg flex items-center justify-center bg-teal-300 text-teal-900 font-medium group/cta hover:bg-teal-400 transition-all ease-in-out duration-500 "
           >
             {/* https://tailwindcss.com/docs/hover-focus-and-other-states#differentiating-nested-groups */}

@@ -22,7 +22,7 @@ export default function VerticalText({ caption, text }: VerticalTextProps) {
   return (
     <div
       id="sticky-container"
-      className="sticky flex flex-col top-20 items-center font-mono"
+      className="sticky hidden lg:flex flex-col top-20 items-center font-mono"
     >
       <span
         id="sticky-element"

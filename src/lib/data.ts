@@ -28,8 +28,8 @@ export type CaseStudy = {
   subtitle: string;
   slug: string;
   status: "completed" | "coming soon";
-  explorerImage: StaticImageData;
-  spireImage: StaticImageData;
+  explorerImage: string | StaticImageData;
+  spireImage: string | StaticImageData;
 };
 
 // export type Project = {
