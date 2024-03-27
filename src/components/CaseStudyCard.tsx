@@ -123,6 +123,7 @@ function CaseStudyCard({
   return (
     <Card
       divider={true}
+      badge={true}
       className=""
       // title="case study"
       title={`case_study_0${index + 1}`}
@@ -132,9 +133,9 @@ function CaseStudyCard({
 
         <div className="flex flex-col lg:flex-row gap-12 justify-between ">
           <div className="w-full lg:w-2/3 flex flex-col gap-4">
-              <span className="inline-flex w-fit items-center uppercase rounded-md bg-purple-400/10 px-2 py-1 text-xs font-medium text-purple-300 ring-1 ring-inset ring-purple-400/60">
+              {/* <span className="inline-flex w-fit items-center uppercase rounded-md bg-purple-400/10 px-2 py-1 text-xs font-medium text-purple-300 ring-1 ring-inset ring-purple-400/60">
                 coming soon
-              </span>
+              </span> */}
               <span className="font-bold text-4xl">{caseStudy.title}</span>
             {/* <div className="flex items-center gap-6">
             </div> */}
