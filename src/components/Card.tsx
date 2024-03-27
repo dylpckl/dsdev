@@ -7,21 +7,16 @@
 import { cn } from "@/lib/utils";
 import { ReactElement, ReactNode } from "react";
 
+import { Badge } from "./Badge";
+
 type CardProps = {
   children: ReactNode;
   className?: string;
   divider: boolean;
   title?: string;
   icon?: ReactElement;
-  badge?: boolean;
-};
-
-const Badge = () => {
-  return (
-    <span className="inline-flex w-fit items-center uppercase rounded-md bg-purple-400/10 px-2 py-1 text-xs font-medium text-purple-300 ring-1 ring-inset ring-purple-400/60">
-      coming soon
-    </span>
-  );
+  badge: boolean;
+  badgeColor: string;
 };
 
 const Card = ({
@@ -31,6 +26,7 @@ const Card = ({
   icon,
   divider,
   badge,
+  badgeColor,
 }: CardProps) => {
   return (
     <div
@@ -45,7 +41,13 @@ const Card = ({
           <span className="font-mono font-semibold uppercase tracking-widest">
             {title}
           </span>
-          {badge && <Badge />}
+          {badge && (
+            <Badge
+              color={badgeColor}
+              text="coming soon"
+              uppercase={true}
+            />
+          )}
           {divider && <hr className="grow h-px border-0 bg-teal-300" />}
         </div>
       ) : null}
