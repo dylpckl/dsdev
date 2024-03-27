@@ -15,8 +15,8 @@ type CardProps = {
   divider: boolean;
   title?: string;
   icon?: ReactElement;
-  badge: boolean;
-  badgeColor: string;
+  badge?: boolean;
+  badgeColor?: string;
 };
 
 const Card = ({
@@ -41,13 +41,13 @@ const Card = ({
           <span className="font-mono font-semibold uppercase tracking-widest">
             {title}
           </span>
-          {badge && (
+          {badge ? (
             <Badge
               color={badgeColor}
               text="coming soon"
               uppercase={true}
             />
-          )}
+          ) : null}
           {divider && <hr className="grow h-px border-0 bg-teal-300" />}
         </div>
       ) : null}
