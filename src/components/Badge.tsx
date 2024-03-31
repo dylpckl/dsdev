@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 
 type BadgeProps = {
   color?: string;
-  text: string;
+  text?: string;
   uppercase: boolean;
 };
 

@@ -1,6 +1,6 @@
 // TODO
 // accept icon, title, divider
-//
+// title is required for badge to work. is that good?
 //
 
 // Utils
@@ -9,25 +9,50 @@ import { ReactElement, ReactNode } from "react";
 
 import { Badge } from "./Badge";
 
-type CardProps = {
+type CommonProps = {
   children: ReactNode;
   className?: string;
-  divider: boolean;
+  divider?: boolean;
   title?: string;
   icon?: ReactElement;
-  badge?: boolean;
-  badgeColor?: string;
 };
 
-const Card = ({
-  className,
-  children,
-  title,
-  icon,
-  divider,
-  badge,
-  badgeColor,
-}: CardProps) => {
+// https://www.typescriptlang.org/docs/handbook/2/narrowing.html#discriminated-unions
+type BadgeProps =
+  | { badge?: false; badgeColor?: never; badgeText?: never; uppercase?: never }
+  | { badge: true; badgeColor: string; badgeText: string; uppercase: boolean };
+
+// type CardWithBadgeProps = CommonProps & {
+//   badge: boolean;
+//   badgeColor?: string;
+//   badgeText?: string;
+// };
+
+type CardProps = CommonProps & BadgeProps;
+
+// type CardProps = {
+//   children: ReactNode;
+//   className?: string;
+//   divider: boolean;
+//   title?: string;
+//   icon?: ReactElement;
+//   badge?: boolean;
+//   badgeColor?: string;
+//   badgeText?: string;
+// };
+
+export const Card = (props: CardProps) => {
+  const {
+    children,
+    className,
+    divider,
+    title,
+    icon,
+    badge,
+    badgeColor,
+    badgeText,
+  } = props;
+
   return (
     <div
       className={cn(
@@ -36,7 +61,7 @@ const Card = ({
       )}
     >
       {title ? (
-        <div className="flex gap-4 w-full items-center text-teal-300">
+        <div className="flex gap-4 w-full items-center text-teal-300 mb-4">
           {icon && icon}
           <span className="font-mono font-semibold uppercase tracking-widest">
             {title}
@@ -44,17 +69,16 @@ const Card = ({
           {badge ? (
             <Badge
               color={badgeColor}
-              text="coming soon"
+              text={badgeText}
               uppercase={true}
             />
           ) : null}
-          {divider && <hr className="grow h-px border-0 bg-teal-300" />}
+          {divider ? <hr className="grow h-px border-0 bg-teal-300" /> : null}
         </div>
       ) : null}
-      {/* If title exists, add mt-6 to children */}
-      <div className={cn({ "mt-6": title })}>{children}</div>
+      {children}
     </div>
   );
 };
 
-export default Card;
+export type { CardProps };

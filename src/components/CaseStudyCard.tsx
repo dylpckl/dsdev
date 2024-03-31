@@ -9,7 +9,7 @@ import { ClockIcon } from "@heroicons/react/24/outline";
 
 // Components
 import TagGroup from "./TagGroup";
-import Card from "./Card";
+import { Card } from "./Card";
 
 // Lib
 import { Project } from "@/lib/data";
@@ -125,7 +125,8 @@ function CaseStudyCard({
       divider={true}
       badge={true}
       badgeColor="purple"
-      className=""
+      badgeText="coming soon"
+      className="hover:ring-2 ring-teal-300 transition-all ease-out"
       // title="case study"
       title={`case_study_0${index + 1}`}
     >
@@ -143,7 +144,7 @@ function CaseStudyCard({
             <span className="text-lg">{caseStudy.subtitle}</span>
           </div>
 
-          {/* <CTA /> */}
+          <CTA />
         </div>
 
         <div

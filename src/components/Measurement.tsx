@@ -43,7 +43,7 @@ export const Measurement = (props: MeasurementProps) => {
     <>
       {isHorizontal ? (
         <span
-          id="measurement"
+          id="horizontal-measurement"
           className={cn(
             "absolute flex items-center left-0 top-full text-xs font-mono font-normal w-full text-center border-l-2 text-red-300 border-l-red-300 border-r-2 border-r-red-300",
             {
@@ -54,13 +54,13 @@ export const Measurement = (props: MeasurementProps) => {
           // className="absolute flex items-center left-0 top-full text-xs font-mono w-full text-center border-l-2 border-l-red-300 border-r-2 border-r-red-300"
         >
           <hr className="grow h-px border-0 bg-red-300" />
-          <span>{length}px</span>
+          <span className="mx-2 leading-3">{length}px</span>
           <hr className="grow h-px border-0 bg-red-300" />
         </span>
       ) : (
         // vertical
         <span
-          id="measurement"
+          id="vertical-measurement"
           className={cn(
             "absolute w-4 flex flex-col h-full items-center t-1/2 text-xs font-mono font-normal text-center border-b-2 border-b-red-300 border-t-2 border-t-red-300",
             {

@@ -13,7 +13,7 @@ import LandingPageCard from "@/components/LandingPageCard";
 import Nav from "@/components/Nav";
 import MeasuredDiv from "@/components/MeasuredDiv";
 import ScrollingCarousel from "@/components/ScrollingCarousel";
-import Card from "@/components/Card";
+import { Card } from "@/components/Card";
 
 // Images & Icons
 import Logo from "/public/images/ds-logo.png";
@@ -31,7 +31,7 @@ export default function Home() {
   const testRef = useRef(null);
   // const { width, height } = useDimensions(testRef);
 
-  let links = ["intro", "design", "dev"];
+  let links = ["intro", "design", "develop"];
 
   useEffect(() => {
     const introWidth =
@@ -122,39 +122,23 @@ export default function Home() {
         >
           {/* left   */}
           <div className="flex w-full gap-12">
-            {/* <span className=" text-9xl font-sans font-bold z-20">
-                Dylan Smith
-              </span> */}
-            {/* <MeasuredDiv
-                className="flex flex-col w-fit text-3xl lg:text-9xl font-sans font-bold z-20"
-                guideline={true}
-                guidelineProps={{ edge: "top" }}
-                measurement={true}
-                measurementProps={{ edge: "right" }}
-              >
+            <span className="flex flex-col tracking-tight font-bold text-slate-200">
+              <span className="text-5xl lg:text-7xl">Dylan Smith</span>
+              <span className="flex gap-2 text-lg lg:text-2xl font-medium mt-4">
+                Designing
                 <MeasuredDiv
-                  guideline={false}
-                  guidelineProps={{ edge: "bottom" }}
-                  measurement={false}
-                  measurementProps={{ edge: "left" }}
-                >
-                  <span className=" ">Dylan</span>
-                </MeasuredDiv>
-                <MeasuredDiv
-                  className="ml-20"
                   guideline={true}
-                  guidelineProps={{ edge: "right" }}
+                  guidelineProps={{ edge: "left" }}
                   measurement={true}
                   measurementProps={{ edge: "bottom" }}
+                  className="w-fit"
                 >
-                  <span>Smith</span>
+                  pixel-perfect
                 </MeasuredDiv>
-              </MeasuredDiv> */}
-            <span className="flex flex-col tracking-tight font-bold text-slate-200">
-              <span className="text-5xl">Dylan Smith</span>
-              <span className="text-lg font-medium mt-4">
-                Designing pixel-perfect interfaces by day & developing them by
-                night.
+                interfaces by day
+              </span>
+              <span className="text-lg lg:text-2xl font-medium mt-4">
+                & developing them by night.
               </span>
               <div className="mt-4 text-lg font-normal text-slate-200">
                 Leading design for{" "}
@@ -176,48 +160,6 @@ export default function Home() {
               </div>
             </span>
           </div>
-
-          {/* <div className="flex flex-col lg:flex-row w-full gap-12">
-            <Link
-              href="#design"
-              className="relative flex flex-col items-center justify-center w-full h-48 z-20 bg-slate-200/40 text-black overflow-hidden group hover:ring-2 ring-yellow-300 transition-all ease-out rounded-md cursor-pointer"
-            >
-
-              <span className="z-10">Designing interfaces by day</span>
-
-              <div className="absoute -z-10">
-                <ScrollingCarousel />
-              </div>
-            </Link>
-
-            <div className="w-full h-48 z-20 bg-slate-200/40 text-black">
-              Building them by night
-            </div>
-          </div> */}
-
-          {/* <Card
-            divider={false}
-            className=""
-          >
-            <div className="flex flex-col justify-center items-center">
-              <div className="flex gap-6">
-                <SocialLink site="github" />
-                <SocialLink site="linkedin" />
-              </div>
-              <span>Leading design at </span>
-              <a
-                href="https://multidataservices.com/"
-                target="_blank"
-                className="group relative underline hover:decoration-teal-900"
-              >
-                <span className="relative z-20 group-hover:text-teal-900 ">
-                  MDS Property Management Software
-                </span>
-                {"."}
-                <span className="absolute z-10 inset-0 bg-teal-300 w-0 group-hover:w-full group-hover:transition-all duration-500 ease-in-out"></span>
-              </a>
-            </div>
-          </Card> */}
         </section>
 
         {/* Design */}
@@ -226,7 +168,7 @@ export default function Home() {
           id="design"
           className="flex flex-col lg:flex-row relative lg:mt-12 lg:bg-none pb-24"
         >
-          <VerticalText text="case studies" />
+          <VerticalText text="design" />
           <StickyHeader title="design" />
           <div className="px-6 flex flex-col gap-24 w-full">
             {CASE_STUDIES.map((caseStudy, index) => (
@@ -242,12 +184,22 @@ export default function Home() {
         {/* Dev */}
         <section
           ref={devRef}
-          id="dev"
+          id="develop"
           className="flex flex-col lg:flex-row relative lg:mt-12"
         >
-          <VerticalText text="projects" />
-          <StickyHeader title="projects" />
+          <VerticalText text="develop" />
+          <StickyHeader title="develop" />
           <div className="px-6 flex flex-col gap-24 w-full">
+            {/* <Card
+              divider={true}
+              badge={true}
+              badgeColor="yellow"
+              badgeText="testzzz"
+              uppercase={true}
+              title="test"
+            >
+              test
+            </Card> */}
             {DEV_PROJECTS.map((project, index) => (
               <div
                 key={index}
@@ -257,6 +209,7 @@ export default function Home() {
                   project={project}
                   index={index}
                   key={project.title}
+                  badge={true}
                 />
               </div>
             ))}
