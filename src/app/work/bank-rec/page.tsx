@@ -23,7 +23,7 @@ import VerticalText from "@/components/VerticalText";
 import DividerWithText from "@/components/DividerWithText";
 import { ReactNode } from "react";
 import TagGroup from "@/components/TagGroup";
-import Card from "@/components/Card";
+import {Card} from "@/components/Card";
 
 // Images
 import image1 from "/public/case-studies/bank-rec/spire.png";

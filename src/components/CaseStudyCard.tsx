@@ -126,6 +126,7 @@ function CaseStudyCard({
       badge={true}
       badgeColor="purple"
       badgeText="coming soon"
+      uppercase={true}
       className="hover:ring-2 ring-teal-300 transition-all ease-out"
       // title="case study"
       title={`case_study_0${index + 1}`}
