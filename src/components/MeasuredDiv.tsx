@@ -26,14 +26,21 @@ import { Measurement, MeasurementProps } from "@/components/Measurement";
 // a guideline and measurement component
 
 // -----------------------------------------------------------
-// Only supports 1x guideline and 1x measurement
-// -----------------------------------------------------------
+// This component supports
+//    - 2x guideline s
+//    - 1x measurement -----------------------------------------------------------
+
+// needs to accept width of the parent <section> element
 
 type MeasuredDivProps = {
   className?: string;
-  guideline: boolean;
   children: React.ReactNode;
-  guidelineProps: GuidlineProps;
+  parentHeight?: number;
+  parentWidth?: number;
+  guideline1: boolean;
+  guideline1Props: GuidlineProps;
+  guideline2: boolean;
+  guideline2Props: GuidlineProps;
   measurement: boolean;
   measurementProps: MeasurementProps;
 };
@@ -41,27 +48,49 @@ type MeasuredDivProps = {
 export default function MeasuredDiv({
   className,
   children,
-  guideline,
-  guidelineProps,
+  parentHeight,
+  parentWidth,
+  guideline1,
+  guideline1Props,
+  guideline2,
+  guideline2Props,
   measurement,
   measurementProps,
 }: MeasuredDivProps) {
   const divRef = useRef(null);
   const { width, height } = useDimensions(divRef);
+  console.log("measuredDiv:", width, height, "measuredDiv");
+  // This component uses the useDimensions hook to measure it's own width and height
+
   // console.log(width, width * 4, "width");
+
   return (
     <div
       id="measured-div"
       ref={divRef}
       className={cn("relative", className)}
     >
-      {guideline && <Guideline edge={guidelineProps.edge} />}
+      {guideline1 && (
+        <Guideline
+          edge={guideline1Props.edge}
+          height={parentHeight}
+          width={parentWidth}
+        />
+      )}
+      {guideline2 && (
+        <Guideline
+          edge={guideline2Props.edge}
+          height={parentHeight}
+          width={parentWidth}
+        />
+      )}
       {measurement && (
         <Measurement
           edge={measurementProps.edge}
-          length={width}
+          // length={width}
         />
       )}
+
       {children}
     </div>
   );

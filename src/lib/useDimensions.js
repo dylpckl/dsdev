@@ -76,11 +76,38 @@ import { useState, useEffect } from "react"
 
 export function useDimensions(ref) {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
+  // console.log(ref)
+  // if (ref.current) {
+  //   const cs = getComputedStyle(ref.current);
+
+  //   const paddingX = parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight);
+  //   const paddingY = parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom);
+
+  //   const borderX = parseFloat(cs.borderLeftWidth) + parseFloat(cs.borderRightWidth);
+  //   const borderY = parseFloat(cs.borderTopWidth) + parseFloat(cs.borderBottomWidth);
+  // }
+
+  // see: 
+  //  https://stackoverflow.com/questions/25197184/get-the-height-of-an-element-minus-padding-margin-border-widths
 
   useEffect(() => {
+    const cs = getComputedStyle(ref.current);
+
+    const paddingX = parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight);
+    const paddingY = parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom);
+
+    const borderX = parseFloat(cs.borderLeftWidth) + parseFloat(cs.borderRightWidth);
+    const borderY = parseFloat(cs.borderTopWidth) + parseFloat(cs.borderBottomWidth);
+
+    // Element width and height minus padding and border
+    let width = ref.current.offsetWidth - paddingX - borderX;
+    let height = ref.current.offsetHeight - paddingY - borderY;
+
     const getDimensions = () => ({
-      width: ref.current.offsetWidth,
-      height: ref.current.offsetHeight,
+      width: width,
+      height: height,
+      // width: ref.current.offsetWidth,
+      // height: ref.current.offsetHeight,
     })
 
     const handleResize = () => {

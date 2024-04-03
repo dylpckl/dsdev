@@ -35,30 +35,73 @@ import "./style.css";
 // top = horizontal top edge
 // bottom = horizontal bottom edge
 
+// needs to accept the width of the parent <section> element
+
 type GuidlineProps = {
   edge: "left" | "right" | "top" | "bottom";
+  width?: number;
+  height?: number;
 };
 
 const Guideline = (props: GuidlineProps) => {
-  const { edge } = props;
+  const { edge, width, height } = props;
+  // if horizontal, we need width
+  // if vertical, we need height
+
+  const halfWidth = width && width / 2;
+  const halfHeight = height && height / 2;
+  console.log(
+    "GUIDELINE:",
+    "width",
+    width,
+    "height",
+    height,
+    "edge",
+    edge,
+    "halfWidth",
+    halfWidth,
+    "halfHeight",
+    halfHeight
+  );
+
+  // set the edge
   const isHorizontal = edge === "top" || edge === "bottom";
   const isVertical = edge === "left" || edge === "right";
+
+  //
+
+  const styles = {
+    isHorizontal: {
+      width: isHorizontal ? `${width}px` : undefined,
+      height: isHorizontal ? "1px" : undefined,
+      left: `-${halfWidth}px`,
+    },
+    isVertical: {
+      width: isVertical ? "1px" : undefined,
+      height: isVertical ? `${height}px` : undefined,
+      top: `-${halfHeight}px`,
+    },
+  };
+
   return (
     <div
       id="guideline"
+      style={isHorizontal ? styles.isHorizontal : styles.isVertical}
       className={cn(
-        "absolute",
+        "absolute -z-20 [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)]",
         {
-          [`w-[2000px] h-px -left-[500px]`]: isHorizontal,
-          "h-[2000px] w-px -top-[500px]": isVertical,
           vertical: isVertical,
           horizontal: isHorizontal,
+          // [`w-[var(--)] h-px -left-[${halfWidth}px]`]: isHorizontal,
+          // [`h-[${height}px] w-px -top-[${halfHeight}px]"`]: isVertical,
         },
         {
-          "left-0": edge === "left",
+          // horizontal
           "top-0": edge === "top",
-          "right-0": edge === "right",
           "bottom-0": edge === "bottom",
+          // vertical
+          "left-0": edge === "left",
+          "right-0": edge === "right",
         }
       )}
     />
@@ -66,5 +109,8 @@ const Guideline = (props: GuidlineProps) => {
 };
 
 export default Guideline;
-
 export type { GuidlineProps };
+
+{
+  /* <div className="fixed inset-0 h-full w-full bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)]"></div> */
+}

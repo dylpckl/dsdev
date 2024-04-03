@@ -5,6 +5,9 @@ import { Fragment, useEffect, useState, useRef } from "react";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
+// Utilities
+import { useDimensions } from "@/lib/useDimensions";
+
 // Components
 import VerticalText from "@/components/VerticalText";
 import { Socials, SocialLink } from "@/components/SocialLink";
@@ -29,7 +32,11 @@ export default function Home() {
   const [introWidth, setIntroWidth] = useState(0);
 
   const testRef = useRef(null);
-  // const { width, height } = useDimensions(testRef);
+  const { width, height } = useDimensions(introRef);
+  console.log("page.tsx:", width, height);
+  
+
+
 
   let links = ["intro", "design", "develop"];
 
@@ -111,7 +118,7 @@ export default function Home() {
       </header>
 
       <main className="w-full lg:w-5/6 pb-6 md:pb-14 lg:pb-24">
-        {/* <div className="absolute inset-0 h-full w-full bg-[radial-gradient(#5eead4_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)]"></div> */}
+        <div className="fixed inset-0 h-full w-full bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)]"></div>
         {/* <div className="absolute -z-20 inset-0 h-full w-full bg-[radial-gradient(#64748b_1px,transparent_1px)] [background-size:16px_16px]"></div> */}
 
         {/* Intro */}
@@ -127,8 +134,12 @@ export default function Home() {
               <span className="flex gap-2 text-lg lg:text-2xl font-medium mt-4">
                 Designing
                 <MeasuredDiv
-                  guideline={true}
-                  guidelineProps={{ edge: "left" }}
+                  parentHeight={height}
+                  parentWidth={width}
+                  guideline1={true}
+                  guideline1Props={{ edge: "bottom" }}
+                  guideline2={true}
+                  guideline2Props={{ edge: "right" }}
                   measurement={true}
                   measurementProps={{ edge: "bottom" }}
                   className="w-fit"
