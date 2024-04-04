@@ -155,7 +155,7 @@ function CaseStudyCard({
           {/* on mobile, just show spire image */}
           {/* p */}
           <Image
-            src={caseStudy.image1 as any}
+            src={caseStudy.image2 as any}
             alt={caseStudy.title}
             fill
             style={{ objectFit: "cover", objectPosition: "left top" }}
@@ -163,7 +163,7 @@ function CaseStudyCard({
           />
           {/* Explorer Image */}
           <Image
-            src={caseStudy.image2 as any}
+            src={caseStudy.image1 as any}
             alt={caseStudy.title}
             fill
             style={{

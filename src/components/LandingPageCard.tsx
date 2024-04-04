@@ -24,6 +24,7 @@ import { cn } from "@/lib/utils";
 
 // Types
 import { Project } from "@/lib/data";
+import { ArrowUpRight } from "lucide-react";
 
 type LandingPageCardProps = {
   project: Project;
@@ -86,7 +87,7 @@ export default function LandingPageCard(props: LandingPageCardProps) {
           >
             {/* https://tailwindcss.com/docs/hover-focus-and-other-states#differentiating-nested-groups */}
             <p className="font-mono text-xl transition-colors ease-out group-hover/cta:text-teal-700 uppercase">
-              view case study
+              view project
             </p>
 
             <span className="ml-4 relative w-6 h-6 inline-block">
@@ -114,6 +115,25 @@ export default function LandingPageCard(props: LandingPageCardProps) {
     );
   };
 
+  const Title = () => {
+    return (
+      <>
+        {status === "deployed" ? (
+          <a
+            href={slug}
+            className="relative flex items-center w-fit text-4xl font-bold group text-slate-200 transition duration-300"
+          >
+            {title}
+            <span className="absolute w-full top-full max-w-0 group-hover:max-w-full transition-all duration-300 h-1 bg-slate-200"></span>
+            <ArrowUpRight className="ml-4 w-8 h-8 text-slate-200 group-hover:translate-x-2 group-hover:-translate-y-2 transition-all duration-300" />
+          </a>
+        ) : (
+          <span className="font-bold text-4xl">{title}</span>
+        )}
+      </>
+    );
+  };
+
   return (
     <Card
       divider={true}
@@ -127,12 +147,13 @@ export default function LandingPageCard(props: LandingPageCardProps) {
       <article className="flex flex-col gap-6 mx-auto group/card w-full group transition-all rounded-md text-slate-200 ease-out duration-300 overflow-clip">
         {/* Headline */}
         <div className="flex gap-12 justify-between items-center">
-          <div className="w-2/3 flex flex-col">
-            <span className="font-bold text-lg lg:text-4xl">{title}</span>
+          <div className="flex flex-col">
+            {/* <span className="font-bold text-lg lg:text-4xl">{title}</span> */}
+            <Title />
             <span className="text-sm lg:text-lg mt-4">{subtitle}</span>
           </div>
 
-          <CTA />
+          {/* <CTA /> */}
         </div>
 
         {/* Image (or compare) */}
