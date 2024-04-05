@@ -34,9 +34,6 @@ export default function Home() {
   const testRef = useRef(null);
   const { width, height } = useDimensions(introRef);
   console.log("page.tsx:", width, height);
-  
-
-
 
   let links = ["intro", "design", "develop"];
 
@@ -67,10 +64,10 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative min-h-screen mx-auto max-w-screen-2xl lg:flex lg:gap-12">
+    <div className="relative mx-auto min-h-screen max-w-screen-2xl lg:flex lg:gap-12">
       {/* <div className="absolute -z-20 inset-0 h-full w-full bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"></div> */}
 
-      <header className="hidden w-full lg:w-1/6 lg:h-screen lg:sticky lg:top-0 lg:flex lg:flex-col px-6 py-12 md:py-20 md:px-12 lg:py-24 bg-gradient-to-t lg:bg-none from-slate-800/60">
+      <header className="hidden w-full bg-gradient-to-t from-slate-800/60 px-6 py-12 md:px-12 md:py-20 lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-1/6 lg:flex-col lg:bg-none lg:py-24">
         {/* <span className="flex lg:hidden flex-col tracking-tight font-bold text-slate-200">
           <span className="text-5xl">Dylan Smith</span>
           <span className="text-lg font-medium mt-4">
@@ -94,30 +91,23 @@ export default function Home() {
         </span> */}
 
         <div className="ml-2 hidden lg:block">
-          <Image
-            src={Logo}
-            alt="logo"
-            height={64}
-          />
-          <Nav
-            links={links}
-            activeSection={activeSection}
-          />
+          <Image src={Logo} alt="logo" height={64} />
+          <Nav links={links} activeSection={activeSection} />
           <Link
             href="/Dylan-Smith-Resume.pdf"
             target="_blank"
-            className="flex gap-4 mt-6 pt-6 text-slate-200 uppercase text-sm font-semibold cursor-pointer font-mono"
+            className="mt-6 flex cursor-pointer gap-4 pt-6 font-mono text-sm font-semibold uppercase text-slate-200"
           >
             resume
           </Link>
         </div>
-        <div className="flex gap-3 mt-6">
+        <div className="mt-6 flex gap-3">
           <SocialLink site="github" />
           <SocialLink site="linkedin" />
         </div>
       </header>
 
-      <main className="w-full lg:w-5/6 pb-6 md:pb-14 lg:pb-24">
+      <main className="w-full pb-6 md:pb-14 lg:w-5/6 lg:pb-24">
         <div className="fixed inset-0 -z-20 h-full w-full bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)]"></div>
         {/* <div className="absolute -z-20 inset-0 h-full w-full bg-[radial-gradient(#64748b_1px,transparent_1px)] [background-size:16px_16px]"></div> */}
 
@@ -125,13 +115,13 @@ export default function Home() {
         <section
           ref={introRef}
           id="intro"
-          className="text-3xl flex flex-col gap-12 lg:pb-24 overflow-hidden lg:bg-none text-slate-200 relative px-6 py-12 md:py-20 md:px-12 lg:py-24"
+          className="relative flex flex-col gap-12 overflow-hidden px-6 py-12 text-3xl text-slate-200 md:px-12 md:py-20 lg:bg-none lg:py-24 lg:pb-24"
         >
           {/* left   */}
           <div className="flex w-full gap-12">
-            <span className="flex flex-col tracking-tight font-bold text-slate-200">
+            <span className="flex flex-col font-bold tracking-tight text-slate-200">
               <span className="text-5xl lg:text-7xl">Dylan Smith</span>
-              <span className="flex gap-2 text-lg lg:text-2xl font-medium mt-4">
+              <span className="mt-4 flex gap-2 text-lg font-medium lg:text-2xl">
                 Designing
                 <MeasuredDiv
                   parentHeight={height}
@@ -148,7 +138,7 @@ export default function Home() {
                 </MeasuredDiv>
                 interfaces by day
               </span>
-              <span className="text-lg lg:text-2xl font-medium mt-4">
+              <span className="mt-4 text-lg font-medium lg:text-2xl">
                 & developing them by night.
               </span>
               <div className="mt-4 text-lg font-normal text-slate-200">
@@ -162,10 +152,10 @@ export default function Home() {
                     MDS Property Management Software
                   </span>
                   {"."}
-                  <span className="absolute z-10 inset-0 bg-teal-300 w-0 group-hover:w-full group-hover:transition-all duration-500 ease-in-out"></span>
+                  <span className="absolute inset-0 z-10 w-0 bg-teal-300 duration-500 ease-in-out group-hover:w-full group-hover:transition-all"></span>
                 </a>
               </div>
-              <div className="flex gap-3 mt-6">
+              <div className="mt-6 flex gap-3">
                 <SocialLink site="github" />
                 <SocialLink site="linkedin" />
               </div>
@@ -177,11 +167,11 @@ export default function Home() {
         <section
           ref={designRef}
           id="design"
-          className="flex flex-col lg:flex-row relative lg:mt-12 lg:bg-none pb-24"
+          className="relative flex flex-col pb-24 lg:mt-12 lg:flex-row lg:bg-none"
         >
           <VerticalText text="design" />
           <StickyHeader title="design" />
-          <div className="px-6 flex flex-col gap-24 w-full">
+          <div className="flex w-full flex-col gap-24 px-6">
             {CASE_STUDIES.map((caseStudy, index) => (
               <CaseStudyCard
                 caseStudy={caseStudy}
@@ -196,11 +186,11 @@ export default function Home() {
         <section
           ref={devRef}
           id="develop"
-          className="flex flex-col lg:flex-row relative lg:mt-12"
+          className="relative flex flex-col lg:mt-12 lg:flex-row"
         >
           <VerticalText text="develop" />
           <StickyHeader title="develop" />
-          <div className="px-6 flex flex-col gap-24 w-full">
+          <div className="flex w-full flex-col gap-24 px-6">
             {/* <Card
               divider={true}
               badge={true}
@@ -212,10 +202,7 @@ export default function Home() {
               test
             </Card> */}
             {DEV_PROJECTS.map((project, index) => (
-              <div
-                key={index}
-                className="flex flex-col gap-6"
-              >
+              <div key={index} className="flex flex-col gap-6">
                 <LandingPageCard
                   project={project}
                   index={index}
@@ -233,8 +220,8 @@ export default function Home() {
 
 const StickyHeader = ({ title }: { title: string }) => {
   return (
-    <div className="sticky block lg:hidden top-0 w-full z-20 mb-4 bg-slate-800/60 text-slate-200 backdrop-blur-sm px-6 py-5">
-      <span className="font-mono tracking-widest text-xl -z-10  uppercase">
+    <div className="sticky top-0 z-20 mb-4 block w-full bg-slate-800/60 px-6 py-5 text-slate-200 backdrop-blur-sm lg:hidden">
+      <span className="-z-10 font-mono text-xl uppercase  tracking-widest">
         {title}
         {" \\\\"}
       </span>

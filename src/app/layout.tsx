@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Head from "next/head";
+import Script from "next/script";
 
 // Fonts
 import { Inter, JetBrains_Mono } from "next/font/google";
@@ -36,26 +37,26 @@ export default async function RootLayout({
     <html
       lang="en"
       className="scroll-smooth"
-      // className="scroll-smooth snap snap-y snap-mandatory"
       suppressHydrationWarning
     >
-      {/* <Head>
-        <link
-          rel="stylesheet"
-          href="https://rsms.me/inter/inter.css"
-        />
-        <link
-          rel="icon"
-          href="/favicon.ico"
-        />
-      </Head> */}
+      <head>
+        {/* <GoogleAnalytics
+          GA_TRACKING_ID={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS as string}
+        /> */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-HCTQRV20B1"
+        ></Script>
+        <Script id="google-analytics">
+          {`
+            window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-      {/* <body
-        className={`${inter.variable} ${jetbrains_mono.variable} relative bg-slate-900 font-sans selection:bg-teal-300 selection:text-teal-900 h-screen overflow-y-auto scroll-smooth `} */}
-
-      <GoogleAnalytics
-        GA_TRACKING_ID={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS as string}
-      />
+  gtag('config', 'G-HCTQRV20B1');
+  `}
+        </Script>
+      </head>
 
       <body
         className={`${inter.variable} ${jetbrains_mono.variable} relative font-sans selection:bg-teal-300 selection:text-teal-900 `}
