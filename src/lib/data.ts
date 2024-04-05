@@ -74,16 +74,16 @@ export const DEV_PROJECTS: Project[] = [
     image1: steamparty,
     tags: ["React", "React Query", "Framer Motion", "TailwindCSS"],
   },
-  {
-    title: "huberman-db",
-    subtitle:
-      "Simple interface that allows filtering on YouTube videos based on embedded tags. Fetching from the YouTube Data API, videos are stored in a Supabase PostgreSQL instance and then exposed to a search bar with autocomplete.",
-    description: "",
-    slug: "https://github.com/dylpckl/huberman-db",
-    status: "proof of concept",
-    image1: hubermandb,
-    tags: ["PostgreSQL", "YouTube Data API", "Next.js", "Supabase"],
-  },
+  // {
+  //   title: "huberman-db",
+  //   subtitle:
+  //     "Simple interface that allows filtering on YouTube videos based on embedded tags. Fetching from the YouTube Data API, videos are stored in a Supabase PostgreSQL instance and then exposed to a search bar with autocomplete.",
+  //   description: "",
+  //   slug: "https://github.com/dylpckl/huberman-db",
+  //   status: "proof of concept",
+  //   image1: hubermandb,
+  //   tags: ["PostgreSQL", "YouTube Data API", "Next.js", "Supabase"],
+  // },
   {
     title: "encounter+",
     subtitle:

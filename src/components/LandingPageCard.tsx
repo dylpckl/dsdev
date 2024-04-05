@@ -159,12 +159,14 @@ export default function LandingPageCard(props: LandingPageCardProps) {
         {/* Image (or compare) */}
         {/* use straight image on mobile */}
         {/* <ImageComparison /> */}
-        <Image
-          src={image1 as any}
-          alt={title}
-          sizes="100vw"
-          style={{ width: "100%", height: "auto" }}
-        />
+        {image1 ? (
+          <Image
+            src={image1 as any}
+            alt={title}
+            sizes="100vw"
+            style={{ width: "100%", height: "auto" }}
+          />
+        ) : null}
       </article>
     </Card>
   );
