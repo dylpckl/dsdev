@@ -13,6 +13,7 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import Footer from "@/components/Footer";
 import Mountains from "/public/images/mountain.jpg";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const jetbrains_mono = JetBrains_Mono({
@@ -51,6 +52,11 @@ export default async function RootLayout({
 
       {/* <body
         className={`${inter.variable} ${jetbrains_mono.variable} relative bg-slate-900 font-sans selection:bg-teal-300 selection:text-teal-900 h-screen overflow-y-auto scroll-smooth `} */}
+
+      <GoogleAnalytics
+        GA_TRACKING_ID={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS as string}
+      />
+
       <body
         className={`${inter.variable} ${jetbrains_mono.variable} relative font-sans selection:bg-teal-300 selection:text-teal-900 `}
       >
