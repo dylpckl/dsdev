@@ -1,7 +1,7 @@
 "use client";
 
 // External
-import { Fragment, useEffect, useState, useRef } from "react";
+import { Fragment, useEffect, useState, useRef, forwardRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -104,31 +104,31 @@ const OVERVIEW_STATS = [
   },
 ];
 
-const CaseStudySection = ({
-  number,
-  title,
-  className,
-  children,
-}: {
+type CaseStudySectionProps = {
   number: number;
   title: string;
   className?: string;
   children: ReactNode;
-}) => {
-  return (
-    <section
-      className={cn(
-        "relative mx-auto mt-24 flex min-h-[80vh] gap-12 py-12",
-        className,
-      )}
-    >
-      <VerticalText caption={number} text={title} />
-      {/* mx-4 md:mx-16 lg:mx-24 xl:mx-32 */}
-
-      {children}
-    </section>
-  );
 };
+
+const CaseStudySection = forwardRef<HTMLDivElement, CaseStudySectionProps>(
+  function CaseStudySection({ number, title, className, children }, ref) {
+    return (
+      <section
+        ref={ref}
+        className={cn(
+          "relative mx-auto mt-24 flex gap-12 py-12 md:px-12 md:py-20 lg:py-24 lg:pb-24",
+          className,
+        )}
+      >
+        <VerticalText caption={number} text={title} />
+        {/* mx-4 md:mx-16 lg:mx-24 xl:mx-32 */}
+
+        {children}
+      </section>
+    );
+  },
+);
 
 export default function Page() {
   const [activeSection, setActiveSection] = useState("");
@@ -170,7 +170,7 @@ export default function Page() {
       <Header activeSection={activeSection} />
       <div className="w-full">
         {/* Hero */}
-        <section className="mx-auto mt-16 flex min-h-[80vh] flex-col">
+        <section className="mx-auto mt-16 flex min-h-[80vh] flex-col gap-12 py-12 md:px-12 md:py-20 lg:py-24 lg:pb-24">
           {/* Back Button */}
           <div className="flex items-center gap-6 text-teal-300">
             <Link href="/#">
@@ -226,7 +226,7 @@ export default function Page() {
         </section>
 
         {/* Overview */}
-        <CaseStudySection number={1} title="overview">
+        <CaseStudySection number={1} title="overview" ref={overviewRef}>
           {/* Container */}
           <div className="flex w-full flex-col gap-12">
             <div className="flex gap-6">

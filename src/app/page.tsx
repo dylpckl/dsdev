@@ -96,7 +96,7 @@ export default function Home() {
         <section
           ref={introRef}
           id="intro"
-          className="relative flex flex-col gap-12 overflow-hidden px-6 py-12 text-3xl text-slate-200 md:px-12 md:py-20 lg:bg-none lg:py-24 lg:pb-24"
+          className="relative flex flex-col gap-12 overflow-hidden px-6 py-12 text-3xl text-slate-200 md:px-12 md:py-20 lg:py-24 lg:pb-24"
         >
           {/* left   */}
           <div className="flex w-full gap-12">
