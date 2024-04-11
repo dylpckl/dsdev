@@ -60,7 +60,7 @@ export default function LandingPageCard(props: LandingPageCardProps) {
     return (
       <div className="w-1/3">
         {status === "coming soon" ? (
-          <div className="h-16 flex gap-4 p-4 rounded-lg items-center justify-center bg-slate-300 text-teal-900 font-medium transition-all ease-in-out duration-500">
+          <div className="flex h-16 items-center justify-center gap-4 rounded-lg bg-slate-300 p-4 font-medium text-teal-900 transition-all duration-500 ease-in-out">
             {" "}
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +68,7 @@ export default function LandingPageCard(props: LandingPageCardProps) {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-6 h-6"
+              className="h-6 w-6"
             >
               <path
                 strokeLinecap="round"
@@ -76,35 +76,35 @@ export default function LandingPageCard(props: LandingPageCardProps) {
                 d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
               />
             </svg>
-            <p className="font-mono text-xl transition-colors ease-out uppercase">
+            <p className="font-mono text-xl uppercase transition-colors ease-out">
               coming soon
             </p>
           </div>
         ) : (
           <Link
             href={slug as string}
-            className="h-16 p-4 rounded-lg flex items-center justify-center bg-teal-300 text-teal-900 font-medium group/cta hover:bg-teal-400 transition-all ease-in-out duration-500 "
+            className="group/cta flex h-16 items-center justify-center rounded-lg bg-teal-300 p-4 font-medium text-teal-900 transition-all duration-500 ease-in-out hover:bg-teal-400 "
           >
             {/* https://tailwindcss.com/docs/hover-focus-and-other-states#differentiating-nested-groups */}
-            <p className="font-mono text-xl transition-colors ease-out group-hover/cta:text-teal-700 uppercase">
+            <p className="font-mono text-xl uppercase transition-colors ease-out group-hover/cta:text-teal-700">
               view project
             </p>
 
-            <span className="ml-4 relative w-6 h-6 inline-block">
+            <span className="relative ml-4 inline-block h-6 w-6">
               {/* Fade To Right */}
               <span
-                className="absolute top-0 left-0 transition-all delay-150 duration-300
-         opacity-1 translate-x-1/2 group-hover/cta:translate-x-[230%]
-          group-hover/cta:opacity-0 group-hover/cta:text-teal-700 motion-reduce:transform-none"
+                className="opacity-1 absolute left-0 top-0 translate-x-1/2 transition-all
+         delay-150 duration-300 group-hover/cta:translate-x-[230%]
+          group-hover/cta:text-teal-700 group-hover/cta:opacity-0 motion-reduce:transform-none"
               >
                 -&gt;
               </span>
 
               {/* Fade From Left */}
               <span
-                className="absolute top-0 left-0 transition-all delay-150 duration-300
-         opacity-0 -translate-x-8 group-hover/cta:translate-x-1/2
-          group-hover/cta:opacity-100  group-hover:text-teal-700 motion-reduce:transform-none"
+                className="absolute left-0 top-0 -translate-x-8 opacity-0 transition-all
+         delay-150 duration-300 group-hover/cta:translate-x-1/2
+          group-hover:text-teal-700  group-hover/cta:opacity-100 motion-reduce:transform-none"
               >
                 -&gt;
               </span>
@@ -121,14 +121,14 @@ export default function LandingPageCard(props: LandingPageCardProps) {
         {status === "deployed" ? (
           <a
             href={slug}
-            className="relative flex items-center w-fit text-4xl font-bold group text-slate-200 transition duration-300"
+            className="group relative flex w-fit items-center text-4xl font-bold text-slate-200 transition duration-300"
           >
             {title}
-            <span className="absolute w-full top-full max-w-0 group-hover:max-w-full transition-all duration-300 h-1 bg-slate-200"></span>
-            <ArrowUpRight className="ml-4 w-8 h-8 text-slate-200 group-hover:translate-x-2 group-hover:-translate-y-2 transition-all duration-300" />
+            <span className="absolute top-full h-1 w-full max-w-0 bg-slate-200 transition-all duration-300 group-hover:max-w-full"></span>
+            <ArrowUpRight className="ml-4 h-8 w-8 text-slate-200 transition-all duration-300 group-hover:-translate-y-2 group-hover:translate-x-2" />
           </a>
         ) : (
-          <span className="font-bold text-4xl">{title}</span>
+          <span className="text-4xl font-bold">{title}</span>
         )}
       </>
     );
@@ -141,16 +141,16 @@ export default function LandingPageCard(props: LandingPageCardProps) {
       badgeColor={badgeColor}
       badgeText={status}
       uppercase={true}
-      className="hover:ring-2 ring-teal-300 transition-all ease-out"
+      className="ring-teal-300 transition-all ease-out hover:ring-2"
       title={`dev_project_0${index + 1}`}
     >
-      <article className="flex flex-col gap-6 mx-auto group/card w-full group transition-all rounded-md text-slate-200 ease-out duration-300 overflow-clip">
+      <article className="group/card group mx-auto flex w-full flex-col gap-6 overflow-clip rounded-md text-slate-200 transition-all duration-300 ease-out">
         {/* Headline */}
-        <div className="flex gap-12 justify-between items-center">
+        <div className="flex items-center justify-between gap-12">
           <div className="flex flex-col">
             {/* <span className="font-bold text-lg lg:text-4xl">{title}</span> */}
             <Title />
-            <span className="text-sm lg:text-lg mt-4">{subtitle}</span>
+            <span className="mt-4 text-sm lg:text-lg">{subtitle}</span>
           </div>
 
           {/* <CTA /> */}

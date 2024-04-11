@@ -34,11 +34,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className="scroll-smooth"
-      suppressHydrationWarning
-    >
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
         {/* <GoogleAnalytics
           GA_TRACKING_ID={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS as string}
@@ -78,7 +74,18 @@ export default async function RootLayout({
           className="fixed"
         />
         {/* <div className="fixed -z-20 inset-0 h-full w-full bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:16px_16px]"></div> */}
-        {children}
+        <div
+          id="layout"
+          // className="relative mx-auto min-h-screen max-w-screen-2xl lg:flex lg:gap-12"
+        >
+          {/* <div className="absolute -z-20 inset-0 h-full w-full bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"></div> */}
+
+          {/* <Header activeSection={""} /> */}
+
+          {children}
+          {/* <main className="w-full px-6 pb-6 md:px-12 md:pb-14 lg:w-5/6 lg:pb-24">
+          </main> */}
+        </div>
       </body>
     </html>
   );
