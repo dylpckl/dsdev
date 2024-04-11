@@ -184,7 +184,9 @@ export function Header({ activeSection }) {
     </span> */}
 
       <div className="ml-2 hidden lg:block">
-        <Image src={Logo} alt="logo" height={64} />
+        <Link href="/" alt="home">
+          <Image src={Logo} alt="logo" height={64} />
+        </Link>
         <Nav links={links} activeSection={activeSection} />
         <Link
           href="/Dylan-Smith-Resume.pdf"
