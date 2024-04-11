@@ -212,7 +212,7 @@ function CaseStudyCard({
         </div>
         <div className="block md:hidden overflow-hidden w-full select-none rounded-md">
           <Image
-            src={caseStudy.image1 as any}
+            src={caseStudy.image2 as any}
             alt={caseStudy.title}
             // fill
             // style={{ objectFit: "cover", objectPosition: "left top" }}

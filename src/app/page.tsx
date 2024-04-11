@@ -23,13 +23,14 @@ import Logo from "/public/images/ds-logo.png";
 
 // Data
 import { CASE_STUDIES, DEV_PROJECTS, CaseStudy, Project } from "@/lib/data";
+import { Header } from "@/components/Header";
 
 export default function Home() {
-  const [activeSection, setActiveSection] = useState("about");
+  const [activeSection, setActiveSection] = useState("intro");
   const introRef = useRef<HTMLDivElement | null>(null);
   const designRef = useRef<HTMLDivElement | null>(null);
   const devRef = useRef<HTMLDivElement | null>(null);
-  const [introWidth, setIntroWidth] = useState(0);
+  // const [introWidth, setIntroWidth] = useState(0);
 
   const testRef = useRef(null);
   const { width, height } = useDimensions(introRef);
@@ -38,9 +39,9 @@ export default function Home() {
   let links = ["intro", "design", "develop"];
 
   useEffect(() => {
-    const introWidth =
-      (introRef.current && introRef.current.getBoundingClientRect().width) || 0;
-    setIntroWidth(introWidth);
+    // const introWidth =
+    //   (introRef.current && introRef.current.getBoundingClientRect().width) || 0;
+    // setIntroWidth(introWidth);
 
     let sections = [introRef, designRef, devRef];
 
@@ -65,31 +66,10 @@ export default function Home() {
 
   return (
     <div className="relative mx-auto min-h-screen max-w-screen-2xl lg:flex lg:gap-12">
-      {/* <div className="absolute -z-20 inset-0 h-full w-full bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"></div> */}
-
-      <header className="hidden w-full bg-gradient-to-t from-slate-800/60 px-6 py-12 md:px-12 md:py-20 lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-1/6 lg:flex-col lg:bg-none lg:py-24">
-        {/* <span className="flex lg:hidden flex-col tracking-tight font-bold text-slate-200">
-          <span className="text-5xl">Dylan Smith</span>
-          <span className="text-lg font-medium mt-4">
-            Designing pixel-perfect interfaces by day & developing them by
-            night.
-          </span>
-          <div className="mt-4 text-lg font-normal text-slate-200">
-            Leading design for{" "}
-            <a
-              href="https://multidataservices.com/"
-              target="_blank"
-              className="group relative underline decoration-teal-300 hover:decoration-teal-900"
-            >
-              <span className="relative z-20 group-hover:text-teal-900 ">
-                MDS Property Management Software
-              </span>
-              {"."}
-              <span className="absolute z-10 inset-0 bg-teal-300 w-0 group-hover:w-full group-hover:transition-all duration-500 ease-in-out"></span>
-            </a>
-          </div>
-        </span> */}
-
+      {/* <div className=""> */}
+      {/* <div className="relative mx-auto min-h-screen max-w-screen-2xl lg:flex lg:gap-12"> */}
+      <Header activeSection={activeSection} />
+      {/* <header className="hidden w-full bg-gradient-to-t from-slate-800/60 px-6 py-12 md:px-12 md:py-20 lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-1/6 lg:flex-col lg:bg-none lg:py-24">
         <div className="ml-2 hidden lg:block">
           <Image src={Logo} alt="logo" height={64} />
           <Nav links={links} activeSection={activeSection} />
@@ -105,11 +85,12 @@ export default function Home() {
           <SocialLink site="github" />
           <SocialLink site="linkedin" />
         </div>
-      </header>
+      </header> */}
 
       <main className="w-full pb-6 md:pb-14 lg:w-5/6 lg:pb-24">
         <div className="fixed inset-0 -z-20 h-full w-full bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)]"></div>
-        {/* <div className="absolute -z-20 inset-0 h-full w-full bg-[radial-gradient(#64748b_1px,transparent_1px)] [background-size:16px_16px]"></div> */}
+
+        {/* <Header activeSection={activeSection} /> */}
 
         {/* Intro */}
         <section

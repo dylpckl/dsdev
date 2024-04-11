@@ -1,5 +1,8 @@
 "use client";
 
+// TODO
+// if guidelines are used, parentHeight and parentWidth are required
+
 // External
 import { useRef } from "react";
 
